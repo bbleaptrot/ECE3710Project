@@ -11,6 +11,12 @@ module alu(A, B, C, Opcode, Flags);
 	
 	output reg [15:0] C;
 	output reg [4:0]  Flags; // CLFZN
+	
+	parameter carry_f    = 5'd4;
+	parameter low_f      = 5'd3;
+	parameter overflow_f = 5'd2;
+	parameter zero_f     = 5'd1;
+	parameter negative_f = 5'd0;
 
 	// * = Baseline instructions
 	// Obviously delete unused/unneeded parameters.
@@ -39,9 +45,9 @@ module alu(A, B, C, Opcode, Flags);
 	parameter LSHI = 8'b1000000x; // x -> sign (0=left, 2s comp)
 	parameter ASHU = 8'b10000110;
 	parameter ASHUI= 8'b1000001x;
-	
-	// How to implement in ALU?
 	parameter LUI  = 8'b1111xxxx; // *
+	
+	/* How should these be done in the ALU? */
 	parameter LOAD = 8'b01000000; // *
 	parameter STOR = 8'b01000100; // *
 	parameter Bcond= 8'b1100xxxx; // *
@@ -57,20 +63,33 @@ module alu(A, B, C, Opcode, Flags);
 		
 		ADD: // Integer add
 			begin
-			{Flags[4], C} = A + B;
-			if(C == 16'h00) Flags[1] = 1'b1; // Z flag
-			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) Flags[2] = 1'b1; // F flag
-			Flags[3] = 1'b0; // L Flag
-			Flags[0] = 1'b0; // N Flag
+			{Flags[carry_f], C} = A + B; 
+			
+			
+//			if(C == 16'b0) 
+//				Flags[zero_f] = 1'b1;
+			
+			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
+//			if(A < B)
+//				Flags[low_f] = 1'b1;
+				
+//			if(C[15] == 1'b1)
+//				Flags[negative_f] = 1'b1;
+				
 			end
 			
+
 		ADDI: // Integer add immediate
 			begin
-			{Flags[4], C} = A + {{8{B[7]}} , B[7:0]}; // sign-extended Just Leave B if already sign-extended?
-			if(C == 16'h00) Flags[1] = 1'b1; // Z flag
-			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) Flags[2] = 1'b1; // F flag
-			Flags[3] = 1'b0; // L Flag
-			Flags[0] = 1'b0; // N Flag
+			
+			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]}; // sign-extended Just Leave B if already sign-extended?
+			
+			
+			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
 			end
 			
 		ADDU: // Integer add, no change to PSR
@@ -80,10 +99,16 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUB: // Integer sub
 			begin
-			C = A - B; // How to incorporate C flag? 
+			// Is this how to check for borrowing?
+			{Flags[carry_f], C} = A - B; // How to incorporate C flag? 
 			
-			if(C == 16'h00) Flags[1] = 1'b1; // Z flag
-			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) Flags[2] = 1'b1; // F flag
+			
+			if(C == 16'b0) 
+				Flags[zero_f] = 1'b1; 
+				
+			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
 			Flags[3] = 1'b0; // L Flag
 			
 			if($signed(C) < 16'b0) Flags[0] = 1'b1; // N Flag
@@ -121,7 +146,8 @@ module alu(A, B, C, Opcode, Flags);
 			end
 		ANDI:
 			begin
-			C = A & {8'h0 , B[7:0]}; // Zero extended Imm
+			C = A & {8'b0 , B[7:0]}; // Zero extended Imm
+			//if(C == 16'b0) Flags[1] = 
 			end
 		OR:
 			begin
@@ -129,7 +155,7 @@ module alu(A, B, C, Opcode, Flags);
 			end
 		ORI:
 			begin
-			C = A | {8'h0 , B[7:0]}; // Zero extended Imm
+			C = A | {8'b0 , B[7:0]}; // Zero extended Imm
 			end
 		XOR:
 			begin
@@ -137,7 +163,7 @@ module alu(A, B, C, Opcode, Flags);
 			end
 		XORI:
 			begin
-			C = A ^ {8'h0 , B[7:0]}; // Zero extended Imm
+			C = A ^ {8'b0 , B[7:0]}; // Zero extended Imm
 			end
 		MOV:
 			begin
@@ -145,7 +171,7 @@ module alu(A, B, C, Opcode, Flags);
 			end
 		MOVI:
 			begin
-			C = {8'h0 , B[7:0]}; // Zero extended Imm
+			C = {8'b0 , B[7:0]}; // Zero extended Imm
 			end
 		LSH: // Logical Left Shift
 			begin
