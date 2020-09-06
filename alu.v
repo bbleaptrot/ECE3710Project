@@ -1,4 +1,3 @@
-`timescale 1ns / 1ps
 /*
  * Note: fix extended immediate! with opcode extension!
  *
@@ -72,12 +71,6 @@ module alu(A, B, C, Opcode, Flags);
 			
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
-			
-//			if(A < B)
-//				Flags[low_f] = 1'b1;
-				
-//			if(C[15] == 1'b1)
-//				Flags[negative_f] = 1'b1;
 				
 			end
 			
@@ -93,7 +86,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 			end
 			
-		ADDU: // Integer add, no change to PSR
+		ADDU: // Integer add, no change to PSR (Flags)
 			begin
 			C = A + B; 
 			end
@@ -106,77 +99,105 @@ module alu(A, B, C, Opcode, Flags);
 			
 			if(C == 16'b0) 
 				Flags[zero_f] = 1'b1; 
-				
+			
+			// Is this how overflow works for subtraction?
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
 			
-			Flags[3] = 1'b0; // L Flag
-			
-			if($signed(C) < 16'b0) Flags[0] = 1'b1; // N Flag
-			
+			if(A < B)
+				Flags[low_f] = 1'b1;
+				
+			if($signed(A) < $signed(B))
+				Flags[negative_f] = 1'b1;			
 			
 			end
 			
 		SUBI: // Integer sub immediate
 			begin
-			C = A - {{8{B[7]}} , B[7:0]};
-			// ADD CHANGES TO PSR
+			// Is this how to check for borrowing?
+			{Flags[carry_f], C} = A - {{8{B[7]}} , B[7:0]};
+			
+			
+			// Is this how overflow works for subtraction?
+			if((~A[15] & ~B[7] & C[15]) | (A[15] & B[7] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
+			if(A < B)
+				Flags[low_f] = 1'b1;
+			
+			if($signed(A) < $signed(B))
+				Flags[negative_f] = 1'b1;
+			
 			end
 			
 		
 		CMP:
 			begin
-			C = 16'b0; // Set to A?
-			if($unsigned(A) < $unsigned(B)) Flags[3] = 1'b1; // L Flag
-			if(A == B) Flags[3] = 1'b1; // Z flag
-			if(Flags[3] ^ A[15] ^ B[15]) Flags[0] = 1'b1; // N Flag
+			
+			if(A == B)
+				Flags[zero_f] = 1'b1;
+				
+			if($signed(A) < $signed(B))
+				Flags[negative_f] = 1'b1;
+				
+			if(A < B)
+				Flags[low_f] = 1'b1;
 			
 			end
 			
 		CMPI:
 			begin 
-			C = 16'b0;
-			if($unsigned(A) < $unsigned({{8{B[7]}} , B[7:0]})) Flags[3] = 1'b1; // L Flag
-			if(A == {{8{B[7]}} , B[7:0]}) Flags[3] = 1'b1; // Z flag
-			if(Flags[3] ^ A[15] ^ B[7]) Flags[0] = 1'b1; // N Flag
+			if(A == {{8{B[7]}} , B[7:0]})
+				Flags[zero_f] = 1'b1;
+				
+			if($signed(A) < $signed({{8{B[7]}} , B[7:0]}))
+				Flags[negative_f] = 1'b1;
+				
+			if(A < {8'b0 , B[7:0]})
+				Flags[low_f] = 1'b1;
 			end
 
 		AND:
 			begin
 			C = A & B;
+			
+			if(C == 16'b0)
+				Flags[zero_f] = 1'b1;
 			end
 		ANDI:
 			begin
-			C = A & {8'b0 , B[7:0]}; // Zero extended Imm
-			//if(C == 16'b0) Flags[1] = 
+			C = A & {8'b0 , B[7:0]}; 
+			
+			if(C == 16'b0)
+				Flags[zero_f] = 1'b1;
 			end
 		OR:
 			begin
-			C = A | B;
+			C = A | B; // No flags
 			end
 		ORI:
 			begin
-			C = A | {8'b0 , B[7:0]}; // Zero extended Imm
+			C = A | {8'b0 , B[7:0]}; // No flags
 			end
 		XOR:
 			begin
-			C = A ^ B;
+			C = A ^ B; // No flags
 			end
 		XORI:
 			begin
-			C = A ^ {8'b0 , B[7:0]}; // Zero extended Imm
+			C = A ^ {8'b0 , B[7:0]}; // No flags
 			end
 		MOV:
 			begin
-			C = B; // A?
+			C = B; 
 			end
 		MOVI:
 			begin
 			C = {8'b0 , B[7:0]}; // Zero extended Imm
 			end
-		LSH: // Logical Left Shift
+		LSH: // Logical Shift
 			begin
-			C = A << B;
+			C = A << B; // Need to check if B is weird?
 			end
 		LSHI:
 			begin
@@ -189,6 +210,7 @@ module alu(A, B, C, Opcode, Flags);
 				C = A <<< B;
 				end
 			end
+			/*
 		ASHU: // Arithmetic Left Shift
 			begin
 			C = A <<< B;
@@ -197,6 +219,7 @@ module alu(A, B, C, Opcode, Flags);
 			begin
 			C = A <<< B;
 			end
+			*/
 		LUI:
 			begin
 			C = {B [7:0], 8'b0}; // Load & 8 bit left shift
