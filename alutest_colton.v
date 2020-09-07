@@ -31,7 +31,7 @@ module alutest_colton;
 	initial 
 		begin
 		
-		$monitor("A: %0d, B: %0d, C: %0d, Flags[4:0]: %b, time:%0d", $signed(A), $signed(B), $signed(C), Flags[4:0], $time );
+		$monitor("A: 0x%0h (%0d), B: 0x%0h (%0d), C: 0x%0h (%0d), Flags[4:0]: %b, time:%0d", A, $signed(A), B, $signed(B), C, $signed(C), Flags[4:0], $time );
 
 
 		// Initialize Inputs
@@ -58,9 +58,17 @@ module alutest_colton;
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b01010000; // ADDI
+		Opcode = 8'b0101xxxx; // ADDI
 		
 		#10;
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			#10;
+			A = $random % 65536;
+			B = $random % 256;
+		end
 		
 		
 		
@@ -126,7 +134,7 @@ module alutest_colton;
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b10010000; // SUBI
+		Opcode = 8'b1001xxxx; // SUBI
 		
 		#10;
 		
@@ -179,7 +187,7 @@ module alutest_colton;
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b10110000; // CMPI
+		Opcode = 8'b1011xxxx; // CMPI
 		
 		#10
 		
@@ -221,7 +229,7 @@ module alutest_colton;
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b00010000; // ANDI
+		Opcode = 8'b0001xxxx; // ANDI
 		
 		#10
 		
@@ -247,7 +255,7 @@ module alutest_colton;
 		
 		#10
 		
-			//Random simulation
+		//Random simulation
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
@@ -261,7 +269,7 @@ module alutest_colton;
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b00100000; // ORI
+		Opcode = 8'b001xxxx; // ORI
 		
 		#10
 		
@@ -309,7 +317,61 @@ module alutest_colton;
 		end
 		
 		
-
+		$display("\nTesting MOV instruction\n");
+		#100;
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b00001101; // MOV
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 65536;
+			#10;
+		end
+		
+		
+		$display("\nTesting MOVI instruction\n");
+		#100;
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b1101xxxx; // MOVI
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 256;
+			#10;
+		end
+		
+		$display("\nTesting LUI instruction\n");
+		#100;
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b1111xxxx; // LUI
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 256;
+			#10;
+		end
+		
+		$display("\nTesting LSH instruction\n");
+		#100;
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b10000100; // LSH
+		#10;
+		
+		
 		
 		
 		

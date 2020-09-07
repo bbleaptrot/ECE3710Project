@@ -20,7 +20,6 @@
  *
  * Notes:
  *   Baseline Operations not currently implemented (I'm not sure how yet): LOAD, STOR, BCOND, JCOND, JAL
- *   Is the borrow flag correctly set in the subtraction operations?
  *   Are logical/arithmetic shifts incorporated correctly?
  *     arithmetic shifts aren't baseline, but are highly recommneded (commented out right now)
  * 
