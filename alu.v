@@ -21,7 +21,6 @@
  * Notes:
  *   Baseline Operations not currently implemented (I'm not sure how yet): LOAD, STOR, BCOND, JCOND, JAL
  *   Is the borrow flag correctly set in the subtraction operations?
- *   Is checking for integer overflow identical for addition and subtraction?
  *   Are logical/arithmetic shifts incorporated correctly?
  *     arithmetic shifts aren't baseline, but are highly recommneded (commented out right now)
  * 
@@ -90,6 +89,8 @@ module alu(A, B, C, Opcode, Flags);
 			begin
 			{Flags[carry_f], C} = A + B; 
 			
+			// Overflow occurs when (pos) + (pos) = neg
+			//             and when (neg) + (neg) = pos
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
 			end
@@ -110,15 +111,14 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUB: // Integer subtraction
 			begin
-			// Is this how to check for borrowing?
 			{Flags[carry_f], C} = A - B;
 			
-			
-			if(C == 16'b0) 
+			if(A == B) 
 				Flags[zero_f] = 1'b1; 
 			
-			// Is this how overflow works for subtraction?
-			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+			// Overflow occurs when (pos) - (neg) = neg
+			//             and when (neg) - (pos) = pos
+			if((A[15] & ~B[15] & ~C[15]) | (~A[15] & B[15] & C[15])) 
 				Flags[overflow_f] = 1'b1;
 			
 			if(A < B)
@@ -131,12 +131,12 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUBI: // Integer subtraction immediate
 			begin
-			// Is this how to check for borrowing?
 			{Flags[carry_f], C} = A - {{8{B[7]}} , B[7:0]};
 			
+			if(A == B) 
+				Flags[zero_f] = 1'b1; 
 			
-			// Is this how overflow works for subtraction?
-			if((~A[15] & ~B[7] & C[15]) | (A[15] & B[7] & ~C[15])) 
+			if((A[15] & ~B[7] & ~C[15]) | (~A[15] & B[7] & C[15])) 
 				Flags[overflow_f] = 1'b1;
 			
 			if(A < B)
