@@ -1,23 +1,47 @@
 /*
- * Note: fix extended immediate! with opcode extension!
+ * Current working ALU design for Group 9 
+ * Group Members: Ben Leaptrot, Christian Giauque, Colton Watson, Nathan Hummel
  *
+ * Last updated: September 7, 2020
+ *
+ * Inputs: 
+ *   A: Source A - 16-bit value
+ *   B: Source B - 16-bit value
+ *   Opcode: 8-bit opcode designating which instruction to execute
+ *
+ * Outputs:
+ *   C: 16-bit value from opcode computation.
+ *   Flags: 5-bit array of bits. 1=true, 0=false. The bits currently correspond to these flags:
+ *            Carry flag    (carry/borrow from addition/subtraction) - Bit 4
+ *            Low flag      (unsigned integer comparison)            - Bit 3
+ *            Overflow flag (signed arithmetic overflow)             - Bit 2
+ *            Zero flag     (operation left zero in the output)      - Bit 1
+ *            Negative flag (signed integer comparison)              - Bit 0
+ *
+ * Notes:
+ *   Baseline Operations not currently implemented (I'm not sure how yet): LOAD, STOR, BCOND, JCOND, JAL
+ *   Is the borrow flag correctly set in the subtraction operations?
+ *   Is checking for integer overflow identical for addition and subtraction?
+ *   Are logical/arithmetic shifts incorporated correctly?
+ *     arithmetic shifts aren't baseline, but are highly recommneded (commented out right now)
+ * 
  */
-
-
 module alu(A, B, C, Opcode, Flags);
 
 	input  [15:0] A, B;
 	input  [7:0]  Opcode;
 	
 	output reg [15:0] C;
-	output reg [4:0]  Flags; // CLFZN
+	output reg [4:0]  Flags;
 	
-	parameter carry_f    = 5'd4;
-	parameter low_f      = 5'd3;
-	parameter overflow_f = 5'd2;
-	parameter zero_f     = 5'd1;
-	parameter negative_f = 5'd0;
+	// Flags
+	parameter carry_f    = 3'd4;
+	parameter low_f      = 3'd3;
+	parameter overflow_f = 3'd2;
+	parameter zero_f     = 3'd1;
+	parameter negative_f = 3'd0;
 
+	// Opcodes
 	// * = Baseline instructions
 	// Obviously delete unused/unneeded parameters.
 	parameter ADD  = 8'b00000101; // *
@@ -42,9 +66,9 @@ module alu(A, B, C, Opcode, Flags);
 	parameter MOV  = 8'b00001101; // *
 	parameter MOVI = 8'b1101xxxx; // *
 	parameter LSH  = 8'b10000100; // *
-	parameter LSHI = 8'b1000000x; // x -> sign (0=left, 2s comp)
+	parameter LSHI = 8'b1000000x; // x -> sign (0=left, 2's comp)
 	parameter ASHU = 8'b10000110;
-	parameter ASHUI= 8'b1000001x;
+	parameter ASHUI= 8'b1000001x; // x -> sign (0=left, 2's comp)
 	parameter LUI  = 8'b1111xxxx; // *
 	
 	/* How should these be done in the ALU? */
@@ -57,44 +81,37 @@ module alu(A, B, C, Opcode, Flags);
 	
 	always@(A, B, Opcode)
 	begin		
+		
 		Flags = 5'b0;
 		C = 16'b0;
-		casex (Opcode)
 		
-		ADD: // Integer add
+		casex (Opcode)
+		ADD: // Integer addition
 			begin
 			{Flags[carry_f], C} = A + B; 
 			
-			
-//			if(C == 16'b0) 
-//				Flags[zero_f] = 1'b1;
-			
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
-				
 			end
 			
-
-		ADDI: // Integer add immediate
+		ADDI: // Integer addition immediate
 			begin
-			
-			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]}; // sign-extended Just Leave B if already sign-extended?
-			
+			// B is thought of as being an 8-bit number, sign-extend it.
+			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]};
 			
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
-			
 			end
 			
-		ADDU: // Integer add, no change to PSR (Flags)
+		ADDU: // Integer addition, no flags will be set
 			begin
 			C = A + B; 
 			end
 			
-		SUB: // Integer sub
+		SUB: // Integer subtraction
 			begin
 			// Is this how to check for borrowing?
-			{Flags[carry_f], C} = A - B; // How to incorporate C flag? 
+			{Flags[carry_f], C} = A - B;
 			
 			
 			if(C == 16'b0) 
@@ -112,7 +129,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 			end
 			
-		SUBI: // Integer sub immediate
+		SUBI: // Integer subtraction immediate
 			begin
 			// Is this how to check for borrowing?
 			{Flags[carry_f], C} = A - {{8{B[7]}} , B[7:0]};
@@ -129,9 +146,8 @@ module alu(A, B, C, Opcode, Flags);
 				Flags[negative_f] = 1'b1;
 			
 			end
-			
 		
-		CMP:
+		CMP: // Comparison. Affects PSR.Z, PSR.N, PSR.L.
 			begin
 			
 			if(A == B)
@@ -145,7 +161,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 			end
 			
-		CMPI:
+		CMPI: // Comparison immediate
 			begin 
 			if(A == {{8{B[7]}} , B[7:0]})
 				Flags[zero_f] = 1'b1;
@@ -157,53 +173,63 @@ module alu(A, B, C, Opcode, Flags);
 				Flags[low_f] = 1'b1;
 			end
 
-		AND:
+		AND: // Logical AND
 			begin
 			C = A & B;
 			
 			if(C == 16'b0)
 				Flags[zero_f] = 1'b1;
 			end
-		ANDI:
+			
+		ANDI: // Logical AND with zero-extended immediate
 			begin
 			C = A & {8'b0 , B[7:0]}; 
 			
 			if(C == 16'b0)
 				Flags[zero_f] = 1'b1;
 			end
-		OR:
+			
+		OR: // Logical OR
 			begin
-			C = A | B; // No flags
+			C = A | B; 
 			end
-		ORI:
+			
+		ORI: // Logical OR with zero-extended immediate
 			begin
-			C = A | {8'b0 , B[7:0]}; // No flags
+			C = A | {8'b0 , B[7:0]}; 
 			end
-		XOR:
+			
+		XOR: // Logical XOR 
 			begin
-			C = A ^ B; // No flags
+			C = A ^ B;
 			end
-		XORI:
+			
+		XORI: // Logical XOR with zero-extended immediate
 			begin
-			C = A ^ {8'b0 , B[7:0]}; // No flags
+			C = A ^ {8'b0 , B[7:0]}; 
 			end
-		MOV:
+			
+		MOV: // Move
 			begin
 			C = B; 
 			end
-		MOVI:
+			
+		MOVI: // Move with zero-extended immediate 
 			begin
-			C = {8'b0 , B[7:0]}; // Zero extended Imm
+			C = {8'b0 , B[7:0]}; 
 			end
+			
 		LSH: // Logical Shift
 			begin
 			C = A << B; // Need to check if B is weird?
 			end
+			
 		LSHI:
 			begin
 			if(Opcode[0] == 1'b0)
 				begin
 				C = A << B;
+				//C = A << $signed(B[5:0]); // <- Do it like that?
 				end
 			else
 				begin
@@ -211,7 +237,7 @@ module alu(A, B, C, Opcode, Flags);
 				end
 			end
 			/*
-		ASHU: // Arithmetic Left Shift
+		ASHU: // Arithmetic Shift
 			begin
 			C = A <<< B;
 			end
@@ -220,18 +246,16 @@ module alu(A, B, C, Opcode, Flags);
 			C = A <<< B;
 			end
 			*/
-		LUI:
+		LUI: // Load upper immediate (Move, but fill MSB with immediate)
 			begin
-			C = {B [7:0], 8'b0}; // Load & 8 bit left shift
+			C = {B [7:0], 8'b0}; 
 			end
-//		LOAD:
+//		LOAD: // Load from Memory
 //			begin
-//       // Get memory[Addr]?
 //			C = mem[B]; // ???
 //			end
-//    STOR:
+//    STOR: // Store in memory
 //			begin
-//       // Place
 //			// mem[A] = B; ???
 //			end
 //		Bcond:
@@ -246,16 +270,14 @@ module alu(A, B, C, Opcode, Flags);
 //		JAL:
 //			begin
 //			end
-			
+		
 		default:
 			begin
 				C = 16'b0;
 				Flags = 5'b0;
 			end		
-			
 		endcase
+		
 	end
-
-
-
+	
 endmodule
