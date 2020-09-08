@@ -248,7 +248,6 @@ module alu(A, B, C, Opcode, Flags);
 				C = A >>> (-B);
 			end
 			
-			
 			// Verify that this works correctly
 		ASHUI: // Arithmetic Shift immediate
 			begin
@@ -279,6 +278,10 @@ module alu(A, B, C, Opcode, Flags);
 //			end
 //		JAL: // Jump and Link
 //			begin
+//			// Rlink = PC + offset
+//			// C = PC + 4
+//			
+//			C = PC + 
 //			end
 		
 		default:
