@@ -21,7 +21,8 @@
  * Notes:
  *   Baseline Operations not currently implemented (I'm not sure how yet): LOAD, STOR, BCOND, JCOND, JAL
  *   Are logical/arithmetic shifts incorporated correctly?
- *     arithmetic shifts aren't baseline, but are highly recommneded (commented out right now)
+ *     arithmetic shifts aren't baseline, but are highly recommneded (they are implemented)
+ *   Double check the shift operations to make sure they're right
  * 
  */
 module alu(A, B, C, Opcode, Flags);
@@ -218,55 +219,65 @@ module alu(A, B, C, Opcode, Flags);
 			C = {8'b0 , B[7:0]}; 
 			end
 			
+			// Verify that this works correctly
 		LSH: // Logical Shift
 			begin
-			C = A << B; // Need to check if B is weird?
-			end
+			if(B[15] == 1'b0) 
+				C = A << B; // left shift
+			else
+				C = A >> (-B); // right shift
+			end			
 			
-		LSHI:
+			// Verify that this works correctly
+		LSHI: // Logical shift immediate
 			begin
-			if(Opcode[0] == 1'b0)
-				begin
-				C = A << B;
-				//C = A << $signed(B[5:0]); // <- Do it like that?
-				end
+			if(Opcode[0] == 1'b0) // Opcode[0] designates left/right shift
+				C = A << {1'b0, B[3:0]}; // Only care about ImmLo
 			else
 				begin
-				C = A <<< B;
+				C = A >> {1'b0, B[3:0]};
 				end
 			end
-			/*
+			
+			// Verify that this works correctly
 		ASHU: // Arithmetic Shift
 			begin
-			C = A <<< B;
+			if(B[15] == 1'b0)
+				C = A <<< B;
+			else
+				C = A >>> (-B);
 			end
-		ASHUI:
+			
+			
+			// Verify that this works correctly
+		ASHUI: // Arithmetic Shift immediate
 			begin
-			C = A <<< B;
+			if(Opcode[0] == 1'b0)
+				C = A <<< {1'b0, B[3:0]};
+			else
+				C = A >>> {1'b0, B[3:0]};
 			end
-			*/
+			
 		LUI: // Load upper immediate (Move, but fill MSB with immediate)
 			begin
 			C = {B [7:0], 8'b0}; 
 			end
+			
 //		LOAD: // Load from Memory
 //			begin
-//			C = mem[B]; // ???
+//			//C = mem[B]; // ???
 //			end
 //    STOR: // Store in memory
 //			begin
 //			// mem[A] = B; ???
 //			end
-//		Bcond:
-//			begin
-//       // A = COND
-//       // 
-//			PC - $signed(
-//			end
-//		Jcond:
+//		Bcond: // Conditional Branch
 //			begin
 //			end
-//		JAL:
+//		Jcond: // Conditional Jump
+//			begin
+//			end
+//		JAL: // Jump and Link
 //			begin
 //			end
 		

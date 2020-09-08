@@ -372,8 +372,93 @@ module alutest_colton;
 		#10;
 		
 		
+		// Left shift
+		// C should be 0x5656
+		A = 16'h2b2b;
+		B = 1;
+		#10;
+		
+		// Right shift
+		// C should be 0x1595
+		A = 16'h2b2b;
+		B = -1;
+		#10;
+		
+		// Left shift
+		// C should be 0x5554
+		A = 16'hAAAA;
+		B = 1;
+		#10;
+		
+		// Right shift
+		// C should be 0x5555
+		A = 16'hAAAA;
+		B = -1;
+		#10;
 		
 		
+		// Zero shift?
+		// Effectively a move: C = A
+		A = 16'hFFFF;
+		B = 0;
+		#10;
+		
+		// General multiplication
+		A = 4;
+		B = 5;
+		#10;
+		
+		// General division
+		A = 100;
+		B = -2;
+		#10;
+		
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 16;
+			#10;
+		end
+		
+		$display("\nTesting LSHI instruction\n");
+		#100;
+		
+		A = 0;
+		B = 0;
+		// Opcode = 8'b1000000x // LSHI
+		// Opcode = 8'b10000000 // left shift
+		// Opcode = 8'b10000001 // 2'comp
+		Opcode = 8'b10000000; 		
+		#10;
+		
+		//Left shift:
+		Opcode = 8'b10000000;
+		A = 8;
+		B = 2;
+		// C = 32
+		#10;
+		
+		//Right shift:
+		Opcode = 8'b10000001;
+		A = 16'hFFFF;
+		B = 16'h000F;
+		#10;
+		
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			Opcode[0] = $random % 2;
+			$display("\nShift: %0b", Opcode[0]);
+			A = $random % 65536;
+			B = {12'h000, $random % 16};
+			#10;
+			
+		end
+		
+				
 		
 		$finish(2);
 		
