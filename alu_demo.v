@@ -4,16 +4,16 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 	input cont;  // KEY3
 	input [9:0] sw; // switches 9-0
 	
-	output [6:0] hex1, hex2, hex3, hex4, hex5;
+	output [0:6] hex1, hex2, hex3, hex4, hex5;
 	output [4:0] flag_leds;
 	
 	reg [15:0] A, prev_A;
 	reg [15:0] B, prev_B;
 	reg [7:0] Opcode, prev_Op;
 	
-	
-	
 	wire [15:0] C;
+	
+	reg prev_cont;
 	
 	reg [3:0] h1, h2, h3, h4, h5;
 	
@@ -43,6 +43,8 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 		prev_A <= A;
 		prev_B <= B;
 		prev_Op <= Opcode;
+		prev_cont <= cont;
+	
 		
 		case(current_state)
 			reset_s:
@@ -51,11 +53,11 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= 16'b0;
 				Opcode <= 8'b0;
 				
-				h1 <= 4'b1; // Just to prevent the warning that hex1[1] is stuck at VCC
-				h2 <= 4'b0;
-				h3 <= 4'b0;
-				h4 <= 4'b0;
-				h5 <= 4'b0;
+				h1 <= 4'hb; // HEX 5
+				h2 <= 4'he; // HEX 3
+				h3 <= 4'he; // HEX 2
+				h4 <= 4'he; // HEX 1
+				h5 <= 4'hf; // HEX 0
 			end
 			
 			input_a:
@@ -112,21 +114,22 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 			
 			default:
 			begin				
-				A <= 16'b0;
-				B <= 16'b0;
+				A <= 16'd0;
+				B <= 16'd0;
 				Opcode <= 8'b0;
 				
-				h1 <= 4'b0;
-				h2 <= 4'b0;
-				h3 <= 4'b0;
-				h4 <= 4'b0;
-				h5 <= 4'b0;
+				h1 <= 4'd8;
+				h2 <= 4'd8;
+				h3 <= 4'd8;
+				h4 <= 4'd8;
+				h5 <= 4'd8;
 			end
 			
 		endcase
 	end
 	
 	
+	/* FSM CONTROL */
 	always@(posedge clk)
 	begin
 		if (!reset) current_state <= reset_s;
