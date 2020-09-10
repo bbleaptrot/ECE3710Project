@@ -245,7 +245,7 @@ module alu(A, B, C, Opcode, Flags);
 			if(B[15] == 1'b0)
 				C = A <<< B;
 			else
-				C = A >>> (-B);
+				C = $signed(A) >>> (-B);
 			end
 			
 			// Verify that this works correctly
@@ -254,7 +254,7 @@ module alu(A, B, C, Opcode, Flags);
 			if(Opcode[0] == 1'b0)
 				C = A <<< {1'b0, B[3:0]};
 			else
-				C = A >>> {1'b0, B[3:0]}; 
+				C = $signed(A) >>> {1'b0, B[3:0]}; 
 			end
 			
 		LUI: // Load upper immediate (Move, but fill MSB with immediate)

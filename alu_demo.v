@@ -1,5 +1,5 @@
 module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
-	input clk;
+	input clk;   // 50 MHz clk
 	input reset; // KEY0
 	input cont;  // KEY3
 	input [9:0] sw; // switches 9-0
@@ -13,7 +13,8 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 	
 	wire [15:0] C;
 	
-	reg prev_cont;
+	reg [1:0] prev_cont;
+	reg cont_flag;
 	
 	reg [3:0] h1, h2, h3, h4, h5;
 	
@@ -38,12 +39,17 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 	parameter output_c = 3'd4;
 	
 	
-	always@(*)
+	always@(posedge clk)
 	begin		
 		prev_A <= A;
 		prev_B <= B;
 		prev_Op <= Opcode;
-		prev_cont <= cont;
+		prev_cont <= {prev_cont[0], cont};
+		
+		if(!cont_flag && prev_cont == 2'b10)
+			cont_flag <= 1'b1;
+		else
+			cont_flag <= 1'b0;
 	
 		
 		case(current_state)
@@ -53,11 +59,11 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= 16'b0;
 				Opcode <= 8'b0;
 				
-				h1 <= 4'hb; // HEX 5
-				h2 <= 4'he; // HEX 3
-				h3 <= 4'he; // HEX 2
-				h4 <= 4'he; // HEX 1
-				h5 <= 4'hf; // HEX 0
+				h1 <= 4'h8; // HEX 5
+				h2 <= 4'h8; // HEX 3
+				h3 <= 4'h8; // HEX 2
+				h4 <= 4'h8; // HEX 1
+				h5 <= 4'h8; // HEX 0
 			end
 			
 			input_a:
@@ -118,11 +124,11 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= 16'd0;
 				Opcode <= 8'b0;
 				
-				h1 <= 4'd8;
-				h2 <= 4'd8;
-				h3 <= 4'd8;
-				h4 <= 4'd8;
-				h5 <= 4'd8;
+				h1 <= 4'hc;
+				h2 <= 4'hb;
+				h3 <= 4'he;
+				h4 <= 4'he;
+				h5 <= 4'hf;
 			end
 			
 		endcase
@@ -148,22 +154,22 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 			
 			input_a:
 			begin
-				if(!cont) next_state = input_b;
+				if(cont_flag) next_state = input_b;
 			end
 			
 			input_b:
 			begin
-				if(!cont) next_state = input_op;
+				if(cont_flag) next_state = input_op;
 			end
 			
 			input_op:
 			begin
-				if(!cont) next_state = output_c;
+				if(cont_flag) next_state = output_c;
 			end
 			
 			output_c:
 			begin
-				if(!cont) next_state = input_a;
+				if(cont_flag) next_state = input_a;
 			end
 			
 			default:
