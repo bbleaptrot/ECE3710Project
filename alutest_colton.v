@@ -458,8 +458,48 @@ module alutest_colton;
 			
 		end
 		
-				
+		$display("\nTesting ASHU instruction\n");
+		#100
+		Opcode = 8'b10000110; // ASHU;
 		
+		// Shift left testing 0
+		
+		A = 0;
+		B = 1;
+		#10;
+		
+		A = 0;
+		B = 2;
+		#10;
+		
+		A = 2;
+		B = 1;
+		#10;
+		
+		// Shift right testing 0
+		A = 0;
+		B = -1;
+		#10;
+		
+		A = 0;
+		B = -2;
+		#10;
+		
+		A = 2;
+		B = -1;
+		#10;
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			B = $random % 16;
+			A = $random % 65536;
+			#10;
+			
+		end
+		
+		
+				
 		$finish(2);
 		
 		// Add stimulus here
