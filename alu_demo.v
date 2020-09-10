@@ -1,10 +1,8 @@
 /*
  * Simple Demo for ALU Module for Group 9
- *
  * Group Members: Ben Leaptrot, Christian Giauque, Colton Watson, Nathan Hummel
  *
  * Last updated: September 10, 2020
- *
  *
  *
  * It's a simple finite-state machine that moves between states with each 
@@ -73,6 +71,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 		prev_Op <= Opcode;
 		prev_cont <= {prev_cont[0], cont};
 		
+		// Only advance state on one button push
 		if(!cont_flag && prev_cont == 2'b10)
 			cont_flag <= 1'b1;
 		else
@@ -96,7 +95,9 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 			input_a:
 			begin
 			   // This design uses all of the switchs on the board
-				// The lowest order nybble is controlled
+				// The lowest order nybble is controlled with sw3-sw0
+				// Each nybble is then controlled by two switches, giving each nybble a value of 3 or C
+				// Best compromise I could think of for using large values.
 				A <= {sw[9], sw[9], sw[8], sw[8], sw[7], sw[7], sw[6], sw[6], sw[5], sw[5], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
 				B <= prev_B;
 				Opcode <= prev_Op;
