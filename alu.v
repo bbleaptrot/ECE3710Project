@@ -2,7 +2,7 @@
  * Current working ALU design for Group 9 
  * Group Members: Ben Leaptrot, Christian Giauque, Colton Watson, Nathan Hummel
  *
- * Last updated: September 7, 2020
+ * Last updated: September 10, 2020
  *
  * Inputs: 
  *   A: Source A - 16-bit value

@@ -1,11 +1,38 @@
+/*
+ * Simple Demo for ALU Module for Group 9
+ *
+ * Group Members: Ben Leaptrot, Christian Giauque, Colton Watson, Nathan Hummel
+ *
+ * Last updated: September 10, 2020
+ *
+ *
+ *
+ * It's a simple finite-state machine that moves between states with each 
+ * button press.
+ *
+ * For the states input_a and input_b, the switches control all 16 bits.
+ * Its currently set so that the lowest bits 3-0 are controlled by SW3 - SW0
+ * Then each nybble greater than that is controlled by each switch.
+ *
+ * For the state input_op, switches 7 - 0 controls the opcode bits to use for the 
+ * operation.
+ *
+ * Finally, output_c just displays whatever C was in the alu on the 7-segment hexes
+ *
+ * Pressing the continue button advances each state.
+ * Reset obviously resets everything.
+ *
+ *
+ */
+
 module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 	input clk;   // 50 MHz clk
 	input reset; // KEY0
-	input cont;  // KEY3
+	input cont;  // Continue (advance state) - KEY3
 	input [9:0] sw; // switches 9-0
 	
-	output [0:6] hex1, hex2, hex3, hex4, hex5;
-	output [4:0] flag_leds;
+	output [0:6] hex1, hex2, hex3, hex4, hex5; // HEX5, HEX3, HEX2, HEX1, HEX0
+	output [4:0] flag_leds; // LEDR4-0
 	
 	reg [15:0] A, prev_A;
 	reg [15:0] B, prev_B;
@@ -68,11 +95,13 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 			
 			input_a:
 			begin
+			   // This design uses all of the switchs on the board
+				// The lowest order nybble is controlled
 				A <= {sw[9], sw[9], sw[8], sw[8], sw[7], sw[7], sw[6], sw[6], sw[5], sw[5], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
 				B <= prev_B;
 				Opcode <= prev_Op;
 				
-				h1 <= 4'ha; // A					
+				h1 <= 4'ha; // disp A					
 				h2 <= A[15:12];
 				h3 <= A[11:8];
 				h4 <= A[7:4];
@@ -85,7 +114,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= {sw[9], sw[9], sw[8], sw[8], sw[7], sw[7], sw[6], sw[6], sw[5], sw[5], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
 				Opcode <= prev_Op;
 				
-				h1 <= 4'hb; // B					
+				h1 <= 4'hb; // disp B					
 				h2 <= B[15:12];
 				h3 <= B[11:8];
 				h4 <= B[7:4];
@@ -98,7 +127,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= prev_B;
 				Opcode <= {sw[7], sw[6], sw[5], sw[4], sw[3], sw[2], sw[1], sw[0]}; 
 				
-				h1 <= 4'h0; // 0 (I'm too lazy to make an o)	
+				h1 <= 4'h0; // disp 0 (I'm too lazy to make an o)	
 				h2 <= 4'b0000;
 				h3 <= 4'b0000;
 				h4 <= Opcode[7:4];
@@ -111,7 +140,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				B <= prev_B;
 				Opcode <= prev_Op;
 					
-				h1 <= 4'hc; // C
+				h1 <= 4'hc; // disp C
 				h2 <= C[15:12];
 				h3 <= C[11:8];
 				h4 <= C[7:4];

@@ -1,3 +1,9 @@
+/*
+ * Simple hex-value to seven-segment display module.
+ * It's been made for hex displays with common anode (Cyclone V).
+ * It probably could be modified to add a few extra outputs
+ */
+
 module hex2seg(hex, seg);
 	input [3:0] hex;
 	output reg [0:6] seg;
@@ -20,9 +26,7 @@ module hex2seg(hex, seg);
 		4'b1100: seg = 7'b0110001;
 		4'b1101: seg = 7'b1000010;
 		4'b1110: seg = 7'b0110000;
-		4'b1111: seg = 7'b0111000;
-		
+		4'b1111: seg = 7'b0111000;		
 		endcase
 	end
-
 endmodule
