@@ -225,7 +225,7 @@ module alu(A, B, C, Opcode, Flags);
 			if(B[15] == 1'b0) 
 				C = A << B; // left shift
 			else
-				C = A >> (-B); // right shift
+				C = A >> (-B); // right shift 
 			end			
 			
 			// Verify that this works correctly
@@ -235,7 +235,7 @@ module alu(A, B, C, Opcode, Flags);
 				C = A << {1'b0, B[3:0]}; // Only care about ImmLo
 			else
 				begin
-				C = A >> {1'b0, B[3:0]};
+				C = A >> {1'b0, B[3:0]}; // Hacky way to force B to be positive
 				end
 			end
 			
@@ -254,7 +254,7 @@ module alu(A, B, C, Opcode, Flags);
 			if(Opcode[0] == 1'b0)
 				C = A <<< {1'b0, B[3:0]};
 			else
-				C = A >>> {1'b0, B[3:0]};
+				C = A >>> {1'b0, B[3:0]}; 
 			end
 			
 		LUI: // Load upper immediate (Move, but fill MSB with immediate)
@@ -281,7 +281,7 @@ module alu(A, B, C, Opcode, Flags);
 //			// Rlink = PC + offset
 //			// C = PC + 4
 //			
-//			C = PC + 
+//			C = B + offset?
 //			end
 		
 		default:
