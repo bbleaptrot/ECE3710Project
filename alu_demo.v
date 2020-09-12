@@ -71,7 +71,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 		prev_Op <= Opcode;
 		prev_cont <= {prev_cont[0], cont};
 		
-		// Only advance state on one button push
+		// Only advance state on one button press
 		if(!cont_flag && prev_cont == 2'b10)
 			cont_flag <= 1'b1;
 		else
@@ -86,19 +86,15 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 				Opcode <= 8'b0;
 				
 				h1 <= 4'h8; // HEX 5
-				h2 <= 4'h8; // HEX 3
-				h3 <= 4'h8; // HEX 2
-				h4 <= 4'h8; // HEX 1
-				h5 <= 4'h8; // HEX 0
+				h2 <= 4'hb; // HEX 3
+				h3 <= 4'he; // HEX 2
+				h4 <= 4'he; // HEX 1
+				h5 <= 4'hf; // HEX 0
 			end
 			
 			input_a:
 			begin
-			   // This design uses all of the switchs on the board
-				// The lowest order nybble is controlled with sw3-sw0
-				// Each nybble is then controlled by two switches, giving each nybble a value of 3 or C
-				// Best compromise I could think of for using large values.
-				A <= {sw[9], sw[9], sw[8], sw[8], sw[7], sw[7], sw[6], sw[6], sw[5], sw[5], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
+				A <= {sw[9], sw[8], sw[7], sw[6], sw[5], sw[5], sw[5], sw[5], sw[4], sw[4], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
 				B <= prev_B;
 				Opcode <= prev_Op;
 				
@@ -112,7 +108,7 @@ module alu_demo(clk, reset, cont, sw, hex1, hex2, hex3, hex4, hex5, flag_leds);
 			input_b:
 			begin					
 				A <= prev_A;
-				B <= {sw[9], sw[9], sw[8], sw[8], sw[7], sw[7], sw[6], sw[6], sw[5], sw[5], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
+				B <= {sw[9], sw[8], sw[7], sw[6], sw[5], sw[5], sw[5], sw[5], sw[4], sw[4], sw[4], sw[4], sw[3], sw[2], sw[1], sw[0]};
 				Opcode <= prev_Op;
 				
 				h1 <= 4'hb; // disp B					
