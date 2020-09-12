@@ -1,0 +1,113 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "r0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "r0[1]",
+					"strict" : false
+				},
+				{
+					"name" : "r0[2]",
+					"strict" : false
+				},
+				{
+					"name" : "r0[3]",
+					"strict" : false
+				},
+				{
+					"name" : "r1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "r1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "r1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "r1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "r2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "r2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "r2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "r2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "r3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "r3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "r3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "r3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUBus[0]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "regEnable[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUBus[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUBus[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ALUBus[3]",
+					"strict" : false
+				},
+				{
+					"name" : "regEnable[1]",
+					"strict" : false
+				},
+				{
+					"name" : "regEnable[2]",
+					"strict" : false
+				},
+				{
+					"name" : "regEnable[3]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
