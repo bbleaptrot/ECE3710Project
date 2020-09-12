@@ -45,15 +45,15 @@ module alu(A, B, C, Opcode, Flags);
 	// Obviously delete unused/unneeded parameters.
 	parameter ADD  = 8'b00000101; // *
 	parameter ADDI = 8'b0101xxxx; // *
-	parameter ADDU = 8'b00000110;
-	parameter ADDUI= 8'b0110xxxx;
-	parameter ADDC = 8'b00000111;
-	parameter ADDCI= 8'b0111xxxx;
+//	parameter ADDU = 8'b00000110;
+//	parameter ADDUI= 8'b0110xxxx;
+//	parameter ADDC = 8'b00000111;
+//	parameter ADDCI= 8'b0111xxxx;
 	
 	parameter SUB  = 8'b00001001; // *
 	parameter SUBI = 8'b1001xxxx; // *
-	parameter SUBC = 8'b00001010;
-	parameter SUBCI= 8'b1010xxxx; 
+//	parameter SUBC = 8'b00001010;
+//	parameter SUBCI= 8'b1010xxxx; 
 	parameter CMP  = 8'b00001011; // *
 	parameter CMPI = 8'b1011xxxx; // *
 	parameter AND  = 8'b00000001; // *
@@ -104,10 +104,10 @@ module alu(A, B, C, Opcode, Flags);
 				Flags[overflow_f] = 1'b1;
 			end
 			
-		ADDU: // Integer addition, no flags will be set
-			begin
-			C = A + B; 
-			end
+//		ADDU: // Integer addition, no flags will be set
+//			begin
+//			C = A + B; 
+//			end
 			
 		SUB: // Integer subtraction
 			begin
@@ -219,7 +219,6 @@ module alu(A, B, C, Opcode, Flags);
 			C = {8'b0 , B[7:0]}; 
 			end
 			
-			// Verify that this works correctly
 		LSH: // Logical Shift
 			begin
 			if(B[15] == 1'b0) 
@@ -228,7 +227,6 @@ module alu(A, B, C, Opcode, Flags);
 				C = A >> (-B); // right shift 
 			end			
 			
-			// Verify that this works correctly
 		LSHI: // Logical shift immediate
 			begin
 			if(Opcode[0] == 1'b0) // Opcode[0] designates left/right shift
@@ -239,7 +237,6 @@ module alu(A, B, C, Opcode, Flags);
 				end
 			end
 			
-			// Verify that this works correctly
 		ASHU: // Arithmetic Shift
 			begin
 			if(B[15] == 1'b0)
@@ -248,7 +245,6 @@ module alu(A, B, C, Opcode, Flags);
 				C = $signed(A) >>> (-B);
 			end
 			
-			// Verify that this works correctly
 		ASHUI: // Arithmetic Shift immediate
 			begin
 			if(Opcode[0] == 1'b0)
@@ -264,18 +260,241 @@ module alu(A, B, C, Opcode, Flags);
 			
 //		LOAD: // Load from Memory
 //			begin
-//			//C = mem[B]; // ???
+//			C = B;
 //			end
 //    STOR: // Store in memory
 //			begin
-//			// mem[A] = B; ???
+//			// mem[A] = B; 
+//			C = B;
 //			end
+
+//
 //		Bcond: // Conditional Branch
 //			begin
+//				case(A[3:0])
+//				4'h0: //BEQ
+//				begin
+//					if(Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]}; // Displace LABEL
+//					else
+//						C = PC + 1'b1; // Make PC go to next instruction
+//				end
+//				4'h1: // BNE
+//				begin
+//					if(!Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h2: // BCS
+//				begin
+//					if(Flags[carry_f])
+//						C = PC - {{8{B[7]}} , B[7:0]}; 
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h3: // BCC
+//				begin
+//					if(!Flags[carry_f])
+//						C = PC - {{8{B[7]}} , B[7:0]}; 
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h4: // BHI
+//				begin
+//					if(Flags[low_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h5: // BLS (Less than or same)
+//				begin
+//					if(!Flags[low_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h6: // BGT
+//				begin
+//					if(Flags[negative_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h7: // BLE (Less than or equal)
+//				begin
+//					if(!Flags[negative_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h8: // BFS
+//				begin
+//					if(Flags[overflow_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h9: // BFC
+//				begin
+//					if(!Flags[overflow_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hA: // BLO
+//				begin
+//					if(!Flags[low_f] && !Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hB: // BHS (Higher than or same as)
+//				begin
+//						if(Flags[low_f] && Flags[zero_flag])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hC: // BLT (Less than)
+//				begin
+//					if(Flags[negative_f] && Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hD: // BGE (greater than or equal)
+//				begin
+//					if(Flags[negative_f] || Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hE: // BUC
+//				begin
+//					C = PC - {{8{B[7]}} , B[7:0]};
+//				end
+//				4'hF: // Never Jump	
+//				begin
+//					C = PC;
+//				end
+//
+//				endcase
 //			end
+//
 //		Jcond: // Conditional Jump
 //			begin
+//			case(A[3:0])
+//				4'h0: //JEQ
+//				begin
+//					if(Flags[zero_f])
+//						C = B; // Displace LABEL
+//					else
+//						C = PC + 1'b1; // Make PC go to next instruction
+//				end
+//				4'h1: // JNE
+//				begin
+//					if(!Flags[zero_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h2: // JCS
+//				begin
+//					if(Flags[carry_f])
+//						C = PC - B; 
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h3: // JCC
+//				begin
+//					if(!Flags[carry_f])
+//						C = B; 
+//					else
+//						C = PC + 1'b1; 
+//				end
+//				4'h4: // JHI
+//				begin
+//					if(Flags[low_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h5: // JLS (Less than or same)
+//				begin
+//					if(!Flags[low_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h6: // JGT
+//				begin
+//					if(Flags[negative_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h7: // JLE (Less than or equal)
+//				begin
+//					if(!Flags[negative_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h8: // JFS
+//				begin
+//					if(Flags[overflow_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'h9: // JFC
+//				begin
+//					if(!Flags[overflow_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hA: // JLO
+//				begin
+//					if(!Flags[low_f] && !Flags[zero_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hB: // BHS (Higher than or same as)
+//				begin
+//					if(Flags[low_f] && Flags[zero_flag])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hC: // JLT (Less than)
+//				begin
+//					if(Flags[negative_f] && Flags[zero_f])
+//						C = PC - {{8{B[7]}} , B[7:0]};
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hD: // JGE (greater than or equal)
+//				begin
+//					if(Flags[negative_f] || Flags[zero_f])
+//						C = B;
+//					else
+//						C = PC + 1'b1;
+//				end
+//				4'hE: // JUC (JMP)
+//				begin
+//					C = B;
+//				end
+//				4'hF: // Never Jump	
+//				begin
+//					C = PC;
+//				end
+//
+//				endcase			
 //			end
+			
 //		JAL: // Jump and Link
 //			begin
 //			// Rlink = PC + offset
