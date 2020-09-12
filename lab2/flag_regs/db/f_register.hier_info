@@ -1,0 +1,28 @@
+|f_register
+F_in[0] => r.DATAB
+F_in[1] => r.DATAB
+F_in[2] => r.DATAB
+F_in[3] => r.DATAB
+F_in[4] => r.DATAB
+wEnable => r.OUTPUTSELECT
+wEnable => r.OUTPUTSELECT
+wEnable => r.OUTPUTSELECT
+wEnable => r.OUTPUTSELECT
+wEnable => r.OUTPUTSELECT
+reset => r.OUTPUTSELECT
+reset => r.OUTPUTSELECT
+reset => r.OUTPUTSELECT
+reset => r.OUTPUTSELECT
+reset => r.OUTPUTSELECT
+clk => r[0]~reg0.CLK
+clk => r[1]~reg0.CLK
+clk => r[2]~reg0.CLK
+clk => r[3]~reg0.CLK
+clk => r[4]~reg0.CLK
+r[0] <= r[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+r[1] <= r[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+r[2] <= r[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+r[3] <= r[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+r[4] <= r[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
