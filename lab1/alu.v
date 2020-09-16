@@ -45,15 +45,15 @@ module alu(A, B, C, Opcode, Flags);
 	// Obviously delete unused/unneeded parameters.
 	parameter ADD  = 8'b00000101; // *
 	parameter ADDI = 8'b0101xxxx; // *
-//	parameter ADDU = 8'b00000110;
-//	parameter ADDUI= 8'b0110xxxx;
-//	parameter ADDC = 8'b00000111;
-//	parameter ADDCI= 8'b0111xxxx;
+	parameter ADDU = 8'b00000110;
+	parameter ADDUI= 8'b0110xxxx;
+	parameter ADDC = 8'b00000111;
+	parameter ADDCI= 8'b0111xxxx;
 	
 	parameter SUB  = 8'b00001001; // *
 	parameter SUBI = 8'b1001xxxx; // *
-//	parameter SUBC = 8'b00001010;
-//	parameter SUBCI= 8'b1010xxxx; 
+	parameter SUBC = 8'b00001010;
+	parameter SUBCI= 8'b1010xxxx; 
 	parameter CMP  = 8'b00001011; // *
 	parameter CMPI = 8'b1011xxxx; // *
 	parameter AND  = 8'b00000001; // *
@@ -70,7 +70,7 @@ module alu(A, B, C, Opcode, Flags);
 	parameter ASHUI= 8'b1000001x; // x -> sign (0=left, 2's comp)
 	parameter LUI  = 8'b1111xxxx; // *
 	
-	/* How should these be done in the ALU? */
+	/* Yet currently implented in ALU */
 	parameter LOAD = 8'b01000000; // *
 	parameter STOR = 8'b01000100; // *
 	parameter Bcond= 8'b1100xxxx; // *
@@ -104,10 +104,31 @@ module alu(A, B, C, Opcode, Flags);
 				Flags[overflow_f] = 1'b1;
 			end
 			
-//		ADDU: // Integer addition, no flags will be set
-//			begin
-//			C = A + B; 
-//			end
+		ADDU: // Unsigned integer addition. PSR flags are not affected (Not Baseline)
+			begin
+			C = A + B;
+			end
+			
+		ADDUI: // Unsigned integer addition with immediate. PSR flags are not affected (Not Baseline)
+			begin
+			C = A + {8'b0, B[7:0]};
+			end
+			
+		ADDC: // Integer addition with carry (Not Baseline)
+			begin
+			{Flags[carry_f], C} = A + B + Flags[carry_f];
+			
+			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			end
+			
+		ADDCI: // Integer addition, sign-extended immediate with Carry in (Not Baseline)
+			begin
+			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]} + Flags[carry_f];
+			
+			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
+				Flags[overflow_f] = 1'b1;
+			end
 			
 		SUB: // Integer subtraction
 			begin
@@ -126,7 +147,6 @@ module alu(A, B, C, Opcode, Flags);
 				
 			if($signed(A) < $signed(B))
 				Flags[negative_f] = 1'b1;			
-			
 			end
 			
 		SUBI: // Integer subtraction immediate
@@ -143,8 +163,43 @@ module alu(A, B, C, Opcode, Flags);
 				Flags[low_f] = 1'b1;
 			
 			if($signed(A) < $signed(B))
-				Flags[negative_f] = 1'b1;
+				Flags[negative_f] = 1'b1;			
+			end
 			
+		SUBC: // Integer subtraction with carry (Not Baseline)
+			begin
+			{Flags[carry_f], C} = A - B - Flags[carry_f];
+			
+			if(A == B) 
+				Flags[zero_f] = 1'b1; 
+			
+			// Overflow occurs when (pos) - (neg) = neg
+			//             and when (neg) - (pos) = pos
+			if((A[15] & ~B[15] & ~C[15]) | (~A[15] & B[15] & C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
+			if(A < B)
+				Flags[low_f] = 1'b1;
+				
+			if($signed(A) < $signed(B))
+				Flags[negative_f] = 1'b1;	
+			end
+			
+		SUBCI: // Integer subtraction with sign-extended immediate and carry (Not Baseline)
+			begin
+			{Flags[carry_f], C} = A - {{8{B[7]}} , B[7:0]} - Flags[carry_f];
+			
+			if(A == B) 
+				Flags[zero_f] = 1'b1; 
+			
+			if((A[15] & ~B[7] & ~C[15]) | (~A[15] & B[7] & C[15])) 
+				Flags[overflow_f] = 1'b1;
+			
+			if(A < B)
+				Flags[low_f] = 1'b1;
+			
+			if($signed(A) < $signed(B))
+				Flags[negative_f] = 1'b1;
 			end
 		
 		CMP: // Comparison. Affects PSR.Z, PSR.N, PSR.L.
@@ -240,7 +295,7 @@ module alu(A, B, C, Opcode, Flags);
 		ASHU: // Arithmetic Shift
 			begin
 			if(B[15] == 1'b0)
-				C = A <<< B;
+				C = $signed(A) <<< B; 
 			else
 				C = $signed(A) >>> (-B);
 			end
@@ -248,7 +303,7 @@ module alu(A, B, C, Opcode, Flags);
 		ASHUI: // Arithmetic Shift immediate
 			begin
 			if(Opcode[0] == 1'b0)
-				C = A <<< {1'b0, B[3:0]};
+				C = $signed(A) <<< {1'b0, B[3:0]};
 			else
 				C = $signed(A) >>> {1'b0, B[3:0]}; 
 			end

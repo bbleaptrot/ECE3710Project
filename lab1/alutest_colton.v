@@ -13,6 +13,8 @@ module alutest_colton;
 	reg [15:0] B;
 	reg [7:0] Opcode;
 
+	reg C_in;
+	
 	// Outputs
 	wire [15:0] C;
 	wire [4:0] Flags;
@@ -33,7 +35,7 @@ module alutest_colton;
 		
 		$monitor("A: 0x%0h (%0d), B: 0x%0h (%0d), C: 0x%0h (%0d), Flags[4:0]: %b, time:%0d", A, $signed(A), B, $signed(B), C, $signed(C), Flags[4:0], $time );
 
-
+		
 		// Initialize Inputs
 		A = 0;
 		B = 0;
@@ -457,6 +459,15 @@ module alutest_colton;
 			#10;
 			
 		end
+		
+		
+		$display("\nTesting ASHU instruction\n");
+		#100;
+		
+		Opcode = 8'h86;
+		A = 16'h8000;
+		B = 16'h3;
+		#10
 		
 				
 		
