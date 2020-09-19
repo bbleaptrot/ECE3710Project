@@ -168,7 +168,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUBC: // Integer subtraction with carry (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A - B - Flags[carry_f];
+			{Flags[carry_f], C} = A - (B + Flags[carry_f]);
 			
 			if(A == B) 
 				Flags[zero_f] = 1'b1; 
@@ -187,7 +187,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUBCI: // Integer subtraction with sign-extended immediate and carry (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A - {{8{B[7]}} , B[7:0]} - Flags[carry_f];
+			{Flags[carry_f], C} = A - ({{8{B[7]}} , B[7:0]} + Flags[carry_f]);
 			
 			if(A == B) 
 				Flags[zero_f] = 1'b1; 
