@@ -1,5 +1,5 @@
-Analysis & Synthesis report for regfile_2D_memory
-Thu Sep 17 16:31:48 2020
+Analysis & Elaboration report for regfile_2D_memory
+Mon Sep 21 09:12:11 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -7,17 +7,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 ; Table of Contents ;
 ---------------------
   1. Legal Notice
-  2. Analysis & Synthesis Summary
-  3. Analysis & Synthesis Settings
-  4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Multiplexer Restructuring Statistics (Restructuring Performed)
- 10. Post-Synthesis Netlist Statistics for Top Partition
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+  2. Analysis & Elaboration Summary
+  3. Parallel Compilation
+  4. Analysis & Elaboration Settings
+  5. Analysis & Elaboration Messages
+  6. Analysis & Elaboration Suppressed Messages
 
 
 
@@ -40,31 +34,42 @@ refer to the applicable agreement for further details.
 
 
 
-+-------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                  ;
-+---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 17 16:31:48 2020       ;
-; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name                   ; regfile_2D_memory                           ;
-; Top-level Entity Name           ; regfile_2D_memory                           ;
-; Family                          ; Cyclone V                                   ;
-; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 256                                         ;
-; Total pins                      ; 290                                         ;
-; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 0                                           ;
-; Total DSP Blocks                ; 0                                           ;
-; Total HSSI RX PCSs              ; 0                                           ;
-; Total HSSI PMA RX Deserializers ; 0                                           ;
-; Total HSSI TX PCSs              ; 0                                           ;
-; Total HSSI PMA TX Serializers   ; 0                                           ;
-; Total PLLs                      ; 0                                           ;
-; Total DLLs                      ; 0                                           ;
-+---------------------------------+---------------------------------------------+
++-----------------------------------------------------------------------------+
+; Analysis & Elaboration Summary                                              ;
++-------------------------------+---------------------------------------------+
+; Analysis & Elaboration Status ; Successful - Mon Sep 21 09:12:11 2020       ;
+; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                 ; regfile_2D_memory                           ;
+; Top-level Entity Name         ; regfile_2D_memory                           ;
+; Family                        ; Cyclone V                                   ;
+; Logic utilization (in ALMs)   ; N/A until Partition Merge                   ;
+; Total registers               ; N/A until Partition Merge                   ;
+; Total pins                    ; N/A until Partition Merge                   ;
+; Total virtual pins            ; N/A until Partition Merge                   ;
+; Total block memory bits       ; N/A until Partition Merge                   ;
+; Total PLLs                    ; N/A until Partition Merge                   ;
+; Total DLLs                    ; N/A until Partition Merge                   ;
++-------------------------------+---------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Settings                                                                                             ;
+; Analysis & Elaboration Settings                                                                                           ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
@@ -151,160 +156,35 @@ refer to the applicable agreement for further details.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 8           ;
-; Maximum allowed            ; 4           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-+----------------------------+-------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                      ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
-; regfile_2D_memory.v              ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v ;         ;
-+----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
-
-
-+-----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary               ;
-+---------------------------------------------+-------------+
-; Resource                                    ; Usage       ;
-+---------------------------------------------+-------------+
-; Estimate of Logic utilization (ALMs needed) ; 131         ;
-;                                             ;             ;
-; Combinational ALUT usage for logic          ; 16          ;
-;     -- 7 input functions                    ; 0           ;
-;     -- 6 input functions                    ; 0           ;
-;     -- 5 input functions                    ; 0           ;
-;     -- 4 input functions                    ; 0           ;
-;     -- <=3 input functions                  ; 16          ;
-;                                             ;             ;
-; Dedicated logic registers                   ; 256         ;
-;                                             ;             ;
-; I/O pins                                    ; 290         ;
-;                                             ;             ;
-; Total DSP Blocks                            ; 0           ;
-;                                             ;             ;
-; Maximum fan-out node                        ; reset~input ;
-; Maximum fan-out                             ; 272         ;
-; Total fan-out                               ; 1602        ;
-; Average fan-out                             ; 1.88        ;
-+---------------------------------------------+-------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                          ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name       ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
-; |regfile_2D_memory         ; 16 (16)             ; 256 (256)                 ; 0                 ; 0          ; 290  ; 0            ; |regfile_2D_memory  ; regfile_2D_memory ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 256   ;
-; Number of registers using Synchronous Clear  ; 256   ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 256   ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[0][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[1][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[2][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[3][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[4][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[5][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[6][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[7][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[8][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[9][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[10][0] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[11][0] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[12][0] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[13][0] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[14][0] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |regfile_2D_memory|r[15][0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; arriav_ff             ; 256                         ;
-;     ENA SCLR          ; 256                         ;
-; arriav_lcell_comb     ; 16                          ;
-;     normal            ; 16                          ;
-;         2 data inputs ; 16                          ;
-; boundary_port         ; 290                         ;
-;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.11                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:00     ;
-+----------------+--------------+
-
-
-+-------------------------------+
-; Analysis & Synthesis Messages ;
-+-------------------------------+
++---------------------------------+
+; Analysis & Elaboration Messages ;
++---------------------------------+
 Info: *******************************************************************
-Info: Running Quartus Prime Analysis & Synthesis
+Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Sep 17 16:31:31 2020
-Info: Command: quartus_map --read_settings_files=on --write_settings_files=off regfile_2D_memory -c regfile_2D_memory
+    Info: Processing started: Mon Sep 21 09:11:59 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off regfile_2D_memory -c regfile_2D_memory --analysis_and_elaboration
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file regfile_2d_memory.v
-    Info (12023): Found entity 1: regfile_2D_memory File: C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v Line: 3
+    Info (12023): Found entity 1: regfile_2D_memory File: D:/Documents/GitHub/ECE3710Project/lab2/regfile_2D_memory.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file f_register.v
-    Info (12023): Found entity 1: f_register File: C:/Users/bblea/source/repos/ECE3710Project/lab2/f_register.v Line: 1
+    Info (12023): Found entity 1: f_register File: D:/Documents/GitHub/ECE3710Project/lab2/f_register.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file tb_regfile_2d_memory.v
-    Info (12023): Found entity 1: tb_regfile_2D_memory File: C:/Users/bblea/source/repos/ECE3710Project/lab2/tb_regfile_2D_memory.v Line: 1
+    Info (12023): Found entity 1: tb_regfile_2D_memory File: D:/Documents/GitHub/ECE3710Project/lab2/tb_regfile_2D_memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
+    Info (12023): Found entity 1: FSM File: D:/Documents/GitHub/ECE3710Project/lab2/fsm.v Line: 19
 Info (12127): Elaborating entity "regfile_2D_memory" for the top level hierarchy
-Info (286030): Timing-Driven Synthesis is running
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 562 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 34 input pins
-    Info (21059): Implemented 256 output pins
-    Info (21061): Implemented 272 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4820 megabytes
-    Info: Processing ended: Thu Sep 17 16:31:48 2020
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:22
+Info (144001): Generated suppressed messages file D:/Documents/GitHub/ECE3710Project/lab2/output_files/regfile_2D_memory.map.smsg
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Mon Sep 21 09:12:11 2020
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:26
+
+
++--------------------------------------------+
+; Analysis & Elaboration Suppressed Messages ;
++--------------------------------------------+
+The suppressed messages can be found in D:/Documents/GitHub/ECE3710Project/lab2/output_files/regfile_2D_memory.map.smsg.
 
 
