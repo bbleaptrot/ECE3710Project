@@ -1,0 +1,2 @@
+module lab2_demo(clk, rst, Flags);
+input clk, rst;

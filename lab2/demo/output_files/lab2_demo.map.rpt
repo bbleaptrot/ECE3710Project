@@ -1,0 +1,506 @@
+Analysis & Synthesis report for lab2_demo
+Tue Sep 22 17:14:13 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Parameter Settings for User Entity Instance: FSM:fib
+ 12. Parameter Settings for User Entity Instance: alu:awhooo
+ 13. Port Connectivity Checks: "mux_2_to_1:immBoiii"
+ 14. Port Connectivity Checks: "mux:muxDst"
+ 15. Port Connectivity Checks: "mux:muxSrc"
+ 16. Port Connectivity Checks: "FSM:fib"
+ 17. Post-Synthesis Netlist Statistics for Top Partition
+ 18. Elapsed Time Per Partition
+ 19. Analysis & Synthesis Messages
+ 20. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Sep 22 17:14:13 2020       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; lab2_demo                                   ;
+; Top-level Entity Name           ; lab2_demo                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 228                                         ;
+; Total pins                      ; 8                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; lab2_demo          ; lab2_demo          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+; ../mux_2_to_1.v                  ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v        ;         ;
+; ../../alu.v                      ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/alu.v                    ;         ;
+; ../regfile_2D_memory.v           ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v ;         ;
+; ../mux.v                         ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v               ;         ;
+; ../fsm.v                         ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/fsm.v               ;         ;
+; lab2_demo.v                      ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v    ;         ;
++----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 201       ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 204       ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 144       ;
+;     -- 5 input functions                    ; 15        ;
+;     -- 4 input functions                    ; 28        ;
+;     -- <=3 input functions                  ; 17        ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 228       ;
+;                                             ;           ;
+; I/O pins                                    ; 8         ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 242       ;
+; Total fan-out                               ; 2033      ;
+; Average fan-out                             ; 4.54      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                   ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name       ; Library Name ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
+; |lab2_demo                       ; 204 (0)             ; 228 (0)                   ; 0                 ; 0          ; 8    ; 0            ; |lab2_demo                             ; lab2_demo         ; work         ;
+;    |FSM:fib|                     ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|FSM:fib                     ; FSM               ; work         ;
+;    |alu:awhooo|                  ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|alu:awhooo                  ; alu               ; work         ;
+;    |mux:muxDst|                  ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux:muxDst                  ; mux               ; work         ;
+;    |mux:muxSrc|                  ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux:muxSrc                  ; mux               ; work         ;
+;    |regfile_2D_memory:registers| ; 14 (14)             ; 224 (224)                 ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|regfile_2D_memory:registers ; regfile_2D_memory ; work         ;
++----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++---------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                              ;
++----------------------------------------+----------------------------------------+
+; Register name                          ; Reason for Removal                     ;
++----------------------------------------+----------------------------------------+
+; regfile_2D_memory:registers|r[0][0]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][0]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][1]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][2]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][3]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][4]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][5]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][6]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][7]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][8]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][9]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][10]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][11]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][12]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][13]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][14]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[1][15]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][1]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][2]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][3]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][4]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][5]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][6]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][7]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][8]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][9]    ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][10]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][11]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][12]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][13]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][14]   ; Stuck at GND due to stuck port data_in ;
+; regfile_2D_memory:registers|r[0][15]   ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 32 ;                                        ;
++----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 228   ;
+; Number of registers using Synchronous Clear  ; 224   ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 224   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[15][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[14][2]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[13][10] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[12][10] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[8][6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[11][14] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[10][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[9][11]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[7][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[6][2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[5][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[4][12]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[3][9]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[2][1]   ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxSrc|Mux11                      ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxDst|Mux1                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FSM:fib ;
++----------------+----------+--------------------------+
+; Parameter Name ; Value    ; Type                     ;
++----------------+----------+--------------------------+
+; ADD            ; 00000101 ; Unsigned Binary          ;
++----------------+----------+--------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Parameter Settings for User Entity Instance: alu:awhooo ;
++----------------+----------+-----------------------------+
+; Parameter Name ; Value    ; Type                        ;
++----------------+----------+-----------------------------+
+; carry_f        ; 100      ; Unsigned Binary             ;
+; low_f          ; 011      ; Unsigned Binary             ;
+; overflow_f     ; 010      ; Unsigned Binary             ;
+; zero_f         ; 001      ; Unsigned Binary             ;
+; negative_f     ; 000      ; Unsigned Binary             ;
+; ADD            ; 00000101 ; Unsigned Binary             ;
+; ADDI           ; 0101XXXX ; Unsigned Binary             ;
+; ADDU           ; 00000110 ; Unsigned Binary             ;
+; ADDUI          ; 0110XXXX ; Unsigned Binary             ;
+; ADDC           ; 00000111 ; Unsigned Binary             ;
+; ADDCI          ; 0111XXXX ; Unsigned Binary             ;
+; SUB            ; 00001001 ; Unsigned Binary             ;
+; SUBI           ; 1001XXXX ; Unsigned Binary             ;
+; SUBC           ; 00001010 ; Unsigned Binary             ;
+; SUBCI          ; 1010XXXX ; Unsigned Binary             ;
+; CMP            ; 00001011 ; Unsigned Binary             ;
+; CMPI           ; 1011XXXX ; Unsigned Binary             ;
+; AND            ; 00000001 ; Unsigned Binary             ;
+; ANDI           ; 0001XXXX ; Unsigned Binary             ;
+; OR             ; 00000010 ; Unsigned Binary             ;
+; ORI            ; 0010XXXX ; Unsigned Binary             ;
+; XOR            ; 00000011 ; Unsigned Binary             ;
+; XORI           ; 0011XXXX ; Unsigned Binary             ;
+; MOV            ; 00001101 ; Unsigned Binary             ;
+; MOVI           ; 1101XXXX ; Unsigned Binary             ;
+; LSH            ; 10000100 ; Unsigned Binary             ;
+; LSHI           ; 1000000X ; Unsigned Binary             ;
+; ASHU           ; 10000110 ; Unsigned Binary             ;
+; ASHUI          ; 1000001X ; Unsigned Binary             ;
+; LUI            ; 1111XXXX ; Unsigned Binary             ;
+; LOAD           ; 01000000 ; Unsigned Binary             ;
+; STOR           ; 01000100 ; Unsigned Binary             ;
+; Bcond          ; 1100XXXX ; Unsigned Binary             ;
+; Jcond          ; 01001100 ; Unsigned Binary             ;
+; JAL            ; 01001000 ; Unsigned Binary             ;
++----------------+----------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "mux_2_to_1:immBoiii" ;
++------+-------+----------+-----------------------+
+; Port ; Type  ; Severity ; Details               ;
++------+-------+----------+-----------------------+
+; r1   ; Input ; Info     ; Stuck at GND          ;
++------+-------+----------+-----------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux:muxDst"                                                                                                                                                                     ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; S_in ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "mux:muxSrc"                                                                                                                                                                     ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; S_in ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FSM:fib"                                                                                                                                                                 ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; R_src   ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (5 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; R_dest  ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (5 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; Flag_en ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
++---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 228                         ;
+;     CLR               ; 4                           ;
+;     ENA SCLR          ; 224                         ;
+; arriav_lcell_comb     ; 206                         ;
+;     arith             ; 17                          ;
+;         0 data inputs ; 1                           ;
+;         4 data inputs ; 16                          ;
+;     normal            ; 189                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
+;         3 data inputs ; 16                          ;
+;         4 data inputs ; 12                          ;
+;         5 data inputs ; 15                          ;
+;         6 data inputs ; 144                         ;
+; boundary_port         ; 8                           ;
+;                       ;                             ;
+; Max LUT depth         ; 7.50                        ;
+; Average LUT depth     ; 5.95                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:02     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Tue Sep 22 17:13:40 2020
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab2_demo -c lab2_demo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/mux_2_to_1.v
+    Info (12023): Found entity 1: mux_2_to_1 File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/hex2seg.v
+    Info (12023): Found entity 1: hex2seg File: C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/alu.v
+    Info (12023): Found entity 1: alu File: C:/Users/bblea/source/repos/ECE3710Project/alu.v Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/regfile_2d_memory.v
+    Info (12023): Found entity 1: regfile_2D_memory File: C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v Line: 3
+Warning (12090): Entity "mux" obtained from "../mux.v" instead of from Quartus Prime megafunction library File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/mux.v
+    Info (12023): Found entity 1: mux File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/fsm.v
+    Info (12023): Found entity 1: FSM File: C:/Users/bblea/source/repos/ECE3710Project/lab2/fsm.v Line: 19
+Info (12021): Found 1 design units, including 1 entities, in source file lab2_demo.v
+    Info (12023): Found entity 1: lab2_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/alu_demo.v
+    Info (12023): Found entity 1: alu_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu_demo.v Line: 26
+Info (12127): Elaborating entity "lab2_demo" for the top level hierarchy
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:fib" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 31
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 54
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 75
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immBoiii" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 103
+Info (12128): Elaborating entity "alu" for hierarchy "alu:awhooo" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 111
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "srcMux[4]" is missing source, defaulting to GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 13
+    Warning (12110): Net "dstMux[4]" is missing source, defaulting to GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 13
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Flags[0]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
+    Warning (13410): Pin "Flags[1]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
+    Warning (13410): Pin "Flags[3]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/output_files/lab2_demo.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 1 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "cont" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 3
+Info (21057): Implemented 436 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 5 output pins
+    Info (21061): Implemented 428 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info: Peak virtual memory: 4856 megabytes
+    Info: Processing ended: Tue Sep 22 17:14:13 2020
+    Info: Elapsed time: 00:00:33
+    Info: Total CPU time (on all processors): 00:01:01
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/output_files/lab2_demo.map.smsg.
+
+
