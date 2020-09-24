@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab2_demo
-Tue Sep 22 17:14:13 2020
+Thu Sep 24 14:39:30 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -19,13 +19,11 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  11. Parameter Settings for User Entity Instance: FSM:fib
  12. Parameter Settings for User Entity Instance: alu:awhooo
  13. Port Connectivity Checks: "mux_2_to_1:immBoiii"
- 14. Port Connectivity Checks: "mux:muxDst"
- 15. Port Connectivity Checks: "mux:muxSrc"
- 16. Port Connectivity Checks: "FSM:fib"
- 17. Post-Synthesis Netlist Statistics for Top Partition
- 18. Elapsed Time Per Partition
- 19. Analysis & Synthesis Messages
- 20. Analysis & Synthesis Suppressed Messages
+ 14. Port Connectivity Checks: "FSM:fib"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+ 18. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -51,14 +49,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Sep 22 17:14:13 2020       ;
+; Analysis & Synthesis Status     ; Successful - Thu Sep 24 14:39:30 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab2_demo                                   ;
 ; Top-level Entity Name           ; lab2_demo                                   ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
 ; Total registers                 ; 228                                         ;
-; Total pins                      ; 8                                           ;
+; Total pins                      ; 35                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -171,9 +169,7 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -183,6 +179,7 @@ refer to the applicable agreement for further details.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                        ; Library ;
 +----------------------------------+-----------------+------------------------+---------------------------------------------------------------------+---------+
 ; ../mux_2_to_1.v                  ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v        ;         ;
+; ../../lab1/hex2seg.v             ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v           ;         ;
 ; ../../alu.v                      ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/alu.v                    ;         ;
 ; ../regfile_2D_memory.v           ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v ;         ;
 ; ../mux.v                         ; yes             ; User Verilog HDL File  ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v               ;         ;
@@ -196,25 +193,25 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 201       ;
+; Estimate of Logic utilization (ALMs needed) ; 213       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 204       ;
-;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 144       ;
-;     -- 5 input functions                    ; 15        ;
-;     -- 4 input functions                    ; 28        ;
-;     -- <=3 input functions                  ; 17        ;
+; Combinational ALUT usage for logic          ; 266       ;
+;     -- 7 input functions                    ; 9         ;
+;     -- 6 input functions                    ; 113       ;
+;     -- 5 input functions                    ; 45        ;
+;     -- 4 input functions                    ; 73        ;
+;     -- <=3 input functions                  ; 26        ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 228       ;
 ;                                             ;           ;
-; I/O pins                                    ; 8         ;
+; I/O pins                                    ; 35        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; rst~input ;
 ; Maximum fan-out                             ; 242       ;
-; Total fan-out                               ; 2033      ;
-; Average fan-out                             ; 4.54      ;
+; Total fan-out                               ; 2333      ;
+; Average fan-out                             ; 4.14      ;
 +---------------------------------------------+-----------+
 
 
@@ -223,55 +220,59 @@ refer to the applicable agreement for further details.
 +----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node       ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                    ; Entity Name       ; Library Name ;
 +----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
-; |lab2_demo                       ; 204 (0)             ; 228 (0)                   ; 0                 ; 0          ; 8    ; 0            ; |lab2_demo                             ; lab2_demo         ; work         ;
-;    |FSM:fib|                     ; 12 (12)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|FSM:fib                     ; FSM               ; work         ;
-;    |alu:awhooo|                  ; 18 (18)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|alu:awhooo                  ; alu               ; work         ;
-;    |mux:muxDst|                  ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux:muxDst                  ; mux               ; work         ;
-;    |mux:muxSrc|                  ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux:muxSrc                  ; mux               ; work         ;
+; |lab2_demo                       ; 266 (0)             ; 228 (0)                   ; 0                 ; 0          ; 35   ; 0            ; |lab2_demo                             ; lab2_demo         ; work         ;
+;    |FSM:fib|                     ; 13 (13)             ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|FSM:fib                     ; FSM               ; work         ;
+;    |alu:awhooo|                  ; 52 (52)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|alu:awhooo                  ; alu               ; work         ;
+;    |hex2seg:hx1|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|hex2seg:hx1                 ; hex2seg           ; work         ;
+;    |hex2seg:hx2|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|hex2seg:hx2                 ; hex2seg           ; work         ;
+;    |hex2seg:hx3|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|hex2seg:hx3                 ; hex2seg           ; work         ;
+;    |hex2seg:hx4|                 ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|hex2seg:hx4                 ; hex2seg           ; work         ;
+;    |mux:muxSrc|                  ; 75 (75)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux:muxSrc                  ; mux               ; work         ;
+;    |mux_2_to_1:immBoiii|         ; 84 (84)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|mux_2_to_1:immBoiii         ; mux_2_to_1        ; work         ;
 ;    |regfile_2D_memory:registers| ; 14 (14)             ; 224 (224)                 ; 0                 ; 0          ; 0    ; 0            ; |lab2_demo|regfile_2D_memory:registers ; regfile_2D_memory ; work         ;
 +----------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; regfile_2D_memory:registers|r[0][0]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][0]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][1]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][2]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][3]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][4]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][5]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][6]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][7]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][8]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][9]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][10]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][11]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][12]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][13]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][14]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[1][15]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][1]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][2]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][3]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][4]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][5]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][6]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][7]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][8]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][9]    ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][10]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][11]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][12]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][13]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][14]   ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[0][15]   ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 32 ;                                        ;
-+----------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++----------------------------------------+--------------------------------------------------+
+; Register name                          ; Reason for Removal                               ;
++----------------------------------------+--------------------------------------------------+
+; regfile_2D_memory:registers|r[15][5]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][4]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][3]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][2]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][1]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][0]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][6]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][7]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][8]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][9]   ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][10]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][11]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][12]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][13]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][14]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[15][15]  ; Stuck at GND due to stuck port data_in           ;
+; regfile_2D_memory:registers|r[1][7]    ; Merged with regfile_2D_memory:registers|r[0][7]  ;
+; regfile_2D_memory:registers|r[1][6]    ; Merged with regfile_2D_memory:registers|r[0][6]  ;
+; regfile_2D_memory:registers|r[1][5]    ; Merged with regfile_2D_memory:registers|r[0][5]  ;
+; regfile_2D_memory:registers|r[1][4]    ; Merged with regfile_2D_memory:registers|r[0][4]  ;
+; regfile_2D_memory:registers|r[1][3]    ; Merged with regfile_2D_memory:registers|r[0][3]  ;
+; regfile_2D_memory:registers|r[1][2]    ; Merged with regfile_2D_memory:registers|r[0][2]  ;
+; regfile_2D_memory:registers|r[1][1]    ; Merged with regfile_2D_memory:registers|r[0][1]  ;
+; regfile_2D_memory:registers|r[1][0]    ; Merged with regfile_2D_memory:registers|r[0][0]  ;
+; regfile_2D_memory:registers|r[1][15]   ; Merged with regfile_2D_memory:registers|r[0][15] ;
+; regfile_2D_memory:registers|r[1][14]   ; Merged with regfile_2D_memory:registers|r[0][14] ;
+; regfile_2D_memory:registers|r[1][13]   ; Merged with regfile_2D_memory:registers|r[0][13] ;
+; regfile_2D_memory:registers|r[1][12]   ; Merged with regfile_2D_memory:registers|r[0][12] ;
+; regfile_2D_memory:registers|r[1][11]   ; Merged with regfile_2D_memory:registers|r[0][11] ;
+; regfile_2D_memory:registers|r[1][10]   ; Merged with regfile_2D_memory:registers|r[0][10] ;
+; regfile_2D_memory:registers|r[1][9]    ; Merged with regfile_2D_memory:registers|r[0][9]  ;
+; regfile_2D_memory:registers|r[1][8]    ; Merged with regfile_2D_memory:registers|r[0][8]  ;
+; Total Number of Removed Registers = 32 ;                                                  ;
++----------------------------------------+--------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -294,22 +295,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[15][1]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[14][2]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[13][10] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[12][10] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[8][6]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[11][14] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[10][12] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[9][11]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[7][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[13][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[11][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[7][6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[14][14] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[12][6]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[10][5]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[9][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[8][13]  ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[6][2]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[5][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[4][12]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[3][9]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[2][1]   ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxSrc|Mux11                      ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxDst|Mux1                       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[5][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[4][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[3][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[2][5]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[0][5]   ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxSrc|Mux4                       ;
+; 17:1               ; 16 bits   ; 176 LEs       ; 160 LEs              ; 16 LEs                 ; No         ; |lab2_demo|mux_2_to_1:immBoiii|mux_out[0]        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
 
@@ -319,6 +320,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Parameter Name ; Value    ; Type                     ;
 +----------------+----------+--------------------------+
 ; ADD            ; 00000101 ; Unsigned Binary          ;
+; ADDI           ; 0101XXXX ; Unsigned Binary          ;
 +----------------+----------+--------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -369,40 +371,21 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 +-------------------------------------------------+
 ; Port Connectivity Checks: "mux_2_to_1:immBoiii" ;
-+------+-------+----------+-----------------------+
-; Port ; Type  ; Severity ; Details               ;
-+------+-------+----------+-----------------------+
-; r1   ; Input ; Info     ; Stuck at GND          ;
-+------+-------+----------+-----------------------+
++-----------+-------+----------+------------------+
+; Port      ; Type  ; Severity ; Details          ;
++-----------+-------+----------+------------------+
+; r1[15..1] ; Input ; Info     ; Stuck at GND     ;
+; r1[0]     ; Input ; Info     ; Stuck at VCC     ;
++-----------+-------+----------+------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mux:muxDst"                                                                                                                                                                     ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; S_in ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mux:muxSrc"                                                                                                                                                                     ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                                                          ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; S_in ; Input ; Warning  ; Input port expression (5 bits) is wider than the input port (4 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "FSM:fib"                                                                                                                                                                 ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                                                                                                               ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; R_src   ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (5 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-; R_dest  ; Output ; Warning  ; Output or bidir port (4 bits) is smaller than the port expression (5 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
-; Flag_en ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
-+---------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "FSM:fib"                                                                               ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Flag_en ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -413,21 +396,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; arriav_ff             ; 228                         ;
 ;     CLR               ; 4                           ;
 ;     ENA SCLR          ; 224                         ;
-; arriav_lcell_comb     ; 206                         ;
-;     arith             ; 17                          ;
+; arriav_lcell_comb     ; 272                         ;
+;     arith             ; 34                          ;
+;         0 data inputs ; 2                           ;
+;         4 data inputs ; 32                          ;
+;     extend            ; 9                           ;
+;         7 data inputs ; 9                           ;
+;     normal            ; 229                         ;
 ;         0 data inputs ; 1                           ;
-;         4 data inputs ; 16                          ;
-;     normal            ; 189                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         3 data inputs ; 16                          ;
-;         4 data inputs ; 12                          ;
-;         5 data inputs ; 15                          ;
-;         6 data inputs ; 144                         ;
-; boundary_port         ; 8                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 41                          ;
+;         5 data inputs ; 45                          ;
+;         6 data inputs ; 113                         ;
+; boundary_port         ; 35                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.50                        ;
-; Average LUT depth     ; 5.95                        ;
+; Max LUT depth         ; 8.50                        ;
+; Average LUT depth     ; 6.10                        ;
 +-----------------------+-----------------------------+
 
 
@@ -436,7 +422,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -446,7 +432,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Sep 22 17:13:40 2020
+    Info: Processing started: Thu Sep 24 14:39:16 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab2_demo -c lab2_demo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -468,34 +454,29 @@ Info (12021): Found 1 design units, including 1 entities, in source file lab2_de
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/alu_demo.v
     Info (12023): Found entity 1: alu_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu_demo.v Line: 26
 Info (12127): Elaborating entity "lab2_demo" for the top level hierarchy
-Info (12128): Elaborating entity "FSM" for hierarchy "FSM:fib" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 31
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 54
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 75
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immBoiii" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 103
-Info (12128): Elaborating entity "alu" for hierarchy "alu:awhooo" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 111
-Warning (12011): Net is missing source, defaulting to GND
-    Warning (12110): Net "srcMux[4]" is missing source, defaulting to GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 13
-    Warning (12110): Net "dstMux[4]" is missing source, defaulting to GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 13
-Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:hx1" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 25
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:fib" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 40
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 63
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 84
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immBoiii" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 112
+Info (12128): Elaborating entity "alu" for hierarchy "alu:awhooo" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 120
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Flags[0]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
-    Warning (13410): Pin "Flags[1]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
-    Warning (13410): Pin "Flags[3]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 5
+    Warning (13410): Pin "Flags[0]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
+    Warning (13410): Pin "Flags[1]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
+    Warning (13410): Pin "Flags[3]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/output_files/lab2_demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 1 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "cont" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 3
-Info (21057): Implemented 436 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
-    Info (21059): Implemented 5 output pins
-    Info (21061): Implemented 428 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 4856 megabytes
-    Info: Processing ended: Tue Sep 22 17:14:13 2020
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:01:01
+Info (21057): Implemented 525 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 490 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
+    Info: Peak virtual memory: 4834 megabytes
+    Info: Processing ended: Thu Sep 24 14:39:30 2020
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:23
 
 
 +------------------------------------------+

@@ -1,22 +1,31 @@
-module lab2_demo(clk, rst, cont, Flags);
+module lab2_demo(clk, rst, hex1, hex2, hex3, hex4, Flags);
 
-input clk, rst, cont;
+input clk, rst;
+
+reg [3:0] h1, h2, h3, h4, h5;
 
 output [4:0] Flags;
 
-//output [0:6] hex1, hex2, hex3, hex4, hex5; // HEX5, HEX3, HEX2, HEX1, HEX0
+output [0:6] hex1, hex2, hex3, hex4; // HEX5, HEX3, HEX2, HEX1, HEX0
 
 wire[15:0] rEnable, BUS, r0_out, r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out, r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out;
 
 wire[15:0] srcMux_out, dstMux_out, immMux_out;
 
-wire[4:0]  srcMux, dstMux; 
+wire[3:0]  srcMux, dstMux; 
 
 wire immMux;
 
 wire[7:0] ALUcodes;
 
+//wire [3:0] h1, h2, h3, h4, h5;
+
 wire FlagEn;
+
+	hex2seg hx1 (.hex(r13_out[15:12]), .seg(hex1));
+	hex2seg hx2 (.hex(r13_out[11:8]), .seg(hex2));
+	hex2seg hx3 (.hex(r13_out[7:4]), .seg(hex3));
+	hex2seg hx4 (.hex(r13_out[3:0]), .seg(hex4));
 
 
 	FSM fib(
@@ -97,7 +106,7 @@ wire FlagEn;
 	
 	mux_2_to_1 immBoiii(
 		.r0(dstMux_out),
-		.r1(16'd0),
+		.r1(16'd1),
 		.S_in(immMux),
 		.mux_out(immMux_out)
 	);

@@ -1,12 +1,95 @@
 |lab2_demo
 clk => clk.IN2
 rst => rst.IN2
-cont => ~NO_FANOUT~
-Flags[0] <= alu:awhooo.Flags
-Flags[1] <= alu:awhooo.Flags
-Flags[2] <= alu:awhooo.Flags
-Flags[3] <= alu:awhooo.Flags
-Flags[4] <= alu:awhooo.Flags
+hex1[6] << hex2seg:hx1.seg
+hex1[5] << hex2seg:hx1.seg
+hex1[4] << hex2seg:hx1.seg
+hex1[3] << hex2seg:hx1.seg
+hex1[2] << hex2seg:hx1.seg
+hex1[1] << hex2seg:hx1.seg
+hex1[0] << hex2seg:hx1.seg
+hex2[6] << hex2seg:hx2.seg
+hex2[5] << hex2seg:hx2.seg
+hex2[4] << hex2seg:hx2.seg
+hex2[3] << hex2seg:hx2.seg
+hex2[2] << hex2seg:hx2.seg
+hex2[1] << hex2seg:hx2.seg
+hex2[0] << hex2seg:hx2.seg
+hex3[6] << hex2seg:hx3.seg
+hex3[5] << hex2seg:hx3.seg
+hex3[4] << hex2seg:hx3.seg
+hex3[3] << hex2seg:hx3.seg
+hex3[2] << hex2seg:hx3.seg
+hex3[1] << hex2seg:hx3.seg
+hex3[0] << hex2seg:hx3.seg
+hex4[6] << hex2seg:hx4.seg
+hex4[5] << hex2seg:hx4.seg
+hex4[4] << hex2seg:hx4.seg
+hex4[3] << hex2seg:hx4.seg
+hex4[2] << hex2seg:hx4.seg
+hex4[1] << hex2seg:hx4.seg
+hex4[0] << hex2seg:hx4.seg
+Flags[0] << alu:awhooo.Flags
+Flags[1] << alu:awhooo.Flags
+Flags[2] << alu:awhooo.Flags
+Flags[3] << alu:awhooo.Flags
+Flags[4] << alu:awhooo.Flags
+
+
+|lab2_demo|hex2seg:hx1
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab2_demo|hex2seg:hx2
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab2_demo|hex2seg:hx3
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab2_demo|hex2seg:hx4
+hex[0] => Decoder0.IN3
+hex[1] => Decoder0.IN2
+hex[2] => Decoder0.IN1
+hex[3] => Decoder0.IN0
+seg[6] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[0] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab2_demo|FSM:fib
@@ -18,8 +101,8 @@ rst => state_counter[0].ACLR
 rst => state_counter[1].ACLR
 rst => state_counter[2].ACLR
 rst => state_counter[3].ACLR
-R_en[0] <= <GND>
-R_en[1] <= <GND>
+R_en[0] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+R_en[1] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[2] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[3] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
@@ -33,7 +116,7 @@ R_en[11] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[12] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[13] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 R_en[14] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
-R_en[15] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
+R_en[15] <= <GND>
 R_src[0] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
 R_src[1] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
 R_src[2] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
@@ -42,14 +125,14 @@ R_dest[0] <= WideOr7.DB_MAX_OUTPUT_PORT_TYPE
 R_dest[1] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
 R_dest[2] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
 R_dest[3] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
-R_or_I <= <GND>
+R_or_I <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 ALU_op[0] <= <VCC>
 ALU_op[1] <= <GND>
 ALU_op[2] <= <VCC>
 ALU_op[3] <= <GND>
-ALU_op[4] <= <GND>
+ALU_op[4] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 ALU_op[5] <= <GND>
-ALU_op[6] <= <GND>
+ALU_op[6] <= Decoder0.DB_MAX_OUTPUT_PORT_TYPE
 ALU_op[7] <= <GND>
 Flag_en <= Flag_en.DB_MAX_OUTPUT_PORT_TYPE
 
