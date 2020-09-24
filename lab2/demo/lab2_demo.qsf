@@ -97,4 +97,5 @@ set_location_assignment PIN_AC25 -to hex4[3]
 set_location_assignment PIN_AB28 -to hex4[4]
 set_location_assignment PIN_AB25 -to hex4[5]
 set_location_assignment PIN_AB22 -to hex4[6]
+set_global_assignment -name VERILOG_FILE tblab2_demo.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

@@ -31,9 +31,9 @@
  parameter ADD  = 8'b00000101;
  parameter ADDI = 8'b0101xxxx;
  
- always @(negedge rst, posedge clk)
+ always @(posedge clk)
  begin
-	if(rst == 0) state_counter = 4'b0000;
+	if(rst == 1) state_counter = 4'b0000;
 	
 	// Else, check if the state counter is at the end and if not increment it to the next state.
 	else

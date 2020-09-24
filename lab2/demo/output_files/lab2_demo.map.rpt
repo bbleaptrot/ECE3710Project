@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab2_demo
-Thu Sep 24 14:39:30 2020
+Thu Sep 24 16:34:51 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -49,7 +49,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Sep 24 14:39:30 2020       ;
+; Analysis & Synthesis Status     ; Successful - Thu Sep 24 16:34:50 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab2_demo                                   ;
 ; Top-level Entity Name           ; lab2_demo                                   ;
@@ -198,8 +198,8 @@ refer to the applicable agreement for further details.
 ; Combinational ALUT usage for logic          ; 266       ;
 ;     -- 7 input functions                    ; 9         ;
 ;     -- 6 input functions                    ; 113       ;
-;     -- 5 input functions                    ; 45        ;
-;     -- 4 input functions                    ; 73        ;
+;     -- 5 input functions                    ; 49        ;
+;     -- 4 input functions                    ; 69        ;
 ;     -- <=3 input functions                  ; 26        ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 228       ;
@@ -283,35 +283,36 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Total registers                              ; 228   ;
 ; Number of registers using Synchronous Clear  ; 224   ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 224   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[13][12] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[11][1]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[7][6]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[14][14] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[12][6]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[10][5]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[9][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[8][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[6][2]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[5][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[4][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[3][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[2][5]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[0][5]   ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxSrc|Mux4                       ;
-; 17:1               ; 16 bits   ; 176 LEs       ; 160 LEs              ; 16 LEs                 ; No         ; |lab2_demo|mux_2_to_1:immBoiii|mux_out[0]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[13][4] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[11][6] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[7][9]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[14][8] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[12][4] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[10][4] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[9][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[8][13] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[6][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[5][6]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[4][5]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[3][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[2][3]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab2_demo|regfile_2D_memory:registers|r[0][10] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |lab2_demo|FSM:fib|state_counter[3]             ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab2_demo|mux:muxSrc|Mux0                      ;
+; 17:1               ; 16 bits   ; 176 LEs       ; 160 LEs              ; 16 LEs                 ; No         ; |lab2_demo|mux_2_to_1:immBoiii|mux_out[9]       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -394,8 +395,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 228                         ;
-;     CLR               ; 4                           ;
 ;     ENA SCLR          ; 224                         ;
+;     plain             ; 4                           ;
 ; arriav_lcell_comb     ; 272                         ;
 ;     arith             ; 34                          ;
 ;         0 data inputs ; 2                           ;
@@ -407,8 +408,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 2                           ;
 ;         3 data inputs ; 22                          ;
-;         4 data inputs ; 41                          ;
-;         5 data inputs ; 45                          ;
+;         4 data inputs ; 37                          ;
+;         5 data inputs ; 49                          ;
 ;         6 data inputs ; 113                         ;
 ; boundary_port         ; 35                          ;
 ;                       ;                             ;
@@ -422,7 +423,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -432,7 +433,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Sep 24 14:39:16 2020
+    Info: Processing started: Thu Sep 24 16:34:17 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab2_demo -c lab2_demo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -450,20 +451,22 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/fsm.v
     Info (12023): Found entity 1: FSM File: C:/Users/bblea/source/repos/ECE3710Project/lab2/fsm.v Line: 19
 Info (12021): Found 1 design units, including 1 entities, in source file lab2_demo.v
-    Info (12023): Found entity 1: lab2_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 1
+    Info (12023): Found entity 1: lab2_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 2
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/alu_demo.v
     Info (12023): Found entity 1: alu_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu_demo.v Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file tblab2_demo.v
+    Info (12023): Found entity 1: tblab2_demo File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/tblab2_demo.v Line: 3
 Info (12127): Elaborating entity "lab2_demo" for the top level hierarchy
-Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:hx1" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 25
-Info (12128): Elaborating entity "FSM" for hierarchy "FSM:fib" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 40
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 63
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 84
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immBoiii" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 112
-Info (12128): Elaborating entity "alu" for hierarchy "alu:awhooo" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 120
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:hx1" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 26
+Info (12128): Elaborating entity "FSM" for hierarchy "FSM:fib" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 41
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 64
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 85
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immBoiii" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 113
+Info (12128): Elaborating entity "alu" for hierarchy "alu:awhooo" File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 121
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "Flags[0]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
-    Warning (13410): Pin "Flags[1]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
-    Warning (13410): Pin "Flags[3]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 7
+    Warning (13410): Pin "Flags[0]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 8
+    Warning (13410): Pin "Flags[1]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 8
+    Warning (13410): Pin "Flags[3]" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/lab2_demo.v Line: 8
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab2/demo/output_files/lab2_demo.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
@@ -473,10 +476,10 @@ Info (21057): Implemented 525 device resources after synthesis - the final resou
     Info (21059): Implemented 33 output pins
     Info (21061): Implemented 490 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4834 megabytes
-    Info: Processing ended: Thu Sep 24 14:39:30 2020
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:23
+    Info: Peak virtual memory: 4849 megabytes
+    Info: Processing ended: Thu Sep 24 16:34:51 2020
+    Info: Elapsed time: 00:00:34
+    Info: Total CPU time (on all processors): 00:00:58
 
 
 +------------------------------------------+

@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module lab2_demo(clk, rst, hex1, hex2, hex3, hex4, Flags);
 
 input clk, rst;
@@ -22,10 +23,10 @@ wire[7:0] ALUcodes;
 
 wire FlagEn;
 
-	hex2seg hx1 (.hex(r13_out[15:12]), .seg(hex1));
-	hex2seg hx2 (.hex(r13_out[11:8]), .seg(hex2));
-	hex2seg hx3 (.hex(r13_out[7:4]), .seg(hex3));
-	hex2seg hx4 (.hex(r13_out[3:0]), .seg(hex4));
+	hex2seg hx1 (.hex(r8_out[15:12]), .seg(hex1));
+	hex2seg hx2 (.hex(r8_out[11:8]), .seg(hex2));
+	hex2seg hx3 (.hex(r8_out[7:4]), .seg(hex3));
+	hex2seg hx4 (.hex(r8_out[3:0]), .seg(hex4));
 
 
 	FSM fib(
