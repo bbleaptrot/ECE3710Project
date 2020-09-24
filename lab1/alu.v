@@ -82,7 +82,7 @@ module alu(A, B, C, Opcode, Flags);
 	
 	always@(*)
 	begin		
-		C_in = Flags[carry_f];
+		C_in = Flags[carry_f]; // Capture Carry in for ADDC(I)/SUBC(I)
 		C = 16'b0;
 		Flags = 5'b0;
 		
