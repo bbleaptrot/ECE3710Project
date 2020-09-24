@@ -612,7 +612,7 @@ module alutest_colton;
 			Opcode[0] = {$random} % 2;
 			$display("Shift: %0b", Opcode[0]);
 			A = $random % 65536;
-			B = {$random} % 4; // Small shifts
+			B = ({$random} % 3) + 1'b1; // Small shifts, force shifts
 			#10;
 			
 		end
@@ -687,7 +687,7 @@ module alutest_colton;
 			Opcode[0] = $random % 2;
 			$display("Shift: %0b", Opcode[0]);
 			A = $random % 65536;
-			B = {$random} % 4;
+			B = ({$random} % 3) + 1'b1; // Small shifts, force something interesting
 			#10;
 			
 		end
