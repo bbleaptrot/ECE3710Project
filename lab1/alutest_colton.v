@@ -12,8 +12,6 @@ module alutest_colton;
 	reg [15:0] A;
 	reg [15:0] B;
 	reg [7:0] Opcode;
-
-	reg C_in;
 	
 	// Outputs
 	wire [15:0] C;
@@ -54,9 +52,9 @@ module alutest_colton;
 			B = $random % 65536;
 		end
 		
-		
-		$display("\nTesting ADDI instruction\n");
 		#100;
+		$display("\nTesting ADDI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -69,7 +67,7 @@ module alutest_colton;
 		begin
 			#10;
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 		end
 		
 		
@@ -107,8 +105,100 @@ module alutest_colton;
 		
 		*/
 		
-		$display("\nTesting SUB instruction\n");
 		#100;
+		$display("\nTesting ADDU instruction\n");
+	
+		A = 0;
+		B = 0;
+		Opcode = 8'b00000110; // ADDU
+		#10;
+		
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			#10;
+			A = $random % 65536;
+			B = $random % 65536;
+		end
+		
+		#100;
+		$display("\nTesting ADDUI instruction\n");
+		
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b0110xxxx; // ADDUI
+		#10;
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			#10;
+			A = $random % 65536;
+			B = {$random} % 256;
+		end
+		
+		#100;
+		$display("\nTesting ADDC instrtruction\n");
+		
+	
+		A = 0;
+		B = 0;
+		Opcode = 8'b00000111; // ADDC
+		#10;
+		
+		A = 16'hFFFF;
+		B = 16'hFFFF;
+		#10;
+		
+		A = 16'b0;
+		B = 16'b0;
+		
+		#10;  //C should now be 1.
+		
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			#10;
+			A = $random % 65536;
+			B = $random % 65536;
+		end
+		
+
+		#100;
+		$display("\nTesting ADDCI instruction\n");
+		
+			
+		A = 0;
+		B = 0;
+		Opcode = 8'b0111xxxx; // ADDCI
+		#10;
+		
+		
+		A = 16'hFFFF;
+		B = 16'd10;
+		
+		#10;
+		
+		A = 16'b0;
+		B = 16'b0;
+		
+		#10;
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			#10;
+			A = $random % 65536;
+			B = {$random} % 256;
+		end
+		
+		
+		#100;
+		$display("\nTesting SUB instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -130,9 +220,9 @@ module alutest_colton;
 			#10;
 		end
 		
-		
-		$display("\nTesting SUBI instruction\n");
 		#100;
+		$display("\nTesting SUBI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -162,13 +252,70 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
 		
-		$display("\nTesting CMP instruction\n");
+		
 		#100;
+		$display("\nTesting SUBC instruction\n");
+		
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b00001010; // SUBC
+		
+		#10;
+		A = 16'h0001;
+		B = 16'hFFFF;
+		
+		#10;
+		
+		A = 16'b0;
+		B = 16'b0;
+		
+		#10;
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 65536;
+			#10;
+		end
+		
+		#100;
+		$display("\nTesting SUBCI instruction\n");
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b1010xxxx; // SUBCI
+		
+		#10;
+		A = 16'h0001;
+		B = 16'hFFFF;
+		
+		#10;
+		
+		A = 16'b0;
+		B = 16'b0;
+		
+		#10;		
+		
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = {$random} % 256;
+			#10;
+		end
+		
+		
+		#100;
+		$display("\nTesting CMP instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -184,8 +331,9 @@ module alutest_colton;
 			#10;
 		end
 		
-		$display("\nTesting CMPI instruction\n");
 		#100;
+		$display("\nTesting CMPI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -204,12 +352,13 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
-		$display("\nTesting AND instruction\n");
 		#100;
+		$display("\nTesting AND instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -225,9 +374,9 @@ module alutest_colton;
 			#10;
 		end
 		
-		
-		$display("\nTesting ANDI instruction\n");
 		#100;
+		$display("\nTesting ANDI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -241,15 +390,15 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
 		
 		
-		
-		$display("\nTesting OR instruction\n");
 		#100;
+		$display("\nTesting OR instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -265,13 +414,13 @@ module alutest_colton;
 			#10;
 		end
 		
-		
-		$display("\nTesting ORI instruction\n");
 		#100;
+		$display("\nTesting ORI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
-		Opcode = 8'b001xxxx; // ORI
+		Opcode = 8'b0010xxxx; // ORI
 		
 		#10
 		
@@ -279,12 +428,14 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
-		$display("\nTesting XOR instruction\n");
+		
 		#100;
+		$display("\nTesting XOR instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -300,9 +451,9 @@ module alutest_colton;
 			#10;
 		end
 		
-		
-		$display("\nTesting XORI instruction\n");
 		#100;
+		$display("\nTesting XORI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -314,13 +465,13 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
-		
-		$display("\nTesting MOV instruction\n");
 		#100;
+		$display("\nTesting MOV instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -334,9 +485,9 @@ module alutest_colton;
 			#10;
 		end
 		
-		
-		$display("\nTesting MOVI instruction\n");
 		#100;
+		$display("\nTesting MOVI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -346,13 +497,14 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
-		$display("\nTesting LUI instruction\n");
-		#100;
 		
+		#100;
+		$display("\nTesting LUI instruction\n");
+				
 		A = 0;
 		B = 0;
 		Opcode = 8'b1111xxxx; // LUI
@@ -361,12 +513,14 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 256;
+			B = {$random} % 256;
 			#10;
 		end
 		
-		$display("\nTesting LSH instruction\n");
+		
 		#100;
+		$display("\nTesting LSH instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -420,12 +574,15 @@ module alutest_colton;
 		for( i = 0; i< 10; i = i + 1)
 		begin
 			A = $random % 65536;
-			B = $random % 16;
+			B[15:4] = -({$random} % 2); // will give either all 1's or 0's.
+			B[3:0] = {$random} % 16;
 			#10;
 		end
 		
-		$display("\nTesting LSHI instruction\n");
+		
 		#100;
+		$display("\nTesting LSHI instruction\n");
+		
 		
 		A = 0;
 		B = 0;
@@ -452,28 +609,101 @@ module alutest_colton;
 		//Random simulation
 		for( i = 0; i< 10; i = i + 1)
 		begin
-			Opcode[0] = $random % 2;
-			$display("\nShift: %0b", Opcode[0]);
+			Opcode[0] = {$random} % 2;
+			$display("Shift: %0b", Opcode[0]);
 			A = $random % 65536;
-			B = {12'h000, $random % 16};
+			B = {$random} % 4; // Small shifts
 			#10;
 			
 		end
 		
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			Opcode[0] = $random % 2;
+			$display("Shift: %0b", Opcode[0]);
+			A = $random % 65536;
+			B = {$random} % 16; // Last nybble will be from 0000 to 1111
+			#10;
+			
+		end
 		
-		$display("\nTesting ASHU instruction\n");
 		#100;
+		$display("\nTesting ASHU instruction\n");
 		
-		Opcode = 8'h86;
+		
+		A = 0;
+		B = 0;
+		Opcode = 8'b10000110;
+		#10;
+		
 		A = 16'h8000;
 		B = 16'h3;
-		#10
+		#10;
 		
+		A = 16'h8000;
+		B = -(16'd3);
+		#10;
+		
+		// Shift -1 arithmetically right
+		A = 16'hFFFF; // -1
+		B = 16'hFFFF;
+		#10; 
+		
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			A = $random % 65536;
+			B = $random % 16;
+			#10;
+		end
+		
+		#100;
+		$display("\nTesting ASHUI instruction\n");
+			
+		// b1000001x
+		A = 0;
+		B = 0;
+		Opcode = 8'b10000010; // Shift left
+		#10;
+		
+		A = 16'h8000;
+		B = 16'h3;
+		#10;
+		
+		Opcode = 8'b10000011; // Shift right
+		A = 16'h8000;
+		B = (16'd3);
+		#10;
+		
+		A = 16'hEE0E;
+		B = 16'h0001; // Shift right by one. C should be 0xf707
+		
+		#10;
+		Opcode = 8'b10000010;				
 				
+		//Random simulation
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			Opcode[0] = $random % 2;
+			$display("Shift: %0b", Opcode[0]);
+			A = $random % 65536;
+			B = {$random} % 4;
+			#10;
+			
+		end
+		
+		for( i = 0; i< 10; i = i + 1)
+		begin
+			Opcode[0] = $random % 2;
+			$display("Shift: %0b", Opcode[0]);
+			A = $random % 65536;
+			B = {$random} % 16;
+			#10;
+			
+		end
 		
 		$finish(2);
 		
-		// Add stimulus here
 
 	end
       

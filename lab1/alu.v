@@ -33,6 +33,8 @@ module alu(A, B, C, Opcode, Flags);
 	output reg [15:0] C;
 	output reg [4:0]  Flags;
 	
+	reg C_in;
+	
 	// Flags
 	parameter carry_f    = 3'd4;
 	parameter low_f      = 3'd3;
@@ -78,11 +80,11 @@ module alu(A, B, C, Opcode, Flags);
 	parameter JAL  = 8'b01001000; // *
 	
 	
-	always@(A, B, Opcode)
+	always@(*)
 	begin		
-		
-		Flags = 5'b0;
+		C_in = Flags[carry_f];
 		C = 16'b0;
+		Flags = 5'b0;
 		
 		casex (Opcode)
 		ADD: // Integer addition
@@ -116,7 +118,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		ADDC: // Integer addition with carry (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A + B + Flags[carry_f];
+			{Flags[carry_f], C} = A + B + C_in;
 			
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
@@ -124,7 +126,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		ADDCI: // Integer addition, sign-extended immediate with Carry in (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]} + Flags[carry_f];
+			{Flags[carry_f], C} = A + {{8{B[7]}} , B[7:0]} + C_in;
 			
 			if((~A[15] & ~B[15] & C[15]) | (A[15] & B[15] & ~C[15])) 
 				Flags[overflow_f] = 1'b1;
@@ -168,7 +170,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUBC: // Integer subtraction with carry (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A - (B + Flags[carry_f]);
+			{Flags[carry_f], C} = A - (B + C_in);
 			
 			if(A == B) 
 				Flags[zero_f] = 1'b1; 
@@ -187,7 +189,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		SUBCI: // Integer subtraction with sign-extended immediate and carry (Not Baseline)
 			begin
-			{Flags[carry_f], C} = A - ({{8{B[7]}} , B[7:0]} + Flags[carry_f]);
+			{Flags[carry_f], C} = A - ({{8{B[7]}} , B[7:0]} + C_in);
 			
 			if(A == B) 
 				Flags[zero_f] = 1'b1; 
