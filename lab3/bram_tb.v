@@ -87,7 +87,7 @@ module bram_tb;
   end
   
   always
-	#5 clk = ~clk;
+	#5 clk = !clk;
   
   
 

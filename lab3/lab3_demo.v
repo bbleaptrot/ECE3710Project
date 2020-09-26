@@ -296,7 +296,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 		case(current_state)
 			reset_s:
 			begin
-				if(~start_button) next_state = set_values_s;
+				if(!start_button) next_state = set_values_s;
 				else             next_state = reset_s;
 			end
 			
