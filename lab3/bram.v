@@ -16,7 +16,7 @@ module bram
 	initial
 	begin
 		for(i=0;i<2**ADDR_WIDTH;i=i+1)
-			ram[i] = i[DATA_WIDTH-1:0]; 
+			ram[i] = 0; // Make everything a safe value.
 	end
 
 	// Port A 
