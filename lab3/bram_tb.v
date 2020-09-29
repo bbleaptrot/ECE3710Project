@@ -1,5 +1,11 @@
 `timescale 1ns / 1ps
-
+/*
+ * Simple test bench for ram module.
+ * Inputs data, into ram, then prints that data.
+ *
+ * September 29, 2020
+ *
+ */
 module bram_tb;
 
   reg clk;
@@ -57,7 +63,7 @@ module bram_tb;
 	we_b = 1'b1;
 	#10;
 	
-	for(i = 0; i < 32; i=i+1)
+	for(i = 32; i < 64; i=i+1)
 	begin
 		data_b = i;
 		addr_b = i;

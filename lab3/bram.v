@@ -1,6 +1,11 @@
+/*
+ * Simple memory for sixteen bit data values with 10 bits for address space.
+ * Group 9
+ * September 29, 2020
+ *
+ */
 // Quartus Prime Verilog Template
 // True Dual Port RAM with single clock
-
 module bram
 #(parameter DATA_WIDTH=16, parameter ADDR_WIDTH=10)
 (
@@ -16,7 +21,7 @@ module bram
 	initial
 	begin
 		for(i=0;i<2**ADDR_WIDTH;i=i+1)
-			ram[i] = 0; // Make everything a safe value.
+			ram[i] = 0; // Make everything a safe value, zero is what we initially will use. use a $readmemh for loading a hex file.
 	end
 
 	// Port A 
@@ -47,34 +52,4 @@ module bram
 		end 
 	end
 
-endmodule
-
-module clk_divider(clk_50MHz, rst, clk_1Hz);
-	input clk_50MHz, rst;
-	
-	output reg clk_1Hz;
-	
-	reg [24:0] count;
-	
-always@(posedge clk_50MHz) begin
-	if(rst == 1) begin
-		count <= 25'd0;
-		if(clk_1Hz == 0)
-			clk_1Hz <= 1;
-		else
-			clk_1Hz <= 0;
-		end
-	else if(count == 25000000) begin
-		count <= 25'd0;
-		if(clk_1Hz == 0)
-			clk_1Hz <= 1;
-		else
-			clk_1Hz <= 0;
-		end
-	else begin
-		count <= count + 1'b1;
-		clk_1Hz <= clk_1Hz;
-		end
-//count <= count + 1'b1;
-end
 endmodule

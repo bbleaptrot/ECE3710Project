@@ -1,3 +1,13 @@
+/*
+ * Lab 3 Demo for Group 9 - ECE 3710 Fall 2020
+ * This lab writes to a ram module, accesses its data, 
+ * modifies its data, and then writes back, then displays 
+ * its result to the 7-segment displays.
+ *
+ * September 29, 2020
+ *
+ */
+
 module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	input clk;
 	input reset;        // KEY3
@@ -15,8 +25,6 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	
 	reg [15:0] r0, r1, r2, r3, r510, r511, r512, r513;
    reg [15:0] pr0, pr1, pr2, pr3, pr510, pr511, pr512, pr513;
-	
-	reg [3:0] count = 4'b0;
 	
 	
 	bram ram(
@@ -68,7 +76,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	   prev_button <= start_button;
 		
 		// Only advance state on one button press
-		if(!cont_flag && prev_button && ~start_button)
+		if(!cont_flag && prev_button && !start_button)
 			cont_flag <= 1'b1;
 		else
 			cont_flag <= 1'b0;
@@ -106,7 +114,6 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 		pr512 <= r512;
 		pr513 <= r513;
 		
-		count <= count + 1'b1;
 	
 		case(current_state)
 			reset_s:
@@ -150,10 +157,9 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				pr512 <= 16'b0;
 				pr513 <= 16'b0;
 				
-				count <= 4'b0;
 			end
 			
-			set_values_s:
+			set_values_s: // Put a few values into the ram module.
 			begin
 				we_a <= 1'b1;
 				we_b <= 1'b1;
@@ -188,7 +194,8 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 						addr_a <= 10'd3;
 						addr_b <= 10'd513;
 						
-						if(count == 4'b0) 
+						// Could be cleaned up, but I don't want to.
+						if(cont_flag) 
 						begin
 							done <= 1'b1;
 							set_param <= set_0;
@@ -203,7 +210,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				endcase
 			end
 			
-			modify_s:
+			modify_s: // Get values from ram, and do something with them. We just did integer adds.
 			begin
 				we_a <= 1'b0;
 				we_b <= 1'b0;
@@ -282,7 +289,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				endcase
 			end
 			
-			write_back_s:
+			write_back_s: // Put the modified values back into the ram module.
 			begin
 			
 				we_a <= 1'b1;
@@ -327,7 +334,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 					
 						addr_a <= 10'd2;
 						addr_b <= 10'd513;
-						if(count == 4'b0) 
+						if(cont_flag) 
 						begin
 							done <= 1'b1;
 							set_param <= set_0;
@@ -341,9 +348,10 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				endcase
 			end
 			
-			display_s:
+			display_s: // Just print out whatever is in the address.
 			begin
-			
+			   // Change these addresses to look at different values, probably could be adjusted
+				// to use switches, but that's beyond the scope of this lab.
 				addr_a <= 10'h0;
 				addr_b <= 10'd513;
 				
@@ -355,7 +363,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				
 			end
 			
-			default:
+			default: // Shouldn't get here.
 			begin
 				h3 <= 4'hd;
 				h2 <= 4'he;
