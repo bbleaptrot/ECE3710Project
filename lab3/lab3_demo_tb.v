@@ -46,6 +46,24 @@ module lab3_demo_tb;
 		
 		#1000;
 		
+		reset = 1'b0;
+		
+		#100;
+		
+		reset = 1'b1;
+		
+		#100;
+		
+		
+		start_button = 1'b0;
+		
+		#20;
+		
+		start_button = 1'b1;
+		
+		#1000;
+		
+		
 		$display("%0h %0h %0h %0h", hex3, hex2, hex1, hex0);
 		
 		$finish;

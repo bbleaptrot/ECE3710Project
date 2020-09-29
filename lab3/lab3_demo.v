@@ -1,9 +1,9 @@
 module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	input clk;
-	input reset;
-	input start_button;
+	input reset;        // KEY3
+	input start_button; // KEY2
 	
-	output [0:6] hex3, hex2, hex1, hex0;
+	output [0:6] hex3, hex2, hex1, hex0; //HEX3 HEX2 HEX1 HEX0
 	reg [3:0] h3, h2, h1, h0;
 	
 	reg we_a, we_b;
@@ -14,7 +14,9 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	
 	
 	reg [15:0] r0, r1, r2, r3, r510, r511, r512, r513;
-  
+   reg [15:0] pr0, pr1, pr2, pr3, pr510, pr511, pr512, pr513;
+	
+	reg [3:0] count = 4'b0;
 	
 	
 	bram ram(
@@ -56,9 +58,21 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 	
 	reg done;
 	
+	reg prev_button;
+	reg cont_flag;
+	
+	
 	
 	always@(posedge clk)
 	begin
+	   prev_button <= start_button;
+		
+		// Only advance state on one button press
+		if(!cont_flag && prev_button && ~start_button)
+			cont_flag <= 1'b1;
+		else
+			cont_flag <= 1'b0;
+			
 		we_a <= 1'b0;
 		we_b <= 1'b0;
 		data_a <= 16'b0;
@@ -72,34 +86,49 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 		h1 <= 4'h0;
 		h0 <= 4'h0;
 		
-		r0 <= r0;
-		r1 <= r1;
-		r2 <= r2;
-		r3 <= r3;
+		r0 <= pr0;
+		r1 <= pr1;
+		r2 <= pr2;
+		r3 <= pr3;
 		
-		r510 <= r510;
-		r511 <= r511;
-		r512 <= r512;
-		r513 <= r513;
+		r510 <= pr510;
+		r511 <= pr511;
+		r512 <= pr512;
+		r513 <= pr513;
+	
+	   pr0 <= r0;
+		pr1 <= r1;
+		pr2 <= r2;
+		pr3 <= r3;
+		
+		pr510 <= r510;
+		pr511 <= r511;
+		pr512 <= r512;
+		pr513 <= r513;
+		
+		count <= count + 1'b1;
 	
 		case(current_state)
 			reset_s:
 			begin
 				we_a   <=  1'b0;
 				we_b   <=  1'b0;
+				
 				data_a <= 16'b0;
 				data_b <= 16'b0;
-				addr_a <= 10'b0;
-				addr_b <= 10'b0;	
+				
+				addr_a <= 10'h3FF;
+				addr_b <= 10'h3FF;	
 	
 				done <= 1'b0;
 				
 				set_param <= set_0;
 				
-				h0 <= q_a[15:12]; // Prevent output pins from being stuck to GND or VCC
-				h1 <= q_a[11:8];  // Also prevents quartus from not making the full ram module.
-				h2 <= q_a[7:4];
-				h3 <= q_a[3:0];
+				h3 <= q_a[15:12];  // Prevent output pins from being stuck to GND or VCC
+				h2 <= q_a[11:8];   // Also prevents quartus from not making the full ram module.
+				h1 <= q_a[7:4];
+				h0 <= q_a[3:0]; 
+				
 				
 				r0 <= 16'b0;
 				r1 <= 16'b0;
@@ -110,6 +139,18 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				r511 <= 16'b0;
 				r512 <= 16'b0;
 				r513 <= 16'b0;
+				
+				pr0 <= 16'b0;
+				pr1 <= 16'b0;
+				pr2 <= 16'b0;
+				pr3 <= 16'b0;
+		
+				pr510 <= 16'b0;
+				pr511 <= 16'b0;
+				pr512 <= 16'b0;
+				pr513 <= 16'b0;
+				
+				count <= 4'b0;
 			end
 			
 			set_values_s:
@@ -117,8 +158,8 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				we_a <= 1'b1;
 				we_b <= 1'b1;
 				
-				data_a <= 16'd69;
-				data_b <= 16'd69;
+				data_a <= 16'd15;
+				data_b <= 16'h70;
 				
 				case(set_param)
 					set_0:
@@ -146,8 +187,18 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 					begin
 						addr_a <= 10'd3;
 						addr_b <= 10'd513;
-						set_param <= set_0;
-						done <= 1'b1;
+						
+						if(count == 4'b0) 
+						begin
+							done <= 1'b1;
+							set_param <= set_0;
+						end
+						else
+						begin
+						   done <= 1'b0;
+							set_param <= set_3;
+						end
+						
 					end
 				endcase
 			end
@@ -160,14 +211,22 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 				data_a <= 16'b0;
 				data_b <= 16'b0;
 				
+				h3 <= q_b[15:12];
+				h2 <= q_b[11:8];
+				h1 <= q_b[7:4];
+				h0 <= q_b[3:0];
+				
 				case(set_param)
 					set_0:
 					begin
 						addr_a <= 10'd0;
 						addr_b <= 10'd510;
 						
-						r0 <= q_a + 1'b1;
-						r510 <= q_b + 1'b1;
+						r0 <= q_a + 4'd1;
+						r510 <= q_b + 4'h3;
+						
+						pr0 <= q_a + 4'd1;
+						pr510 <= q_b + 4'h3;
 						
 						set_param <= set_1;
 						done <= 1'b0;
@@ -177,8 +236,11 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 						addr_a <= 10'd1;
 						addr_b <= 10'd511;
 						
-						r1 <= q_a + 1'b1;
-						r511 <= q_b + 1'b1;
+						r1 <= q_a + 4'd2;
+						r511 <= q_b + 4'h4;
+						
+						pr1 <= q_a + 4'd2;
+						pr511 <= q_b + 4'h4;
 						
 						set_param <= set_2;
 						done <= 1'b0;
@@ -188,8 +250,10 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 						addr_a <= 10'd2;
 						addr_b <= 10'd512;
 						
-						r2 <= q_a + 1'b1;
-						r512 <= q_b + 1'b1;
+						r2 <= q_a + 4'd3;
+						r512 <= q_b + 4'h5;
+						pr2 <= q_a + 4'd3;
+						pr512 <= q_b + 4'h5;
 						
 						set_param <= set_3;
 						done <= 1'b0;
@@ -199,17 +263,31 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 						addr_a <= 10'd3;
 						addr_b <= 10'd513;
 						
-						r3 <= q_a + 1'b1;
-						r513 <= q_b + 1'b1;
+						r3 <= q_a + 4'd4;
+						r513 <= q_b + 4'h3;
+						pr3 <= q_a + 4'd4;
+						pr513 <= q_b + 4'h3;
 						
-						set_param <= set_0;
-						done <= 1'b1;
+						if(cont_flag) 
+						begin
+							done <= 1'b1;
+							set_param <= set_0;
+						end
+						else
+						begin
+						   done <= 1'b0;
+							set_param <= set_3;
+						end
 					end
 				endcase
 			end
 			
 			write_back_s:
 			begin
+			
+				we_a <= 1'b1;
+				we_b <= 1'b1;
+				
 			
 				case(set_param)
 					set_0:
@@ -247,10 +325,18 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 						data_a <= r3;
 						data_b <= r513;
 					
-						addr_a <= 10'd3;
+						addr_a <= 10'd2;
 						addr_b <= 10'd513;
-						set_param <= set_0;
-						done <= 1'b1;
+						if(count == 4'b0) 
+						begin
+							done <= 1'b1;
+							set_param <= set_0;
+						end
+						else
+						begin
+						   done <= 1'b0;
+							set_param <= set_3;
+						end
 					end
 				endcase
 			end
@@ -259,7 +345,7 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 			begin
 			
 				addr_a <= 10'h0;
-				addr_b <= 10'h3;
+				addr_b <= 10'd513;
 				
 				h3 <= q_b[15:12];
 				h2 <= q_b[11:8];
@@ -320,7 +406,9 @@ module lab3_demo(clk, reset, start_button, hex3, hex2, hex1, hex0);
 			
 			display_s:
 			begin
-				next_state = display_s;
+			   if(!reset) next_state = reset_s;
+				else       next_state = display_s;
+				
 			end
 			
 			default:
