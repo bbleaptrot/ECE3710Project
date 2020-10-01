@@ -16,12 +16,13 @@ module bram
 );
 
 	// Declare the RAM variable
-	reg [DATA_WIDTH-1:0] ram[2**ADDR_WIDTH-1:0];
+	reg [DATA_WIDTH-1:0] ram[0:2**ADDR_WIDTH-1];
 	integer i;
 	initial
 	begin
-		for(i=0;i<2**ADDR_WIDTH;i=i+1)
-			ram[i] = 0; // Make everything a safe value, zero is what we initially will use. use a $readmemh for loading a hex file.
+	$readmemh("initbram.list.txt", ram);
+		//for(i=0;i<2**ADDR_WIDTH;i=i+1)
+			//ram[i] = 0; // Make everything a safe value, zero is what we initially will use. use a $readmemh for loading a hex file.
 	end
 
 	// Port A 
