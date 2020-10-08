@@ -20,6 +20,7 @@ steel:   .word 0x4b5f81
 black:   .word 0x000000
 white:   .word 0xFFFFFF
 silver:  .word 0xC0C0C0
+yellow:  .word 0xFFFF00
 
 ### Flowers ###
 flowers: .space 40  # 10 flowers. A flower has a pixel location. (Non-adjusted)
@@ -28,6 +29,10 @@ flowers: .space 40  # 10 flowers. A flower has a pixel location. (Non-adjusted)
 # How to decompose player position:
 # rowIndex * numberOfColumns + columnIndex
 playerPos: .word 1936 # Default Player Position: 60 * 32 + 16
+
+### Player Bullets ###
+# Probably want a way to shoot multiple bullets at a time, but this currently works.
+bulletPos: .space 8 # Shoot a single bullet. The first word represents if a bullet exists. The second word is the position.
 
 .text
 
@@ -70,10 +75,18 @@ Update:
 	addi $sp, $sp, -4
 	sw $ra, 0($sp)
 	
-	# Player Control
+	
 	jal GetInput
 	move $a0, $v0
-	#addi $a0, $0, -32
+	
+	jal UpdateBullets
+	
+	# Bullet Control. Only create bullets with proper input.
+	bne $a0, 0x1000, noShoot  
+	jal CreateBullet
+	
+	noShoot:	
+	# Player Control
 	jal UpdatePlayer
 	
 	# Background Control
@@ -100,12 +113,14 @@ Draw:
 	# Draw the Player.
 	jal DrawPlayer
 	
+	jal DrawBullets
+	
 	lw $ra, 0($sp)
 	addi $sp, $sp, 4
 	jr $ra
 	
 
-	
+### Generation / Creation Procedures ###
 # Creates 10 words representing pixel location of flowers.
 # Affects $v0, $a0, $a1, $t0
 GenerateFlowers:
@@ -125,6 +140,23 @@ GenerateFlowers:
 	 
 	jr $ra
 	
+# Creates a bullet. If a bullet already exists, don't make another.
+CreateBullet:
+	la $t0, bulletPos
+	lw $t1, playerPos
+	
+	lw $t2, 0($t0)         # If there is already a bullet
+	bne $t2, $0, cNoBullet # Don't create another.
+
+	addi $t2, $0, 0x1
+	sw $t2, 0($t0)
+	
+	addi $t1, $t1, -32 # Create bullet one pixel above user	
+	
+	sw $t1, 4($t0) # Save position.
+	
+	cNoBullet:
+	jr $ra
 	
 ##### Update Procedures #####
 
@@ -148,10 +180,11 @@ GetInput:
 	
 	# Could be more optimized, but let's try this first.
 	
-	beq $t2, 0x77, goUp    # w
-	beq $t2, 0x61, goLeft  # a
-	beq $t2, 0x73, goDown  # s
-	beq $t2, 0x64, goRight # d
+	beq $t2, 0x77, goUp       # w
+	beq $t2, 0x61, goLeft     # a
+	beq $t2, 0x73, goDown     # s
+	beq $t2, 0x64, goRight    # d
+	beq $t2, 0x20, fireBullet # space bar
 	
 	# Not a valid input, don't do anything
 	j inputDone
@@ -172,7 +205,10 @@ GetInput:
 	addi $v0, $0, 32
 	j inputDone
 	
-	# TODO: what about space?
+	fireBullet:
+	addi $v0, $0, 0x1000 # 4096, something way outside of the the range of movement.
+	#jal CreateBullet # I don't want to do this. GetInput should only get input, nothing more.
+	#j inputDone # Last instructions don't need a jump, uncomment if more functionality is added
 	
 	inputDone:
 	jr $ra
@@ -180,7 +216,7 @@ GetInput:
 # Update the player's position.
 # Parameters: $a0: The offset for next movement. 
 # Only accepts moving up, down, left, right by one pixel.
-# Affects: $t0, $t1, $t2, 
+# Affects: $a0, $t0, $t1, $t2, 
 UpdatePlayer:
 	#addi $sp, $sp, -4
 	#sw $ra 0($sp)
@@ -193,6 +229,8 @@ UpdatePlayer:
 	beq $a0,  -1, moveLeft
 	beq $a0,   1, moveRight
 	beq $a0,  32, moveDown
+	
+	j updatePos # no valid movement, don't go anywhere, skip everything else
 	
 	moveUp:
 	# Top wall is from 0 to 31. To prevent silly errors, only allows player to go to second row.
@@ -229,6 +267,27 @@ UpdatePlayer:
 	#addi $sp, $sp, 4
 	jr $ra
 
+# Updates the position of the bullet. Can only do one bullet right now.
+UpdateBullets:
+	la $t0, bulletPos
+	lw $t1, 0($t0)
+	beq $t1, $0, uNoBullets
+	
+	# There are bullets, update them.
+	lw $t1, 4($t0) # Get only the position.
+	
+	addi $t1, $t1, -64 # Go up two pixels
+	
+	# if bullet has gone too far, delete it.
+	bgt $t1, $0, bulletFits
+	and $t1, $0, $0
+	sw $t1, 0($t0)
+	
+	bulletFits:
+	sw $t1, 4($t0) 
+
+	uNoBullets:
+	jr $ra
 
 # Update flower positions.
 # Parameters: None.
@@ -263,6 +322,21 @@ UpdateFlowers:
 
 
 ##### Draw Procedures #####
+
+# Draws the bullet yellow.
+ DrawBullets:
+	la $t0, bulletPos
+	lw $t1, 0($t0)
+	beq $t1, $0, dNoBullets
+	
+	lw $t1, 4($t0)
+	sll $t1, $t1, 2
+	 
+	lw $t2, yellow # Just do a lui $t2, 0x00FFFF
+	sw $t2, frameBuffer($t1)
+	
+	dNoBullets:	
+	jr $ra
 
 # Draws the Player.
 # Affects $t0, $t1, $t2
