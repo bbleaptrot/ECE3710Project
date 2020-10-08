@@ -31,27 +31,36 @@ playerPos: .word 1936 # Default Player Position: 60 * 32 + 16
 
 .text
 
-
+# Procedure where execution begins.
+# It does initial execution, and controls the game loop.
 Main:
 	jal GenerateFlowers
-	addi $s0, $0, 0
+	addi $s0, $0, 0    # frame counter
+	addi $s1, $0, 1000 # max number of frames
 	
-	MainLoop:
-	# Sleep for sbout 50 milliseconds
-	addi $a0, $0, 50
-	addi $v0, $0, 32
-	syscall
+# Given basic generation, this procdure is where the main loop of the game exists.
+# The loop only runs for so many frames
+GameLoop:
+	
+	############################################################################################ 			
+	# NOT what you want to do for a game, but this is a simple way to make frames              #
+	# and control the speed of the program. Relies on Java's sleep method, so it has overhead! #
+	# Sleep for sbout 50 milliseconds	                                                   #
+	addi $a0, $0, 50									   #
+	addi $v0, $0, 32									   #
+	syscall											   #
+	############################################################################################
 	
 	# Update logic for everything.
 	addi $s0, $s0, 1
 	jal Update
 	
-	
 	# Draw everything
 	jal Draw
 	
-	# Only Draw 1000 frames for right now.
-	bne $s0, 1000, MainLoop
+	# Only update/draw so many frames for right now. 
+	# (It's so I can let the program end naturally without having to interrupt it if I forget about it.)
+	bne $s0, $s1, GameLoop
 	
 	j Exit
 
@@ -119,10 +128,13 @@ GenerateFlowers:
 	
 ##### Update Procedures #####
 
-# Gets user's input and stores the value into $v0
+# Gets user's input and stores the value into $v0. 
+# Do not hold a button for too long, and do not hold multiple buttons down!
+# In our project, we will do MMIO differently so that isn't a problem, instead,
+# we'll have an 8-bit value representing which buttons are held down.
 # Affects registers $v0, $t1, $t2, $t3
 GetInput:
-	addi $v0, $0, 0 # if zero, user isn't inputting something.
+	addi $v0, $0, 0 # if zero, user isn't inputting something, or input something ivalid.
 	
 	# Make sure we can grab something
 	lui $t1, 0xFFFF
@@ -131,53 +143,51 @@ GetInput:
 	beqz $t2, inputDone  #   return 0; 
 	
 	# User has put in something. Sadly, MIPS only allows for one input at a time. Very limiting!
+	# Do not hold a button down for too long, and do not hold multiple buttons, MIPS will crash and burn!
 	lw $t2, 4($t1) # Receiver Data is at 0xffff0004
 	
-	# Maybe do something for if shift is being held with buttons? -> do something different in final project.
 	# Could be more optimized, but let's try this first.
 	
-	# w = up
-	addi $t3, $0, 0x77 # w is 0x77. I think MARS accepts 'w' as valid input for chars.
+	beq $t2, 0x77, goUp    # w
+	beq $t2, 0x61, goLeft  # a
+	beq $t2, 0x73, goDown  # s
+	beq $t2, 0x64, goRight # d
+	
+	# Not a valid input, don't do anything
+	j inputDone
+	
+	goUp:
 	addi $v0, $0, -32
-	beq $t2, $t3, inputDone 
+	j inputDone 
 	
-	# a = left
-	addi $t3, $0, 0x61
+	goLeft:
 	addi $v0, $0, -1
-	beq $t2, $t3, inputDone
+	j inputDone
 	
-	# s = down
-	addi $t3, $0, 0x73
-	addi $v0, $0, 32
-	beq $t2, $t3, inputDone
-	
-	# d = right
-	addi $t3, $0, 0x64
+	goRight:
 	addi $v0, $0, 1
-
+	j inputDone
+	
+	goDown:
+	addi $v0, $0, 32
+	j inputDone
+	
 	# TODO: what about space?
 	
 	inputDone:
 	jr $ra
 
 # Update the player's position.
-# Parameters: $a0: The offset for next movement.
+# Parameters: $a0: The offset for next movement. 
+# Only accepts moving up, down, left, right by one pixel.
 # Affects: $t0, $t1, $t2, 
 UpdatePlayer:
 	#addi $sp, $sp, -4
 	#sw $ra 0($sp)
 	
-	# Individually, they all look good.
-	# Next, check when two inputs are being done.
-	
-	# dp -> change in position
-	# if(dp < 0) Check left and up
-	# if(dp > 0) check right and down
-	
-	# In left check, check left tile. if left tile is wall, or less than current wall, limit dp to just be up/down (multiples of 32)
 	lw $t0, playerPos
 	beq $a0, $0, updatePos # if(!dp) return 0;
-	add $t1, $t0, $a0 # Next position = current position + dp
+	add $t1, $t0, $a0      # Next position = current position + dp
 	
 	beq $a0, -32, moveUp
 	beq $a0,  -1, moveLeft
@@ -185,8 +195,8 @@ UpdatePlayer:
 	beq $a0,  32, moveDown
 	
 	moveUp:
-	# Top wall is from 0 to 31.
-	blt $t1, $0, updatePos	# if(next_pos < 0) return current_pos;
+	# Top wall is from 0 to 31. To prevent silly errors, only allows player to go to second row.
+	blt $t1, 32, updatePos	# if(next_pos < 0) return current_pos;
 	move $t0, $t1
 	j updatePos
 
@@ -199,7 +209,8 @@ UpdatePlayer:
 	
 	moveDown:
 	# Bottom wall is from 2016 to 2047, anything greater is too far.
-	addi $t2, $0, 2048
+	# Only go to second-to-last row to prevent silly errors. You don't need to buckle against the bottom row.
+	addi $t2, $0, 2015
 	bgt $t1, $t2, updatePos
 	move $t0, $t1
 	j updatePos
@@ -225,7 +236,7 @@ UpdatePlayer:
 UpdateFlowers:
 	addi $t0, $0, 0
 	
-	UFLoop:
+	uFLoop:
 	# Get Flower.
 	lw $t1, flowers($t0)
 	
@@ -233,7 +244,7 @@ UpdateFlowers:
 	addi $t1, $t1, 65
 	
 	# If it still fits, put it back into array, otherwise give the flower a new location. 
-	blt $t1, 2048, UFOkay
+	blt $t1, 2048, uFOkay
 	
 	addi $v0, $0, 42 # random int from 0 - 32
 	addi $a1, $0, 32
@@ -241,11 +252,11 @@ UpdateFlowers:
 	
 	move $t1, $a0
 	
-	UFOkay:
+	uFOkay:
 	sw $t1, flowers($t0)
 	
 	addi $t0, $t0, 4
-	bne $t0, 40, UFLoop
+	bne $t0, 40, uFLoop
 	jr $ra
 
 
@@ -257,31 +268,44 @@ UpdateFlowers:
 # Affects $t0, $t1, $t2
 DrawPlayer:
 	# Get player position and adjust for display.
-	lw $t0, playerPos
-	sll $t0, $t0, 2
+	lw $t3, playerPos # $t3 will hold Player's Position
+	sll $t0, $t3, 2   # $t0 will hold position, adjusted for screen.
 	
 	# Draw them on screen.
 	lw $t1, black
 	sw $t1, frameBuffer($t0)
 	
-	# Draw white pixels next to player.
-	# Draw up    square - Check for boundary
-	addi $t2, $t0, -128
+	# Draw other squares white for easy visibility.
 	lw $t1, white
-	sw $t1, frameBuffer($t2)
-	# Draw down  square - Check for boundary 
-	addi $t2, $t0, 128
-	#lw $t1, white
-	sw $t1, frameBuffer($t2)
-	# Draw left  square - Check for boundary
-	addi $t2, $t0, -4
-	#lw $t1, white
-	sw $t1, frameBuffer($t2)
-	# Draw right square - Check for boundary
-	addi $t2, $t0, 4
-	#lw $t1, white
-	sw $t1, frameBuffer($t2)	
 	
+	# Draw white pixels next to player to make a simple character design.
+	# Obviously make glyphs and things for actual assignment.
+	
+	# Don't worry about checking bottom/top since update procedure prevents that.
+	# Draw up square 
+	addi $t2, $t0, -128
+	sw $t1, frameBuffer($t2)
+	# Draw down square 
+	addi $t2, $t0, 128
+	sw $t1, frameBuffer($t2)
+	
+	# Draw left  square - Check for boundary
+	andi $t4, $t3, 0x1F                    #  if(Player is on left edge)
+	beq $t4, $0, skipLeft                  #     skip drawing left square
+	
+	addi $t2, $t0, -4
+	sw $t1, frameBuffer($t2)
+	
+	skipLeft:
+	# Draw right square - Check for boundary
+	addi $t4, $t3, 1
+	andi $t4, $t4, 0x1F                     # if(Player is on right edge)
+	beq $t4, $0, skipRight                  #   skip drawing right square
+	  
+	addi $t2, $t0, 4
+	sw $t1, frameBuffer($t2)	
+        
+        skipRight:	
 	jr $ra
 
 
