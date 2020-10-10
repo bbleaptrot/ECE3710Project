@@ -50,10 +50,10 @@ GameLoop:
 	############################################################################################ 			
 	# NOT what you want to do for a game, but this is a simple way to make frames              #
 	# and control the speed of the program. Relies on Java's sleep method, so it has overhead! #
-	# Sleep for sbout 50 milliseconds	                                                   #
-	addi $a0, $0, 50									   #
-	addi $v0, $0, 32									   #
-	syscall											   #
+	# Sleep for sbout 50 milliseconds	                                                       #
+	addi $a0, $0, 50									                                       #
+	addi $v0, $0, 32									                                       #
+	syscall											                                           #
 	############################################################################################
 	
 	# Update logic for everything.
