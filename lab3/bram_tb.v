@@ -36,6 +36,7 @@ module bram_tb;
   
 	$monitor("q_a: %0d, q_b: %0d, time: %0d", q_a, q_b, $time); 
   
+  
 	clk = 1'b0;
 	we_a = 1'b0;
 	we_b = 1'b0;
@@ -78,7 +79,7 @@ module bram_tb;
 	
 	#10;
 	
-	for(i = 0; i < 64; i=i+1)
+	for(i = 510; i < 514; i=i+1)
 	begin
 		addr_a = i;
 		addr_b = i;
