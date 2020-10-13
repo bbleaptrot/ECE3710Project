@@ -1,0 +1,98 @@
+module lab4(clk, rst, PCen, RegEn, IRen);
+input clk, rst;
+output PCen, IRen;
+output [15:0] RegEn;
+
+alu logic(
+	.A(),
+	.B(),
+	.C(),
+	.Opcode(),
+	.Flags()
+);
+
+regfile_2D_memory registers(
+	.ALUBus(),
+	.r0(),
+	.r1(),
+	.r2(),
+	.r3(),
+	.r4(),
+	.r5(),
+	.r6(),
+	.r7(),
+	.r8(),
+	.r9(),
+	.r10(),
+	.r11(),
+	.r12(),
+	.r13(),
+	.r14(),
+	.r15(),
+	.regEnable(),
+	.clk(),
+	.reset()
+);
+
+bram memory(
+	.data_a(),
+	.data_b(),
+	.addr_a(),
+	.addr_b(),
+	.we_a(),
+	.we_b(),
+	.clk(),	
+	.q_a(),
+	.q_b()
+);
+
+mux Rsrc(
+	.r0(),
+	.r1(),
+	.r2(),
+	.r3(),
+	.r4(),
+	.r5(),
+	.r6(),
+	.r7(),
+	.r8(),
+	.r9(),
+	.r10(),
+	.r11(),
+	.r12(),
+	.r13(),
+	.r14(),
+	.r15(),
+	.S_in(),
+	.mux_out()
+);
+
+mux Rdest(
+	.r0(),
+	.r1(),
+	.r2(),
+	.r3(),
+	.r4(),
+	.r5(),
+	.r6(),
+	.r7(),
+	.r8(),
+	.r9(),
+	.r10(),
+	.r11(),
+	.r12(),
+	.r13(),
+	.r14(),
+	.r15(),
+	.S_in(),
+	.mux_out()
+);
+
+
+mux_2_to_1 RegOrImm(
+	.r0(),
+	.r1(),
+	.S_in(),
+	.mux_out()
+);
+endmodule
