@@ -1,0 +1,10 @@
+`timescale 1ns / 1ps
+
+module tb_IRreg;
+reg IEn, clk, rst;
+reg [15:0] dataIn;
+
+//reg [7:0] Op;
+
+wire[3:0] RsrcOut, RdstOut, ImmOut;
+wire[7:0] Opcode;

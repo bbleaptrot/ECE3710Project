@@ -1,0 +1,55 @@
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
+# do lab4_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:22:08 on Oct 15,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4" C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v 
+# -- Compiling module IRreg
+# 
+# Top level modules:
+# 	IRreg
+# End time: 16:22:08 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:22:21 on Oct 15,2020
+# vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v 
+# -- Compiling module IRreg
+# 
+# Top level modules:
+# 	IRreg
+# End time: 16:22:21 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 16:22:21 on Oct 15,2020
+# vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v 
+# -- Compiling module tb_IRreg
+# 
+# Top level modules:
+# 	tb_IRreg
+# End time: 16:22:21 on Oct 15,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+vsim work.tb_IRreg
+# vsim work.tb_IRreg 
+# Start time: 16:22:27 on Oct 15,2020
+# Loading work.tb_IRreg
+# Loading work.IRreg
+add wave sim:/tb_IRreg/*
+run
+# dataIn: (0), Opcode: (x), RsrcOut: (x), RdstOut: (x), ImmOut: (x), time:0
+# dataIn: (4660), Opcode: (x), RsrcOut: (x), RdstOut: (x), ImmOut: (x), time:3
+# dataIn: (4660), Opcode: (19), RsrcOut: (4), RdstOut: (2), ImmOut: (3), time:5
+# End time: 16:24:02 on Oct 15,2020, Elapsed time: 0:01:35
+# Errors: 0, Warnings: 0

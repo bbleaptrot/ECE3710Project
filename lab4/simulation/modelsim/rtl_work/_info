@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/bblea/source/repos/ECE3710Project/lab4/simulation/modelsim
+vIRreg
+Z1 !s110 1602800541
+!i10b 1
+!s100 PSiY4KncCS]TB?D_HGMb50
+IH@Y^?2g3F;2XPS=H>aSfV1
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1602797014
+8C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
+FC:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1602800541.000000
+!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
+!s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+n@i@rreg
+vtb_IRreg
+R1
+!i10b 1
+!s100 TiF8VR0OnniAoAc<P3cj50
+IXfP6_9_3QoG39ZooQAd6_0
+R2
+R0
+w1602800499
+8C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v
+FC:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v|
+!s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v|
+!i113 1
+R5
+R6
+ntb_@i@rreg
