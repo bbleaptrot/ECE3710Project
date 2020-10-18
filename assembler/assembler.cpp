@@ -1,6 +1,5 @@
 /*
  * Simple assembler for Group 9, ECE 3710, Fall 2020
- * I propose the name : Sass16
  * Group Members: Ben Leaptrot, Christian Giauque, Colton Watson, Nathan Hummel
  *
  * Notes for Future Reference:
@@ -12,6 +11,7 @@
  * Last updated: October 16, 2020
  */
 
+#include <cstdlib>
 #include <iostream> 
 #include <fstream>
 #include <sstream>
@@ -25,6 +25,7 @@ std::vector<std::string> get_asm_lines(char* filename);
 std::string trim(std::string& line);
 short parse_line(std::string& line);
 bool undefined_code(short code);
+int reg_to_char(std::string reg);
 
 int main(int argc, char** argv)
 {
@@ -40,6 +41,7 @@ int main(int argc, char** argv)
   // Parse each line.
   for(int i = 0; i < asm_lines.size(); i++)
   {
+    std::cout << "Parsing line: " << asm_lines[i] << std::endl;
     short asm_code = parse_line(asm_lines[i]);
 
     if(undefined_code(asm_code))
@@ -156,15 +158,13 @@ short parse_line(std::string& line)
   {
     std::string Rsrc;
     std::string Rdest;
-
+ 
     if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
       return 0x4FFE;
-
-    // TODO Convert a string to an int.
-    unsigned char Rs = Rsrc[1] - '0';
-    unsigned char Rd = Rdest[1] - '0'; 
-    std::cout << Rsrc[1] << std::endl;
-    std::cout << Rdest[1] << std::endl;
+   
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
     if((Rs > 15) || (Rd > 15))
       return 0x4FFE;
     
@@ -172,9 +172,425 @@ short parse_line(std::string& line)
     return 0x0 + (Rd << 8) + (0x5 << 4) + (Rs);   
   }
 
+  if(!instr.compare("ADDI"))
+  {
+    std::string Rdest;
+    int Imm;
 
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
 
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x5 << 12) + (Rd << 8) + Imm;
+  }
+  if(!instr.compare("ADDU"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+  
+    if((Rs > 15) || (Rd > 15))
+      0x4FFE;
+
+    return (0x0) + (Rd << 8) + (0x6 << 4) + (Rs);
+  }
+  if(!instr.compare("ADDUI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x6 << 12) + (Rd << 8) + Imm;
+  }
+  //if(!instr.compare("ADDC")) {...}
+  //if(!instr.compare("ADDCI")) {...}
+  if(!instr.compare("SUB"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0x9 << 4) + (Rs);   
+  }
+  if(!instr.compare("SUBI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x9 << 12) + (Rd << 8) + Imm;
+  }
+  //if(!instr.compare("SUBC"))
+  //if(!instr.compare("SUBCI"))
+  if(!instr.compare("CMP"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0xB << 4) + (Rs);   
+  }
+  if(!instr.compare("CMPI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0xB << 12) + (Rd << 8) + Imm;
+  }
+  if(!instr.compare("AND"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0x1 << 4) + (Rs);   
+  }
+  if(!instr.compare("ANDI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x1 << 12) + (Rd << 8) + Imm;
+  }
+  if(!instr.compare("OR"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0x2 << 4) + (Rs);   
+  }
+  if(!instr.compare("ORI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x2 << 12) + (Rd << 8) + Imm;
+  }
+  if(!instr.compare("XOR"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0x3 << 4) + (Rs);   
+  }
+  if(!instr.compare("XORI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0x3 << 12) + (Rd << 8) + Imm;
+  }
+  if(!instr.compare("MOV"))
+  { 
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x0 + (Rd << 8) + (0xD << 4) + (Rs);   
+  }
+  if(!instr.compare("MOVI")) 
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return (0xD << 12) + (Rd << 8) + Imm;
+  }
+
+  if(!instr.compare("LSH"))
+  {
+    std::string Ramount;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Ramount) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Ra = reg_to_char(Ramount);
+ 
+    if((Ra > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x8000 + (Rd << 8) + (0x4 << 4) + (Ra);   
+  }
+
+  if(!instr.compare("LSHI"))
+  { 
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    int op_ext = 0;
+    if(Imm < 0)
+    {
+      op_ext = 1;
+      Imm = -Imm;
+    }
+
+    Imm = Imm & 0x000F;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return 0x8000 + (Rd << 8) + (op_ext << 4) + Imm;
+  }
+  if(!instr.compare("ASHU")) 
+  {
+    std::string Ramount;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Ramount) && (line_stream >> Rdest)))
+      return 0x4FFE;
+    
+    int Rd = reg_to_char(Rdest);
+    int Ra = reg_to_char(Ramount);
+ 
+    if((Ra > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x8000 + (Rd << 8) + (0x6 << 4) + (Ra);   
+  }
+  if(!instr.compare("ASHUI"))
+  { 
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    int op_ext = 0;
+    if(Imm < 0)
+    {
+      op_ext = 1;
+      Imm = -Imm;  
+    }
+    Imm = Imm & 0x000F;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return 0x8020 + (Rd << 8) + (op_ext << 4) + Imm;
+  }
+
+  if(!instr.compare("LUI"))
+  {
+    std::string Rdest;
+    int Imm;
+
+    if(!(line_stream >> std::setbase(0) >> Imm))
+      return 0x4FFE;
+    line_stream >> Rdest;
+    if(!((line_stream >> Rdest)))
+      return 0x4FFE;
+
+    Imm = Imm & 0x00FF;
+
+    int Rd = reg_to_char(Rdest);
+
+    if(Rd > 15)
+      return 0x4FFE;
+
+    return 0xF000 + (Rd << 8) + Imm;
+  }
+  
+  if(!instr.compare("JAL"))
+  { 
+    std::string Rlink;
+    std::string Rtarget;
+ 
+    if(!((line_stream >> Rlink) && (line_stream >> Rtarget)))
+      return 0x4FFE;
+    
+    int Rt = reg_to_char(Rtarget);
+    int Rl = reg_to_char(Rlink);
+ 
+    if((Rt > 15) || (Rl > 15))
+      return 0x4FFE;
+    
+    //     Op     Rlink       OPext        Rtarget
+    return 0x4000 + (Rl << 8) + 0x0080 + (Rt);   
+  }
+  // Just need Jumps and Branches...
   return 0;
+}
+
+int reg_to_char(std::string reg)
+{
+  std::string numbers("0123456789");
+  reg = reg.substr(reg.find_first_of(numbers), reg.find_last_of(numbers));
+  return atoi(reg.c_str());
 }
 
 /*
