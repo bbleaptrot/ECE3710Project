@@ -27,6 +27,9 @@ wire[15:0] MemOut;
 //Program Counter
 wire[15:0] PCOut;
 
+//FSM
+wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen;
+
 regfile_2D_memory registers(
 	.ALUBus(BUS),
 	.r0(r0_out),
@@ -95,14 +98,14 @@ mux muxDst(
 	mux_2_to_1 immMux(
 		.r0(dstMux_out),
 		.r1(ImmOut),
-		.S_in(), // FSM
+		.S_in(RorI), // FSM
 		.mux_out(immMux_out)
 );
 
 	mux_2_to_1 LScntl(
 		.r0(dstMux_out),
 		.r1(PCOut),
-		.S_in(), // FSM
+		.S_in(LS_cntl), // FSM
 		.mux_out(addr_a)
 	);
 	
@@ -116,8 +119,8 @@ mux muxDst(
 	
 	mux_2_to_1 ALUcntl(
 		.r0(ALU_out),
-		.r1(MemOut),
-		.S_in(), // FSM
+		.r1(q_a),
+		.S_in(ALUorData), // FSM
 		.mux_out(BUS)
 	
 	);
@@ -127,7 +130,7 @@ mux muxDst(
 	.data_b(), // VGA Stuff
 	.addr_a(addr_a),
 	.addr_b(), // VGA Stuff
-	.we_a(),   // FSM
+	.we_a(WE),   // FSM
 	.we_b(),   // VGA Stuff
 	.clk(clk),
 	.q_a(q_a),
@@ -137,9 +140,9 @@ mux muxDst(
 	program_counter prog_count(
 	.clk(clk),
 	.reset(rst),
-	.branch(),  // FSM
-	.jump(),    // FSM
-	.PCen(),    // FSM
+	.branch(branch),  // FSM
+	.jump(jump),    // FSM
+	.PCen(PCen),    // FSM
 	.b_offset(bDisp),
 	.j_target(srcMux_out),
 	.PC(PCOut)
@@ -154,7 +157,22 @@ mux muxDst(
 	.RsrcOut(RsrcOut),
 	.RdstOut(RdstOut),
 	.ImmOut(ImmOut),
-	.MemOut(MemOut),
 	.bDisp(bDisp)
+	);
+	
+	fsm test(
+	.clk(clk),
+	.rst(rst),
+	.instruction(q_a),
+	.branch(branch),
+	.jump(jump),
+	.FLAGS(Flags),
+	.PCen(PCen),
+	.Ren(Ren),
+	.IEn(IEn),
+	.RegOrImm(RorI),
+	.WE(WE),
+	.ALU_MUX_CNTL(ALUorData),
+	.LS_CNTL(LS_cntl)
 	);
 endmodule

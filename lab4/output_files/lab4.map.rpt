@@ -1,5 +1,5 @@
 Analysis & Elaboration report for lab4
-Thu Oct 15 17:36:53 2020
+Tue Oct 27 14:20:01 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -12,13 +12,9 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   4. Parameter Settings for User Entity Instance: alu:logicBox
   5. Parameter Settings for User Entity Instance: bram:memory
   6. Analysis & Elaboration Settings
-  7. Port Connectivity Checks: "program_counter:prog_count"
-  8. Port Connectivity Checks: "bram:memory"
-  9. Port Connectivity Checks: "mux_2_to_1:ALUcntl"
- 10. Port Connectivity Checks: "alu:logicBox"
- 11. Port Connectivity Checks: "mux_2_to_1:LScntl"
- 12. Port Connectivity Checks: "mux_2_to_1:immMux"
- 13. Analysis & Elaboration Messages
+  7. Port Connectivity Checks: "bram:memory"
+  8. Port Connectivity Checks: "mux_2_to_1:immMux"
+  9. Analysis & Elaboration Messages
 
 
 
@@ -44,7 +40,7 @@ refer to the applicable agreement for further details.
 +-----------------------------------------------------------------------------+
 ; Analysis & Elaboration Summary                                              ;
 +-------------------------------+---------------------------------------------+
-; Analysis & Elaboration Status ; Successful - Thu Oct 15 17:36:53 2020       ;
+; Analysis & Elaboration Status ; Successful - Tue Oct 27 14:20:01 2020       ;
 ; Quartus Prime Version         ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                 ; lab4                                        ;
 ; Top-level Entity Name         ; lab4                                        ;
@@ -217,17 +213,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+--------------------------------------------------------+
-; Port Connectivity Checks: "program_counter:prog_count" ;
-+--------+-------+----------+----------------------------+
-; Port   ; Type  ; Severity ; Details                    ;
-+--------+-------+----------+----------------------------+
-; branch ; Input ; Info     ; Explicitly unconnected     ;
-; jump   ; Input ; Info     ; Explicitly unconnected     ;
-; PCen   ; Input ; Info     ; Explicitly unconnected     ;
-+--------+-------+----------+----------------------------+
-
-
 +-----------------------------------------------------+
 ; Port Connectivity Checks: "bram:memory"             ;
 +--------+--------+----------+------------------------+
@@ -235,37 +220,9 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+------------------------+
 ; data_b ; Input  ; Info     ; Explicitly unconnected ;
 ; addr_b ; Input  ; Info     ; Explicitly unconnected ;
-; we_a   ; Input  ; Info     ; Explicitly unconnected ;
 ; we_b   ; Input  ; Info     ; Explicitly unconnected ;
 ; q_b    ; Output ; Info     ; Explicitly unconnected ;
 +--------+--------+----------+------------------------+
-
-
-+--------------------------------------------------+
-; Port Connectivity Checks: "mux_2_to_1:ALUcntl"   ;
-+------+-------+----------+------------------------+
-; Port ; Type  ; Severity ; Details                ;
-+------+-------+----------+------------------------+
-; S_in ; Input ; Info     ; Explicitly unconnected ;
-+------+-------+----------+------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "alu:logicBox"                                                                        ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Port  ; Type   ; Severity ; Details                                                                             ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-; Flags ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+--------------------------------------------------+
-; Port Connectivity Checks: "mux_2_to_1:LScntl"    ;
-+------+-------+----------+------------------------+
-; Port ; Type  ; Severity ; Details                ;
-+------+-------+----------+------------------------+
-; S_in ; Input ; Info     ; Explicitly unconnected ;
-+------+-------+----------+------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -274,7 +231,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port ; Type  ; Severity ; Details                                                                                                                                      ;
 +------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 ; r1   ; Input ; Warning  ; Input port expression (4 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "r1[15..4]" will be connected to GND. ;
-; S_in ; Input ; Info     ; Explicitly unconnected                                                                                                                       ;
 +------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -284,7 +240,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Elaboration
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Oct 15 17:36:32 2020
+    Info: Processing started: Tue Oct 27 14:19:46 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4 --analysis_and_elaboration
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -312,19 +268,30 @@ Info (12021): Found 1 design units, including 1 entities, in source file irreg.v
 Info (12021): Found 1 design units, including 1 entities, in source file tb_irreg.v
     Info (12023): Found entity 1: tb_IRreg File: C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v Line: 3
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 51
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 72
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 100
-Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 115
-Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 135
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 54
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 75
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 103
+Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 118
+Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 138
 Warning (10850): Verilog HDL warning at bram.v(23): number of words (5) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 146
-Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 159
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 149
+Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 161
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 177
+Warning (10034): Output port "Ren" at fsm.v(6) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 6
+Warning (10034): Output port "branch" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "jump" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "PCen" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "RegOrImm" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "WE" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "IEn" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "ALU_MUX_CNTL" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (10034): Output port "LS_CNTL" at fsm.v(5) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 5
+Warning (12158): Entity "fsm" contains only dangling pins File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 177
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4777 megabytes
-    Info: Processing ended: Thu Oct 15 17:36:53 2020
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus Prime Analysis & Elaboration was successful. 0 errors, 14 warnings
+    Info: Peak virtual memory: 4778 megabytes
+    Info: Processing ended: Tue Oct 27 14:20:01 2020
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:23
 
 

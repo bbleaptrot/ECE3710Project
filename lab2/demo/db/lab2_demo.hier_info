@@ -2,11 +2,11 @@
 clk => clk.IN2
 rst => rst.IN2
 cont => ~NO_FANOUT~
-Flags[0] <= alu:awhooo.Flags
-Flags[1] <= alu:awhooo.Flags
-Flags[2] <= alu:awhooo.Flags
-Flags[3] <= alu:awhooo.Flags
-Flags[4] <= alu:awhooo.Flags
+Flags[0] << alu:awhooo.Flags
+Flags[1] << alu:awhooo.Flags
+Flags[2] << alu:awhooo.Flags
+Flags[3] << alu:awhooo.Flags
+Flags[4] << alu:awhooo.Flags
 
 
 |lab2_demo|FSM:fib
