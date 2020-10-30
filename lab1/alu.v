@@ -315,10 +315,10 @@ module alu(A, B, C, Opcode, Flags);
 			C = {B [7:0], 8'b0}; 
 			end
 			
-//		LOAD: // Load from Memory
-//			begin
-//			C = B;
-//			end
+		LOAD: // Load from Memory
+			begin
+			C = B;
+			end
 //    STOR: // Store in memory
 //			begin
 //			// mem[A] = B; 

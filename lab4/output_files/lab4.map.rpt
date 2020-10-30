@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Fri Oct 30 12:25:45 2020
+Fri Oct 30 17:49:53 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -23,14 +23,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  15. Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated
  16. Parameter Settings for User Entity Instance: alu:logicBox
  17. Parameter Settings for User Entity Instance: bram:memory
- 18. Parameter Settings for User Entity Instance: fsm:test
- 19. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
- 20. altsyncram Parameter Settings by Entity Instance
- 21. Port Connectivity Checks: "bram:memory"
- 22. Port Connectivity Checks: "mux_2_to_1:immMux"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+ 18. Parameter Settings for User Entity Instance: IRreg:Instr_Reg
+ 19. Parameter Settings for User Entity Instance: fsm:test
+ 20. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
+ 21. altsyncram Parameter Settings by Entity Instance
+ 22. Port Connectivity Checks: "bram:memory"
+ 23. Port Connectivity Checks: "mux_2_to_1:immMux"
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
 
 
 
@@ -56,7 +57,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 30 12:25:45 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Oct 30 17:49:53 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -179,36 +180,36 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; ../lab3/bram.v                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v                           ;         ;
-; ../lab2/regfile_2D_memory.v      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v              ;         ;
-; ../lab2/mux_2_to_1.v             ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v                     ;         ;
-; ../lab2/mux.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v                            ;         ;
-; ../lab1/alu.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v                            ;         ;
-; lab4.v                           ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v                           ;         ;
-; program_counter.v                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v                ;         ;
-; fsm.v                            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                            ;         ;
-; IRreg.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                          ;         ;
-; initbram.list.txt                ; yes             ; Auto-Found File                                       ; C:/Users/bblea/source/repos/ECE3710Project/lab4/initbram.list.txt                ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
-; altrom.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
-; altram.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
-; db/altsyncram_dpm1.tdf           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf           ;         ;
-; db/lab4.ram0_bram_337df6.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif ;         ;
-; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf                ;         ;
-; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf                ;         ;
-; db/mux_chb.tdf                   ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf                   ;         ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                          ;
++----------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                             ; Library ;
++----------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------+---------+
+; ../lab3/bram.v                   ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab3/bram.v                           ;         ;
+; ../lab2/regfile_2D_memory.v      ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab2/regfile_2D_memory.v              ;         ;
+; ../lab2/mux_2_to_1.v             ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v                     ;         ;
+; ../lab2/mux.v                    ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab2/mux.v                            ;         ;
+; ../lab1/alu.v                    ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab1/alu.v                            ;         ;
+; lab4.v                           ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab4/lab4.v                           ;         ;
+; program_counter.v                ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab4/program_counter.v                ;         ;
+; fsm.v                            ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab4/fsm.v                            ;         ;
+; IRreg.v                          ; yes             ; User Verilog HDL File                                 ; D:/Documents/GitHub/ECE3710Project/lab4/IRreg.v                          ;         ;
+; initbram.list.txt                ; yes             ; Auto-Found File                                       ; D:/Documents/GitHub/ECE3710Project/lab4/initbram.list.txt                ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/altsyncram.tdf          ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/stratix_ram_block.inc   ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/lpm_mux.inc             ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/lpm_decode.inc          ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/aglobal181.inc          ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/a_rdenreg.inc           ;         ;
+; altrom.inc                       ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/altrom.inc              ;         ;
+; altram.inc                       ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/altram.inc              ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                                          ; d:/quartus_files/quartus/libraries/megafunctions/altdpram.inc            ;         ;
+; db/altsyncram_dpm1.tdf           ; yes             ; Auto-Generated Megafunction                           ; D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf           ;         ;
+; db/lab4.ram0_bram_337df6.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; D:/Documents/GitHub/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif ;         ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction                           ; D:/Documents/GitHub/ECE3710Project/lab4/db/decode_dla.tdf                ;         ;
+; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction                           ; D:/Documents/GitHub/ECE3710Project/lab4/db/decode_61a.tdf                ;         ;
+; db/mux_chb.tdf                   ; yes             ; Auto-Generated Megafunction                           ; D:/Documents/GitHub/ECE3710Project/lab4/db/mux_chb.tdf                   ;         ;
++----------------------------------+-----------------+-------------------------------------------------------+--------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -271,10 +272,6 @@ Encoding Type:  One-Hot
 ; Register name                                                                       ; Reason for Removal                    ;
 +-------------------------------------------------------------------------------------+---------------------------------------+
 ; IRreg:Instr_Reg|bDisp[0..7]                                                         ; Lost fanout                           ;
-; IRreg:Instr_Reg|RsrcOut[3]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[3] ;
-; IRreg:Instr_Reg|RsrcOut[2]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[2] ;
-; IRreg:Instr_Reg|RsrcOut[1]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[1] ;
-; IRreg:Instr_Reg|RsrcOut[0]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[0] ;
 ; IRreg:Instr_Reg|Opcode[3]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
 ; IRreg:Instr_Reg|Opcode[2]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[6] ;
 ; IRreg:Instr_Reg|Opcode[1]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[5] ;
@@ -290,7 +287,7 @@ Encoding Type:  One-Hot
 ; regfile_2D_memory:registers|r[1][0]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[2][0]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[3][0]                                                 ; Lost fanout                           ;
-; IRreg:Instr_Reg|ImmOut[0,1]                                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|RsrcOut[0,1]                                                        ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[4][0]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[5][0]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[6][0]                                                 ; Lost fanout                           ;
@@ -303,7 +300,7 @@ Encoding Type:  One-Hot
 ; regfile_2D_memory:registers|r[13][0]                                                ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[14][0]                                                ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[15][0]                                                ; Lost fanout                           ;
-; IRreg:Instr_Reg|ImmOut[2,3]                                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|RsrcOut[2,3]                                                        ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[0][1]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[4][1]                                                 ; Lost fanout                           ;
 ; regfile_2D_memory:registers|r[8][1]                                                 ; Lost fanout                           ;
@@ -550,89 +547,96 @@ Encoding Type:  One-Hot
 ; fsm:test|state_counter.0001                                                         ; Lost fanout                           ;
 ; program_counter:prog_count|PC[1..15]                                                ; Lost fanout                           ;
 ; bram:memory|ram_rtl_0_bypass[0,5..8,13..16]                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[7]                                                           ; Lost fanout                           ;
 ; IRreg:Instr_Reg|Opcode[6,7]                                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[0,4,5]                                                       ; Lost fanout                           ;
 ; fsm:test|state_counter.0010                                                         ; Lost fanout                           ;
-; IRreg:Instr_Reg|ImmOut[4..7]                                                        ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[6]                                                           ; Lost fanout                           ;
 ; IRreg:Instr_Reg|Opcode[4,5]                                                         ; Lost fanout                           ;
 ; bram:memory|ram_rtl_0_bypass[1]                                                     ; Lost fanout                           ;
 ; fsm:test|state_counter.0101                                                         ; Lost fanout                           ;
-; bram:memory|ram_rtl_0_bypass[2..4,9..12]                                            ; Lost fanout                           ;
+; bram:memory|ram_rtl_0_bypass[9..12]                                                 ; Lost fanout                           ;
 ; fsm:test|state_counter.0100                                                         ; Lost fanout                           ;
+; bram:memory|ram_rtl_0_bypass[2..4]                                                  ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[1..3]                                                        ; Lost fanout                           ;
 ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[0..2] ; Lost fanout                           ;
 ; Total Number of Removed Registers = 336                                             ;                                       ;
 +-------------------------------------------------------------------------------------+---------------------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                    ;
-+--------------------------------------+--------------------+------------------------------------------------------------------------------------+
-; Register name                        ; Reason for Removal ; Registers Removed due to This Register                                             ;
-+--------------------------------------+--------------------+------------------------------------------------------------------------------------+
-; regfile_2D_memory:registers|r[0][5]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][5], regfile_2D_memory:registers|r[8][5],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[12][5], regfile_2D_memory:registers|r[1][5],         ;
-;                                      ;                    ; regfile_2D_memory:registers|r[5][5], regfile_2D_memory:registers|r[9][5],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[13][5], regfile_2D_memory:registers|r[2][5],         ;
-;                                      ;                    ; regfile_2D_memory:registers|r[6][5], regfile_2D_memory:registers|r[10][5],         ;
-;                                      ;                    ; regfile_2D_memory:registers|r[3][5], regfile_2D_memory:registers|r[7][5],          ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[6], IRreg:Instr_Reg|ImmOut[6]                         ;
-; regfile_2D_memory:registers|r[0][13] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][13], regfile_2D_memory:registers|r[8][13],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[12][13], regfile_2D_memory:registers|r[1][13],       ;
-;                                      ;                    ; regfile_2D_memory:registers|r[5][13], regfile_2D_memory:registers|r[9][13],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[13][13], regfile_2D_memory:registers|r[2][13],       ;
-;                                      ;                    ; regfile_2D_memory:registers|r[6][13], regfile_2D_memory:registers|r[10][13],       ;
-;                                      ;                    ; regfile_2D_memory:registers|r[14][13], regfile_2D_memory:registers|r[3][13],       ;
-;                                      ;                    ; regfile_2D_memory:registers|r[7][13], regfile_2D_memory:registers|r[11][13]        ;
-; regfile_2D_memory:registers|r[0][14] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][14], regfile_2D_memory:registers|r[2][14],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[3][14], regfile_2D_memory:registers|r[4][14],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[5][14], regfile_2D_memory:registers|r[6][14],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[7][14], regfile_2D_memory:registers|r[8][14],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[9][14], regfile_2D_memory:registers|r[10][14],       ;
-;                                      ;                    ; regfile_2D_memory:registers|r[11][14], regfile_2D_memory:registers|r[12][14],      ;
-;                                      ;                    ; regfile_2D_memory:registers|r[13][14], regfile_2D_memory:registers|r[14][14]       ;
-; fsm:test|state_counter.0111          ; Lost Fanouts       ; fsm:test|state_counter.0011, IRreg:Instr_Reg|ImmOut[0], IRreg:Instr_Reg|ImmOut[1], ;
-;                                      ;                    ; fsm:test|state_counter.0001, bram:memory|ram_rtl_0_bypass[16],                     ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[0], bram:memory|ram_rtl_0_bypass[15],                 ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[14], bram:memory|ram_rtl_0_bypass[13],                ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[8], bram:memory|ram_rtl_0_bypass[2],                  ;
-;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[2],  ;
-;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[1]   ;
-; regfile_2D_memory:registers|r[0][0]  ; Lost Fanouts       ; IRreg:Instr_Reg|Opcode[6], IRreg:Instr_Reg|Opcode[7], fsm:test|state_counter.0010, ;
-;                                      ;                    ; IRreg:Instr_Reg|ImmOut[4], IRreg:Instr_Reg|ImmOut[7], IRreg:Instr_Reg|Opcode[5],   ;
-;                                      ;                    ; IRreg:Instr_Reg|Opcode[4], bram:memory|ram_rtl_0_bypass[1],                        ;
-;                                      ;                    ; fsm:test|state_counter.0101, bram:memory|ram_rtl_0_bypass[12],                     ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[11], bram:memory|ram_rtl_0_bypass[10],                ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[9]                                                    ;
-; regfile_2D_memory:registers|r[0][6]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][6], regfile_2D_memory:registers|r[2][6],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[3][6], regfile_2D_memory:registers|r[4][6],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[5][6], regfile_2D_memory:registers|r[6][6],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[7][6], regfile_2D_memory:registers|r[8][6],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[9][6], regfile_2D_memory:registers|r[10][6],         ;
-;                                      ;                    ; regfile_2D_memory:registers|r[12][6], regfile_2D_memory:registers|r[13][6],        ;
-;                                      ;                    ; bram:memory|ram_rtl_0_bypass[7]                                                    ;
-; regfile_2D_memory:registers|r[0][8]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][8], regfile_2D_memory:registers|r[2][8],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[4][8], regfile_2D_memory:registers|r[5][8],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[8][8]                                                ;
-; regfile_2D_memory:registers|r[0][9]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][9], regfile_2D_memory:registers|r[8][9],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[1][9], regfile_2D_memory:registers|r[5][9],          ;
-;                                      ;                    ; regfile_2D_memory:registers|r[2][9]                                                ;
-; regfile_2D_memory:registers|r[0][10] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][10], regfile_2D_memory:registers|r[2][10],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[4][10], regfile_2D_memory:registers|r[5][10],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[8][10]                                               ;
-; regfile_2D_memory:registers|r[0][11] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][11], regfile_2D_memory:registers|r[8][11],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[1][11], regfile_2D_memory:registers|r[5][11],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[2][11]                                               ;
-; regfile_2D_memory:registers|r[0][12] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][12], regfile_2D_memory:registers|r[2][12],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[4][12], regfile_2D_memory:registers|r[5][12],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[8][12]                                               ;
-; regfile_2D_memory:registers|r[0][15] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][15], regfile_2D_memory:registers|r[8][15],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[1][15], regfile_2D_memory:registers|r[5][15],        ;
-;                                      ;                    ; regfile_2D_memory:registers|r[2][15]                                               ;
-; fsm:test|state_counter~2             ; Lost Fanouts       ; fsm:test|state_counter.0000, fsm:test|state_counter.0100                           ;
-; IRreg:Instr_Reg|ImmOut[2]            ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[3]                                                    ;
-; IRreg:Instr_Reg|ImmOut[3]            ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[4]                                                    ;
-; regfile_2D_memory:registers|r[0][1]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[5]                                                          ;
-; regfile_2D_memory:registers|r[0][4]  ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[5]                                                    ;
-+--------------------------------------+--------------------+------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                      ;
++--------------------------------------+--------------------+--------------------------------------------------------------------------------------+
+; Register name                        ; Reason for Removal ; Registers Removed due to This Register                                               ;
++--------------------------------------+--------------------+--------------------------------------------------------------------------------------+
+; fsm:test|state_counter.0111          ; Lost Fanouts       ; fsm:test|state_counter.0011, IRreg:Instr_Reg|RsrcOut[0], IRreg:Instr_Reg|RsrcOut[1], ;
+;                                      ;                    ; fsm:test|state_counter.0001, bram:memory|ram_rtl_0_bypass[14],                       ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[0], bram:memory|ram_rtl_0_bypass[15],                   ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[16], bram:memory|ram_rtl_0_bypass[5],                   ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[6], bram:memory|ram_rtl_0_bypass[7],                    ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[8], bram:memory|ram_rtl_0_bypass[2],                    ;
+;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[2],    ;
+;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[1]     ;
+; regfile_2D_memory:registers|r[0][13] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][13], regfile_2D_memory:registers|r[8][13],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][13], regfile_2D_memory:registers|r[1][13],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][13], regfile_2D_memory:registers|r[9][13],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][13], regfile_2D_memory:registers|r[2][13],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[6][13], regfile_2D_memory:registers|r[10][13],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[14][13], regfile_2D_memory:registers|r[3][13],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][13], regfile_2D_memory:registers|r[11][13]          ;
+; regfile_2D_memory:registers|r[0][14] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][14], regfile_2D_memory:registers|r[2][14],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][14], regfile_2D_memory:registers|r[4][14],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][14], regfile_2D_memory:registers|r[6][14],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][14], regfile_2D_memory:registers|r[8][14],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[9][14], regfile_2D_memory:registers|r[10][14],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[11][14], regfile_2D_memory:registers|r[12][14],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][14], regfile_2D_memory:registers|r[14][14]         ;
+; regfile_2D_memory:registers|r[0][0]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[7], IRreg:Instr_Reg|Opcode[6], IRreg:Instr_Reg|Opcode[7],     ;
+;                                      ;                    ; IRreg:Instr_Reg|ImmOut[0], fsm:test|state_counter.0010, IRreg:Instr_Reg|Opcode[5],   ;
+;                                      ;                    ; IRreg:Instr_Reg|Opcode[4], bram:memory|ram_rtl_0_bypass[1],                          ;
+;                                      ;                    ; fsm:test|state_counter.0101, bram:memory|ram_rtl_0_bypass[11],                       ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[12], bram:memory|ram_rtl_0_bypass[9],                   ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[10]                                                     ;
+; regfile_2D_memory:registers|r[0][5]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][5], regfile_2D_memory:registers|r[8][5],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][5], regfile_2D_memory:registers|r[1][5],           ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][5], regfile_2D_memory:registers|r[9][5],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][5], regfile_2D_memory:registers|r[2][5],           ;
+;                                      ;                    ; regfile_2D_memory:registers|r[6][5], regfile_2D_memory:registers|r[10][5],           ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][5], regfile_2D_memory:registers|r[7][5],            ;
+;                                      ;                    ; IRreg:Instr_Reg|ImmOut[5]                                                            ;
+; regfile_2D_memory:registers|r[0][6]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][6], regfile_2D_memory:registers|r[2][6],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][6], regfile_2D_memory:registers|r[4][6],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][6], regfile_2D_memory:registers|r[6][6],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][6], regfile_2D_memory:registers|r[8][6],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[9][6], regfile_2D_memory:registers|r[10][6],           ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][6], regfile_2D_memory:registers|r[13][6],          ;
+;                                      ;                    ; IRreg:Instr_Reg|ImmOut[6]                                                            ;
+; regfile_2D_memory:registers|r[0][12] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][12], regfile_2D_memory:registers|r[2][12],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][12], regfile_2D_memory:registers|r[5][12],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][12], bram:memory|ram_rtl_0_bypass[13]               ;
+; regfile_2D_memory:registers|r[0][8]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][8], regfile_2D_memory:registers|r[2][8],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][8], regfile_2D_memory:registers|r[5][8],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][8]                                                  ;
+; regfile_2D_memory:registers|r[0][9]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][9], regfile_2D_memory:registers|r[8][9],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][9], regfile_2D_memory:registers|r[5][9],            ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][9]                                                  ;
+; regfile_2D_memory:registers|r[0][10] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][10], regfile_2D_memory:registers|r[2][10],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][10], regfile_2D_memory:registers|r[5][10],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][10]                                                 ;
+; regfile_2D_memory:registers|r[0][11] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][11], regfile_2D_memory:registers|r[8][11],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][11], regfile_2D_memory:registers|r[5][11],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][11]                                                 ;
+; regfile_2D_memory:registers|r[0][15] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][15], regfile_2D_memory:registers|r[8][15],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][15], regfile_2D_memory:registers|r[5][15],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][15]                                                 ;
+; fsm:test|state_counter~2             ; Lost Fanouts       ; fsm:test|state_counter.0000, fsm:test|state_counter.0100                             ;
+; IRreg:Instr_Reg|RsrcOut[2]           ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[3]                                                      ;
+; IRreg:Instr_Reg|RsrcOut[3]           ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[4]                                                      ;
+; regfile_2D_memory:registers|r[0][1]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[1]                                                            ;
+; regfile_2D_memory:registers|r[0][2]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[2]                                                            ;
+; regfile_2D_memory:registers|r[0][3]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[3]                                                            ;
+; regfile_2D_memory:registers|r[0][4]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[4]                                                            ;
++--------------------------------------+--------------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -689,30 +693,32 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[3]             ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[1]             ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][0]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][2]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][14]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][7]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][4]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][14]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][1]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][11] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][2]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][6]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][10] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][7]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[9]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][7]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][7]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][9]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][12]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][12]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][1]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][14] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][3]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][7]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[6]      ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[0]            ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0               ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux1                       ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux7                       ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux5                       ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux3                       ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab4|fsm:test|state_counter                ;
-; 56:1               ; 2 bits    ; 74 LEs        ; 58 LEs               ; 16 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]        ;
-; 61:1               ; 2 bits    ; 80 LEs        ; 56 LEs               ; 24 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[6]         ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; No         ; |lab4|fsm:test|Selector12                   ;
+; 57:1               ; 2 bits    ; 76 LEs        ; 64 LEs               ; 12 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]        ;
+; 62:1               ; 2 bits    ; 82 LEs        ; 60 LEs               ; 22 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[6]         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -777,6 +783,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DATA_WIDTH     ; 16    ; Signed Integer                  ;
 ; ADDR_WIDTH     ; 16    ; Signed Integer                  ;
 +----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IRreg:Instr_Reg ;
++----------------+----------+----------------------------------+
+; Parameter Name ; Value    ; Type                             ;
++----------------+----------+----------------------------------+
+; LOAD           ; 01000000 ; Unsigned Binary                  ;
++----------------+----------+----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -912,7 +928,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:04     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -922,59 +938,66 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 30 12:25:13 2020
+    Info: Processing started: Fri Oct 30 17:49:17 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab3/bram.v
-    Info (12023): Found entity 1: bram File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 9
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/regfile_2d_memory.v
-    Info (12023): Found entity 1: regfile_2D_memory File: C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v Line: 3
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/mux_2_to_1.v
-    Info (12023): Found entity 1: mux_2_to_1 File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v Line: 5
-Warning (12090): Entity "mux" obtained from "../lab2/mux.v" instead of from Quartus Prime megafunction library File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/mux.v
-    Info (12023): Found entity 1: mux File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/hex2seg.v
-    Info (12023): Found entity 1: hex2seg File: C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v Line: 7
-Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab1/alu.v
-    Info (12023): Found entity 1: alu File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab3/bram.v
+    Info (12023): Found entity 1: bram File: D:/Documents/GitHub/ECE3710Project/lab3/bram.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab2/regfile_2d_memory.v
+    Info (12023): Found entity 1: regfile_2D_memory File: D:/Documents/GitHub/ECE3710Project/lab2/regfile_2D_memory.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab2/mux_2_to_1.v
+    Info (12023): Found entity 1: mux_2_to_1 File: D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v Line: 5
+Warning (12090): Entity "mux" obtained from "../lab2/mux.v" instead of from Quartus Prime megafunction library File: D:/Documents/GitHub/ECE3710Project/lab2/mux.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab2/mux.v
+    Info (12023): Found entity 1: mux File: D:/Documents/GitHub/ECE3710Project/lab2/mux.v Line: 5
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab1/hex2seg.v
+    Info (12023): Found entity 1: hex2seg File: D:/Documents/GitHub/ECE3710Project/lab1/hex2seg.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file /documents/github/ece3710project/lab1/alu.v
+    Info (12023): Found entity 1: alu File: D:/Documents/GitHub/ECE3710Project/lab1/alu.v Line: 28
 Info (12021): Found 1 design units, including 1 entities, in source file lab4.v
-    Info (12023): Found entity 1: lab4 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 1
+    Info (12023): Found entity 1: lab4 File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file program_counter.v
-    Info (12023): Found entity 1: program_counter File: C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v Line: 19
+    Info (12023): Found entity 1: program_counter File: D:/Documents/GitHub/ECE3710Project/lab4/program_counter.v Line: 19
 Info (12021): Found 1 design units, including 1 entities, in source file fsm.v
-    Info (12023): Found entity 1: fsm File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 1
+    Info (12023): Found entity 1: fsm File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file irreg.v
-    Info (12023): Found entity 1: IRreg File: C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v Line: 1
+    Info (12023): Found entity 1: IRreg File: D:/Documents/GitHub/ECE3710Project/lab4/IRreg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file tb_irreg.v
-    Info (12023): Found entity 1: tb_IRreg File: C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_IRreg.v Line: 3
+    Info (12023): Found entity 1: tb_IRreg File: D:/Documents/GitHub/ECE3710Project/lab4/tb_IRreg.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file lab4_tb.v
-    Info (12023): Found entity 1: lab4_tb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v Line: 8
+    Info (12023): Found entity 1: lab4_tb File: D:/Documents/GitHub/ECE3710Project/lab4/lab4_tb.v Line: 8
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 55
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 76
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 104
-Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 119
-Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 139
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (5) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 150
-Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 162
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 178
-Info (10264): Verilog HDL Case Statement information at fsm.v(26): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 26
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(49): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 49
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(100): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 100
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(101): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 101
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(102): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 102
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(103): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 103
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(104): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 104
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(105): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 105
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(106): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 106
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(107): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 107
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(108): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 108
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 55
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 76
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 104
+Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 119
+Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 139
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (5) in memory file does not match the number of elements in the address range [0:65535] File: D:/Documents/GitHub/ECE3710Project/lab3/bram.v Line: 23
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 150
+Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 162
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 178
+Info (10264): Verilog HDL Case Statement information at fsm.v(27): all case item expressions in this case statement are onehot File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 27
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(87): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 87
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(88): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 88
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(89): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 89
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(90): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 90
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(91): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 91
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(92): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 92
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(93): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 93
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(94): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 94
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(95): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 95
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(96): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 96
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(99): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 99
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(130): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 130
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(163): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 163
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(192): variable "delay_Ren" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 192
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(206): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 206
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(237): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 237
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(268): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: D:/Documents/GitHub/ECE3710Project/lab4/fsm.v Line: 268
 Warning (276020): Inferred RAM node "bram:memory|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 19
+    Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: D:/Documents/GitHub/ECE3710Project/lab3/bram.v Line: 19
 Info (19000): Inferred 1 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "bram:memory|ram_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
@@ -1010,157 +1033,157 @@ Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with 
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/lab4.ram0_bram_337df6.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dpm1.tdf
-    Info (12023): Found entity 1: altsyncram_dpm1 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 33
+    Info (12023): Found entity 1: altsyncram_dpm1 File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
-    Info (12023): Found entity 1: decode_dla File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
+    Info (12023): Found entity 1: decode_dla File: D:/Documents/GitHub/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
-    Info (12023): Found entity 1: decode_61a File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf Line: 22
+    Info (12023): Found entity 1: decode_61a File: D:/Documents/GitHub/ECE3710Project/lab4/db/decode_61a.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
-    Info (12023): Found entity 1: mux_chb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
+    Info (12023): Found entity 1: mux_chb File: D:/Documents/GitHub/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
 Warning (14284): Synthesized away the following node(s):
     Warning (14285): Synthesized away the following RAM node(s):
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a0" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 48
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a1" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 80
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a2" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 112
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a3" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 144
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 176
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a5" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 208
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a6" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 240
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a7" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 272
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a8" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 304
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a9" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 336
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a10" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 368
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a11" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 400
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a12" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 432
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a13" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 464
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a14" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 496
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a15" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 528
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a16" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 560
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a17" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 592
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a18" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 624
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a19" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 656
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a20" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 688
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a21" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 720
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a22" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 752
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a23" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 784
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a24" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 816
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a25" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 848
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a26" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 880
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a27" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 912
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a28" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 944
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a29" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 976
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a30" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1008
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a31" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1040
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a32" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1072
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a33" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1104
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a34" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1136
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a35" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1168
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a36" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1200
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a37" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1232
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a38" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1264
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a39" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1296
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a40" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1328
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a41" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1360
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a42" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1392
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a43" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1424
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a44" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1456
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a45" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1488
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a46" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1520
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a47" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1552
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a48" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1584
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a49" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1616
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a50" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1648
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a51" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1680
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a52" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1712
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a53" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1744
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a54" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1776
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a55" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1808
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a56" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1840
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a57" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1872
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a58" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1904
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a59" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1936
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a60" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1968
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a61" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2000
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a62" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2032
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a63" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2064
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a64" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2096
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a65" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2128
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a66" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2160
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a67" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2192
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a68" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2224
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a69" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2256
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a70" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2288
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a71" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2320
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a72" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2352
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a73" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2384
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a74" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2416
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a75" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2448
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a76" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2480
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a77" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2512
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a78" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2544
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a79" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2576
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a80" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2608
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a81" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2640
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a82" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2672
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a83" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2704
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a84" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2736
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a85" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2768
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a86" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2800
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a87" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2832
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a88" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2864
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a89" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2896
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a90" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2928
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a91" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2960
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a92" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2992
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a93" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3024
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a94" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3056
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a95" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3088
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a96" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3120
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a97" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3152
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a98" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3184
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a99" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3216
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a100" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3248
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a101" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3280
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a102" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3312
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a103" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3344
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a104" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3376
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a105" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3408
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a106" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3440
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a107" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3472
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a108" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3504
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a109" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3536
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a110" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3568
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a111" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3600
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a112" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3632
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a113" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3664
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a114" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3696
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a115" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3728
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a116" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3760
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a117" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3792
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a118" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3824
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a119" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3856
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a120" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3888
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a121" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3920
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a122" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3952
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a123" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3984
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a124" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4016
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a125" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4048
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a126" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4080
-        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a127" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4112
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a0" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 48
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a1" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 80
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a2" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 112
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a3" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 144
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a4" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 176
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a5" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 208
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a6" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 240
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a7" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 272
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a8" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 304
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a9" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 336
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a10" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 368
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a11" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 400
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a12" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 432
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a13" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 464
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a14" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 496
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a15" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 528
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a16" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 560
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a17" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 592
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a18" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 624
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a19" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 656
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a20" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 688
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a21" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 720
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a22" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 752
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a23" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 784
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a24" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 816
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a25" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 848
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a26" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 880
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a27" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 912
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a28" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 944
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a29" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 976
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a30" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1008
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a31" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1040
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a32" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1072
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a33" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1104
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a34" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1136
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a35" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1168
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a36" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1200
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a37" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1232
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a38" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1264
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a39" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1296
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a40" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1328
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a41" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1360
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a42" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1392
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a43" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1424
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a44" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1456
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a45" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1488
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a46" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1520
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a47" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1552
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a48" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1584
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a49" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1616
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a50" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1648
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a51" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1680
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a52" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1712
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a53" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1744
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a54" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1776
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a55" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1808
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a56" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1840
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a57" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1872
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a58" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1904
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a59" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1936
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a60" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 1968
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a61" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2000
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a62" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2032
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a63" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2064
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a64" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2096
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a65" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2128
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a66" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2160
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a67" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2192
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a68" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2224
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a69" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2256
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a70" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2288
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a71" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2320
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a72" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2352
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a73" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2384
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a74" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2416
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a75" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2448
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a76" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2480
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a77" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2512
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a78" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2544
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a79" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2576
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a80" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2608
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a81" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2640
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a82" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2672
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a83" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2704
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a84" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2736
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a85" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2768
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a86" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2800
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a87" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2832
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a88" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2864
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a89" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2896
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a90" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2928
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a91" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2960
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a92" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 2992
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a93" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3024
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a94" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3056
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a95" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3088
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a96" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3120
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a97" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3152
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a98" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3184
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a99" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3216
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a100" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3248
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a101" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3280
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a102" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3312
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a103" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3344
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a104" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3376
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a105" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3408
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a106" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3440
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a107" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3472
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a108" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3504
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a109" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3536
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a110" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3568
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a111" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3600
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a112" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3632
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a113" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3664
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a114" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3696
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a115" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3728
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a116" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3760
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a117" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3792
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a118" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3824
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a119" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3856
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a120" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3888
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a121" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3920
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a122" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3952
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a123" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 3984
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a124" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4016
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a125" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4048
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a126" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4080
+        Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a127" File: D:/Documents/GitHub/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4112
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (17049): 328 registers lost all their fanouts during netlist optimizations.
+Info (17049): 332 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 3
-    Warning (15610): No output dependent on input pin "rst" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 3
+    Warning (15610): No output dependent on input pin "clk" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 3
+    Warning (15610): No output dependent on input pin "rst" File: D:/Documents/GitHub/ECE3710Project/lab4/lab4.v Line: 3
 Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 148 warnings
-    Info: Peak virtual memory: 4831 megabytes
-    Info: Processing ended: Fri Oct 30 12:25:46 2020
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:52
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 155 warnings
+    Info: Peak virtual memory: 4820 megabytes
+    Info: Processing ended: Fri Oct 30 17:49:53 2020
+    Info: Elapsed time: 00:00:36
+    Info: Total CPU time (on all processors): 00:01:15
 
 
