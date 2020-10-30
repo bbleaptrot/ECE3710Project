@@ -45,6 +45,7 @@ always @(posedge clk)
  // Output logic
  always @(state_counter)
  begin
+ // THIS CREATES A PROBLEM WITH LOADS ALSO THEY ARE BACKWARDS???
 	case(instruction[11:8])
 		0:  Ren = 16'h0001;
 		1:  Ren = 16'h0002;
@@ -95,6 +96,7 @@ always @(posedge clk)
 				branch        = 1'b0;
 				jump          = 1'b0;
 				IEn           = 1'b0;
+				// FIX THIS TO INCLUDE ALL IMMEDIATES
 				if(instruction[15:12] == 4'b0101) RegOrImm = 1'b1;
 				else RegOrImm = 1'b0;
 			end
