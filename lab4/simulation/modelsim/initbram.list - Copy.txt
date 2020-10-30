@@ -1,0 +1,5 @@
+5055 // add immediate value 55 into register 0
+400F // load address 55 into register 15  
+@55
+0690
+

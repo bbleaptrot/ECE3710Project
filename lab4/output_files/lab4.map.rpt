@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Thu Oct 29 17:26:47 2020
+Thu Oct 29 22:58:15 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -31,7 +31,6 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  23. Post-Synthesis Netlist Statistics for Top Partition
  24. Elapsed Time Per Partition
  25. Analysis & Synthesis Messages
- 26. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -57,7 +56,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Oct 29 17:26:47 2020       ;
+; Analysis & Synthesis Status     ; Successful - Thu Oct 29 22:58:14 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -250,386 +249,390 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |lab4|fsm:test|state_counter                                                                                                                                                                    ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-; Name               ; state_counter.0111 ; state_counter.0110 ; state_counter.0101 ; state_counter.0100 ; state_counter.0011 ; state_counter.0010 ; state_counter.0001 ; state_counter.0000 ; state_counter.1000 ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-; state_counter.0000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
-; state_counter.0001 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ; 0                  ;
-; state_counter.0010 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.0011 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.0100 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.0101 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.0110 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.0111 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
-; state_counter.1000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lab4|fsm:test|state_counter                                                                                                                                               ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name               ; state_counter.0111 ; state_counter.0110 ; state_counter.0101 ; state_counter.0100 ; state_counter.0011 ; state_counter.0010 ; state_counter.0001 ; state_counter.0000 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; state_counter.0000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; state_counter.0001 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
+; state_counter.0010 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ;
+; state_counter.0011 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ;
+; state_counter.0100 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; state_counter.0101 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; state_counter.0110 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
+; state_counter.0111 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                           ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
-; Register name                                                                       ; Reason for Removal                     ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
-; IRreg:Instr_Reg|bDisp[0..7]                                                         ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[15][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][0]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][0]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[15][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[14][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[13][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[12][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[11][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][1]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][2]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][3]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][4]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][5]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][6]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][7]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][8]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][9]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][10]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][11]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][12]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][13]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][14]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[10][15]                                               ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[9][15]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[8][15]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[7][15]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[6][15]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[5][15]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][1]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][2]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][3]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][4]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][5]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][6]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][7]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][8]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][9]                                                 ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][10]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][11]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][12]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][13]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][14]                                                ; Stuck at GND due to stuck port data_in ;
-; regfile_2D_memory:registers|r[4][15]                                                ; Stuck at GND due to stuck port data_in ;
-; IRreg:Instr_Reg|RsrcOut[3]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[3]  ;
-; IRreg:Instr_Reg|RsrcOut[2]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[2]  ;
-; IRreg:Instr_Reg|RsrcOut[1]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[1]  ;
-; IRreg:Instr_Reg|RsrcOut[0]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[0]  ;
-; IRreg:Instr_Reg|Opcode[3]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[7]  ;
-; IRreg:Instr_Reg|Opcode[2]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[6]  ;
-; IRreg:Instr_Reg|Opcode[1]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[5]  ;
-; IRreg:Instr_Reg|Opcode[0]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[4]  ;
-; fsm:test|state_counter.0110                                                         ; Lost fanout                            ;
-; fsm:test|state_counter.0111                                                         ; Lost fanout                            ;
-; fsm:test|state_counter~2                                                            ; Lost fanout                            ;
-; fsm:test|state_counter~3                                                            ; Lost fanout                            ;
-; fsm:test|state_counter~4                                                            ; Lost fanout                            ;
-; fsm:test|state_counter.0011                                                         ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][0]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][0]                                                 ; Lost fanout                            ;
-; IRreg:Instr_Reg|ImmOut[0]                                                           ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][0]                                                 ; Lost fanout                            ;
-; IRreg:Instr_Reg|ImmOut[1]                                                           ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][0]                                                 ; Lost fanout                            ;
-; IRreg:Instr_Reg|ImmOut[2,3]                                                         ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][1]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][1]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][1]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][1]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][2]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][2]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][2]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][2]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][3]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][3]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][3]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][3]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][4]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][4]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][4]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][4]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][5]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][5]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][5]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][5]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][6]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][6]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][6]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][6]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][7]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][7]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][7]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][7]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][8]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][8]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][8]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][8]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][9]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][9]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][9]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][9]                                                 ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][10]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][10]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][10]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][10]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][11]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][11]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][11]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][11]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][12]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][12]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][12]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][12]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][13]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][13]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][13]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][13]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][14]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][14]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][14]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][14]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[0][15]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[1][15]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[3][15]                                                ; Lost fanout                            ;
-; regfile_2D_memory:registers|r[2][15]                                                ; Lost fanout                            ;
-; IRreg:Instr_Reg|RdstOut[0..3]                                                       ; Lost fanout                            ;
-; program_counter:prog_count|PC[0]                                                    ; Lost fanout                            ;
-; fsm:test|state_counter.1000                                                         ; Lost fanout                            ;
-; fsm:test|state_counter.0000                                                         ; Lost fanout                            ;
-; fsm:test|state_counter.0001                                                         ; Lost fanout                            ;
-; program_counter:prog_count|PC[1..15]                                                ; Lost fanout                            ;
-; bram:memory|ram_rtl_0_bypass[0,5..8,13..16]                                         ; Lost fanout                            ;
-; IRreg:Instr_Reg|Opcode[6,7]                                                         ; Lost fanout                            ;
-; fsm:test|state_counter.0010                                                         ; Lost fanout                            ;
-; IRreg:Instr_Reg|ImmOut[4..7]                                                        ; Lost fanout                            ;
-; IRreg:Instr_Reg|Opcode[4,5]                                                         ; Lost fanout                            ;
-; bram:memory|ram_rtl_0_bypass[1]                                                     ; Lost fanout                            ;
-; fsm:test|state_counter.0101                                                         ; Lost fanout                            ;
-; bram:memory|ram_rtl_0_bypass[2..4,9..12]                                            ; Lost fanout                            ;
-; fsm:test|state_counter.0100                                                         ; Lost fanout                            ;
-; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[0..2] ; Lost fanout                            ;
-; Total Number of Removed Registers = 336                                             ;                                        ;
-+-------------------------------------------------------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                          ;
++-------------------------------------------------------------------------------------+---------------------------------------+
+; Register name                                                                       ; Reason for Removal                    ;
++-------------------------------------------------------------------------------------+---------------------------------------+
+; IRreg:Instr_Reg|bDisp[0..7]                                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|RsrcOut[3]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[3] ;
+; IRreg:Instr_Reg|RsrcOut[2]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[2] ;
+; IRreg:Instr_Reg|RsrcOut[1]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[1] ;
+; IRreg:Instr_Reg|RsrcOut[0]                                                          ; Merged with IRreg:Instr_Reg|ImmOut[0] ;
+; IRreg:Instr_Reg|Opcode[3]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
+; IRreg:Instr_Reg|Opcode[2]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[6] ;
+; IRreg:Instr_Reg|Opcode[1]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[5] ;
+; IRreg:Instr_Reg|Opcode[0]                                                           ; Merged with IRreg:Instr_Reg|ImmOut[4] ;
+; fsm:test|state_counter.0110                                                         ; Lost fanout                           ;
+; fsm:test|state_counter.0111                                                         ; Lost fanout                           ;
+; fsm:test|state_counter~2                                                            ; Lost fanout                           ;
+; fsm:test|state_counter~3                                                            ; Lost fanout                           ;
+; fsm:test|state_counter~4                                                            ; Lost fanout                           ;
+; fsm:test|state_counter~5                                                            ; Lost fanout                           ;
+; fsm:test|state_counter.0011                                                         ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][0]                                                 ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[0,1]                                                         ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][0]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][0]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][0]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][0]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][0]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][0]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][0]                                                ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[2,3]                                                         ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][1]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][1]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][2]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][2]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][3]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][3]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][4]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][4]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][5]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][5]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][6]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][6]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][7]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][7]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][8]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][8]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][9]                                                 ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][9]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][10]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][10]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][11]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][11]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][12]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][12]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][13]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][13]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][14]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][14]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[0][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[4][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[8][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[12][15]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[1][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[5][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[9][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[13][15]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[2][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[6][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[10][15]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[14][15]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[3][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[7][15]                                                ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[11][15]                                               ; Lost fanout                           ;
+; regfile_2D_memory:registers|r[15][15]                                               ; Lost fanout                           ;
+; IRreg:Instr_Reg|RdstOut[0..3]                                                       ; Lost fanout                           ;
+; program_counter:prog_count|PC[0]                                                    ; Lost fanout                           ;
+; fsm:test|state_counter.0000                                                         ; Lost fanout                           ;
+; fsm:test|state_counter.0001                                                         ; Lost fanout                           ;
+; program_counter:prog_count|PC[1..15]                                                ; Lost fanout                           ;
+; bram:memory|ram_rtl_0_bypass[0,5..8,13..16]                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|Opcode[6,7]                                                         ; Lost fanout                           ;
+; fsm:test|state_counter.0010                                                         ; Lost fanout                           ;
+; IRreg:Instr_Reg|ImmOut[4..7]                                                        ; Lost fanout                           ;
+; IRreg:Instr_Reg|Opcode[4,5]                                                         ; Lost fanout                           ;
+; bram:memory|ram_rtl_0_bypass[1]                                                     ; Lost fanout                           ;
+; fsm:test|state_counter.0101                                                         ; Lost fanout                           ;
+; bram:memory|ram_rtl_0_bypass[2..4,9..12]                                            ; Lost fanout                           ;
+; fsm:test|state_counter.0100                                                         ; Lost fanout                           ;
+; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[0..2] ; Lost fanout                           ;
+; Total Number of Removed Registers = 336                                             ;                                       ;
++-------------------------------------------------------------------------------------+---------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                            ;
-+---------------------------------------+---------------------------+------------------------------------------------------------------------------------+
-; Register name                         ; Reason for Removal        ; Registers Removed due to This Register                                             ;
-+---------------------------------------+---------------------------+------------------------------------------------------------------------------------+
-; regfile_2D_memory:registers|r[15][5]  ; Stuck at GND              ; regfile_2D_memory:registers|r[0][0], regfile_2D_memory:registers|r[1][0],          ;
-;                                       ; due to stuck port data_in ; regfile_2D_memory:registers|r[3][0], regfile_2D_memory:registers|r[2][0],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][1], regfile_2D_memory:registers|r[1][1],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][1], regfile_2D_memory:registers|r[2][1],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][2], regfile_2D_memory:registers|r[1][2],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][2], regfile_2D_memory:registers|r[2][2],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][3], regfile_2D_memory:registers|r[1][3],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][3], regfile_2D_memory:registers|r[2][3],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][4], regfile_2D_memory:registers|r[1][4],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[2][4], regfile_2D_memory:registers|r[0][6],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[1][6], regfile_2D_memory:registers|r[3][6],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[2][6], regfile_2D_memory:registers|r[0][7],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[1][7], regfile_2D_memory:registers|r[3][7],          ;
-;                                       ;                           ; regfile_2D_memory:registers|r[2][7], regfile_2D_memory:registers|r[0][10],         ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][11], regfile_2D_memory:registers|r[1][11],        ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][11], regfile_2D_memory:registers|r[2][11],        ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][13], regfile_2D_memory:registers|r[1][13],        ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][13], regfile_2D_memory:registers|r[2][13],        ;
-;                                       ;                           ; regfile_2D_memory:registers|r[0][14], regfile_2D_memory:registers|r[1][14],        ;
-;                                       ;                           ; regfile_2D_memory:registers|r[3][14], regfile_2D_memory:registers|r[2][14],        ;
-;                                       ;                           ; IRreg:Instr_Reg|RdstOut[2], bram:memory|ram_rtl_0_bypass[8],                       ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[7], bram:memory|ram_rtl_0_bypass[5],                  ;
-;                                       ;                           ; IRreg:Instr_Reg|Opcode[6], IRreg:Instr_Reg|Opcode[7], fsm:test|state_counter.0010, ;
-;                                       ;                           ; IRreg:Instr_Reg|ImmOut[5], IRreg:Instr_Reg|ImmOut[7], IRreg:Instr_Reg|Opcode[4],   ;
-;                                       ;                           ; IRreg:Instr_Reg|Opcode[5], bram:memory|ram_rtl_0_bypass[1],                        ;
-;                                       ;                           ; fsm:test|state_counter.0101, bram:memory|ram_rtl_0_bypass[9],                      ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[10], bram:memory|ram_rtl_0_bypass[12],                ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[11],                                                  ;
-;                                       ;                           ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[1]   ;
-; fsm:test|state_counter.0111           ; Lost Fanouts              ; fsm:test|state_counter.0011, fsm:test|state_counter.0001,                          ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[16], bram:memory|ram_rtl_0_bypass[0],                 ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[15], bram:memory|ram_rtl_0_bypass[14],                ;
-;                                       ;                           ; bram:memory|ram_rtl_0_bypass[13],                                                  ;
-;                                       ;                           ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[2]   ;
-; regfile_2D_memory:registers|r[15][4]  ; Stuck at GND              ; regfile_2D_memory:registers|r[0][5], regfile_2D_memory:registers|r[1][5],          ;
-;                                       ; due to stuck port data_in ; regfile_2D_memory:registers|r[3][5], regfile_2D_memory:registers|r[2][5],          ;
-;                                       ;                           ; IRreg:Instr_Reg|RdstOut[3], bram:memory|ram_rtl_0_bypass[6],                       ;
-;                                       ;                           ; IRreg:Instr_Reg|ImmOut[4]                                                          ;
-; regfile_2D_memory:registers|r[15][8]  ; Stuck at GND              ; regfile_2D_memory:registers|r[0][8], regfile_2D_memory:registers|r[1][8],          ;
-;                                       ; due to stuck port data_in ; regfile_2D_memory:registers|r[3][8], regfile_2D_memory:registers|r[2][8],          ;
-;                                       ;                           ; program_counter:prog_count|PC[8]                                                   ;
-; regfile_2D_memory:registers|r[15][9]  ; Stuck at GND              ; regfile_2D_memory:registers|r[0][9], regfile_2D_memory:registers|r[1][9],          ;
-;                                       ; due to stuck port data_in ; regfile_2D_memory:registers|r[3][9], regfile_2D_memory:registers|r[2][9]           ;
-; regfile_2D_memory:registers|r[15][10] ; Stuck at GND              ; regfile_2D_memory:registers|r[1][10], regfile_2D_memory:registers|r[3][10],        ;
-;                                       ; due to stuck port data_in ; regfile_2D_memory:registers|r[2][10]                                               ;
-; regfile_2D_memory:registers|r[15][3]  ; Stuck at GND              ; IRreg:Instr_Reg|ImmOut[3], bram:memory|ram_rtl_0_bypass[4]                         ;
-;                                       ; due to stuck port data_in ;                                                                                    ;
-; regfile_2D_memory:registers|r[15][2]  ; Stuck at GND              ; IRreg:Instr_Reg|ImmOut[2], bram:memory|ram_rtl_0_bypass[3]                         ;
-;                                       ; due to stuck port data_in ;                                                                                    ;
-; regfile_2D_memory:registers|r[15][1]  ; Stuck at GND              ; IRreg:Instr_Reg|ImmOut[1], bram:memory|ram_rtl_0_bypass[2]                         ;
-;                                       ; due to stuck port data_in ;                                                                                    ;
-; fsm:test|state_counter~2              ; Lost Fanouts              ; fsm:test|state_counter.0000, fsm:test|state_counter.0100                           ;
-; regfile_2D_memory:registers|r[4][0]   ; Stuck at GND              ; IRreg:Instr_Reg|ImmOut[0]                                                          ;
-;                                       ; due to stuck port data_in ;                                                                                    ;
-; regfile_2D_memory:registers|r[15][6]  ; Stuck at GND              ; IRreg:Instr_Reg|ImmOut[6]                                                          ;
-;                                       ; due to stuck port data_in ;                                                                                    ;
-; regfile_2D_memory:registers|r[0][12]  ; Lost Fanouts              ; regfile_2D_memory:registers|r[2][12]                                               ;
-; regfile_2D_memory:registers|r[0][15]  ; Lost Fanouts              ; regfile_2D_memory:registers|r[2][15]                                               ;
-+---------------------------------------+---------------------------+------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                    ;
++--------------------------------------+--------------------+------------------------------------------------------------------------------------+
+; Register name                        ; Reason for Removal ; Registers Removed due to This Register                                             ;
++--------------------------------------+--------------------+------------------------------------------------------------------------------------+
+; regfile_2D_memory:registers|r[0][5]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][5], regfile_2D_memory:registers|r[8][5],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][5], regfile_2D_memory:registers|r[1][5],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][5], regfile_2D_memory:registers|r[9][5],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][5], regfile_2D_memory:registers|r[2][5],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[6][5], regfile_2D_memory:registers|r[10][5],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][5], regfile_2D_memory:registers|r[7][5],          ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[6], IRreg:Instr_Reg|ImmOut[6]                         ;
+; regfile_2D_memory:registers|r[0][13] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][13], regfile_2D_memory:registers|r[8][13],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][13], regfile_2D_memory:registers|r[1][13],       ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][13], regfile_2D_memory:registers|r[9][13],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][13], regfile_2D_memory:registers|r[2][13],       ;
+;                                      ;                    ; regfile_2D_memory:registers|r[6][13], regfile_2D_memory:registers|r[10][13],       ;
+;                                      ;                    ; regfile_2D_memory:registers|r[14][13], regfile_2D_memory:registers|r[3][13],       ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][13], regfile_2D_memory:registers|r[11][13]        ;
+; regfile_2D_memory:registers|r[0][14] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][14], regfile_2D_memory:registers|r[2][14],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][14], regfile_2D_memory:registers|r[4][14],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][14], regfile_2D_memory:registers|r[6][14],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][14], regfile_2D_memory:registers|r[8][14],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[9][14], regfile_2D_memory:registers|r[10][14],       ;
+;                                      ;                    ; regfile_2D_memory:registers|r[11][14], regfile_2D_memory:registers|r[12][14],      ;
+;                                      ;                    ; regfile_2D_memory:registers|r[13][14], regfile_2D_memory:registers|r[14][14]       ;
+; fsm:test|state_counter.0111          ; Lost Fanouts       ; fsm:test|state_counter.0011, IRreg:Instr_Reg|ImmOut[0], IRreg:Instr_Reg|ImmOut[1], ;
+;                                      ;                    ; fsm:test|state_counter.0001, bram:memory|ram_rtl_0_bypass[16],                     ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[0], bram:memory|ram_rtl_0_bypass[15],                 ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[14], bram:memory|ram_rtl_0_bypass[13],                ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[8], bram:memory|ram_rtl_0_bypass[2],                  ;
+;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[2],  ;
+;                                      ;                    ; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|address_reg_b[1]   ;
+; regfile_2D_memory:registers|r[0][0]  ; Lost Fanouts       ; IRreg:Instr_Reg|Opcode[6], IRreg:Instr_Reg|Opcode[7], fsm:test|state_counter.0010, ;
+;                                      ;                    ; IRreg:Instr_Reg|ImmOut[4], IRreg:Instr_Reg|ImmOut[7], IRreg:Instr_Reg|Opcode[5],   ;
+;                                      ;                    ; IRreg:Instr_Reg|Opcode[4], bram:memory|ram_rtl_0_bypass[1],                        ;
+;                                      ;                    ; fsm:test|state_counter.0101, bram:memory|ram_rtl_0_bypass[12],                     ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[11], bram:memory|ram_rtl_0_bypass[10],                ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[9]                                                    ;
+; regfile_2D_memory:registers|r[0][6]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][6], regfile_2D_memory:registers|r[2][6],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[3][6], regfile_2D_memory:registers|r[4][6],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[5][6], regfile_2D_memory:registers|r[6][6],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[7][6], regfile_2D_memory:registers|r[8][6],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[9][6], regfile_2D_memory:registers|r[10][6],         ;
+;                                      ;                    ; regfile_2D_memory:registers|r[12][6], regfile_2D_memory:registers|r[13][6],        ;
+;                                      ;                    ; bram:memory|ram_rtl_0_bypass[7]                                                    ;
+; regfile_2D_memory:registers|r[0][8]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][8], regfile_2D_memory:registers|r[2][8],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][8], regfile_2D_memory:registers|r[5][8],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][8]                                                ;
+; regfile_2D_memory:registers|r[0][9]  ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][9], regfile_2D_memory:registers|r[8][9],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][9], regfile_2D_memory:registers|r[5][9],          ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][9]                                                ;
+; regfile_2D_memory:registers|r[0][10] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][10], regfile_2D_memory:registers|r[2][10],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][10], regfile_2D_memory:registers|r[5][10],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][10]                                               ;
+; regfile_2D_memory:registers|r[0][11] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][11], regfile_2D_memory:registers|r[8][11],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][11], regfile_2D_memory:registers|r[5][11],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][11]                                               ;
+; regfile_2D_memory:registers|r[0][12] ; Lost Fanouts       ; regfile_2D_memory:registers|r[1][12], regfile_2D_memory:registers|r[2][12],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[4][12], regfile_2D_memory:registers|r[5][12],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[8][12]                                               ;
+; regfile_2D_memory:registers|r[0][15] ; Lost Fanouts       ; regfile_2D_memory:registers|r[4][15], regfile_2D_memory:registers|r[8][15],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[1][15], regfile_2D_memory:registers|r[5][15],        ;
+;                                      ;                    ; regfile_2D_memory:registers|r[2][15]                                               ;
+; fsm:test|state_counter~2             ; Lost Fanouts       ; fsm:test|state_counter.0000, fsm:test|state_counter.0100                           ;
+; IRreg:Instr_Reg|ImmOut[2]            ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[3]                                                    ;
+; IRreg:Instr_Reg|ImmOut[3]            ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[4]                                                    ;
+; regfile_2D_memory:registers|r[0][1]  ; Lost Fanouts       ; IRreg:Instr_Reg|ImmOut[5]                                                          ;
+; regfile_2D_memory:registers|r[0][4]  ; Lost Fanouts       ; bram:memory|ram_rtl_0_bypass[5]                                                    ;
++--------------------------------------+--------------------+------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -681,24 +684,36 @@ Encoding Type:  One-Hot
 +------------------------+-----------------------+------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                 ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[5]            ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][15] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][9]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][9]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][7]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[6]     ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0              ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |lab4|mux:muxSrc|Mux7                      ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 64 LEs               ; 96 LEs                 ; No         ; |lab4|mux:muxDst|Mux9                      ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab4|fsm:test|state_counter               ;
-; 56:1               ; 2 bits    ; 74 LEs        ; 58 LEs               ; 16 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]       ;
-; 61:1               ; 2 bits    ; 80 LEs        ; 56 LEs               ; 24 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[5]        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[3]             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][0]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][14]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][7]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][4]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][14]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][11] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][2]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][6]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][10] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][7]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[9]      ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0               ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux1                       ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux7                       ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab4|fsm:test|state_counter                ;
+; 56:1               ; 2 bits    ; 74 LEs        ; 58 LEs               ; 16 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]        ;
+; 61:1               ; 2 bits    ; 80 LEs        ; 56 LEs               ; 24 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[6]         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------+
@@ -907,7 +922,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Oct 29 17:26:33 2020
+    Info: Processing started: Thu Oct 29 22:58:00 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -946,10 +961,9 @@ Warning (10850): Verilog HDL warning at bram.v(23): number of words (5) in memor
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 150
 Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 162
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 178
-Info (10264): Verilog HDL Case Statement information at fsm.v(27): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 27
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(74): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 74
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(107): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 107
-Info (10264): Verilog HDL Case Statement information at fsm.v(49): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 49
+Info (10264): Verilog HDL Case Statement information at fsm.v(26): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 26
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(48): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 48
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(98): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 98
 Warning (276020): Inferred RAM node "bram:memory|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 19
@@ -1126,8 +1140,7 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a126" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4080
         Warning (14320): Synthesized away node "bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ram_block1a127" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 4112
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
-Info (17049): 136 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
+Info (17049): 328 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 2 input pin(s) that do not drive logic
@@ -1137,15 +1150,9 @@ Info (21057): Implemented 2 device resources after synthesis - the final resourc
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 0 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 140 warnings
-    Info: Peak virtual memory: 4818 megabytes
-    Info: Processing ended: Thu Oct 29 17:26:47 2020
-    Info: Elapsed time: 00:00:14
+    Info: Peak virtual memory: 4819 megabytes
+    Info: Processing ended: Thu Oct 29 22:58:15 2020
+    Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:24
-
-
-+------------------------------------------+
-; Analysis & Synthesis Suppressed Messages ;
-+------------------------------------------+
-The suppressed messages can be found in C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg.
 
 

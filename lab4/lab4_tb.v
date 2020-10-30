@@ -21,7 +21,7 @@ module lab4_tb;
 	begin
 		clk = 1'b0;
 		reset = 1'b1;
-		#7;
+		#10;
 		
 		reset = 1'b0; // reset has been pushed.
 		

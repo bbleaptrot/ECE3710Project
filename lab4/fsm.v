@@ -15,7 +15,6 @@ reg [3:0] state_counter = 4'b0000;
 	parameter Jcond= 8'b01001100; // *
 	parameter JAL  = 8'b01001000; // *
 
-	
 	// Next state logic
 always @(posedge clk)
  begin
@@ -27,12 +26,12 @@ always @(posedge clk)
 		case(state_counter)
 			0: state_counter <= 1;
 			1: begin
-					if(instruction[15:12] == 4'b0 || instruction[15:12] == 4'b0101) state_counter <= 4'b0010; // R-type instruction
+					if(instruction[15:12] == 4'b0000) state_counter <= 4'b0010; // R-type instruction
 					else if({instruction[15:12],instruction[7:4]} == STOR) state_counter <= 4'b0011; // Store instruction
 					else if({instruction[15:12],instruction[7:4]} == LOAD) state_counter <= 4'b0100; // Load instruction
 					else if({instruction[15:12],instruction[7:4]} == Bcond)state_counter <= 4'b0110; // Branch instruction
 					else if({instruction[15:12],instruction[7:4]} == Jcond)state_counter <= 4'b0111; // Jump instruction
-					else                         state_counter <= 4'b1000; // Everything else right now
+					else state_counter <= 4'b0010;// Everything else right now
 				end
 			2: state_counter <= 4'b0000;
 			3: state_counter <= 4'b0000;
@@ -46,6 +45,24 @@ always @(posedge clk)
  // Output logic
  always @(state_counter)
  begin
+	case(instruction[11:8])
+		0:  Ren = 16'h0001;
+		1:  Ren = 16'h0002;
+		2:  Ren = 16'h0004;
+		3:  Ren = 16'h0008;
+		4:  Ren = 16'h0010;
+		5:  Ren = 16'h0020;
+		6:  Ren = 16'h0040;
+		7:  Ren = 16'h0080;
+		8:  Ren = 16'h0100;
+		9:  Ren = 16'h0200;
+		10: Ren = 16'h0400;
+		11: Ren = 16'h0800;
+		12: Ren = 16'h1000;
+		13: Ren = 16'h2000;
+		14: Ren = 16'h4000;
+		15: Ren = 16'h8000;
+	endcase
 	case(state_counter)
 		0: begin // Fetch stage
 				Ren           = 16'h0; // Data isn't getting written back in this stage
@@ -71,18 +88,17 @@ always @(posedge clk)
 				
 			end
 		2: begin // R-Type
-				Ren           = instruction[11:8];
 				PCen          = 1'b1;
-				RegOrImm      = 1'b1;
 				WE            = 1'b0;
 				ALU_MUX_CNTL  = 1'b0;
 				LS_CNTL       = 1'b0;
 				branch        = 1'b0;
 				jump          = 1'b0;
 				IEn           = 1'b0;
+				if(instruction[15:12] == 4'b0101) RegOrImm = 1'b1;
+				else RegOrImm = 1'b0;
 			end
 		3: begin // Store into memory
-				Ren           = 16'h0; // Not writing to registers
 				PCen          = 1'b1;  // Move to next instruction
 				RegOrImm      = 1'b0;  // Probably garbage?
 				WE            = 1'b1;  // Write into memory
@@ -93,7 +109,6 @@ always @(posedge clk)
 				IEn           = 1'b0;  // holding instruction
 			end
 		4: begin // Load
-				Ren           = 16'h0; // Not writing to registers
 				PCen          = 1'b0;  // One more step in Loads
 				RegOrImm      = 1'b0;  // Doesn't matter
 				WE            = 1'b0;  // Not writing to memory 
@@ -104,7 +119,6 @@ always @(posedge clk)
 				IEn           = 1'b0;  // holding instruction
 			end
 		5: begin // DOUT store to regfile via ALU_Mux
-				Ren           = instruction[11:8]; // Write to register
 				PCen          = 1'b1;  // Move to next instruction
 				RegOrImm      = 1'b0;  // shoudn't matter?
 				WE            = 1'b0;  // Not writing to memory
@@ -115,7 +129,6 @@ always @(posedge clk)
 				IEn           = 1'b0;  // holding instruction
 			end
 		6: begin // Branch
-				Ren           = 16'h0;
 				PCen          = 1'b0;
 				RegOrImm      = 1'b0;
 				WE            = 1'b0;
@@ -126,7 +139,6 @@ always @(posedge clk)
 				IEn           = 1'b0;
 			end
 		7: begin // Jump
-				Ren           = 16'h0;
 				PCen          = 1'b0;
 				RegOrImm      = 1'b0;
 				WE            = 1'b0;
@@ -137,7 +149,6 @@ always @(posedge clk)
 				IEn           = 1'b0;
 			end
 		default: begin
-				Ren           = 16'hx;
 				PCen          = 1'bx;
 				RegOrImm      = 1'bx;
 				WE            = 1'bx;
