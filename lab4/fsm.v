@@ -97,7 +97,15 @@ always @(posedge clk)
 				jump          = 1'b0;
 				IEn           = 1'b0;
 				// FIX THIS TO INCLUDE ALL IMMEDIATES
-				if(instruction[15:12] == 4'b0101) RegOrImm = 1'b1;
+				if(instruction[15:12] == 4'b0101 ||
+					instruction[15:12] == 4'b0110 ||
+					instruction[15:12] == 4'b1001 ||
+					instruction[15:12] == 4'b1010 ||
+					instruction[15:12] == 4'b1011 ||
+					instruction[15:12] == 4'b0001 ||
+					instruction[15:12] == 4'b0010 ||
+					instruction[15:12] == 4'b0011 ||
+					instruction[15:12] == 4'b1101) RegOrImm = 1'b1;
 				else RegOrImm = 1'b0;
 			end
 		3: begin // Store into memory
