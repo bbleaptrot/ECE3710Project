@@ -2,6 +2,7 @@ module lab4(clk, rst);
 //Inputs
 input clk, rst;
 
+
 //Registers
 wire[15:0] BUS, Ren, r0_out, r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out;
 wire[15:0] r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out;
@@ -19,8 +20,8 @@ wire we_a, we_b;
 
 //IRreg
 wire IEn;
-wire[3:0] RsrcOut, RdstOut, ImmOut;
-wire[7:0] Opcode, bDisp;
+wire[3:0] RsrcOut, RdstOut;
+wire[7:0] Opcode, bDisp, ImmOut;
 wire[15:0] MemOut;
 
 
@@ -129,7 +130,7 @@ mux muxDst(
 	.data_a(srcMux_out),
 	.data_b(), // VGA Stuff
 	.addr_a(addr_a),
-	.addr_b(), // VGA Stuff
+	.addr_b(addr_a), // VGA Stuff
 	.we_a(WE),   // FSM
 	.we_b(),   // VGA Stuff
 	.clk(clk),
