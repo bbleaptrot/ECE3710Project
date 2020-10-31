@@ -40,7 +40,7 @@ module program_counter(clk, reset, branch, jump, PCen, b_offset, j_target, PC);
 		// Only update PC when PCen goes high
 		else if(PCen)
 		begin
-			if(branch)	   PC <= PC + b_offset; 
+			if(branch)	   PC <= $signed(PC) + b_offset; 
 			else if(jump)  PC <= j_target;
 			else           PC <= PC + 1'b1;
 		end	

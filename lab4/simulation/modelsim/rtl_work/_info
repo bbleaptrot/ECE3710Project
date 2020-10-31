@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/bblea/source/repos/ECE3710Project/lab4/simulation/modelsim
 valu
-Z1 !s110 1604106118
+Z1 !s110 1604111336
 !i10b 1
 !s100 6njX4SaE]3V4<3[ijT3_b0
 I_N=J[_a;mi4G^AFOb]C>83
@@ -23,7 +23,7 @@ Z4 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z5 !s108 1604106118.000000
+Z5 !s108 1604111336.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !i113 1
@@ -31,7 +31,7 @@ Z6 o-vlog01compat -work work
 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
 Z7 tCvgOpt 0
 vbram
-!s110 1604106120
+Z8 !s110 1604111338
 !i10b 1
 !s100 ]GTSj]4KWQ8D?Rah6TeE92
 IKJ>?XXAnkGoY5dX_2iheR3
@@ -45,7 +45,7 @@ R4
 r1
 !s85 0
 31
-!s108 1604106120.000000
+Z9 !s108 1604111338.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3|C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !i113 1
@@ -53,13 +53,13 @@ R6
 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3
 R7
 vfsm
-Z8 !s110 1604106119
+Z10 !s110 1604111337
 !i10b 1
-!s100 4Z<C_lIF9Ae^2Tcmb>J4;2
-I<6V8jN>XBehkjQI>nBk1Q2
+!s100 mk^:VPNl3_T^8<B?zP9T`2
+I@`lHXH[FF0eUONAVj6I:70
 R2
 R0
-w1604103421
+w1604111244
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 L0 1
@@ -67,12 +67,12 @@ R4
 r1
 !s85 0
 31
-Z9 !s108 1604106119.000000
+Z11 !s108 1604111337.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !i113 1
 R6
-Z10 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
+Z12 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
 R7
 vIRreg
 R8
@@ -94,11 +94,11 @@ R9
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
 !i113 1
 R6
-R10
+R12
 R7
 n@i@rreg
 vlab4
-Z11 !s110 1604106134
+!s110 1604111445
 !i10b 1
 !s100 jbb8l?k[R3`0Bg<7QfG?=3
 I<m4ZC_9YgDaH>e^GJ8=fI0
@@ -112,14 +112,14 @@ R4
 r1
 !s85 0
 31
-Z12 !s108 1604106134.000000
+!s108 1604111445.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
 !s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
 !i113 1
 Z13 o-work work
 R7
 vlab4_tb
-R11
+!s110 1604111446
 !i10b 1
 !s100 ==lYRRIPmA`1m_g1XUIY20
 IZYQEkf?HbXQO630QPHzU31
@@ -133,7 +133,7 @@ R4
 r1
 !s85 0
 31
-R12
+!s108 1604111446.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !i113 1
@@ -184,13 +184,13 @@ R6
 R15
 R7
 vprogram_counter
-R8
+R10
 !i10b 1
-!s100 c8F?X6MX18]j@YCY4bfbo3
-ISj?;h1eGjckd>HLKB_P<R3
+!s100 X^:f?BoL6Vcj=Q1NZh0?m3
+I0IHcW4glNT?m9CKXh40c62
 R2
 R0
-w1602795262
+w1604110786
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 L0 19
@@ -198,15 +198,15 @@ R4
 r1
 !s85 0
 31
-R9
+R11
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
 !i113 1
 R6
-R10
+R12
 R7
 vregfile_2D_memory
-!s110 1604106117
+!s110 1604111335
 !i10b 1
 !s100 SflE3`^WeOHJ[7kh]8JoB2
 IKG4iEI8hA7JJ;aOkKdKoJ0
@@ -220,7 +220,7 @@ R4
 r1
 !s85 0
 31
-!s108 1604106117.000000
+!s108 1604111335.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
 !i113 1

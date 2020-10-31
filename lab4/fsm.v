@@ -12,7 +12,7 @@ reg [3:0] state_counter = 4'b0000;
 
 	parameter LOAD = 8'b01000000; // *
 	parameter STOR = 8'b01000100; // *
-	parameter Bcond= 8'b1100xxxx; // *
+	parameter Bcond= 4'b1100; // *
 	parameter Jcond= 8'b01001100; // *
 	parameter JAL  = 8'b01001000; // *
 
@@ -30,7 +30,7 @@ always @(posedge clk)
 					if(instruction[15:12] == 4'b0000) state_counter <= 4'b0010; // R-type instruction
 					else if({instruction[15:12],instruction[7:4]} == STOR) state_counter <= 4'b0011; // Store instruction
 					else if({instruction[15:12],instruction[7:4]} == LOAD) state_counter <= 4'b0100; // Load instruction
-					else if({instruction[15:12],instruction[7:4]} == Bcond)state_counter <= 4'b0110; // Branch instruction
+					else if(instruction[15:12] == Bcond)                   state_counter <= 4'b0110; // Branch instruction
 					else if({instruction[15:12],instruction[7:4]} == Jcond)state_counter <= 4'b0111; // Jump instruction
 					else state_counter <= 4'b0010;// Everything else right now
 				end
@@ -38,6 +38,7 @@ always @(posedge clk)
 			3: state_counter <= 4'b0000;
 			4: state_counter <= 4'b0101;
 			5: state_counter <= 4'b0000;
+			6: state_counter <= 4'b0000;
 			default: state_counter <= 0;
 		endcase
 	end
@@ -176,65 +177,124 @@ always @(posedge clk)
 				delay_Ren = 16'h0;
 			end
 		6: begin // Branch
-				PCen          = 1'b0;
-				RegOrImm      = 1'b0;
-				WE            = 1'b0;
-				ALU_MUX_CNTL  = 1'b0;
-				LS_CNTL       = 1'b0;
-				branch        = 1'b0;
-				jump          = 1'b0;
-				IEn           = 1'b0;
-				
+			// FLAGS [C,L,F,Z,N]
 				case(instruction[11:8])
-					0:  Ren = 16'h0001;
-					1:  Ren = 16'h0002;
-					2:  Ren = 16'h0004;
-					3:  Ren = 16'h0008;
-					4:  Ren = 16'h0010;
-					5:  Ren = 16'h0020;
-					6:  Ren = 16'h0040;
-					7:  Ren = 16'h0080;
-					8:  Ren = 16'h0100;
-					9:  Ren = 16'h0200;
-					10: Ren = 16'h0400;
-					11: Ren = 16'h0800;
-					12: Ren = 16'h1000;
-					13: Ren = 16'h2000;
-					14: Ren = 16'h4000;
-					15: Ren = 16'h8000;
+					0: // EQ Z=1
+						if(FLAGS[1]) branch = 1;
+						else branch = 0;
+					1: // NE Z=0
+						if(~FLAGS[1]) branch = 1;
+						else branch = 0;
+					2: // CS C=1
+						if(FLAGS[4]) branch = 1;
+						else branch = 0;
+					3: // CC C=0
+						if(~FLAGS[4]) branch = 1;
+						else branch = 0;
+					4: // HI L=1
+						if(FLAGS[3]) branch = 1;
+						else branch = 0;
+					5: // LS L=0
+						if(~FLAGS[3]) branch = 1;
+						else branch = 0;
+					6: // GT N=1
+						if(FLAGS[0]) branch = 1;
+						else branch = 0;
+					7: // LE N=0
+						if(~FLAGS[0]) branch = 1;
+						else branch = 0;
+					8: // FS F=1
+						if(FLAGS[2]) branch = 1;
+						else branch = 0;
+					9: // FC F=0
+						if(~FLAGS[2]) branch = 1;
+						else branch = 0;
+					10: // L0 L=0 AND Z=0
+						if(~FLAGS[3] & ~FLAGS[1]) branch = 1;
+						else branch = 0;
+					11: // HS L=1 OR Z=1
+						if(FLAGS[3] | FLAGS[1]) branch = 1;
+						else branch = 0;
+					12: // LS N=0 AND Z=0
+						if(~FLAGS[0] & ~FLAGS[1]) branch = 1;
+						else branch = 0;
+					13: // GE N=1 Or Z=1
+						if(FLAGS[0] | FLAGS[1]) branch = 1;
+						else branch = 0;
+					14: // Uncondtional NA
+						branch = 1;
+					15: // NEVER JUMP EVER
+						branch = 0;
 				endcase
 				
+				PCen          = 1'b1; // Logic needed to determine if high or not
+				RegOrImm      = 1'b0; // No arithmetic logic
+				WE            = 1'b0; // Not writing
+				ALU_MUX_CNTL  = 1'b0; // 
+				LS_CNTL       = 1'b1; 
+				jump          = 1'b0;
+				IEn           = 1'b0;
+				Ren           = 16'b0;
 				delay_Ren = 16'h0;
 			end
 		7: begin // Jump
-				PCen          = 1'b0;
+				// FLAGS [C,L,F,Z,N]
+				case(instruction[11:8])
+					0: // EQ Z=1
+						if(FLAGS[1]) jump = 1;
+						else jump = 0;
+					1: // NE Z=0
+						if(~FLAGS[1]) jump = 1;
+						else jump = 0;
+					2: // CS C=1
+						if(FLAGS[4]) jump = 1;
+						else jump = 0;
+					3: // CC C=0
+						if(~FLAGS[4]) jump = 1;
+						else jump = 0;
+					4: // HI L=1
+						if(FLAGS[3]) jump = 1;
+						else jump = 0;
+					5: // LS L=0
+						if(~FLAGS[3]) jump = 1;
+						else jump = 0;
+					6: // GT N=1
+						if(FLAGS[0]) jump = 1;
+						else jump = 0;
+					7: // LE N=0
+						if(~FLAGS[0]) jump = 1;
+						else jump = 0;
+					8: // FS F=1
+						if(FLAGS[2]) jump = 1;
+						else jump = 0;
+					9: // FC F=0
+						if(~FLAGS[2]) jump = 1;
+						else jump = 0;
+					10: // L0 L=0 AND Z=0
+						if(~FLAGS[3] & ~FLAGS[1]) jump = 1;
+						else jump = 0;
+					11: // HS L=1 OR Z=1
+						if(FLAGS[3] | FLAGS[1]) jump = 1;
+						else jump = 0;
+					12: // LS N=0 AND Z=0
+						if(~FLAGS[0] & ~FLAGS[1]) jump = 1;
+						else jump = 0;
+					13: // GE N=1 Or Z=1
+						if(FLAGS[0] | FLAGS[1]) jump = 1;
+						else jump = 0;
+					14: // Uncondtional NA
+						jump = 1;
+					15: // NEVER JUMP EVER
+						jump = 0;
+				endcase
+				PCen          = 1'b1;
 				RegOrImm      = 1'b0;
 				WE            = 1'b0;
 				ALU_MUX_CNTL  = 1'b0;
-				LS_CNTL       = 1'b0;
+				LS_CNTL       = 1'b1;
 				branch        = 1'b0;
-				jump          = 1'b0;
 				IEn           = 1'b0;
-				
-				case(instruction[11:8])
-					0:  Ren = 16'h0001;
-					1:  Ren = 16'h0002;
-					2:  Ren = 16'h0004;
-					3:  Ren = 16'h0008;
-					4:  Ren = 16'h0010;
-					5:  Ren = 16'h0020;
-					6:  Ren = 16'h0040;
-					7:  Ren = 16'h0080;
-					8:  Ren = 16'h0100;
-					9:  Ren = 16'h0200;
-					10: Ren = 16'h0400;
-					11: Ren = 16'h0800;
-					12: Ren = 16'h1000;
-					13: Ren = 16'h2000;
-					14: Ren = 16'h4000;
-					15: Ren = 16'h8000;
-				endcase
-				
+				Ren           = 1'b0;
 				delay_Ren = 16'h0;
 			end
 		default: begin
