@@ -1,5 +1,12 @@
-0001
-0002
-0003
-0004
-1020
+5055 // ADDI 55 into R0
+4F00 // Load data from addr 0x55 into R15
+5203 // ADDI 3 into R2
+025F // R2 = R2 + R15
+C202 // Branch on Carry Set 
+9301 // SUBI 1 into R3
+5301 // ADDI 1 into R3
+4340 // Store R3 into addr 0x55
+4E00 // Load data from addr 0x55 into R14
+@55
+FFFE
+

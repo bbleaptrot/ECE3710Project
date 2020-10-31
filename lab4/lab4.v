@@ -1,7 +1,9 @@
-module lab4(clk, rst);
+module lab4(clk, rst, seg_4, seg_3, seg_2, seg_1);
 //Inputs
 input clk, rst;
 
+//outputs
+output[0:6] seg_4, seg_3, seg_2, seg_1;
 
 //Registers
 wire[15:0] BUS, Ren, r0_out, r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out;
@@ -189,4 +191,9 @@ mux muxDst(
 	.clk(clk),
 	.rst(rst)
 	);
+	
+	hex2seg seg4(r14_out[15:12], seg_4);
+	hex2seg seg3(r14_out[11:8], seg_3);
+	hex2seg seg2(r14_out[7:4], seg_2);
+	hex2seg seg1(r14_out[3:0], seg_1);
 endmodule
