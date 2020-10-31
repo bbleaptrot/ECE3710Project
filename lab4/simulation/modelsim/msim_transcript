@@ -1,4 +1,4 @@
-# Reading D:/Quartus_Files/modelsim_ase/tcl/vsim/pref.tcl
+# Reading C:/intelFPGA_lite/18.1/modelsim_ase/tcl/vsim/pref.tcl
 # do lab4_run_msim_rtl_verilog.do
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
@@ -7,124 +7,124 @@
 # vmap work rtl_work
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
 # vmap work rtl_work 
-# Copying D:/Quartus_Files/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:/intelFPGA_lite/18.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab2 {D:/Documents/GitHub/ECE3710Project/lab2/regfile_2D_memory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2 {C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:29 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab2" D:/Documents/GitHub/ECE3710Project/lab2/regfile_2D_memory.v 
+# Start time: 19:01:57 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2" C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v 
 # -- Compiling module regfile_2D_memory
 # 
 # Top level modules:
 # 	regfile_2D_memory
-# End time: 17:50:29 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:57 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab2 {D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2 {C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:29 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab2" D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v 
+# Start time: 19:01:58 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2" C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v 
 # -- Compiling module mux_2_to_1
 # 
 # Top level modules:
 # 	mux_2_to_1
-# End time: 17:50:29 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:58 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab2 {D:/Documents/GitHub/ECE3710Project/lab2/mux.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2 {C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:30 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab2" D:/Documents/GitHub/ECE3710Project/lab2/mux.v 
+# Start time: 19:01:58 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2" C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v 
 # -- Compiling module mux
 # 
 # Top level modules:
 # 	mux
-# End time: 17:50:30 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:58 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab1 {D:/Documents/GitHub/ECE3710Project/lab1/alu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1 {C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:30 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab1" D:/Documents/GitHub/ECE3710Project/lab1/alu.v 
+# Start time: 19:01:58 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1" C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v 
 # -- Compiling module alu
-# ** Warning: D:/Documents/GitHub/ECE3710Project/lab1/alu.v(85): (vlog-2182) 'Flags' might be read before written in always_comb or always @* block.
+# ** Warning: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v(85): (vlog-2182) 'Flags' might be read before written in always_comb or always @* block.
 # 
 # Top level modules:
 # 	alu
-# End time: 17:50:30 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:58 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 1
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab4 {D:/Documents/GitHub/ECE3710Project/lab4/lab4.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:30 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab4" D:/Documents/GitHub/ECE3710Project/lab4/lab4.v 
+# Start time: 19:01:58 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4" C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v 
 # -- Compiling module lab4
 # 
 # Top level modules:
 # 	lab4
-# End time: 17:50:31 on Oct 30,2020, Elapsed time: 0:00:01
+# End time: 19:01:59 on Oct 30,2020, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab4 {D:/Documents/GitHub/ECE3710Project/lab4/program_counter.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:31 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab4" D:/Documents/GitHub/ECE3710Project/lab4/program_counter.v 
+# Start time: 19:01:59 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4" C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v 
 # -- Compiling module program_counter
 # 
 # Top level modules:
 # 	program_counter
-# End time: 17:50:31 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:59 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab4 {D:/Documents/GitHub/ECE3710Project/lab4/fsm.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:31 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab4" D:/Documents/GitHub/ECE3710Project/lab4/fsm.v 
+# Start time: 19:01:59 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4" C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v 
 # -- Compiling module fsm
 # 
 # Top level modules:
 # 	fsm
-# End time: 17:50:31 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:01:59 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab4 {D:/Documents/GitHub/ECE3710Project/lab4/IRreg.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:31 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab4" D:/Documents/GitHub/ECE3710Project/lab4/IRreg.v 
+# Start time: 19:01:59 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4" C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v 
 # -- Compiling module IRreg
 # 
 # Top level modules:
 # 	IRreg
-# End time: 17:50:32 on Oct 30,2020, Elapsed time: 0:00:01
+# End time: 19:01:59 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# vlog -vlog01compat -work work +incdir+D:/Documents/GitHub/ECE3710Project/lab3 {D:/Documents/GitHub/ECE3710Project/lab3/bram.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3 {C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:32 on Oct 30,2020
-# vlog -reportprogress 300 -vlog01compat -work work "+incdir+D:/Documents/GitHub/ECE3710Project/lab3" D:/Documents/GitHub/ECE3710Project/lab3/bram.v 
+# Start time: 19:02:00 on Oct 30,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3" C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v 
 # -- Compiling module bram
 # 
 # Top level modules:
 # 	bram
-# End time: 17:50:32 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:02:00 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-vlog -reportprogress 300 -work work D:/Documents/GitHub/ECE3710Project/lab4/lab4.v
+vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:41 on Oct 30,2020
-# vlog -reportprogress 300 -work work D:/Documents/GitHub/ECE3710Project/lab4/lab4.v 
+# Start time: 19:02:14 on Oct 30,2020
+# vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v 
 # -- Compiling module lab4
 # 
 # Top level modules:
 # 	lab4
-# End time: 17:50:41 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:02:14 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-vlog -reportprogress 300 -work work D:/Documents/GitHub/ECE3710Project/lab4/lab4_tb.v
+vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 17:50:41 on Oct 30,2020
-# vlog -reportprogress 300 -work work D:/Documents/GitHub/ECE3710Project/lab4/lab4_tb.v 
+# Start time: 19:02:14 on Oct 30,2020
+# vlog -reportprogress 300 -work work C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v 
 # -- Compiling module lab4_tb
 # 
 # Top level modules:
 # 	lab4_tb
-# End time: 17:50:41 on Oct 30,2020, Elapsed time: 0:00:00
+# End time: 19:02:14 on Oct 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 vsim work.lab4_tb
 # vsim work.lab4_tb 
-# Start time: 17:50:51 on Oct 30,2020
+# Start time: 19:02:20 on Oct 30,2020
 # Loading work.lab4_tb
 # Loading work.lab4
 # Loading work.regfile_2D_memory
@@ -135,12 +135,10 @@ vsim work.lab4_tb
 # Loading work.program_counter
 # Loading work.IRreg
 # Loading work.fsm
-# ** Warning: (vsim-3015) D:/Documents/GitHub/ECE3710Project/lab4/lab4.v(99): [PCDPC] - Port size (16) does not match connection size (8) for port 'r1'. The port definition is at: D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v(5).
-#    Time: 0 ps  Iteration: 0  Instance: /lab4_tb/UUT/immMux File: D:/Documents/GitHub/ECE3710Project/lab2/mux_2_to_1.v
-add wave -position end sim:/lab4_tb/UUT/test/*
-add wave -position end sim:/lab4_tb/UUT/registers/*
-add wave -position insertpoint sim:/lab4_tb/UUT/Instr_Reg/*
-add wave -position insertpoint sim:/lab4_tb/UUT/logicBox/*
+# ** Warning: (vsim-3015) C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v(99): [PCDPC] - Port size (16) does not match connection size (8) for port 'r1'. The port definition is at: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v(5).
+#    Time: 0 ps  Iteration: 0  Instance: /lab4_tb/UUT/immMux File: C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
+add wave -position insertpoint sim:/lab4_tb/UUT/test/*
+add wave -position insertpoint sim:/lab4_tb/UUT/registers/*
 run
-# End time: 17:52:09 on Oct 30,2020, Elapsed time: 0:01:18
+# End time: 19:04:46 on Oct 30,2020, Elapsed time: 0:02:26
 # Errors: 0, Warnings: 1

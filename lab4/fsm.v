@@ -127,25 +127,7 @@ always @(posedge clk)
 				jump          = 1'b0;  // not jumping
 				IEn           = 1'b0;  // holding instruction
 				
-				case(instruction[11:8])
-					0:  Ren = 16'h0001;
-					1:  Ren = 16'h0002;
-					2:  Ren = 16'h0004;
-					3:  Ren = 16'h0008;
-					4:  Ren = 16'h0010;
-					5:  Ren = 16'h0020;
-					6:  Ren = 16'h0040;
-					7:  Ren = 16'h0080;
-					8:  Ren = 16'h0100;
-					9:  Ren = 16'h0200;
-					10: Ren = 16'h0400;
-					11: Ren = 16'h0800;
-					12: Ren = 16'h1000;
-					13: Ren = 16'h2000;
-					14: Ren = 16'h4000;
-					15: Ren = 16'h8000;
-				endcase
-				
+				Ren       = 16'h0;
 				delay_Ren = 16'h0;
 			end
 		4: begin // Load

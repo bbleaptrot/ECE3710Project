@@ -1,5 +1,9 @@
 5055 // add immediate value 55 into register 0
-4F00 // load address 55 into register 15  
+5169 // add immediate value 69 into register 1
+4141 // store into address 69 value 69
+4F00 // load address 55 into register 15
+4D01 // load value
+
+0F50 // Add into R15 R0  
 @55
 0690
-
