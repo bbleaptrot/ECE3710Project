@@ -1,10 +1,10 @@
-module fsm(clk, rst, instruction, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL);
+module fsm(clk, rst, instruction, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL, flagEn);
 
 input clk, rst;
 input [15:0] instruction;
 input [4:0] FLAGS;
 
-output reg PCen, RegOrImm, WE, ALU_MUX_CNTL, LS_CNTL, branch, jump, IEn;
+output reg PCen, RegOrImm, WE, ALU_MUX_CNTL, LS_CNTL, branch, jump, IEn, flagEn;
 output reg [15:0] Ren;
 
 reg [15:0] delay_Ren = 16'h0;
@@ -60,8 +60,8 @@ always @(posedge clk)
 				branch        = 1'b0;  // Don't branch
 				jump          = 1'b0;  // Don't jump
 				IEn           = 1'b0;  // Grab instruction
-				
-				delay_Ren = 16'h0;
+				delay_Ren     = 16'h0;
+				flagEn        = 1'b0;
 			end
 		1: begin // Decode Stage
 				Ren           = 16'h0; // Don't write to registers yet
@@ -73,8 +73,8 @@ always @(posedge clk)
 				branch        = 1'b0;  // Don't branch
 				jump          = 1'b0;  // Don't jump
 				IEn           = 1'b1;  // Hold instruction
-				
-				delay_Ren = 16'h0;
+				delay_Ren     = 16'h0;
+				flagEn        = 1'b0;
 			end
 		2: begin // R-Type
 				PCen          = 1'b1;
@@ -84,6 +84,7 @@ always @(posedge clk)
 				branch        = 1'b0;
 				jump          = 1'b0;
 				IEn           = 1'b0;
+				flagEn        = 1'b1;
 				// FIX THIS TO INCLUDE ALL IMMEDIATES
 				if(instruction[15:12] == 4'b0101 ||
 					instruction[15:12] == 4'b0110 ||
@@ -127,9 +128,9 @@ always @(posedge clk)
 				branch        = 1'b0;  // not branching
 				jump          = 1'b0;  // not jumping
 				IEn           = 1'b0;  // holding instruction
-				
-				Ren       = 16'h0;
-				delay_Ren = 16'h0;
+				Ren           = 16'h0;
+				delay_Ren     = 16'h0;
+				flagEn        = 1'b0;
 			end
 		4: begin // Load
 				PCen          = 1'b0;  // One more step in Loads
@@ -140,8 +141,8 @@ always @(posedge clk)
 				branch        = 1'b0;  // Not branching
 				jump          = 1'b0;  // Not jumping
 				IEn           = 1'b0;  // holding instruction
-				
-				Ren = 16'h0;
+				Ren           = 16'h0;
+				flagEn        = 1'b0;
 				
 				case(instruction[11:8])
 					0:  delay_Ren = 16'h0001;
@@ -171,10 +172,9 @@ always @(posedge clk)
 				branch        = 1'b0;  // not branching
 				jump          = 1'b0;  // not jumping
 				IEn           = 1'b0;  // holding instruction
-				
-				Ren = delay_Ren;
-				
-				delay_Ren = 16'h0;
+				Ren 			  = delay_Ren;
+				flagEn        = 1'b0;
+				delay_Ren     = 16'h0;
 			end
 		6: begin // Branch
 			// FLAGS [C,L,F,Z,N]
@@ -235,7 +235,8 @@ always @(posedge clk)
 				jump          = 1'b0;
 				IEn           = 1'b0;
 				Ren           = 16'b0;
-				delay_Ren = 16'h0;
+				delay_Ren 	  = 16'h0;
+				flagEn        = 1'b0;
 			end
 		7: begin // Jump
 				// FLAGS [C,L,F,Z,N]
@@ -295,7 +296,8 @@ always @(posedge clk)
 				branch        = 1'b0;
 				IEn           = 1'b0;
 				Ren           = 1'b0;
-				delay_Ren = 16'h0;
+				delay_Ren     = 16'h0;
+				flagEn        = 1'b0;
 			end
 		default: begin
 				PCen          = 1'bx;
@@ -306,7 +308,8 @@ always @(posedge clk)
 				branch        = 1'bx;
 				jump          = 1'bx;
 				IEn           = 1'bx;
-				
+				flagEn        = 1'b0;
+				delay_Ren     = 16'h0;
 				case(instruction[11:8])
 					0:  Ren = 16'h0001;
 					1:  Ren = 16'h0002;
@@ -325,8 +328,6 @@ always @(posedge clk)
 					14: Ren = 16'h4000;
 					15: Ren = 16'h8000;
 				endcase
-				
-				delay_Ren = 16'h0;
 			end
 	endcase
  end

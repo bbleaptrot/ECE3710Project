@@ -31,6 +31,10 @@ wire[15:0] PCOut;
 //FSM
 wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen;
 
+//Flags_register
+wire flagEn;
+wire [4:0] flags_for_fsm;
+
 regfile_2D_memory registers(
 	.ALUBus(BUS),
 	.r0(r0_out),
@@ -167,13 +171,22 @@ mux muxDst(
 	.instruction(q_a),
 	.branch(branch),
 	.jump(jump),
-	.FLAGS(Flags),
+	.FLAGS(flags_for_fsm),
 	.PCen(PCen),
 	.Ren(Ren),
 	.IEn(IEn),
 	.RegOrImm(RorI),
 	.WE(WE),
 	.ALU_MUX_CNTL(ALUorData),
-	.LS_CNTL(LS_cntl)
+	.LS_CNTL(LS_cntl),
+	.flagEn(flagEn)
+	);
+	
+	flags_register flags(
+	.flagEn(flagEn),
+	.flags_in(Flags),
+	.flags_out(flags_for_fsm),
+	.clk(clk),
+	.rst(rst)
 	);
 endmodule

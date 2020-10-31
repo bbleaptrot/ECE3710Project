@@ -1,6 +1,6 @@
 |lab4
-clk => clk.IN5
-rst => rst.IN4
+clk => clk.IN6
+rst => rst.IN5
 
 
 |lab4|regfile_2D_memory:registers
@@ -3427,18 +3427,22 @@ dataIn[4] => Opcode.DATAB
 dataIn[4] => ImmOut.DATAB
 dataIn[4] => bDisp.DATAB
 dataIn[4] => Equal0.IN7
+dataIn[4] => Equal1.IN7
 dataIn[5] => Opcode.DATAB
 dataIn[5] => ImmOut.DATAB
 dataIn[5] => bDisp.DATAB
 dataIn[5] => Equal0.IN6
+dataIn[5] => Equal1.IN6
 dataIn[6] => Opcode.DATAB
 dataIn[6] => ImmOut.DATAB
 dataIn[6] => bDisp.DATAB
 dataIn[6] => Equal0.IN5
+dataIn[6] => Equal1.IN1
 dataIn[7] => Opcode.DATAB
 dataIn[7] => ImmOut.DATAB
 dataIn[7] => bDisp.DATAB
 dataIn[7] => Equal0.IN4
+dataIn[7] => Equal1.IN5
 dataIn[8] => RdstOut.DATAA
 dataIn[8] => RsrcOut.DATAB
 dataIn[9] => RdstOut.DATAA
@@ -3449,12 +3453,16 @@ dataIn[11] => RdstOut.DATAA
 dataIn[11] => RsrcOut.DATAB
 dataIn[12] => Opcode.DATAB
 dataIn[12] => Equal0.IN3
+dataIn[12] => Equal1.IN4
 dataIn[13] => Opcode.DATAB
 dataIn[13] => Equal0.IN2
+dataIn[13] => Equal1.IN3
 dataIn[14] => Opcode.DATAB
 dataIn[14] => Equal0.IN0
+dataIn[14] => Equal1.IN0
 dataIn[15] => Opcode.DATAB
 dataIn[15] => Equal0.IN1
+dataIn[15] => Equal1.IN2
 IEn => Opcode.OUTPUTSELECT
 IEn => Opcode.OUTPUTSELECT
 IEn => Opcode.OUTPUTSELECT
@@ -3657,5 +3665,34 @@ WE <= WE.DB_MAX_OUTPUT_PORT_TYPE
 IEn <= IEn.DB_MAX_OUTPUT_PORT_TYPE
 ALU_MUX_CNTL <= ALU_MUX_CNTL.DB_MAX_OUTPUT_PORT_TYPE
 LS_CNTL <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+flagEn <= flagEn.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|lab4|flags_register:flags
+flagEn => flags_out.OUTPUTSELECT
+flagEn => flags_out.OUTPUTSELECT
+flagEn => flags_out.OUTPUTSELECT
+flagEn => flags_out.OUTPUTSELECT
+flagEn => flags_out.OUTPUTSELECT
+flags_in[0] => flags_out.DATAB
+flags_in[1] => flags_out.DATAB
+flags_in[2] => flags_out.DATAB
+flags_in[3] => flags_out.DATAB
+flags_in[4] => flags_out.DATAB
+flags_out[0] <= flags_out[0]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+flags_out[1] <= flags_out[1]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+flags_out[2] <= flags_out[2]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+flags_out[3] <= flags_out[3]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+flags_out[4] <= flags_out[4]~reg0.DB_MAX_OUTPUT_PORT_TYPE
+clk => flags_out[0]~reg0.CLK
+clk => flags_out[1]~reg0.CLK
+clk => flags_out[2]~reg0.CLK
+clk => flags_out[3]~reg0.CLK
+clk => flags_out[4]~reg0.CLK
+rst => flags_out.OUTPUTSELECT
+rst => flags_out.OUTPUTSELECT
+rst => flags_out.OUTPUTSELECT
+rst => flags_out.OUTPUTSELECT
+rst => flags_out.OUTPUTSELECT
 
 

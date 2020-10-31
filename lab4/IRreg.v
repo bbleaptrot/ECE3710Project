@@ -8,6 +8,7 @@ output reg[3:0] RsrcOut, RdstOut;
 output reg[7:0] Opcode, bDisp, ImmOut;
 
 parameter LOAD = 8'b01000000; // *
+parameter STOR = 8'b01000100;
 
 always@(posedge clk)
 	begin
@@ -20,7 +21,7 @@ always@(posedge clk)
 		end
 		else if(IEn)
 		begin
-			if({dataIn[15:12],dataIn[7:4]} == LOAD) // Load instruction
+			if({dataIn[15:12],dataIn[7:4]} == LOAD || {dataIn[15:12],dataIn[7:4]} == STOR) // Load instruction
 			begin  
 				Opcode[7:4] <= dataIn[15:12];
 				Opcode[3:0] <= dataIn[7:4];
