@@ -3,6 +3,7 @@
  * Figuring out how it worked came from:
  * http://www.burtonsys.com/ps2_chapweske.htm
  * http://www.eecg.toronto.edu/~jayar/ece241_08F/AudioVideoCores/ps2/ps2.html
+ * Could be made better, but this seems to work, and is modular if we wanted to add more to it.
  *
  */
 module ps2_in(clk, rst, wait_for_data, start_receiving_data, ps2_clk, ps2_data, byte_data, full_byte_received);

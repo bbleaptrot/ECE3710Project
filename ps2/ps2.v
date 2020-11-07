@@ -1,3 +1,29 @@
+/*
+ * Module for PS/2 keyboard input.
+ *
+ * For every valid key press, the module will output a byte of data corresponding to the keys being pressed.
+ * The current scheme from MSB to LSB is:
+ *
+ * [7   6    5     4     3      2   1 0]
+ * [UP DOWN LEFT RIGHT SELECT START B A]
+ * [UP DOWN LEFT RIGHT SHIFT  ENTER X Z]
+ *
+ * THIS CAN BE CHANGED VERY EASILY FOR OUR PROJECT! Treat it as an initial attempt.
+ *
+ * inputs:
+ *		clk: 50 MHz clock
+ *    rst: posedge reset
+ *    ps2_clk: ps2 clock (PIN_AD7)
+ *    ps2_data: ps2 data (PIN_AE7)
+ *
+ * outputs:
+ *    data_out: byte representing the buttons pressed. If multiple buttons 
+ *					 are held, they should light up simultaneously.
+ *
+ *    (Perhaps consider an output signal representing a change of input?)
+ *
+ *	last updated: November 7, 2020
+ */
 module ps2(clk, rst, ps2_clk, ps2_data, data_out);
 
 input clk;
@@ -12,7 +38,7 @@ reg break_code;
 wire [7:0] byte_data;
 wire full_byte_received;
 
-
+// Keyboard input module.
 ps2_in keyboard (.clk(clk), 
 					  .rst(rst), 
 					  .wait_for_data(1'b1), 
