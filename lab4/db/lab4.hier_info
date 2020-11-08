@@ -1,6 +1,6 @@
 |lab4
-clk => clk.IN6
-rst => rst.IN5
+clk_in => clk_in.IN1
+rst => rst.IN6
 seg_4[6] << hex2seg:seg4.port1
 seg_4[5] << hex2seg:seg4.port1
 seg_4[4] << hex2seg:seg4.port1
@@ -3722,6 +3722,62 @@ rst => flags_out.OUTPUTSELECT
 rst => flags_out.OUTPUTSELECT
 rst => flags_out.OUTPUTSELECT
 rst => flags_out.OUTPUTSELECT
+
+
+|lab4|clk_divider:clock
+clk_50MHz => clk_1Hz~reg0.CLK
+clk_50MHz => count[0].CLK
+clk_50MHz => count[1].CLK
+clk_50MHz => count[2].CLK
+clk_50MHz => count[3].CLK
+clk_50MHz => count[4].CLK
+clk_50MHz => count[5].CLK
+clk_50MHz => count[6].CLK
+clk_50MHz => count[7].CLK
+clk_50MHz => count[8].CLK
+clk_50MHz => count[9].CLK
+clk_50MHz => count[10].CLK
+clk_50MHz => count[11].CLK
+clk_50MHz => count[12].CLK
+clk_50MHz => count[13].CLK
+clk_50MHz => count[14].CLK
+clk_50MHz => count[15].CLK
+clk_50MHz => count[16].CLK
+clk_50MHz => count[17].CLK
+clk_50MHz => count[18].CLK
+clk_50MHz => count[19].CLK
+clk_50MHz => count[20].CLK
+clk_50MHz => count[21].CLK
+clk_50MHz => count[22].CLK
+clk_50MHz => count[23].CLK
+clk_50MHz => count[24].CLK
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => count.OUTPUTSELECT
+rst => clk_1Hz.OUTPUTSELECT
+clk_1Hz <= clk_1Hz~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |lab4|hex2seg:seg4

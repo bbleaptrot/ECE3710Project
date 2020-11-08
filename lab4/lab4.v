@@ -1,6 +1,6 @@
-module lab4(clk, rst, seg_4, seg_3, seg_2, seg_1);
+module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1);
 //Inputs
-input clk, rst;
+input clk_in, rst;
 
 //outputs
 output[0:6] seg_4, seg_3, seg_2, seg_1;
@@ -36,6 +36,9 @@ wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen;
 //Flags_register
 wire flagEn;
 wire [4:0] flags_for_fsm;
+
+//Clk_divider
+wire clk;
 
 regfile_2D_memory registers(
 	.ALUBus(BUS),
@@ -104,7 +107,7 @@ mux muxDst(
 	
 	mux_2_to_1 immMux(
 		.r0(dstMux_out),
-		.r1(ImmOut),
+		.r1({{8{ImmOut[7]}}, ImmOut}),
 		.S_in(RorI), // FSM
 		.mux_out(immMux_out)
 );
@@ -192,8 +195,14 @@ mux muxDst(
 	.rst(rst)
 	);
 	
-	hex2seg seg4(r14_out[15:12], seg_4);
-	hex2seg seg3(r14_out[11:8], seg_3);
-	hex2seg seg2(r14_out[7:4], seg_2);
-	hex2seg seg1(r14_out[3:0], seg_1);
+	clk_divider clock(
+	.clk_50MHz(clk_in),
+	.rst(rst),
+	.clk_1Hz(clk)
+	);
+	
+	hex2seg seg4(q_a[15:12], seg_4);
+	hex2seg seg3(q_a[11:8], seg_3);
+	hex2seg seg2(q_a[7:4], seg_2);
+	hex2seg seg1(q_a[3:0], seg_1);
 endmodule

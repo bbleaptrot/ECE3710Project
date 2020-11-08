@@ -7,34 +7,33 @@
  */
 module lab4_tb;
 
-	reg clk;
-	reg reset;
-	
+//Inputs
+reg clk_in, rst;
 
+//outputs
+wire[0:6] seg_4, seg_3, seg_2, seg_1;
 
 	lab4 UUT(
-		.clk(clk), 
-		.rst(reset)
+		clk_in, rst, seg_4, seg_3, seg_2, seg_1
 	);
 
 	initial 
 	begin
-		clk = 1'b0;
-		reset = 1'b1;
+		clk_in = 1'b0;
+		rst = 1'b1;
 		#10;
 		
-		reset = 1'b0; // reset has been pushed.
+		rst = 1'b0; // reset has been pushed.
 		
 		#1000;
 		
 		
-		$finish;
 		
 	
 	end
 	
 	always 
-		#5 clk = !clk; // Simulate clock.
+		#5 clk_in = !clk_in; // Simulate clock.
 		
 
 endmodule

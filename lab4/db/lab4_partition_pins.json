@@ -116,11 +116,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "rst",
 					"strict" : false
 				},
 				{
-					"name" : "rst",
+					"name" : "clk_in",
 					"strict" : false
 				}
 			]

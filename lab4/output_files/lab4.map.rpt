@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Fri Oct 30 23:43:28 2020
+Fri Nov 06 00:31:37 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -29,11 +29,10 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  21. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
  22. altsyncram Parameter Settings by Entity Instance
  23. Port Connectivity Checks: "bram:memory"
- 24. Port Connectivity Checks: "mux_2_to_1:immMux"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
- 28. Analysis & Synthesis Suppressed Messages
+ 24. Post-Synthesis Netlist Statistics for Top Partition
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,13 +58,13 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Oct 30 23:43:27 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 06 00:31:36 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 325                                         ;
+; Total registers                 ; 351                                         ;
 ; Total pins                      ; 30                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,048,576                                   ;
@@ -202,6 +201,7 @@ refer to the applicable agreement for further details.
 ; fsm.v                            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                            ;         ;
 ; IRreg.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                          ;         ;
 ; flags_register.v                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v                 ;         ;
+; clk_divider.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v                    ;         ;
 ; altsyncram.tdf                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
 ; stratix_ram_block.inc            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
 ; lpm_mux.inc                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
@@ -219,33 +219,33 @@ refer to the applicable agreement for further details.
 +----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 740       ;
-;                                             ;           ;
-; Combinational ALUT usage for logic          ; 1016      ;
-;     -- 7 input functions                    ; 19        ;
-;     -- 6 input functions                    ; 417       ;
-;     -- 5 input functions                    ; 186       ;
-;     -- 4 input functions                    ; 182       ;
-;     -- <=3 input functions                  ; 212       ;
-;                                             ;           ;
-; Dedicated logic registers                   ; 325       ;
-;                                             ;           ;
-; I/O pins                                    ; 30        ;
-; Total MLAB memory bits                      ; 0         ;
-; Total block memory bits                     ; 1048576   ;
-;                                             ;           ;
-; Total DSP Blocks                            ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 453       ;
-; Total fan-out                               ; 8470      ;
-; Average fan-out                             ; 5.54      ;
-+---------------------------------------------+-----------+
++-------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                             ;
++---------------------------------------------+---------------------------+
+; Resource                                    ; Usage                     ;
++---------------------------------------------+---------------------------+
+; Estimate of Logic utilization (ALMs needed) ; 763                       ;
+;                                             ;                           ;
+; Combinational ALUT usage for logic          ; 1050                      ;
+;     -- 7 input functions                    ; 23                        ;
+;     -- 6 input functions                    ; 424                       ;
+;     -- 5 input functions                    ; 207                       ;
+;     -- 4 input functions                    ; 184                       ;
+;     -- <=3 input functions                  ; 212                       ;
+;                                             ;                           ;
+; Dedicated logic registers                   ; 351                       ;
+;                                             ;                           ;
+; I/O pins                                    ; 30                        ;
+; Total MLAB memory bits                      ; 0                         ;
+; Total block memory bits                     ; 1048576                   ;
+;                                             ;                           ;
+; Total DSP Blocks                            ; 0                         ;
+;                                             ;                           ;
+; Maximum fan-out node                        ; clk_divider:clock|clk_1Hz ;
+; Maximum fan-out                             ; 454                       ;
+; Total fan-out                               ; 8703                      ;
+; Average fan-out                             ; 5.48                      ;
++---------------------------------------------+---------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -253,15 +253,16 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |lab4                                     ; 1016 (0)            ; 325 (0)                   ; 1048576           ; 0          ; 30   ; 0            ; |lab4                                                                                          ; lab4              ; work         ;
+; |lab4                                     ; 1050 (0)            ; 351 (0)                   ; 1048576           ; 0          ; 30   ; 0            ; |lab4                                                                                          ; lab4              ; work         ;
 ;    |IRreg:Instr_Reg|                      ; 2 (2)               ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                          ; IRreg             ; work         ;
-;    |alu:logicBox|                         ; 536 (536)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                             ; alu               ; work         ;
+;    |alu:logicBox|                         ; 539 (539)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                             ; alu               ; work         ;
 ;    |bram:memory|                          ; 64 (16)             ; 20 (17)                   ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                              ; bram              ; work         ;
 ;       |altsyncram:ram_rtl_0|              ; 48 (0)              ; 3 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                         ; altsyncram        ; work         ;
 ;          |altsyncram_dpm1:auto_generated| ; 48 (0)              ; 3 (3)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated                          ; altsyncram_dpm1   ; work         ;
 ;             |decode_61a:rden_decode_b|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_61a:rden_decode_b ; decode_61a        ; work         ;
 ;             |decode_dla:decode2|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_dla:decode2       ; decode_dla        ; work         ;
 ;             |mux_chb:mux3|                ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|mux_chb:mux3             ; mux_chb           ; work         ;
+;    |clk_divider:clock|                    ; 32 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|clk_divider:clock                                                                        ; clk_divider       ; work         ;
 ;    |flags_register:flags|                 ; 12 (12)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                     ; flags_register    ; work         ;
 ;    |fsm:test|                             ; 20 (20)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:test                                                                                 ; fsm               ; work         ;
 ;    |hex2seg:seg1|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                             ; hex2seg           ; work         ;
@@ -270,7 +271,7 @@ refer to the applicable agreement for further details.
 ;    |hex2seg:seg4|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg4                                                                             ; hex2seg           ; work         ;
 ;    |mux:muxDst|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxDst                                                                               ; mux               ; work         ;
 ;    |mux:muxSrc|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxSrc                                                                               ; mux               ; work         ;
-;    |mux_2_to_1:ALUcntl|                   ; 128 (128)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:ALUcntl                                                                       ; mux_2_to_1        ; work         ;
+;    |mux_2_to_1:ALUcntl|                   ; 127 (127)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:ALUcntl                                                                       ; mux_2_to_1        ; work         ;
 ;    |mux_2_to_1:LScntl|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:LScntl                                                                        ; mux_2_to_1        ; work         ;
 ;    |mux_2_to_1:immMux|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:immMux                                                                        ; mux_2_to_1        ; work         ;
 ;    |program_counter:prog_count|           ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|program_counter:prog_count                                                               ; program_counter   ; work         ;
@@ -346,8 +347,8 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 325   ;
-; Number of registers using Synchronous Clear  ; 295   ;
+; Total registers                              ; 351   ;
+; Number of registers using Synchronous Clear  ; 320   ;
 ; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -396,31 +397,32 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[5]             ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][10] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][15]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][9]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][0]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][2]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][9]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][5]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][1]   ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |lab4|clk_divider:clock|count[16]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][1]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][11]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][8]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][15]  ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][15] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][4]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][11] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][7]  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[2]            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[3]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][15] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][6]  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RdstOut[3]            ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[15]     ;
 ; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[0]     ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0               ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux8                       ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux3                       ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux8                       ;
 ; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab4|fsm:test|state_counter                ;
 ; 57:1               ; 2 bits    ; 76 LEs        ; 64 LEs               ; 12 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]        ;
-; 62:1               ; 2 bits    ; 82 LEs        ; 60 LEs               ; 22 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[5]         ;
+; 62:1               ; 2 bits    ; 82 LEs        ; 60 LEs               ; 22 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[6]         ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -605,51 +607,41 @@ Note: In order to hide this table in the UI and the text report file, please set
 +--------+--------+----------+------------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "mux_2_to_1:immMux"                                                                                                                          ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port ; Type  ; Severity ; Details                                                                                                                                      ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; r1   ; Input ; Warning  ; Input port expression (8 bits) is smaller than the input port (16 bits) it drives.  Extra input bit(s) "r1[15..8]" will be connected to GND. ;
-+------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 325                         ;
+; arriav_ff             ; 351                         ;
 ;     ENA               ; 2                           ;
 ;     ENA SCLR          ; 270                         ;
 ;     ENA SCLR SLD      ; 24                          ;
-;     SCLR              ; 1                           ;
-;     plain             ; 28                          ;
-; arriav_lcell_comb     ; 1020                        ;
-;     arith             ; 185                         ;
+;     SCLR              ; 26                          ;
+;     plain             ; 29                          ;
+; arriav_lcell_comb     ; 1054                        ;
+;     arith             ; 210                         ;
 ;         0 data inputs ; 8                           ;
-;         1 data inputs ; 40                          ;
+;         1 data inputs ; 65                          ;
 ;         2 data inputs ; 2                           ;
-;         3 data inputs ; 16                          ;
 ;         4 data inputs ; 60                          ;
-;         5 data inputs ; 59                          ;
-;     extend            ; 19                          ;
-;         7 data inputs ; 19                          ;
-;     normal            ; 782                         ;
+;         5 data inputs ; 75                          ;
+;     extend            ; 23                          ;
+;         7 data inputs ; 23                          ;
+;     normal            ; 787                         ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 66                          ;
-;         4 data inputs ; 122                         ;
-;         5 data inputs ; 127                         ;
-;         6 data inputs ; 417                         ;
+;         2 data inputs ; 47                          ;
+;         3 data inputs ; 56                          ;
+;         4 data inputs ; 124                         ;
+;         5 data inputs ; 132                         ;
+;         6 data inputs ; 424                         ;
 ;     shared            ; 34                          ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 32                          ;
 ; boundary_port         ; 30                          ;
 ; stratixv_ram_block    ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 15.30                       ;
-; Average LUT depth     ; 10.22                       ;
+; Max LUT depth         ; 15.20                       ;
+; Average LUT depth     ; 9.92                        ;
 +-----------------------+-----------------------------+
 
 
@@ -658,7 +650,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:14     ;
+; Top            ; 00:00:09     ;
 +----------------+--------------+
 
 
@@ -668,7 +660,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Oct 30 23:38:24 2020
+    Info: Processing started: Fri Nov 06 00:29:39 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -699,16 +691,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file lab4_tb
     Info (12023): Found entity 1: lab4_tb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file flags_register.v
     Info (12023): Found entity 1: flags_register File: C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file tb_clk_divider.v
+    Info (12023): Found entity 1: tb_clk_divider File: C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_clk_divider.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file clk_divider.v
+    Info (12023): Found entity 1: clk_divider File: C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v Line: 1
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 61
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 82
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 110
-Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 125
-Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 145
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (10) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 156
-Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 168
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 185
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 64
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 85
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 113
+Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 128
+Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 148
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (15) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 159
+Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 171
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 188
 Info (10264): Verilog HDL Case Statement information at fsm.v(27): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 27
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(89): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 89
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(90): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 90
@@ -754,8 +750,9 @@ Warning (10235): Verilog HDL Always Construct warning at fsm.v(278): variable "F
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(281): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 281
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(284): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 284
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(313): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 313
-Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 193
-Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 195
+Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 196
+Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clock" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 202
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 204
 Warning (276020): Inferred RAM node "bram:memory|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 19
@@ -817,22 +814,21 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/deco
     Info (12023): Found entity 1: decode_61a File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
-Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1471 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1505 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 2 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 1313 logic cells
+    Info (21061): Implemented 1347 logic cells
     Info (21064): Implemented 128 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
-    Info: Peak virtual memory: 4988 megabytes
-    Info: Processing ended: Fri Oct 30 23:43:28 2020
-    Info: Elapsed time: 00:05:04
-    Info: Total CPU time (on all processors): 00:05:19
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 64 warnings
+    Info: Peak virtual memory: 4979 megabytes
+    Info: Processing ended: Fri Nov 06 00:31:37 2020
+    Info: Elapsed time: 00:01:58
+    Info: Total CPU time (on all processors): 00:02:12
 
 
 +------------------------------------------+

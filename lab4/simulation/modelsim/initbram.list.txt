@@ -1,12 +1,21 @@
-5055 // ADDI 55 into R0
-4F00 // Load data from addr 0x55 into R15
-5203 // ADDI 3 into R2
-025F // R2 = R2 + R15
-C202 // Branch on Carry Set 
-9301 // SUBI 1 into R3
-5301 // ADDI 1 into R3
-4340 // Store R3 into addr 0x55
-4E00 // Load data from addr 0x55 into R14
-@55
-FFFE
-
+5101 // ADDI 1 into R1  || Setup for first loop
+5402 // ADDI 2 into R4  || Setup for second loop
+520A // ADDI 10 into R2 || Setup for first loop
+5353 // ADDI 53 into R3 || Setup for first loop
+550B // ADDI 09 into R5 || Setup for second loop
+562F // ADDI 2F into R6 || Setup for second loop
+4003 // Load Data into R0            || Loop 1
+0051 // ADD 1 into R0                || Loop 1
+4043 // Store R0 into addr at R3     || Loop 1
+00B2 // CMP R0 with R2 into R0       || Loop 1
+C1FB // BNE Backwards 5 instructions || Loop 1
+4003 // Load Data into R0            || Loop 2
+4406 // Load Data into R4            || Loop 2
+0490 // SUB 2 into R4                || Loop 2
+4443 // Store R4 into addr at R3     || Loop 2
+B000 // CMPI 0 with R0               || Loop 2
+47C5 // Jump on LT to addr in R5     || Loop 2
+@2F
+0002
+@53
+0008
