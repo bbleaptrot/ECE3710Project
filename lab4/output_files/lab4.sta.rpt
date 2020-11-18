@@ -1,0 +1,1152 @@
+Timing Analyzer report for lab4
+Fri Nov 06 00:34:06 2020
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow 1100mV 85C Model Fmax Summary
+  6. Timing Closure Recommendations
+  7. Slow 1100mV 85C Model Setup Summary
+  8. Slow 1100mV 85C Model Hold Summary
+  9. Slow 1100mV 85C Model Recovery Summary
+ 10. Slow 1100mV 85C Model Removal Summary
+ 11. Slow 1100mV 85C Model Minimum Pulse Width Summary
+ 12. Slow 1100mV 85C Model Metastability Summary
+ 13. Slow 1100mV 0C Model Fmax Summary
+ 14. Slow 1100mV 0C Model Setup Summary
+ 15. Slow 1100mV 0C Model Hold Summary
+ 16. Slow 1100mV 0C Model Recovery Summary
+ 17. Slow 1100mV 0C Model Removal Summary
+ 18. Slow 1100mV 0C Model Minimum Pulse Width Summary
+ 19. Slow 1100mV 0C Model Metastability Summary
+ 20. Fast 1100mV 85C Model Setup Summary
+ 21. Fast 1100mV 85C Model Hold Summary
+ 22. Fast 1100mV 85C Model Recovery Summary
+ 23. Fast 1100mV 85C Model Removal Summary
+ 24. Fast 1100mV 85C Model Minimum Pulse Width Summary
+ 25. Fast 1100mV 85C Model Metastability Summary
+ 26. Fast 1100mV 0C Model Setup Summary
+ 27. Fast 1100mV 0C Model Hold Summary
+ 28. Fast 1100mV 0C Model Recovery Summary
+ 29. Fast 1100mV 0C Model Removal Summary
+ 30. Fast 1100mV 0C Model Minimum Pulse Width Summary
+ 31. Fast 1100mV 0C Model Metastability Summary
+ 32. Multicorner Timing Analysis Summary
+ 33. Board Trace Model Assignments
+ 34. Input Transition Times
+ 35. Signal Integrity Metrics (Slow 1100mv 0c Model)
+ 36. Signal Integrity Metrics (Slow 1100mv 85c Model)
+ 37. Signal Integrity Metrics (Fast 1100mv 0c Model)
+ 38. Signal Integrity Metrics (Fast 1100mv 85c Model)
+ 39. Setup Transfers
+ 40. Hold Transfers
+ 41. Report TCCS
+ 42. Report RSKM
+ 43. Unconstrained Paths Summary
+ 44. Clock Status Summary
+ 45. Unconstrained Input Ports
+ 46. Unconstrained Output Ports
+ 47. Unconstrained Input Ports
+ 48. Unconstrained Output Ports
+ 49. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                     ;
++-----------------------+-----------------------------------------------------+
+; Quartus Prime Version ; Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Timing Analyzer       ; Legacy Timing Analyzer                              ;
+; Revision Name         ; lab4                                                ;
+; Device Family         ; Cyclone V                                           ;
+; Device Name           ; 5CSEMA5F31C6                                        ;
+; Timing Models         ; Final                                               ;
+; Delay Model           ; Combined                                            ;
+; Rise/Fall Delays      ; Enabled                                             ;
++-----------------------+-----------------------------------------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 2.30        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;  44.6%      ;
+;     Processor 3            ;  42.8%      ;
+;     Processor 4            ;  42.5%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                               ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; Clock Name                ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                       ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+; clk_divider:clock|clk_1Hz ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_divider:clock|clk_1Hz } ;
+; clk_in                    ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk_in }                    ;
++---------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-------------------------------+
+
+
++-----------------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                              ;
++------------+-----------------+---------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                ; Note ;
++------------+-----------------+---------------------------+------+
+; 59.78 MHz  ; 59.78 MHz       ; clk_divider:clock|clk_1Hz ;      ;
+; 164.77 MHz ; 164.77 MHz      ; clk_in                    ;      ;
++------------+-----------------+---------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
+----------------------------------
+; Timing Closure Recommendations ;
+----------------------------------
+HTML report is unavailable in plain text report export.
+
+
++-----------------------------------------------------+
+; Slow 1100mV 85C Model Setup Summary                 ;
++---------------------------+---------+---------------+
+; Clock                     ; Slack   ; End Point TNS ;
++---------------------------+---------+---------------+
+; clk_divider:clock|clk_1Hz ; -15.729 ; -40380.757    ;
+; clk_in                    ; -5.069  ; -74.109       ;
++---------------------------+---------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1100mV 85C Model Hold Summary                ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; clk_in                    ; 0.241 ; 0.000         ;
+; clk_divider:clock|clk_1Hz ; 0.296 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+------------------------------------------
+; Slow 1100mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Slow 1100mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1100mV 85C Model Minimum Pulse Width Summary  ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -2.174 ; -19014.252    ;
+; clk_in                    ; -0.436 ; -13.790       ;
++---------------------------+--------+---------------+
+
+
+-----------------------------------------------
+; Slow 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++-----------------------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary                               ;
++------------+-----------------+---------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                ; Note ;
++------------+-----------------+---------------------------+------+
+; 60.08 MHz  ; 60.08 MHz       ; clk_divider:clock|clk_1Hz ;      ;
+; 164.88 MHz ; 164.88 MHz      ; clk_in                    ;      ;
++------------+-----------------+---------------------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------------------------+
+; Slow 1100mV 0C Model Setup Summary                  ;
++---------------------------+---------+---------------+
+; Clock                     ; Slack   ; End Point TNS ;
++---------------------------+---------+---------------+
+; clk_divider:clock|clk_1Hz ; -15.644 ; -38544.340    ;
+; clk_in                    ; -5.065  ; -73.440       ;
++---------------------------+---------+---------------+
+
+
++---------------------------------------------------+
+; Slow 1100mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; clk_in                    ; 0.225 ; 0.000         ;
+; clk_divider:clock|clk_1Hz ; 0.296 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Slow 1100mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Slow 1100mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Slow 1100mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -2.174 ; -18963.460    ;
+; clk_in                    ; -0.453 ; -14.885       ;
++---------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Slow 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------+
+; Fast 1100mV 85C Model Setup Summary                ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -9.317 ; -24217.830    ;
+; clk_in                    ; -3.177 ; -34.010       ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Fast 1100mV 85C Model Hold Summary                ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; clk_divider:clock|clk_1Hz ; 0.105 ; 0.000         ;
+; clk_in                    ; 0.137 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+------------------------------------------
+; Fast 1100mV 85C Model Recovery Summary ;
+------------------------------------------
+No paths to report.
+
+
+-----------------------------------------
+; Fast 1100mV 85C Model Removal Summary ;
+-----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Fast 1100mV 85C Model Minimum Pulse Width Summary  ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -2.174 ; -18786.497    ;
+; clk_in                    ; -0.455 ; -2.752        ;
++---------------------------+--------+---------------+
+
+
+-----------------------------------------------
+; Fast 1100mV 85C Model Metastability Summary ;
+-----------------------------------------------
+No synchronizer chains to report.
+
+
++----------------------------------------------------+
+; Fast 1100mV 0C Model Setup Summary                 ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -8.506 ; -20927.491    ;
+; clk_in                    ; -2.706 ; -29.574       ;
++---------------------------+--------+---------------+
+
+
++---------------------------------------------------+
+; Fast 1100mV 0C Model Hold Summary                 ;
++---------------------------+-------+---------------+
+; Clock                     ; Slack ; End Point TNS ;
++---------------------------+-------+---------------+
+; clk_divider:clock|clk_1Hz ; 0.091 ; 0.000         ;
+; clk_in                    ; 0.126 ; 0.000         ;
++---------------------------+-------+---------------+
+
+
+-----------------------------------------
+; Fast 1100mV 0C Model Recovery Summary ;
+-----------------------------------------
+No paths to report.
+
+
+----------------------------------------
+; Fast 1100mV 0C Model Removal Summary ;
+----------------------------------------
+No paths to report.
+
+
++----------------------------------------------------+
+; Fast 1100mV 0C Model Minimum Pulse Width Summary   ;
++---------------------------+--------+---------------+
+; Clock                     ; Slack  ; End Point TNS ;
++---------------------------+--------+---------------+
+; clk_divider:clock|clk_1Hz ; -2.174 ; -18712.218    ;
+; clk_in                    ; -0.456 ; -2.746        ;
++---------------------------+--------+---------------+
+
+
+----------------------------------------------
+; Fast 1100mV 0C Model Metastability Summary ;
+----------------------------------------------
+No synchronizer chains to report.
+
+
++--------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                        ;
++----------------------------+------------+-------+----------+---------+---------------------+
+; Clock                      ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++----------------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack           ; -15.729    ; 0.091 ; N/A      ; N/A     ; -2.174              ;
+;  clk_divider:clock|clk_1Hz ; -15.729    ; 0.091 ; N/A      ; N/A     ; -2.174              ;
+;  clk_in                    ; -5.069     ; 0.126 ; N/A      ; N/A     ; -0.456              ;
+; Design-wide TNS            ; -40454.866 ; 0.0   ; 0.0      ; 0.0     ; -19028.042          ;
+;  clk_divider:clock|clk_1Hz ; -40380.757 ; 0.000 ; N/A      ; N/A     ; -19014.252          ;
+;  clk_in                    ; -74.109    ; 0.000 ; N/A      ; N/A     ; -14.885             ;
++----------------------------+------------+-------+----------+---------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Board Trace Model Assignments                                                                                                                                                                                                                                                                                                                                                                               ;
++----------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; Pin      ; I/O Standard ; Near Tline Length ; Near Tline L per Length ; Near Tline C per Length ; Near Series R ; Near Differential R ; Near Pull-up R ; Near Pull-down R ; Near C ; Far Tline Length ; Far Tline L per Length ; Far Tline C per Length ; Far Series R ; Far Pull-up R ; Far Pull-down R ; Far C ; Termination Voltage ; Far Differential R ; EBD File Name ; EBD Signal Name ; EBD Far-end ;
++----------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+; seg_4[6] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[5] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[4] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[3] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[2] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[1] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_4[0] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[6] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[5] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[4] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[3] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[2] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[1] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_3[0] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[6] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[5] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[4] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[3] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[2] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[1] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_2[0] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[6] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[5] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[4] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[3] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[2] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[1] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
+; seg_1[0] ; 3.3-V LVCMOS ; 0 in              ; 0 H/in                  ; 0 F/in                  ; short         ; -                   ; open           ; open             ; open   ; 0 in             ; 0 H/in                 ; 0 F/in                 ; short        ; open          ; open            ; open  ; 0 V                 ; -                  ; n/a           ; n/a             ; n/a         ;
++----------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
+
+
++-----------------------------------------------------------+
+; Input Transition Times                                    ;
++--------+--------------+-----------------+-----------------+
+; Pin    ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++--------+--------------+-----------------+-----------------+
+; rst    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk_in ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++--------+--------------+-----------------+-----------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1100mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin      ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg_4[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
+; seg_4[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
+; seg_4[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_4[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
+; seg_4[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
+; seg_4[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
+; seg_4[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.5e-07 V                    ; 3.14 V              ; -0.195 V            ; 0.158 V                              ; 0.394 V                              ; 4.46e-10 s                  ; 1.64e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.5e-07 V                   ; 3.14 V             ; -0.195 V           ; 0.158 V                             ; 0.394 V                             ; 4.46e-10 s                 ; 1.64e-10 s                 ; Yes                       ; No                        ;
+; seg_3[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_3[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.62e-07 V                   ; 3.1 V               ; -0.153 V            ; 0.035 V                              ; 0.31 V                               ; 4.23e-10 s                  ; 1.59e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 2.62e-07 V                  ; 3.1 V              ; -0.153 V           ; 0.035 V                             ; 0.31 V                              ; 4.23e-10 s                 ; 1.59e-10 s                 ; Yes                       ; No                        ;
+; seg_2[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.257 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.257 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_1[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.35e-07 V                   ; 3.14 V              ; -0.258 V            ; 0.13 V                               ; 0.399 V                              ; 4.27e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.08 V                      ; 3.35e-07 V                  ; 3.14 V             ; -0.258 V           ; 0.13 V                              ; 0.399 V                             ; 4.27e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Slow 1100mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin      ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg_4[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
+; seg_4[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
+; seg_4[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_4[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
+; seg_4[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
+; seg_4[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
+; seg_4[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.32e-05 V                   ; 3.09 V              ; -0.11 V             ; 0.031 V                              ; 0.155 V                              ; 5.43e-10 s                  ; 3.14e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 3.32e-05 V                  ; 3.09 V             ; -0.11 V            ; 0.031 V                             ; 0.155 V                             ; 5.43e-10 s                 ; 3.14e-10 s                 ; Yes                       ; Yes                       ;
+; seg_3[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_3[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_3[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_3[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_3[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_3[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_3[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 2.61e-05 V                   ; 3.09 V              ; -0.0638 V           ; 0.034 V                              ; 0.099 V                              ; 5.12e-10 s                  ; 2.97e-10 s                  ; Yes                        ; Yes                        ; 3.08 V                      ; 2.61e-05 V                  ; 3.09 V             ; -0.0638 V          ; 0.034 V                             ; 0.099 V                             ; 5.12e-10 s                 ; 2.97e-10 s                 ; Yes                       ; Yes                       ;
+; seg_2[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_2[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_2[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_2[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_2[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_2[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_2[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_1[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_1[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_1[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_1[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_1[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.136 V            ; 0.025 V                              ; 0.167 V                              ; 4.92e-10 s                  ; 3.12e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.136 V           ; 0.025 V                             ; 0.167 V                             ; 4.92e-10 s                 ; 3.12e-10 s                 ; Yes                       ; No                        ;
+; seg_1[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
+; seg_1[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.08 V                       ; 3.19e-05 V                   ; 3.1 V               ; -0.133 V            ; 0.025 V                              ; 0.169 V                              ; 4.92e-10 s                  ; 3.13e-10 s                  ; Yes                        ; No                         ; 3.08 V                      ; 3.19e-05 V                  ; 3.1 V              ; -0.133 V           ; 0.025 V                             ; 0.169 V                             ; 4.92e-10 s                 ; 3.13e-10 s                 ; Yes                       ; No                        ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1100mv 0c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin      ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg_4[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
+; seg_4[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_4[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_4[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_4[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
+; seg_4[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_4[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.94e-06 V                   ; 3.69 V              ; -0.414 V            ; 0.134 V                              ; 0.585 V                              ; 4.19e-10 s                  ; 1.53e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.94e-06 V                  ; 3.69 V             ; -0.414 V           ; 0.134 V                             ; 0.585 V                             ; 4.19e-10 s                 ; 1.53e-10 s                 ; Yes                       ; No                        ;
+; seg_3[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_3[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 3.63e-06 V                   ; 3.64 V              ; -0.326 V            ; 0.091 V                              ; 0.479 V                              ; 3.83e-10 s                  ; 1.5e-10 s                   ; Yes                        ; No                         ; 3.63 V                      ; 3.63e-06 V                  ; 3.64 V             ; -0.326 V           ; 0.091 V                             ; 0.479 V                             ; 3.83e-10 s                 ; 1.5e-10 s                  ; Yes                       ; No                        ;
+; seg_2[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_2[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.621 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.621 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
+; seg_1[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 4.72e-06 V                   ; 3.7 V               ; -0.49 V             ; 0.117 V                              ; 0.622 V                              ; 3.84e-10 s                  ; 1.48e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 4.72e-06 V                  ; 3.7 V              ; -0.49 V            ; 0.117 V                             ; 0.622 V                             ; 3.84e-10 s                 ; 1.48e-10 s                 ; Yes                       ; No                        ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Signal Integrity Metrics (Fast 1100mv 85c Model)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; Pin      ; I/O Standard ; Board Delay on Rise ; Board Delay on Fall ; Steady State Voh at FPGA Pin ; Steady State Vol at FPGA Pin ; Voh Max at FPGA Pin ; Vol Min at FPGA Pin ; Ringback Voltage on Rise at FPGA Pin ; Ringback Voltage on Fall at FPGA Pin ; 10-90 Rise Time at FPGA Pin ; 90-10 Fall Time at FPGA Pin ; Monotonic Rise at FPGA Pin ; Monotonic Fall at FPGA Pin ; Steady State Voh at Far-end ; Steady State Vol at Far-end ; Voh Max at Far-end ; Vol Min at Far-end ; Ringback Voltage on Rise at Far-end ; Ringback Voltage on Fall at Far-end ; 10-90 Rise Time at Far-end ; 90-10 Fall Time at Far-end ; Monotonic Rise at Far-end ; Monotonic Fall at Far-end ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+; seg_4[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
+; seg_4[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
+; seg_4[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_4[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
+; seg_4[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
+; seg_4[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
+; seg_4[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000238 V                   ; 3.64 V              ; -0.254 V            ; 0.052 V                              ; 0.543 V                              ; 4.59e-10 s                  ; 1.96e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000238 V                  ; 3.64 V             ; -0.254 V           ; 0.052 V                             ; 0.543 V                             ; 4.59e-10 s                 ; 1.96e-10 s                 ; Yes                       ; No                        ;
+; seg_3[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_3[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000184 V                   ; 3.64 V              ; -0.19 V             ; 0.019 V                              ; 0.425 V                              ; 4.44e-10 s                  ; 1.91e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000184 V                  ; 3.64 V             ; -0.19 V            ; 0.019 V                             ; 0.425 V                             ; 4.44e-10 s                 ; 1.91e-10 s                 ; Yes                       ; No                        ;
+; seg_2[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_2[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[6] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[5] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[4] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[3] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[2] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.319 V            ; 0.041 V                              ; 0.528 V                              ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.319 V           ; 0.041 V                             ; 0.528 V                             ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[1] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
+; seg_1[0] ; 3.3-V LVCMOS ; 0 s                 ; 0 s                 ; 3.63 V                       ; 0.000229 V                   ; 3.65 V              ; -0.316 V            ; 0.041 V                              ; 0.53 V                               ; 4.29e-10 s                  ; 1.87e-10 s                  ; Yes                        ; No                         ; 3.63 V                      ; 0.000229 V                  ; 3.65 V             ; -0.316 V           ; 0.041 V                             ; 0.53 V                              ; 4.29e-10 s                 ; 1.87e-10 s                 ; Yes                       ; No                        ;
++----------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                    ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths  ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+; clk_divider:clock|clk_1Hz ; clk_divider:clock|clk_1Hz ; 147228547 ; 0        ; 0        ; 0        ;
+; clk_divider:clock|clk_1Hz ; clk_in                    ; 1         ; 1        ; 0        ; 0        ;
+; clk_in                    ; clk_in                    ; 975       ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++----------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                     ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+; From Clock                ; To Clock                  ; RR Paths  ; FR Paths ; RF Paths ; FF Paths ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+; clk_divider:clock|clk_1Hz ; clk_divider:clock|clk_1Hz ; 147228547 ; 0        ; 0        ; 0        ;
+; clk_divider:clock|clk_1Hz ; clk_in                    ; 1         ; 1        ; 0        ; 0        ;
+; clk_in                    ; clk_in                    ; 975       ; 0        ; 0        ; 0        ;
++---------------------------+---------------------------+-----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No non-DPA dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths Summary                    ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 331   ; 331  ;
+; Unconstrained Output Ports      ; 28    ; 28   ;
+; Unconstrained Output Port Paths ; 1148  ; 1148 ;
++---------------------------------+-------+------+
+
+
++----------------------------------------------------------------------------+
+; Clock Status Summary                                                       ;
++---------------------------+---------------------------+------+-------------+
+; Target                    ; Clock                     ; Type ; Status      ;
++---------------------------+---------------------------+------+-------------+
+; clk_divider:clock|clk_1Hz ; clk_divider:clock|clk_1Hz ; Base ; Constrained ;
+; clk_in                    ; clk_in                    ; Base ; Constrained ;
++---------------------------+---------------------------+------+-------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; seg_1[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                         ;
++------------+--------------------------------------------------------------------------------------+
+; Input Port ; Comment                                                                              ;
++------------+--------------------------------------------------------------------------------------+
+; rst        ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++------------+--------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; Unconstrained Output Ports                                                                          ;
++-------------+---------------------------------------------------------------------------------------+
+; Output Port ; Comment                                                                               ;
++-------------+---------------------------------------------------------------------------------------+
+; seg_1[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_1[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_2[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_3[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[0]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[1]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[2]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[3]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[4]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[5]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; seg_4[6]    ; No output delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-------------+---------------------------------------------------------------------------------------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Timing Analyzer
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Fri Nov 06 00:33:41 2020
+Info: Command: quartus_sta lab4 -c lab4
+Info: qsta_default_script.tcl version: #1
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'lab4.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name clk_divider:clock|clk_1Hz clk_divider:clock|clk_1Hz
+    Info (332105): create_clock -period 1.000 -name clk_in clk_in
+Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v Line: 129
+    Warning (332126): Node "logicBox|Add4~25|cin"
+    Warning (332126): Node "logicBox|Add4~25|cout"
+    Warning (332126): Node "logicBox|Add4~29|cin"
+    Warning (332126): Node "logicBox|Add4~29|cout"
+    Warning (332126): Node "logicBox|Add4~33|cin"
+    Warning (332126): Node "logicBox|Add4~33|cout"
+    Warning (332126): Node "logicBox|Add4~37|cin"
+    Warning (332126): Node "logicBox|Add4~37|cout"
+    Warning (332126): Node "logicBox|Add4~41|cin"
+    Warning (332126): Node "logicBox|Add4~41|cout"
+    Warning (332126): Node "logicBox|Add4~45|cin"
+    Warning (332126): Node "logicBox|Add4~45|cout"
+    Warning (332126): Node "logicBox|Add4~49|cin"
+    Warning (332126): Node "logicBox|Add4~49|cout"
+    Warning (332126): Node "logicBox|Add4~53|cin"
+    Warning (332126): Node "logicBox|Add4~53|cout"
+    Warning (332126): Node "logicBox|Add4~57|cin"
+    Warning (332126): Node "logicBox|Add4~57|cout"
+    Warning (332126): Node "logicBox|Add4~61|cin"
+    Warning (332126): Node "logicBox|Add4~61|cout"
+    Warning (332126): Node "logicBox|Add4~1|cin"
+    Warning (332126): Node "logicBox|Add4~1|cout"
+    Warning (332126): Node "logicBox|Add4~5|cin"
+    Warning (332126): Node "logicBox|Add4~5|cout"
+    Warning (332126): Node "logicBox|Add4~13|cin"
+    Warning (332126): Node "logicBox|Add4~13|cout"
+    Warning (332126): Node "logicBox|Add4~9|cin"
+    Warning (332126): Node "logicBox|Add4~9|cout"
+    Warning (332126): Node "logicBox|Add4~65|cin"
+    Warning (332126): Node "logicBox|Add4~65|sumout"
+    Warning (332126): Node "logicBox|Selector16~5|dataf"
+    Warning (332126): Node "logicBox|Selector16~5|combout"
+    Warning (332126): Node "logicBox|Selector16~1|datae"
+    Warning (332126): Node "logicBox|Selector16~1|combout"
+    Warning (332126): Node "logicBox|Add2~61|datac"
+    Warning (332126): Node "logicBox|Add2~61|cout"
+    Warning (332126): Node "logicBox|Add2~17|cin"
+    Warning (332126): Node "logicBox|Add2~17|cout"
+    Warning (332126): Node "logicBox|Add2~21|cin"
+    Warning (332126): Node "logicBox|Add2~21|cout"
+    Warning (332126): Node "logicBox|Add2~25|cin"
+    Warning (332126): Node "logicBox|Add2~25|cout"
+    Warning (332126): Node "logicBox|Add2~29|cin"
+    Warning (332126): Node "logicBox|Add2~29|cout"
+    Warning (332126): Node "logicBox|Add2~33|cin"
+    Warning (332126): Node "logicBox|Add2~33|cout"
+    Warning (332126): Node "logicBox|Add2~37|cin"
+    Warning (332126): Node "logicBox|Add2~37|cout"
+    Warning (332126): Node "logicBox|Add2~41|cin"
+    Warning (332126): Node "logicBox|Add2~41|cout"
+    Warning (332126): Node "logicBox|Add2~65|cin"
+    Warning (332126): Node "logicBox|Add2~65|cout"
+    Warning (332126): Node "logicBox|Add2~45|cin"
+    Warning (332126): Node "logicBox|Add2~45|cout"
+    Warning (332126): Node "logicBox|Add2~49|cin"
+    Warning (332126): Node "logicBox|Add2~49|cout"
+    Warning (332126): Node "logicBox|Add2~53|cin"
+    Warning (332126): Node "logicBox|Add2~53|cout"
+    Warning (332126): Node "logicBox|Add2~1|cin"
+    Warning (332126): Node "logicBox|Add2~1|cout"
+    Warning (332126): Node "logicBox|Add2~5|cin"
+    Warning (332126): Node "logicBox|Add2~5|cout"
+    Warning (332126): Node "logicBox|Add2~13|cin"
+    Warning (332126): Node "logicBox|Add2~13|cout"
+    Warning (332126): Node "logicBox|Add2~9|cin"
+    Warning (332126): Node "logicBox|Add2~9|cout"
+    Warning (332126): Node "logicBox|Add2~57|cin"
+    Warning (332126): Node "logicBox|Add2~57|sumout"
+    Warning (332126): Node "logicBox|Selector16~3|datad"
+    Warning (332126): Node "logicBox|Selector16~3|combout"
+    Warning (332126): Node "logicBox|Selector16~1|datac"
+    Warning (332126): Node "logicBox|Add9~17|datad"
+    Warning (332126): Node "logicBox|Add9~17|sumout"
+    Warning (332126): Node "logicBox|Add10~17|datac"
+    Warning (332126): Node "logicBox|Add10~17|shareout"
+    Warning (332126): Node "logicBox|Add10~21|sharein"
+    Warning (332126): Node "logicBox|Add10~21|cout"
+    Warning (332126): Node "logicBox|Add10~25|cin"
+    Warning (332126): Node "logicBox|Add10~25|cout"
+    Warning (332126): Node "logicBox|Add10~29|cin"
+    Warning (332126): Node "logicBox|Add10~29|cout"
+    Warning (332126): Node "logicBox|Add10~33|cin"
+    Warning (332126): Node "logicBox|Add10~33|cout"
+    Warning (332126): Node "logicBox|Add10~37|cin"
+    Warning (332126): Node "logicBox|Add10~37|cout"
+    Warning (332126): Node "logicBox|Add10~41|cin"
+    Warning (332126): Node "logicBox|Add10~41|cout"
+    Warning (332126): Node "logicBox|Add10~45|cin"
+    Warning (332126): Node "logicBox|Add10~45|cout"
+    Warning (332126): Node "logicBox|Add10~49|cin"
+    Warning (332126): Node "logicBox|Add10~49|cout"
+    Warning (332126): Node "logicBox|Add10~53|cin"
+    Warning (332126): Node "logicBox|Add10~53|cout"
+    Warning (332126): Node "logicBox|Add10~57|cin"
+    Warning (332126): Node "logicBox|Add10~57|cout"
+    Warning (332126): Node "logicBox|Add10~61|cin"
+    Warning (332126): Node "logicBox|Add10~61|cout"
+    Warning (332126): Node "logicBox|Add10~1|cin"
+    Warning (332126): Node "logicBox|Add10~1|cout"
+    Warning (332126): Node "logicBox|Add10~5|cin"
+    Warning (332126): Node "logicBox|Add10~5|cout"
+    Warning (332126): Node "logicBox|Add10~13|cin"
+    Warning (332126): Node "logicBox|Add10~13|cout"
+    Warning (332126): Node "logicBox|Add10~9|cin"
+    Warning (332126): Node "logicBox|Add10~9|cout"
+    Warning (332126): Node "logicBox|Add10~65|cin"
+    Warning (332126): Node "logicBox|Add10~65|sumout"
+    Warning (332126): Node "logicBox|Selector16~1|dataf"
+    Warning (332126): Node "logicBox|Add9~17|cout"
+    Warning (332126): Node "logicBox|Add9~21|cin"
+    Warning (332126): Node "logicBox|Add9~21|cout"
+    Warning (332126): Node "logicBox|Add9~25|cin"
+    Warning (332126): Node "logicBox|Add9~25|cout"
+    Warning (332126): Node "logicBox|Add9~29|cin"
+    Warning (332126): Node "logicBox|Add9~29|cout"
+    Warning (332126): Node "logicBox|Add9~33|cin"
+    Warning (332126): Node "logicBox|Add9~33|cout"
+    Warning (332126): Node "logicBox|Add9~37|cin"
+    Warning (332126): Node "logicBox|Add9~37|cout"
+    Warning (332126): Node "logicBox|Add9~41|cin"
+    Warning (332126): Node "logicBox|Add9~41|cout"
+    Warning (332126): Node "logicBox|Add9~45|cin"
+    Warning (332126): Node "logicBox|Add9~45|cout"
+    Warning (332126): Node "logicBox|Add9~49|cin"
+    Warning (332126): Node "logicBox|Add9~49|cout"
+    Warning (332126): Node "logicBox|Add9~53|cin"
+    Warning (332126): Node "logicBox|Add9~53|cout"
+    Warning (332126): Node "logicBox|Add9~57|cin"
+    Warning (332126): Node "logicBox|Add9~57|cout"
+    Warning (332126): Node "logicBox|Add9~61|cin"
+    Warning (332126): Node "logicBox|Add9~61|cout"
+    Warning (332126): Node "logicBox|Add9~1|cin"
+    Warning (332126): Node "logicBox|Add9~1|cout"
+    Warning (332126): Node "logicBox|Add9~5|cin"
+    Warning (332126): Node "logicBox|Add9~5|cout"
+    Warning (332126): Node "logicBox|Add9~13|cin"
+    Warning (332126): Node "logicBox|Add9~13|cout"
+    Warning (332126): Node "logicBox|Add9~9|cin"
+    Warning (332126): Node "logicBox|Add9~9|cout"
+    Warning (332126): Node "logicBox|Add9~65|cin"
+    Warning (332126): Node "logicBox|Add9~65|sumout"
+    Warning (332126): Node "logicBox|Add10~65|datac"
+    Warning (332126): Node "logicBox|Add9~9|sumout"
+    Warning (332126): Node "logicBox|Add10~9|datac"
+    Warning (332126): Node "logicBox|Add10~9|shareout"
+    Warning (332126): Node "logicBox|Add10~65|sharein"
+    Warning (332126): Node "logicBox|Add9~13|sumout"
+    Warning (332126): Node "logicBox|Add10~13|datac"
+    Warning (332126): Node "logicBox|Add10~13|shareout"
+    Warning (332126): Node "logicBox|Add10~9|sharein"
+    Warning (332126): Node "logicBox|Add9~5|sumout"
+    Warning (332126): Node "logicBox|Add10~5|datad"
+    Warning (332126): Node "logicBox|Add10~5|shareout"
+    Warning (332126): Node "logicBox|Add10~13|sharein"
+    Warning (332126): Node "logicBox|Add9~1|sumout"
+    Warning (332126): Node "logicBox|Add10~1|datac"
+    Warning (332126): Node "logicBox|Add10~1|shareout"
+    Warning (332126): Node "logicBox|Add10~5|sharein"
+    Warning (332126): Node "logicBox|Add9~61|sumout"
+    Warning (332126): Node "logicBox|Add10~61|datac"
+    Warning (332126): Node "logicBox|Add10~61|shareout"
+    Warning (332126): Node "logicBox|Add10~1|sharein"
+    Warning (332126): Node "logicBox|Add9~57|sumout"
+    Warning (332126): Node "logicBox|Add10~57|datac"
+    Warning (332126): Node "logicBox|Add10~57|shareout"
+    Warning (332126): Node "logicBox|Add10~61|sharein"
+    Warning (332126): Node "logicBox|Add9~53|sumout"
+    Warning (332126): Node "logicBox|Add10~53|datac"
+    Warning (332126): Node "logicBox|Add10~53|shareout"
+    Warning (332126): Node "logicBox|Add10~57|sharein"
+    Warning (332126): Node "logicBox|Add9~49|sumout"
+    Warning (332126): Node "logicBox|Add10~49|datad"
+    Warning (332126): Node "logicBox|Add10~49|shareout"
+    Warning (332126): Node "logicBox|Add10~53|sharein"
+    Warning (332126): Node "logicBox|Add9~45|sumout"
+    Warning (332126): Node "logicBox|Add10~45|datad"
+    Warning (332126): Node "logicBox|Add10~45|shareout"
+    Warning (332126): Node "logicBox|Add10~49|sharein"
+    Warning (332126): Node "logicBox|Add9~41|sumout"
+    Warning (332126): Node "logicBox|Add10~41|datac"
+    Warning (332126): Node "logicBox|Add10~41|shareout"
+    Warning (332126): Node "logicBox|Add10~45|sharein"
+    Warning (332126): Node "logicBox|Add9~37|sumout"
+    Warning (332126): Node "logicBox|Add10~37|datac"
+    Warning (332126): Node "logicBox|Add10~37|shareout"
+    Warning (332126): Node "logicBox|Add10~41|sharein"
+    Warning (332126): Node "logicBox|Add9~33|sumout"
+    Warning (332126): Node "logicBox|Add10~33|datac"
+    Warning (332126): Node "logicBox|Add10~33|shareout"
+    Warning (332126): Node "logicBox|Add10~37|sharein"
+    Warning (332126): Node "logicBox|Add9~29|sumout"
+    Warning (332126): Node "logicBox|Add10~29|datac"
+    Warning (332126): Node "logicBox|Add10~29|shareout"
+    Warning (332126): Node "logicBox|Add10~33|sharein"
+    Warning (332126): Node "logicBox|Add9~25|sumout"
+    Warning (332126): Node "logicBox|Add10~25|datad"
+    Warning (332126): Node "logicBox|Add10~25|shareout"
+    Warning (332126): Node "logicBox|Add10~29|sharein"
+    Warning (332126): Node "logicBox|Add9~21|sumout"
+    Warning (332126): Node "logicBox|Add10~21|datad"
+    Warning (332126): Node "logicBox|Add10~21|shareout"
+    Warning (332126): Node "logicBox|Add10~25|sharein"
+    Warning (332126): Node "logicBox|Add7~17|datad"
+    Warning (332126): Node "logicBox|Add7~17|sumout"
+    Warning (332126): Node "logicBox|Add8~17|datad"
+    Warning (332126): Node "logicBox|Add8~17|shareout"
+    Warning (332126): Node "logicBox|Add8~21|sharein"
+    Warning (332126): Node "logicBox|Add8~21|cout"
+    Warning (332126): Node "logicBox|Add8~25|cin"
+    Warning (332126): Node "logicBox|Add8~25|cout"
+    Warning (332126): Node "logicBox|Add8~29|cin"
+    Warning (332126): Node "logicBox|Add8~29|cout"
+    Warning (332126): Node "logicBox|Add8~33|cin"
+    Warning (332126): Node "logicBox|Add8~33|cout"
+    Warning (332126): Node "logicBox|Add8~37|cin"
+    Warning (332126): Node "logicBox|Add8~37|cout"
+    Warning (332126): Node "logicBox|Add8~41|cin"
+    Warning (332126): Node "logicBox|Add8~41|cout"
+    Warning (332126): Node "logicBox|Add8~45|cin"
+    Warning (332126): Node "logicBox|Add8~45|cout"
+    Warning (332126): Node "logicBox|Add8~49|cin"
+    Warning (332126): Node "logicBox|Add8~49|cout"
+    Warning (332126): Node "logicBox|Add8~53|cin"
+    Warning (332126): Node "logicBox|Add8~53|cout"
+    Warning (332126): Node "logicBox|Add8~57|cin"
+    Warning (332126): Node "logicBox|Add8~57|cout"
+    Warning (332126): Node "logicBox|Add8~61|cin"
+    Warning (332126): Node "logicBox|Add8~61|cout"
+    Warning (332126): Node "logicBox|Add8~1|cin"
+    Warning (332126): Node "logicBox|Add8~1|cout"
+    Warning (332126): Node "logicBox|Add8~5|cin"
+    Warning (332126): Node "logicBox|Add8~5|cout"
+    Warning (332126): Node "logicBox|Add8~13|cin"
+    Warning (332126): Node "logicBox|Add8~13|cout"
+    Warning (332126): Node "logicBox|Add8~9|cin"
+    Warning (332126): Node "logicBox|Add8~9|cout"
+    Warning (332126): Node "logicBox|Add8~65|cin"
+    Warning (332126): Node "logicBox|Add8~65|sumout"
+    Warning (332126): Node "logicBox|Selector16~1|datad"
+    Warning (332126): Node "logicBox|Add7~17|cout"
+    Warning (332126): Node "logicBox|Add7~21|cin"
+    Warning (332126): Node "logicBox|Add7~21|cout"
+    Warning (332126): Node "logicBox|Add7~25|cin"
+    Warning (332126): Node "logicBox|Add7~25|cout"
+    Warning (332126): Node "logicBox|Add7~29|cin"
+    Warning (332126): Node "logicBox|Add7~29|cout"
+    Warning (332126): Node "logicBox|Add7~33|cin"
+    Warning (332126): Node "logicBox|Add7~33|cout"
+    Warning (332126): Node "logicBox|Add7~37|cin"
+    Warning (332126): Node "logicBox|Add7~37|cout"
+    Warning (332126): Node "logicBox|Add7~41|cin"
+    Warning (332126): Node "logicBox|Add7~41|cout"
+    Warning (332126): Node "logicBox|Add7~45|cin"
+    Warning (332126): Node "logicBox|Add7~45|cout"
+    Warning (332126): Node "logicBox|Add7~49|cin"
+    Warning (332126): Node "logicBox|Add7~49|cout"
+    Warning (332126): Node "logicBox|Add7~53|cin"
+    Warning (332126): Node "logicBox|Add7~53|cout"
+    Warning (332126): Node "logicBox|Add7~57|cin"
+    Warning (332126): Node "logicBox|Add7~57|cout"
+    Warning (332126): Node "logicBox|Add7~61|cin"
+    Warning (332126): Node "logicBox|Add7~61|cout"
+    Warning (332126): Node "logicBox|Add7~1|cin"
+    Warning (332126): Node "logicBox|Add7~1|cout"
+    Warning (332126): Node "logicBox|Add7~5|cin"
+    Warning (332126): Node "logicBox|Add7~5|cout"
+    Warning (332126): Node "logicBox|Add7~13|cin"
+    Warning (332126): Node "logicBox|Add7~13|cout"
+    Warning (332126): Node "logicBox|Add7~9|cin"
+    Warning (332126): Node "logicBox|Add7~9|cout"
+    Warning (332126): Node "logicBox|Add7~65|cin"
+    Warning (332126): Node "logicBox|Add7~65|sumout"
+    Warning (332126): Node "logicBox|Add8~65|datac"
+    Warning (332126): Node "logicBox|Add7~9|sumout"
+    Warning (332126): Node "logicBox|Add8~9|dataa"
+    Warning (332126): Node "logicBox|Add8~9|shareout"
+    Warning (332126): Node "logicBox|Add8~65|sharein"
+    Warning (332126): Node "logicBox|Add7~13|sumout"
+    Warning (332126): Node "logicBox|Add8~13|datad"
+    Warning (332126): Node "logicBox|Add8~13|shareout"
+    Warning (332126): Node "logicBox|Add8~9|sharein"
+    Warning (332126): Node "logicBox|Add7~5|sumout"
+    Warning (332126): Node "logicBox|Add8~5|datac"
+    Warning (332126): Node "logicBox|Add8~5|shareout"
+    Warning (332126): Node "logicBox|Add8~13|sharein"
+    Warning (332126): Node "logicBox|Add7~1|sumout"
+    Warning (332126): Node "logicBox|Add8~1|datac"
+    Warning (332126): Node "logicBox|Add8~1|shareout"
+    Warning (332126): Node "logicBox|Add8~5|sharein"
+    Warning (332126): Node "logicBox|Add7~61|sumout"
+    Warning (332126): Node "logicBox|Add8~61|datad"
+    Warning (332126): Node "logicBox|Add8~61|shareout"
+    Warning (332126): Node "logicBox|Add8~1|sharein"
+    Warning (332126): Node "logicBox|Add7~57|sumout"
+    Warning (332126): Node "logicBox|Add8~57|datac"
+    Warning (332126): Node "logicBox|Add8~57|shareout"
+    Warning (332126): Node "logicBox|Add8~61|sharein"
+    Warning (332126): Node "logicBox|Add7~53|sumout"
+    Warning (332126): Node "logicBox|Add8~53|datad"
+    Warning (332126): Node "logicBox|Add8~53|shareout"
+    Warning (332126): Node "logicBox|Add8~57|sharein"
+    Warning (332126): Node "logicBox|Add7~49|sumout"
+    Warning (332126): Node "logicBox|Add8~49|datab"
+    Warning (332126): Node "logicBox|Add8~49|shareout"
+    Warning (332126): Node "logicBox|Add8~53|sharein"
+    Warning (332126): Node "logicBox|Add7~45|sumout"
+    Warning (332126): Node "logicBox|Add8~45|datac"
+    Warning (332126): Node "logicBox|Add8~45|shareout"
+    Warning (332126): Node "logicBox|Add8~49|sharein"
+    Warning (332126): Node "logicBox|Add7~41|sumout"
+    Warning (332126): Node "logicBox|Add8~41|datad"
+    Warning (332126): Node "logicBox|Add8~41|shareout"
+    Warning (332126): Node "logicBox|Add8~45|sharein"
+    Warning (332126): Node "logicBox|Add7~37|sumout"
+    Warning (332126): Node "logicBox|Add8~37|datac"
+    Warning (332126): Node "logicBox|Add8~37|shareout"
+    Warning (332126): Node "logicBox|Add8~41|sharein"
+    Warning (332126): Node "logicBox|Add7~33|sumout"
+    Warning (332126): Node "logicBox|Add8~33|datac"
+    Warning (332126): Node "logicBox|Add8~33|shareout"
+    Warning (332126): Node "logicBox|Add8~37|sharein"
+    Warning (332126): Node "logicBox|Add7~29|sumout"
+    Warning (332126): Node "logicBox|Add8~29|datad"
+    Warning (332126): Node "logicBox|Add8~29|shareout"
+    Warning (332126): Node "logicBox|Add8~33|sharein"
+    Warning (332126): Node "logicBox|Add7~25|sumout"
+    Warning (332126): Node "logicBox|Add8~25|datac"
+    Warning (332126): Node "logicBox|Add8~25|shareout"
+    Warning (332126): Node "logicBox|Add8~29|sharein"
+    Warning (332126): Node "logicBox|Add7~21|sumout"
+    Warning (332126): Node "logicBox|Add8~21|datac"
+    Warning (332126): Node "logicBox|Add8~21|shareout"
+    Warning (332126): Node "logicBox|Add8~25|sharein"
+    Warning (332126): Node "logicBox|Add4~17|datac"
+    Warning (332126): Node "logicBox|Add4~17|cout"
+    Warning (332126): Node "logicBox|Add4~21|cin"
+    Warning (332126): Node "logicBox|Add4~21|cout"
+Critical Warning (332081): Design contains combinational loop of 337 nodes. Estimating the delays through the loop.
+Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow 1100mV 85C Model
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -15.729
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -15.729          -40380.757 clk_divider:clock|clk_1Hz 
+    Info (332119):    -5.069             -74.109 clk_in 
+Info (332146): Worst-case hold slack is 0.241
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.241               0.000 clk_in 
+    Info (332119):     0.296               0.000 clk_divider:clock|clk_1Hz 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174          -19014.252 clk_divider:clock|clk_1Hz 
+    Info (332119):    -0.436             -13.790 clk_in 
+Info: Analyzing Slow 1100mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -15.644
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -15.644          -38544.340 clk_divider:clock|clk_1Hz 
+    Info (332119):    -5.065             -73.440 clk_in 
+Info (332146): Worst-case hold slack is 0.225
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.225               0.000 clk_in 
+    Info (332119):     0.296               0.000 clk_divider:clock|clk_1Hz 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174          -18963.460 clk_divider:clock|clk_1Hz 
+    Info (332119):    -0.453             -14.885 clk_in 
+Info: Analyzing Fast 1100mV 85C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -9.317
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -9.317          -24217.830 clk_divider:clock|clk_1Hz 
+    Info (332119):    -3.177             -34.010 clk_in 
+Info (332146): Worst-case hold slack is 0.105
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.105               0.000 clk_divider:clock|clk_1Hz 
+    Info (332119):     0.137               0.000 clk_in 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174          -18786.497 clk_divider:clock|clk_1Hz 
+    Info (332119):    -0.455              -2.752 clk_in 
+Info: Analyzing Fast 1100mV 0C Model
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -8.506
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -8.506          -20927.491 clk_divider:clock|clk_1Hz 
+    Info (332119):    -2.706             -29.574 clk_in 
+Info (332146): Worst-case hold slack is 0.091
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):     0.091               0.000 clk_divider:clock|clk_1Hz 
+    Info (332119):     0.126               0.000 clk_in 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -2.174
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -2.174          -18712.218 clk_divider:clock|clk_1Hz 
+    Info (332119):    -0.456              -2.746 clk_in 
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus Prime Timing Analyzer was successful. 0 errors, 345 warnings
+    Info: Peak virtual memory: 5244 megabytes
+    Info: Processing ended: Fri Nov 06 00:34:06 2020
+    Info: Elapsed time: 00:00:25
+    Info: Total CPU time (on all processors): 00:00:44
+
+

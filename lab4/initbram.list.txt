@@ -1,5 +1,17 @@
-0001
-0002
-0003
+5101 // ADDI 1 into R1   || Setup for first loop
+5220 // ADDI 20 into R2  || Setup for second loop
+0152
+5457 // ADDI 57 into R4  || Setup for first loop
+4144
+5509 // ADDI 10 into R5  || Setup for second loop
+4004 // Load Data into R0            || Loop 1
+0151 // ADD R1 into R1               || Loop 1
+00B1 // CMP R0 with R2 into R0       || Loop 1
+C1FC // BNE Backwards 4 instructions || Loop 1
+4004 // Load Data into R0
+0293 // SUB 5 into R2                || Loop 2
+00B2 // CMPI 5 with R2               || Loop 2
+46C5 // Jump on GT to addr in R5     || Loop 2
+@57
 0004
-1020
+

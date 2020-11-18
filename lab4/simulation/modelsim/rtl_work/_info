@@ -9,13 +9,13 @@ z2
 cModel Technology
 Z0 dC:/Users/bblea/source/repos/ECE3710Project/lab4/simulation/modelsim
 valu
-Z1 !s110 1604014037
+Z1 !s110 1604645732
 !i10b 1
-!s100 __R835HLdcjGAFDF^gAk;0
-IgIDN__SbPGHa4eQecmiG63
+!s100 6njX4SaE]3V4<3[ijT3_b0
+I_N=J[_a;mi4G^AFOb]C>83
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1601415854
+w1604102037
 8C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
 L0 28
@@ -23,15 +23,15 @@ Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z4 !s108 1604014037.000000
+Z4 !s108 1604645732.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !i113 1
 Z5 o-vlog01compat -work work
-!s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
-Z6 tCvgOpt 0
+Z6 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
+Z7 tCvgOpt 0
 vbram
-Z7 !s110 1604014038
+Z8 !s110 1604645733
 !i10b 1
 !s100 ]GTSj]4KWQ8D?Rah6TeE92
 IKJ>?XXAnkGoY5dX_2iheR3
@@ -45,21 +45,65 @@ R3
 r1
 !s85 0
 31
-Z8 !s108 1604014038.000000
+Z9 !s108 1604645733.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3|C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !i113 1
 R5
 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3
-R6
-vfsm
 R7
+vclk_divider
+R8
 !i10b 1
-!s100 8NQDEYj>nz<D05GN1D5L81
-Ic6TR6BNlZN8cV]2ec;<8I0
+!s100 U=[K@Tfii_mDC;mGU24L01
+Ik<T2f[HYh;RH=_@cXdm>l0
 R2
 R0
-w1604013987
+w1604629913
+8C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v
+FC:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v|
+!i113 1
+R5
+Z10 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
+R7
+vflags_register
+R8
+!i10b 1
+!s100 =GQSGSeOAaA?H1=S5e9]]2
+IP7@@P14co<8o6Sl_H>3;d1
+R2
+R0
+w1604116134
+8C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
+FC:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
+L0 1
+R3
+r1
+!s85 0
+31
+R9
+!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
+!i113 1
+R5
+R10
+R7
+vfsm
+R8
+!i10b 1
+!s100 QJ;e>9JbYW_OLBLUK296_1
+Igbo<oUL1NJ;896iGN_zGG2
+R2
+R0
+w1604618412
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 L0 1
@@ -67,21 +111,43 @@ R3
 r1
 !s85 0
 31
-R8
+R9
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !i113 1
 R5
-Z9 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
-R6
-vIRreg
+R10
 R7
+vhex2seg
+R1
 !i10b 1
-!s100 P[MQhLL@47k[>CZjPR;dR1
-Ih<:LacSE`@^ll4FAn@]HM1
+!s100 RhVA2H2^VmEn6z2nUQ]6H3
+I][MUBSA=Zgej4?WUdJ?:20
 R2
 R0
-w1604012028
+w1602623453
+8C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
+FC:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
+L0 7
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
+!i113 1
+R5
+R6
+R7
+vIRreg
+R8
+!i10b 1
+!s100 i`e?J5kA@_3_7`496>0GI1
+Ik[]zQ7o>kidkm5E1G`6Ig1
+R2
+R0
+w1604117811
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
 L0 1
@@ -89,22 +155,22 @@ R3
 r1
 !s85 0
 31
-R8
+R9
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
 !i113 1
 R5
-R9
-R6
+R10
+R7
 n@i@rreg
 vlab4
-Z10 !s110 1604014053
+Z11 !s110 1604645746
 !i10b 1
-!s100 jbb8l?k[R3`0Bg<7QfG?=3
-I<m4ZC_9YgDaH>e^GJ8=fI0
+!s100 [K:>ofM4;P[G<`;0kgG]e0
+IZ5lo<@K@4z8QB0;k2:Sn43
 R2
 R0
-w1604007116
+w1604639748
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
 L0 1
@@ -112,20 +178,20 @@ R3
 r1
 !s85 0
 31
-Z11 !s108 1604014053.000000
+Z12 !s108 1604645746.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
 !s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
 !i113 1
-Z12 o-work work
-R6
+Z13 o-work work
+R7
 vlab4_tb
-R10
+R11
 !i10b 1
-!s100 a>^=T4I`^UP>3@:DXM1Z=2
-IFTCDS`;575Yn>[4OeWUzB3
+!s100 G;0]jzkDI2@jU6ciEhZah1
+I`::8kX3a8H5M]W6CCe4Jg0
 R2
 R0
-w1604012620
+w1604635685
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
 L0 8
@@ -133,12 +199,12 @@ R3
 r1
 !s85 0
 31
-R11
+R12
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !i113 1
-R12
-R6
+R13
+R7
 vmux
 R1
 !i10b 1
@@ -146,7 +212,7 @@ R1
 Ik]^i;cfM57:@6@Y8nmB=z2
 R2
 R0
-Z13 w1601415820
+Z14 w1601415820
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
 L0 5
@@ -159,8 +225,8 @@ R4
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v|
 !i113 1
 R5
-Z14 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2
-R6
+Z15 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2
+R7
 vmux_2_to_1
 R1
 !i10b 1
@@ -168,7 +234,7 @@ R1
 IB3S2N518[4RGOI?il49Z13
 R2
 R0
-R13
+R14
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
 L0 5
@@ -181,16 +247,16 @@ R4
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v|
 !i113 1
 R5
-R14
-R6
-vprogram_counter
+R15
 R7
+vprogram_counter
+R8
 !i10b 1
-!s100 c8F?X6MX18]j@YCY4bfbo3
-ISj?;h1eGjckd>HLKB_P<R3
+!s100 X^:f?BoL6Vcj=Q1NZh0?m3
+I0IHcW4glNT?m9CKXh40c62
 R2
 R0
-w1602795262
+w1604110786
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 L0 19
@@ -203,8 +269,8 @@ R4
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
 !i113 1
 R5
-R9
-R6
+R10
+R7
 vregfile_2D_memory
 R1
 !i10b 1
@@ -212,7 +278,7 @@ R1
 IKG4iEI8hA7JJ;aOkKdKoJ0
 R2
 R0
-R13
+R14
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
 L0 3
@@ -225,6 +291,6 @@ R4
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
 !i113 1
 R5
-R14
-R6
+R15
+R7
 nregfile_2@d_memory

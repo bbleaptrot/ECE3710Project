@@ -1,7 +1,9 @@
-module lab4(clk, rst);
+module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1);
 //Inputs
-input clk, rst;
+input clk_in, rst;
 
+//outputs
+output[0:6] seg_4, seg_3, seg_2, seg_1;
 
 //Registers
 wire[15:0] BUS, Ren, r0_out, r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_out;
@@ -30,6 +32,13 @@ wire[15:0] PCOut;
 
 //FSM
 wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen;
+
+//Flags_register
+wire flagEn;
+wire [4:0] flags_for_fsm;
+
+//Clk_divider
+wire clk;
 
 regfile_2D_memory registers(
 	.ALUBus(BUS),
@@ -98,7 +107,7 @@ mux muxDst(
 	
 	mux_2_to_1 immMux(
 		.r0(dstMux_out),
-		.r1(ImmOut),
+		.r1({{8{ImmOut[7]}}, ImmOut}),
 		.S_in(RorI), // FSM
 		.mux_out(immMux_out)
 );
@@ -167,13 +176,33 @@ mux muxDst(
 	.instruction(q_a),
 	.branch(branch),
 	.jump(jump),
-	.FLAGS(Flags),
+	.FLAGS(flags_for_fsm),
 	.PCen(PCen),
 	.Ren(Ren),
 	.IEn(IEn),
 	.RegOrImm(RorI),
 	.WE(WE),
 	.ALU_MUX_CNTL(ALUorData),
-	.LS_CNTL(LS_cntl)
+	.LS_CNTL(LS_cntl),
+	.flagEn(flagEn)
 	);
+	
+	flags_register flags(
+	.flagEn(flagEn),
+	.flags_in(Flags),
+	.flags_out(flags_for_fsm),
+	.clk(clk),
+	.rst(rst)
+	);
+	
+	clk_divider clock(
+	.clk_50MHz(clk_in),
+	.rst(rst),
+	.clk_1Hz(clk)
+	);
+	
+	hex2seg seg4(q_a[15:12], seg_4);
+	hex2seg seg3(q_a[11:8], seg_3);
+	hex2seg seg2(q_a[7:4], seg_2);
+	hex2seg seg1(q_a[3:0], seg_1);
 endmodule
