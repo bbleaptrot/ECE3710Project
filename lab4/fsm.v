@@ -1,7 +1,7 @@
-module fsm(clk, rst, instruction, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL, flagEn);
+module fsm(clk, rst, instruction, data_from_mem, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL, flagEn);
 
 input clk, rst;
-input [15:0] instruction;
+input [15:0] instruction, data_from_mem;
 input [4:0] FLAGS;
 
 output reg PCen, RegOrImm, WE, ALU_MUX_CNTL, LS_CNTL, branch, jump, IEn, flagEn;
@@ -20,18 +20,17 @@ reg [3:0] state_counter = 4'b0000;
 always @(posedge clk)
  begin
 	if(rst == 1) state_counter <= 4'b0000;
-	
 	// Else, check if the state counter is at the end and if not increment it to the next state.
 	else
 	begin
 		case(state_counter)
 			0: state_counter <= 1;
 			1: begin
-					if(instruction[15:12] == 4'b0000) state_counter <= 4'b0010; // R-type instruction
-					else if({instruction[15:12],instruction[7:4]} == STOR) state_counter <= 4'b0011; // Store instruction
-					else if({instruction[15:12],instruction[7:4]} == LOAD) state_counter <= 4'b0100; // Load instruction
-					else if(instruction[15:12] == Bcond)                   state_counter <= 4'b0110; // Branch instruction
-					else if({instruction[15:12],instruction[7:4]} == Jcond)state_counter <= 4'b0111; // Jump instruction
+					if(data_from_mem[15:12] == 4'b0000 && data_from_mem[7:4] != 4'b0000) state_counter <= 4'b0010; // R-type instruction
+					else if({data_from_mem[15:12],data_from_mem[7:4]} == STOR) state_counter <= 4'b0011; // Store instruction
+					else if({data_from_mem[15:12],data_from_mem[7:4]} == LOAD) state_counter <= 4'b0100; // Load instruction
+					else if(data_from_mem[15:12] == Bcond)                   state_counter <= 4'b0110; // Branch instruction
+					else if({data_from_mem[15:12],data_from_mem[7:4]} == Jcond)state_counter <= 4'b0111; // Jump instruction
 					else state_counter <= 4'b0010;// Everything else right now
 				end
 			2: state_counter <= 4'b0000;
@@ -47,8 +46,6 @@ always @(posedge clk)
  // Output logic
  always @(state_counter)
  begin
- // THIS CREATES A PROBLEM WITH LOADS ALSO THEY ARE BACKWARDS???
-	
 	case(state_counter)
 		0: begin // Fetch stage
 				Ren           = 16'h0; // Data isn't getting written back in this stage
@@ -85,7 +82,6 @@ always @(posedge clk)
 				jump          = 1'b0;
 				IEn           = 1'b0;
 				flagEn        = 1'b1;
-				// FIX THIS TO INCLUDE ALL IMMEDIATES
 				if(instruction[15:12] == 4'b0101 ||
 					instruction[15:12] == 4'b0110 ||
 					instruction[15:12] == 4'b0111 ||
@@ -97,7 +93,6 @@ always @(posedge clk)
 					instruction[15:12] == 4'b0011 ||
 					instruction[15:12] == 4'b1101) RegOrImm = 1'b1;
 				else RegOrImm = 1'b0;
-				
 				case(instruction[11:8])
 					0:  Ren = 16'h0001;
 					1:  Ren = 16'h0002;
@@ -116,7 +111,6 @@ always @(posedge clk)
 					14: Ren = 16'h4000;
 					15: Ren = 16'h8000;
 				endcase
-				
 				delay_Ren = 16'h0;
 			end
 		3: begin // Store into memory
@@ -140,7 +134,8 @@ always @(posedge clk)
 				LS_CNTL       = 1'b0;  // Need the address
 				branch        = 1'b0;  // Not branching
 				jump          = 1'b0;  // Not jumping
-				IEn           = 1'b0;  // holding instruction
+				//IEn           = 1'b1;  // holding instruction current working simulation line
+				IEn           = 1'b0;
 				Ren           = 16'h0;
 				flagEn        = 1'b0;
 				
@@ -172,7 +167,24 @@ always @(posedge clk)
 				branch        = 1'b0;  // not branching
 				jump          = 1'b0;  // not jumping
 				IEn           = 1'b0;  // holding instruction
-				Ren 			  = delay_Ren;
+				case(instruction[11:8])
+					0:  Ren = 16'h0001;
+					1:  Ren = 16'h0002;
+					2:  Ren = 16'h0004;
+					3:  Ren = 16'h0008;
+					4:  Ren = 16'h0010;
+					5:  Ren = 16'h0020;
+					6:  Ren = 16'h0040;
+					7:  Ren = 16'h0080;
+					8:  Ren = 16'h0100;
+					9:  Ren = 16'h0200;
+					10: Ren = 16'h0400;
+					11: Ren = 16'h0800;
+					12: Ren = 16'h1000;
+					13: Ren = 16'h2000;
+					14: Ren = 16'h4000;
+					15: Ren = 16'h8000;
+				endcase
 				flagEn        = 1'b0;
 				delay_Ren     = 16'h0;
 			end
@@ -231,7 +243,7 @@ always @(posedge clk)
 				RegOrImm      = 1'b0; // No arithmetic logic
 				WE            = 1'b0; // Not writing
 				ALU_MUX_CNTL  = 1'b0; // 
-				LS_CNTL       = 1'b1; 
+				LS_CNTL       = 1'b0; 
 				jump          = 1'b0;
 				IEn           = 1'b0;
 				Ren           = 16'b0;

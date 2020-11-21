@@ -1,21 +1,20 @@
-5101 // ADDI 1 into R1  || Setup for first loop
-5402 // ADDI 2 into R4  || Setup for second loop
-520A // ADDI 10 into R2 || Setup for first loop
-5353 // ADDI 53 into R3 || Setup for first loop
-550B // ADDI 09 into R5 || Setup for second loop
-562F // ADDI 2F into R6 || Setup for second loop
-4003 // Load Data into R0            || Loop 1
-0051 // ADD 1 into R0                || Loop 1
-4043 // Store R0 into addr at R3     || Loop 1
-00B2 // CMP R0 with R2 into R0       || Loop 1
-C1FB // BNE Backwards 5 instructions || Loop 1
-4003 // Load Data into R0            || Loop 2
-4406 // Load Data into R4            || Loop 2
-0490 // SUB 2 into R4                || Loop 2
-4443 // Store R4 into addr at R3     || Loop 2
-B000 // CMPI 0 with R0               || Loop 2
-47C5 // Jump on LT to addr in R5     || Loop 2
-@2F
-0002
-@53
-0008
+5101  // add 1 into R1
+5220  // add 20 into R2
+5304  // add 4 into R3
+5457  // add 57 into R4
+550A  // add 9 into R5
+4004  // Load addr in R4 into R0
+0151  // Add R1 into R1
+00B1  // Compare R0 and R1
+C1FC  // Branch if not equal
+0000 
+4004  // Load addr in R4 into R0
+0392  // Subtract R3 from R2 into R3 -- R3 = R2 - R3
+00B3  // Compare 0 and 2 into R0
+4CC5  // Jump if LE 
+0000
+5737  // Add 37 into R7
+4744  // Store 37 into 57
+4304  // Load value into R3
+@57
+0004

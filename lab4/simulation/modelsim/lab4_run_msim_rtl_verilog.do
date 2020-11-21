@@ -15,6 +15,5 @@ vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project
 vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v}
 vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v}
 vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v}
-vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4 {C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v}
 vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3 {C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v}
 

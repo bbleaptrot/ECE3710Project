@@ -1,4 +1,4 @@
-module IRreg(clk, rst, dataIn, IEn, Opcode, RsrcOut, RdstOut, ImmOut, bDisp);
+module IRreg(clk, rst, dataIn, IEn, Opcode, RsrcOut, RdstOut, ImmOut, bDisp, instruction);
 input IEn, clk, rst;
 input [15:0] dataIn;
 
@@ -6,6 +6,7 @@ input [15:0] dataIn;
 
 output reg[3:0] RsrcOut, RdstOut;
 output reg[7:0] Opcode, bDisp, ImmOut;
+output reg[15:0] instruction;
 
 parameter LOAD = 8'b01000000; // *
 parameter STOR = 8'b01000100;
@@ -18,6 +19,7 @@ always@(posedge clk)
 			ImmOut  <= 4'b0;
 			Opcode  <= 8'b0;
 			bDisp   <= 8'b0;
+			instruction <= 16'b0;
 		end
 		else if(IEn)
 		begin
@@ -30,6 +32,7 @@ always@(posedge clk)
 				RsrcOut     <= dataIn[11:8];
 				bDisp[7:4]  <= dataIn[7:4];
 				bDisp[3:0]  <= dataIn[3:0];
+				instruction <= dataIn;
 			end
 			else
 			begin
@@ -40,6 +43,7 @@ always@(posedge clk)
 				RsrcOut     <= dataIn[3:0];
 				bDisp[7:4]  <= dataIn[7:4];
 				bDisp[3:0]  <= dataIn[3:0];
+				instruction <= dataIn;
 			end
 		end
 		else
@@ -49,6 +53,7 @@ always@(posedge clk)
 			ImmOut      <= ImmOut;
 			RsrcOut     <= RsrcOut;
 			bDisp       <= bDisp;
+			instruction <= instruction;
 		end
 
 	end

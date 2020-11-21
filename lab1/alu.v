@@ -562,8 +562,8 @@ module alu(A, B, C, Opcode, Flags);
 		
 		default:
 			begin
-				C = 16'b0;
-				Flags = 5'b0;
+				C = A;
+				Flags = Flags;
 			end		
 		endcase
 		
