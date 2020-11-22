@@ -51,7 +51,16 @@ int main(int argc, char** argv)
     }
   
     std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
-    //printf("%04X\n", asm_code); // "But it's not type-safe! Glorious C++ is above!" - Some Strictly C++ Dude.
+    if (asm_code & 0xF000 == 0xC000)
+    {
+        std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+    }
+    int jump_code = asm_code & 0xF0F0
+    if(jump_code == 0x40C0)
+    {
+        std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+    }
+
   }
 
   return 0;
@@ -582,9 +591,301 @@ short parse_line(std::string& line)
     //     Op     Rlink       OPext        Rtarget
     return 0x4000 + (Rl << 8) + 0x0080 + (Rt);   
   }
+
+  if (!intr.compare("BEQ"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
+
+      //op     BCond     Displacement
+      return 0xC000 + 0x0000 + Imm;
+  }
+  if (!intr.compare("BNE"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0100 + Imm;
+
+  }
+  if (!intr.compare("BGE"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+
+      //op      BCond    Displacement
+      return 0xC000 + 0x0D00 + Imm;
+
+  }
+  if (!intr.compare("BCS"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0200 + Imm;
+
+  }
+  if (!intr.compare("BCC"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+
+      //op      BCond    Displacement
+      return 0xC000 + 0x0300 + Imm;
+
+  }
+  if (!intr.compare("BHI"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0400 + Imm;
+
+  }
+  if (!intr.compare("BLS"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0500 + Imm;
+
+  }
+  if (!intr.compare("BLO"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0A00 + Imm;
+
+  }
+  if (!intr.compare("BHS"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0B00 + Imm;
+
+  }
+  if (!intr.compare("BGT"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0600 + Imm;
+
+  }
+  if (!intr.compare("BLE"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0700 + Imm;
+
+  }
+  if (!intr.compare("BFS"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement  
+      return 0xC000 + 0x0800 + Imm;
+
+  }
+  if (!intr.compare("BFC"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement  
+      return 0xC000 + 0x0900 + Imm;
+  }
+  if (!intr.compare("BLT"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0C00 + Imm;
+
+  }
+  if (!intr.compare("BUC"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0E00 + Imm;
+
+  }
+
+  if (!intr.compare("JEQ"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+             // Op     Cond    Op       Rtarget
+      return 0x4000 + 0x0000 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JNE"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0100 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JGE"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0D00 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JCS"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0200 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JCC"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0300 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JHI"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0400 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JLS"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0500 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JLO"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0A00 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JHS"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0B00 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JGT"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0600 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JLE"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0700 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JFS"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0800 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JFC"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0900 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JLT"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0C00 + 0x00C0 + (Rt);
+  }
+  if (!intr.compare("JUC"))
+  {
+      std::string Rtarget;
+      if (!(line_stream >> Rtarget))
+          return 0x4FFE;
+      int Rt = reg_to_char(Rtarget);
+      // Op     Cond    Displacement
+      return 0x4000 + 0x0E00 + 0x00C0 + (Rt);
+  }
   // Just need Jumps and Branches...
   return 0;
 }
+
+
 
 int reg_to_char(std::string reg)
 {

@@ -172,7 +172,7 @@ mux muxDst(
 	.instruction(MemOut)
 	);
 	
-	fsm test(
+	fsm state_machine(
 	.clk(clk),
 	.rst(rst),
 	.instruction(MemOut),
