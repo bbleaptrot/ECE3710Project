@@ -1,21 +1,9 @@
-5101  // add 1 into R1
-5220  // add 20 into R2
-5304  // add 4 into R3
 5457  // add 57 into R4
-550A  // add 9 into R5
 4004  // Load addr in R4 into R0
-0151  // Add R1 into R1
-00B1  // Compare R0 and R1
-C1FC  // Branch if not equal
-0000 
-4004  // Load addr in R4 into R0
-0392  // Subtract R3 from R2 into R3 -- R3 = R2 - R3
-00B3  // Compare 0 and 2 into R0
-4CC5  // Jump if LE 
+F2F5  // Load phone into R5
+0552  // Add R5 into R2
+CEFD  // Branch unconditionally to F2F5 instruction
 0000
-5737  // Add 37 into R7
-4744  // Store 37 into 57
-4304  // Load value into R3
 @57
-0004
+0050
 

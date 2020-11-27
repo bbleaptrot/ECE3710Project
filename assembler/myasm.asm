@@ -10,9 +10,13 @@ ADDUI 80, R13
 
 SUB R7, R8
 SUBI 0x77, R9
-
+BNE  57
 OR R1, R0
 
+
+
+
+@BNE Intruction plus 0x57
 LSHI -4, R3
 LSHI 4, R3
 

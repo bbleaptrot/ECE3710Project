@@ -80,20 +80,6 @@ set_location_assignment PIN_AC25 -to seg_4[3]
 set_location_assignment PIN_AB28 -to seg_4[4]
 set_location_assignment PIN_AB25 -to seg_4[5]
 set_location_assignment PIN_AB22 -to seg_4[6]
-set_global_assignment -name TEXT_FILE initbram.list.txt
-set_global_assignment -name VERILOG_FILE ../lab3/bram.v
-set_global_assignment -name VERILOG_FILE ../lab2/regfile_2D_memory.v
-set_global_assignment -name VERILOG_FILE ../lab2/mux_2_to_1.v
-set_global_assignment -name VERILOG_FILE ../lab2/mux.v
-set_global_assignment -name VERILOG_FILE ../lab1/hex2seg.v
-set_global_assignment -name VERILOG_FILE ../lab1/alu.v
-set_global_assignment -name VERILOG_FILE lab4.v
-set_global_assignment -name VERILOG_FILE program_counter.v
-set_global_assignment -name VERILOG_FILE fsm.v
-set_global_assignment -name VERILOG_FILE IRreg.v
-set_global_assignment -name VERILOG_FILE tb_IRreg.v
-set_global_assignment -name VERILOG_FILE lab4_tb.v
-set_global_assignment -name VERILOG_FILE flags_register.v
 set_location_assignment PIN_AF14 -to clk_in
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[0]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[1]
@@ -123,9 +109,32 @@ set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[3]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[4]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[5]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[6]
-set_global_assignment -name VERILOG_FILE tb_clk_divider.v
-set_global_assignment -name VERILOG_FILE clk_divider.v
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name VERILOG_FILE ../mobile_controller/mobile_receiver.v
+set_global_assignment -name TEXT_FILE initbram.list.txt
+set_global_assignment -name VERILOG_FILE ../lab3/bram.v
+set_global_assignment -name VERILOG_FILE ../lab2/regfile_2D_memory.v
+set_global_assignment -name VERILOG_FILE ../lab2/mux_2_to_1.v
+set_global_assignment -name VERILOG_FILE ../lab2/mux.v
+set_global_assignment -name VERILOG_FILE ../lab1/hex2seg.v
+set_global_assignment -name VERILOG_FILE ../lab1/alu.v
+set_global_assignment -name VERILOG_FILE lab4.v
+set_global_assignment -name VERILOG_FILE program_counter.v
+set_global_assignment -name VERILOG_FILE fsm.v
+set_global_assignment -name VERILOG_FILE IRreg.v
+set_global_assignment -name VERILOG_FILE tb_IRreg.v
+set_global_assignment -name VERILOG_FILE lab4_tb.v
+set_global_assignment -name VERILOG_FILE flags_register.v
+set_global_assignment -name VERILOG_FILE tb_clk_divider.v
+set_global_assignment -name VERILOG_FILE clk_divider.v
+set_location_assignment PIN_AF20 -to in_0
+set_location_assignment PIN_AF21 -to in_1
+set_location_assignment PIN_AF19 -to in_2
+set_location_assignment PIN_AG21 -to in_3
+set_location_assignment PIN_AF18 -to in_4
+set_location_assignment PIN_AG20 -to in_5
+set_location_assignment PIN_AG18 -to in_6
+set_location_assignment PIN_AJ21 -to in_7
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

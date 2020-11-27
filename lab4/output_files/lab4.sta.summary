@@ -2,100 +2,52 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1100mV 85C Model Setup 'clk_divider:clock|clk_1Hz'
-Slack : -14.408
-TNS   : -35847.848
-
 Type  : Slow 1100mV 85C Model Setup 'clk_in'
-Slack : -5.008
-TNS   : -66.325
-
-Type  : Slow 1100mV 85C Model Hold 'clk_divider:clock|clk_1Hz'
-Slack : 0.166
-TNS   : 0.000
+Slack : -12.255
+TNS   : -35487.031
 
 Type  : Slow 1100mV 85C Model Hold 'clk_in'
-Slack : 0.264
+Slack : 0.228
 TNS   : 0.000
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_divider:clock|clk_1Hz'
-Slack : -2.174
-TNS   : -19038.273
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk_in'
-Slack : -0.538
-TNS   : -13.884
-
-Type  : Slow 1100mV 0C Model Setup 'clk_divider:clock|clk_1Hz'
-Slack : -14.162
-TNS   : -34350.345
+Slack : -2.174
+TNS   : -18809.991
 
 Type  : Slow 1100mV 0C Model Setup 'clk_in'
-Slack : -5.110
-TNS   : -65.800
-
-Type  : Slow 1100mV 0C Model Hold 'clk_divider:clock|clk_1Hz'
-Slack : 0.154
-TNS   : 0.000
+Slack : -12.061
+TNS   : -34034.556
 
 Type  : Slow 1100mV 0C Model Hold 'clk_in'
-Slack : 0.247
+Slack : 0.214
 TNS   : 0.000
-
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_divider:clock|clk_1Hz'
-Slack : -2.174
-TNS   : -18971.228
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk_in'
-Slack : -0.547
-TNS   : -14.869
-
-Type  : Fast 1100mV 85C Model Setup 'clk_divider:clock|clk_1Hz'
-Slack : -8.606
-TNS   : -21314.399
+Slack : -2.174
+TNS   : -18781.435
 
 Type  : Fast 1100mV 85C Model Setup 'clk_in'
-Slack : -3.329
-TNS   : -31.387
-
-Type  : Fast 1100mV 85C Model Hold 'clk_divider:clock|clk_1Hz'
-Slack : 0.042
-TNS   : 0.000
+Slack : -7.440
+TNS   : -20923.464
 
 Type  : Fast 1100mV 85C Model Hold 'clk_in'
-Slack : 0.154
+Slack : 0.131
 TNS   : 0.000
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_divider:clock|clk_1Hz'
-Slack : -2.174
-TNS   : -18793.494
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk_in'
-Slack : -0.548
-TNS   : -2.949
-
-Type  : Fast 1100mV 0C Model Setup 'clk_divider:clock|clk_1Hz'
-Slack : -7.639
-TNS   : -18395.490
+Slack : -2.174
+TNS   : -18593.515
 
 Type  : Fast 1100mV 0C Model Setup 'clk_in'
-Slack : -2.797
-TNS   : -26.315
-
-Type  : Fast 1100mV 0C Model Hold 'clk_divider:clock|clk_1Hz'
-Slack : 0.027
-TNS   : 0.000
+Slack : -6.476
+TNS   : -17816.230
 
 Type  : Fast 1100mV 0C Model Hold 'clk_in'
-Slack : 0.141
+Slack : 0.122
 TNS   : 0.000
 
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_divider:clock|clk_1Hz'
-Slack : -2.174
-TNS   : -18714.999
-
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk_in'
-Slack : -0.529
-TNS   : -2.884
+Slack : -2.174
+TNS   : -18604.054
 
 ------------------------------------------------------------

@@ -1,10 +1,10 @@
-module fsm(clk, rst, instruction, data_from_mem, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL, flagEn);
+module fsm(clk, rst, instruction, data_from_mem, branch, jump, FLAGS, PCen, Ren, RegOrImm, WE, IEn, ALU_MUX_CNTL, LS_CNTL, flagEn, phoneEn);
 
 input clk, rst;
 input [15:0] instruction, data_from_mem;
 input [4:0] FLAGS;
 
-output reg PCen, RegOrImm, WE, ALU_MUX_CNTL, LS_CNTL, branch, jump, IEn, flagEn;
+output reg PCen, RegOrImm, WE, ALU_MUX_CNTL, LS_CNTL, branch, jump, IEn, flagEn, phoneEn;
 output reg [15:0] Ren;
 
 reg [15:0] delay_Ren = 16'h0;
@@ -15,6 +15,7 @@ reg [3:0] state_counter = 4'b0000;
 	parameter Bcond= 4'b1100; // *
 	parameter Jcond= 8'b01001100; // *
 	parameter JAL  = 8'b01001000; // *
+	parameter PHONE= 8'b11111111;
 
 	// Next state logic
 always @(posedge clk)
@@ -31,6 +32,7 @@ always @(posedge clk)
 					else if({data_from_mem[15:12],data_from_mem[7:4]} == LOAD) state_counter <= 4'b0100; // Load instruction
 					else if(data_from_mem[15:12] == Bcond)                   state_counter <= 4'b0110; // Branch instruction
 					else if({data_from_mem[15:12],data_from_mem[7:4]} == Jcond)state_counter <= 4'b0111; // Jump instruction
+					else if({data_from_mem[15:12],data_from_mem[7:4]} == PHONE)state_counter <= 4'b1000; // Jump instruction
 					else state_counter <= 4'b0010;// Everything else right now
 				end
 			2: state_counter <= 4'b0000;
@@ -38,6 +40,8 @@ always @(posedge clk)
 			4: state_counter <= 4'b0101;
 			5: state_counter <= 4'b0000;
 			6: state_counter <= 4'b0000;
+			7: state_counter <= 4'b0000;
+			8: state_counter <= 4'b0000;
 			default: state_counter <= 0;
 		endcase
 	end
@@ -59,6 +63,7 @@ always @(posedge clk)
 				IEn           = 1'b0;  // Grab instruction
 				delay_Ren     = 16'h0;
 				flagEn        = 1'b0;
+				phoneEn       = 1'b0;
 			end
 		1: begin // Decode Stage
 				Ren           = 16'h0; // Don't write to registers yet
@@ -72,6 +77,7 @@ always @(posedge clk)
 				IEn           = 1'b1;  // Hold instruction
 				delay_Ren     = 16'h0;
 				flagEn        = 1'b0;
+				phoneEn       = 1'b0;
 			end
 		2: begin // R-Type
 				PCen          = 1'b1;
@@ -112,6 +118,7 @@ always @(posedge clk)
 					15: Ren = 16'h8000;
 				endcase
 				delay_Ren = 16'h0;
+				phoneEn       = 1'b0;
 			end
 		3: begin // Store into memory
 				PCen          = 1'b1;  // Move to next instruction
@@ -125,6 +132,7 @@ always @(posedge clk)
 				Ren           = 16'h0;
 				delay_Ren     = 16'h0;
 				flagEn        = 1'b0;
+				phoneEn       = 1'b0;
 			end
 		4: begin // Load
 				PCen          = 1'b0;  // One more step in Loads
@@ -138,7 +146,7 @@ always @(posedge clk)
 				IEn           = 1'b0;
 				Ren           = 16'h0;
 				flagEn        = 1'b0;
-				
+				phoneEn       = 1'b0;
 				case(instruction[11:8])
 					0:  delay_Ren = 16'h0001;
 					1:  delay_Ren = 16'h0002;
@@ -187,6 +195,7 @@ always @(posedge clk)
 				endcase
 				flagEn        = 1'b0;
 				delay_Ren     = 16'h0;
+				phoneEn       = 1'b0;
 			end
 		6: begin // Branch
 			// FLAGS [C,L,F,Z,N]
@@ -249,6 +258,7 @@ always @(posedge clk)
 				Ren           = 16'b0;
 				delay_Ren 	  = 16'h0;
 				flagEn        = 1'b0;
+				phoneEn       = 1'b0;
 			end
 		7: begin // Jump
 				// FLAGS [C,L,F,Z,N]
@@ -310,6 +320,38 @@ always @(posedge clk)
 				Ren           = 1'b0;
 				delay_Ren     = 16'h0;
 				flagEn        = 1'b0;
+				phoneEn       = 1'b0;
+			end
+			8: begin // Phone
+				PCen          = 1'b1;
+				WE            = 1'b0;
+				ALU_MUX_CNTL  = 1'b0;
+				LS_CNTL       = 1'b0;
+				branch        = 1'b0;
+				jump          = 1'b0;
+				IEn           = 1'b0;
+				flagEn        = 1'b0;
+				RegOrImm      = 1'b0;
+				case(instruction[11:8])
+					0:  Ren = 16'h0001;
+					1:  Ren = 16'h0002;
+					2:  Ren = 16'h0004;
+					3:  Ren = 16'h0008;
+					4:  Ren = 16'h0010;
+					5:  Ren = 16'h0020;
+					6:  Ren = 16'h0040;
+					7:  Ren = 16'h0080;
+					8:  Ren = 16'h0100;
+					9:  Ren = 16'h0200;
+					10: Ren = 16'h0400;
+					11: Ren = 16'h0800;
+					12: Ren = 16'h1000;
+					13: Ren = 16'h2000;
+					14: Ren = 16'h4000;
+					15: Ren = 16'h8000;
+				endcase
+				delay_Ren = 16'h0;
+				phoneEn   = 1'b1;
 			end
 		default: begin
 				PCen          = 1'bx;

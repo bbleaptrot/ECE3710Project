@@ -1,7 +1,8 @@
-module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1);
+module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7);
 //Inputs
 input clk_in, rst;
 
+input in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7;
 //outputs
 output[0:6] seg_4, seg_3, seg_2, seg_1;
 
@@ -10,7 +11,7 @@ wire[15:0] BUS, Ren, r0_out, r1_out, r2_out, r3_out, r4_out, r5_out, r6_out, r7_
 wire[15:0] r8_out, r9_out, r10_out, r11_out, r12_out, r13_out, r14_out, r15_out;
 
 //Muxes
-wire[15:0] srcMux_out, dstMux_out, immMux_out, ALUMux_out; 
+wire[15:0] srcMux_out, dstMux_out, immMux_out, ALUMux_out, phone_mux_out; 
 
 //ALU
 wire[4:0] Flags;
@@ -31,18 +32,29 @@ wire[15:0] MemOut;
 wire[15:0] PCOut;
 
 //FSM
-wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen;
+wire branch, jump, RorI, ALUorData, LS_cntl, WE, PCen, phone;
 
 //Flags_register
 wire flagEn;
 wire [4:0] flags_for_fsm;
 
 //Clk_divider
-wire clk;
-//wire clk = clk_in;
+//wire clk;
+wire clk = clk_in;
+
+//IO from phone
+wire phone_in;
+wire out_0;
+wire out_1;
+wire out_2;
+wire out_3;
+wire out_4;
+wire out_5;
+wire out_6;
+wire out_7;
 
 regfile_2D_memory registers(
-	.ALUBus(BUS),
+	.ALUBus(phone_mux_out),
 	.r0(r0_out),
 	.r1(r1_out),
 	.r2(r2_out),
@@ -136,11 +148,19 @@ mux muxDst(
 	
 	);
 	
+	mux_2_to_1 phoneCntl(
+		.r0(BUS),
+		.r1({8'b0, out_0, out_1, out_2, out_3, out_4, out_5, out_6, out_7}),
+		.S_in(phone_in), // FSM
+		.mux_out(phone_mux_out)
+	
+	);
+	
 	bram memory(
 	.data_a(srcMux_out),
 	.data_b(), // VGA Stuff
 	.addr_a(addr_a),
-	.addr_b(addr_a), // VGA Stuff
+	.addr_b(), // VGA Stuff
 	.we_a(WE),   // FSM
 	.we_b(),   // VGA Stuff
 	.clk(clk),
@@ -187,7 +207,8 @@ mux muxDst(
 	.ALU_MUX_CNTL(ALUorData),
 	.LS_CNTL(LS_cntl),
 	.flagEn(flagEn),
-	.data_from_mem(q_a)
+	.data_from_mem(q_a),
+	.phoneEn(phone_in)
 	);
 	
 	flags_register flags(
@@ -198,21 +219,39 @@ mux muxDst(
 	.rst(rst)
 	);
 	
-	clk_divider clock(
-	.clk_50MHz(clk_in),
-	.rst(rst),
-	.clk_1Hz(clk)
-	);
+//	clk_divider clock(
+//	.clk_50MHz(clk_in),
+//	.rst(rst),
+//	.clk_1Hz(clk)
+//	);
 	
+	mobile_receiver phoneoneon(
+	.in_0(in_0),
+	.in_1(in_1),
+	.in_2(in_2),
+	.in_3(in_3),
+	.in_4(in_4),
+	.in_5(in_5),
+	.in_6(in_6),
+	.in_7(in_7),
+	.out_0(out_0),
+	.out_1(out_1),
+	.out_2(out_2),
+	.out_3(out_3),
+	.out_4(out_4),
+	.out_5(out_5),
+	.out_6(out_6),
+	.out_7(out_7)
+	);	
 //	hex2seg seg4(r0_out[15:12], seg_4);
 //	hex2seg seg3(r0_out[11:8], seg_3);
 //	hex2seg seg2(r0_out[7:4], seg_2);
 //	hex2seg seg1(r0_out[3:0], seg_1);
 
-	hex2seg seg4(r3_out[15:12], seg_4);
-	hex2seg seg3(r3_out[11:8], seg_3);
-	hex2seg seg2(r3_out[7:4], seg_2);
-	hex2seg seg1(r3_out[3:0], seg_1);
+	hex2seg seg4(r5_out[15:12], seg_4);
+	hex2seg seg3(r5_out[11:8], seg_3);
+	hex2seg seg2(r5_out[7:4], seg_2);
+	hex2seg seg1(r5_out[3:0], seg_1);
 
 //	hex2seg seg4(Opcode[7:4], seg_4);
 //	hex2seg seg3(RdstOut, seg_3);

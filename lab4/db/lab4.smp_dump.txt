@@ -1,11 +1,12 @@
 
-State Machine - |lab4|fsm:test|state_counter
-Name state_counter.0111 state_counter.0110 state_counter.0101 state_counter.0100 state_counter.0011 state_counter.0010 state_counter.0001 state_counter.0000 
-state_counter.0000 0 0 0 0 0 0 0 0 
-state_counter.0001 0 0 0 0 0 0 1 1 
-state_counter.0010 0 0 0 0 0 1 0 1 
-state_counter.0011 0 0 0 0 1 0 0 1 
-state_counter.0100 0 0 0 1 0 0 0 1 
-state_counter.0101 0 0 1 0 0 0 0 1 
-state_counter.0110 0 1 0 0 0 0 0 1 
-state_counter.0111 1 0 0 0 0 0 0 1 
+State Machine - |lab4|fsm:state_machine|state_counter
+Name state_counter.0111 state_counter.0110 state_counter.0101 state_counter.0100 state_counter.0011 state_counter.0010 state_counter.0001 state_counter.0000 state_counter.1000 
+state_counter.0000 0 0 0 0 0 0 0 0 0 
+state_counter.0001 0 0 0 0 0 0 1 1 0 
+state_counter.0010 0 0 0 0 0 1 0 1 0 
+state_counter.0011 0 0 0 0 1 0 0 1 0 
+state_counter.0100 0 0 0 1 0 0 0 1 0 
+state_counter.0101 0 0 1 0 0 0 0 1 0 
+state_counter.0110 0 1 0 0 0 0 0 1 0 
+state_counter.0111 1 0 0 0 0 0 0 1 0 
+state_counter.1000 0 0 0 0 0 0 0 1 1 

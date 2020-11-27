@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Sat Nov 21 11:33:03 2020
+Fri Nov 27 16:15:55 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,7 +14,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |lab4|fsm:test|state_counter
+  9. State Machine - |lab4|fsm:state_machine|state_counter
  10. Logic Cells Representing Combinational Loops
  11. Registers Removed During Synthesis
  12. General Register Statistics
@@ -25,14 +25,15 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  17. Parameter Settings for User Entity Instance: alu:logicBox
  18. Parameter Settings for User Entity Instance: bram:memory
  19. Parameter Settings for User Entity Instance: IRreg:Instr_Reg
- 20. Parameter Settings for User Entity Instance: fsm:test
+ 20. Parameter Settings for User Entity Instance: fsm:state_machine
  21. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
  22. altsyncram Parameter Settings by Entity Instance
  23. Port Connectivity Checks: "bram:memory"
- 24. Post-Synthesis Netlist Statistics for Top Partition
- 25. Elapsed Time Per Partition
- 26. Analysis & Synthesis Messages
- 27. Analysis & Synthesis Suppressed Messages
+ 24. Port Connectivity Checks: "mux_2_to_1:phoneCntl"
+ 25. Post-Synthesis Netlist Statistics for Top Partition
+ 26. Elapsed Time Per Partition
+ 27. Analysis & Synthesis Messages
+ 28. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -58,14 +59,14 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat Nov 21 11:33:03 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Nov 27 16:15:55 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 355                                         ;
-; Total pins                      ; 30                                          ;
+; Total registers                 ; 330                                         ;
+; Total pins                      ; 38                                          ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,048,576                                   ;
 ; Total DSP Blocks                ; 0                                           ;
@@ -178,74 +179,74 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; initbram.list.txt                ; yes             ; User File                                             ; C:/Users/bblea/source/repos/ECE3710Project/lab4/initbram.list.txt                ;         ;
-; ../lab3/bram.v                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v                           ;         ;
-; ../lab2/regfile_2D_memory.v      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v              ;         ;
-; ../lab2/mux_2_to_1.v             ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v                     ;         ;
-; ../lab2/mux.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v                            ;         ;
-; ../lab1/hex2seg.v                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v                        ;         ;
-; ../lab1/alu.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v                            ;         ;
-; lab4.v                           ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v                           ;         ;
-; program_counter.v                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v                ;         ;
-; fsm.v                            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                            ;         ;
-; IRreg.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                          ;         ;
-; flags_register.v                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v                 ;         ;
-; clk_divider.v                    ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v                    ;         ;
-; altsyncram.tdf                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
-; stratix_ram_block.inc            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
-; lpm_mux.inc                      ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
-; lpm_decode.inc                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
-; aglobal181.inc                   ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
-; a_rdenreg.inc                    ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
-; altrom.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
-; altram.inc                       ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
-; altdpram.inc                     ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
-; db/altsyncram_dpm1.tdf           ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf           ;         ;
-; db/lab4.ram0_bram_337df6.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif ;         ;
-; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf                ;         ;
-; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf                ;         ;
-; db/mux_chb.tdf                   ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf                   ;         ;
-+----------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path       ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
+; ../mobile_controller/mobile_receiver.v ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v   ;         ;
+; initbram.list.txt                      ; yes             ; User File                                             ; C:/Users/bblea/source/repos/ECE3710Project/lab4/initbram.list.txt                ;         ;
+; ../lab3/bram.v                         ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v                           ;         ;
+; ../lab2/regfile_2D_memory.v            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v              ;         ;
+; ../lab2/mux_2_to_1.v                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v                     ;         ;
+; ../lab2/mux.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v                            ;         ;
+; ../lab1/hex2seg.v                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v                        ;         ;
+; ../lab1/alu.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v                            ;         ;
+; lab4.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v                           ;         ;
+; program_counter.v                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v                ;         ;
+; fsm.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                            ;         ;
+; IRreg.v                                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                          ;         ;
+; flags_register.v                       ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v                 ;         ;
+; altsyncram.tdf                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
+; stratix_ram_block.inc                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
+; lpm_mux.inc                            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
+; lpm_decode.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
+; aglobal181.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
+; a_rdenreg.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
+; altrom.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
+; altram.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
+; altdpram.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
+; db/altsyncram_dpm1.tdf                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf           ;         ;
+; db/lab4.ram0_bram_337df6.hdl.mif       ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif ;         ;
+; db/decode_dla.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf                ;         ;
+; db/decode_61a.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf                ;         ;
+; db/mux_chb.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf                   ;         ;
++----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                             ;
-+---------------------------------------------+---------------------------+
-; Resource                                    ; Usage                     ;
-+---------------------------------------------+---------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 778                       ;
-;                                             ;                           ;
-; Combinational ALUT usage for logic          ; 1078                      ;
-;     -- 7 input functions                    ; 26                        ;
-;     -- 6 input functions                    ; 423                       ;
-;     -- 5 input functions                    ; 195                       ;
-;     -- 4 input functions                    ; 188                       ;
-;     -- <=3 input functions                  ; 246                       ;
-;                                             ;                           ;
-; Dedicated logic registers                   ; 355                       ;
-;                                             ;                           ;
-; I/O pins                                    ; 30                        ;
-; Total MLAB memory bits                      ; 0                         ;
-; Total block memory bits                     ; 1048576                   ;
-;                                             ;                           ;
-; Total DSP Blocks                            ; 0                         ;
-;                                             ;                           ;
-; Maximum fan-out node                        ; clk_divider:clock|clk_1Hz ;
-; Maximum fan-out                             ; 458                       ;
-; Total fan-out                               ; 8795                      ;
-; Average fan-out                             ; 5.43                      ;
-+---------------------------------------------+---------------------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimate of Logic utilization (ALMs needed) ; 765          ;
+;                                             ;              ;
+; Combinational ALUT usage for logic          ; 1056         ;
+;     -- 7 input functions                    ; 29           ;
+;     -- 6 input functions                    ; 416          ;
+;     -- 5 input functions                    ; 211          ;
+;     -- 4 input functions                    ; 192          ;
+;     -- <=3 input functions                  ; 208          ;
+;                                             ;              ;
+; Dedicated logic registers                   ; 330          ;
+;                                             ;              ;
+; I/O pins                                    ; 38           ;
+; Total MLAB memory bits                      ; 0            ;
+; Total block memory bits                     ; 1048576      ;
+;                                             ;              ;
+; Total DSP Blocks                            ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; clk_in~input ;
+; Maximum fan-out                             ; 458          ;
+; Total fan-out                               ; 8711         ;
+; Average fan-out                             ; 5.48         ;
++---------------------------------------------+--------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -253,27 +254,26 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |lab4                                     ; 1078 (0)            ; 355 (0)                   ; 1048576           ; 0          ; 30   ; 0            ; |lab4                                                                                          ; lab4              ; work         ;
+; |lab4                                     ; 1056 (0)            ; 330 (0)                   ; 1048576           ; 0          ; 38   ; 0            ; |lab4                                                                                          ; lab4              ; work         ;
 ;    |IRreg:Instr_Reg|                      ; 2 (2)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                          ; IRreg             ; work         ;
-;    |alu:logicBox|                         ; 532 (532)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                             ; alu               ; work         ;
+;    |alu:logicBox|                         ; 527 (527)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                             ; alu               ; work         ;
 ;    |bram:memory|                          ; 64 (16)             ; 20 (17)                   ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                              ; bram              ; work         ;
 ;       |altsyncram:ram_rtl_0|              ; 48 (0)              ; 3 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                         ; altsyncram        ; work         ;
 ;          |altsyncram_dpm1:auto_generated| ; 48 (0)              ; 3 (3)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated                          ; altsyncram_dpm1   ; work         ;
 ;             |decode_61a:rden_decode_b|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_61a:rden_decode_b ; decode_61a        ; work         ;
 ;             |decode_dla:decode2|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_dla:decode2       ; decode_dla        ; work         ;
 ;             |mux_chb:mux3|                ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|mux_chb:mux3             ; mux_chb           ; work         ;
-;    |clk_divider:clock|                    ; 32 (32)             ; 26 (26)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|clk_divider:clock                                                                        ; clk_divider       ; work         ;
-;    |flags_register:flags|                 ; 17 (17)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                     ; flags_register    ; work         ;
-;    |fsm:test|                             ; 26 (26)             ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:test                                                                                 ; fsm               ; work         ;
+;    |flags_register:flags|                 ; 19 (19)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                     ; flags_register    ; work         ;
+;    |fsm:state_machine|                    ; 28 (28)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                        ; fsm               ; work         ;
 ;    |hex2seg:seg1|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                             ; hex2seg           ; work         ;
 ;    |hex2seg:seg2|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg2                                                                             ; hex2seg           ; work         ;
 ;    |hex2seg:seg3|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg3                                                                             ; hex2seg           ; work         ;
 ;    |hex2seg:seg4|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg4                                                                             ; hex2seg           ; work         ;
 ;    |mux:muxDst|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxDst                                                                               ; mux               ; work         ;
 ;    |mux:muxSrc|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxSrc                                                                               ; mux               ; work         ;
-;    |mux_2_to_1:ALUcntl|                   ; 151 (151)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:ALUcntl                                                                       ; mux_2_to_1        ; work         ;
 ;    |mux_2_to_1:LScntl|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:LScntl                                                                        ; mux_2_to_1        ; work         ;
 ;    |mux_2_to_1:immMux|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:immMux                                                                        ; mux_2_to_1        ; work         ;
+;    |mux_2_to_1:phoneCntl|                 ; 162 (162)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:phoneCntl                                                                     ; mux_2_to_1        ; work         ;
 ;    |program_counter:prog_count|           ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|program_counter:prog_count                                                               ; program_counter   ; work         ;
 ;    |regfile_2D_memory:registers|          ; 16 (16)             ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |lab4|regfile_2D_memory:registers                                                              ; regfile_2D_memory ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
@@ -290,20 +290,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |lab4|fsm:test|state_counter                                                                                                                                               ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-; Name               ; state_counter.0111 ; state_counter.0110 ; state_counter.0101 ; state_counter.0100 ; state_counter.0011 ; state_counter.0010 ; state_counter.0001 ; state_counter.0000 ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
-; state_counter.0000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
-; state_counter.0001 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
-; state_counter.0010 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ;
-; state_counter.0011 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ;
-; state_counter.0100 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ;
-; state_counter.0101 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
-; state_counter.0110 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
-; state_counter.0111 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ;
-+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |lab4|fsm:state_machine|state_counter                                                                                                                                                           ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; Name               ; state_counter.0111 ; state_counter.0110 ; state_counter.0101 ; state_counter.0100 ; state_counter.0011 ; state_counter.0010 ; state_counter.0001 ; state_counter.0000 ; state_counter.1000 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
+; state_counter.0000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ;
+; state_counter.0001 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ; 0                  ;
+; state_counter.0010 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.0011 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.0100 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.0101 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.0110 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.0111 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ;
+; state_counter.1000 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 1                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+
 
 
 +------------------------------------------------------------+
@@ -338,11 +339,10 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; IRreg:Instr_Reg|bDisp[2]               ; Merged with IRreg:Instr_Reg|ImmOut[2] ;
 ; IRreg:Instr_Reg|bDisp[1]               ; Merged with IRreg:Instr_Reg|ImmOut[1] ;
 ; IRreg:Instr_Reg|bDisp[0]               ; Merged with IRreg:Instr_Reg|ImmOut[0] ;
-; fsm:test|state_counter~2               ; Lost fanout                           ;
-; fsm:test|state_counter~3               ; Lost fanout                           ;
-; fsm:test|state_counter~4               ; Lost fanout                           ;
-; fsm:test|state_counter~5               ; Lost fanout                           ;
-; Total Number of Removed Registers = 20 ;                                       ;
+; fsm:state_machine|state_counter~2      ; Lost fanout                           ;
+; fsm:state_machine|state_counter~3      ; Lost fanout                           ;
+; fsm:state_machine|state_counter~4      ; Lost fanout                           ;
+; Total Number of Removed Registers = 19 ;                                       ;
 +----------------------------------------+---------------------------------------+
 
 
@@ -351,8 +351,8 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 355   ;
-; Number of registers using Synchronous Clear  ; 324   ;
+; Total registers                              ; 330   ;
+; Number of registers using Synchronous Clear  ; 299   ;
 ; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
@@ -400,34 +400,33 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|Opcode[5]             ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][8]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][4]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][7]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][4]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][1]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][15] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][9]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][8]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|Opcode[7]             ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][10]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][1]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][13]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][12]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][4]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][3]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][14]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][11]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][2]   ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][9]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][3]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][12] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][6]  ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][8]  ;
-; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |lab4|clk_divider:clock|count[18]           ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[0]            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[15]     ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[7]      ;
 ; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[0]     ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0               ;
 ; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux14                      ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux7                       ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |lab4|fsm:test|state_counter                ;
-; 54:1               ; 2 bits    ; 72 LEs        ; 44 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[9]         ;
-; 57:1               ; 2 bits    ; 76 LEs        ; 46 LEs               ; 30 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[13]        ;
-; 62:1               ; 2 bits    ; 82 LEs        ; 44 LEs               ; 38 LEs                 ; No         ; |lab4|mux_2_to_1:ALUcntl|mux_out[6]         ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux5                       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |lab4|fsm:state_machine|state_counter       ;
+; 55:1               ; 2 bits    ; 72 LEs        ; 44 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[10]      ;
+; 58:1               ; 2 bits    ; 76 LEs        ; 48 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[14]      ;
+; 63:1               ; 2 bits    ; 84 LEs        ; 46 LEs               ; 38 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[5]       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -506,17 +505,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-------------------------------------------------------+
-; Parameter Settings for User Entity Instance: fsm:test ;
-+----------------+----------+---------------------------+
-; Parameter Name ; Value    ; Type                      ;
-+----------------+----------+---------------------------+
-; LOAD           ; 01000000 ; Unsigned Binary           ;
-; STOR           ; 01000100 ; Unsigned Binary           ;
-; Bcond          ; 1100     ; Unsigned Binary           ;
-; Jcond          ; 01001100 ; Unsigned Binary           ;
-; JAL            ; 01001000 ; Unsigned Binary           ;
-+----------------+----------+---------------------------+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fsm:state_machine ;
++----------------+----------+------------------------------------+
+; Parameter Name ; Value    ; Type                               ;
++----------------+----------+------------------------------------+
+; LOAD           ; 01000000 ; Unsigned Binary                    ;
+; STOR           ; 01000100 ; Unsigned Binary                    ;
+; Bcond          ; 1100     ; Unsigned Binary                    ;
+; Jcond          ; 01001100 ; Unsigned Binary                    ;
+; JAL            ; 01001000 ; Unsigned Binary                    ;
+; PHONE          ; 11111111 ; Unsigned Binary                    ;
++----------------+----------+------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -607,9 +607,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Port   ; Type   ; Severity ; Details                ;
 +--------+--------+----------+------------------------+
 ; data_b ; Input  ; Info     ; Explicitly unconnected ;
+; addr_b ; Input  ; Info     ; Explicitly unconnected ;
 ; we_b   ; Input  ; Info     ; Explicitly unconnected ;
 ; q_b    ; Output ; Info     ; Explicitly unconnected ;
 +--------+--------+----------+------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "mux_2_to_1:phoneCntl" ;
++-----------+-------+----------+-------------------+
+; Port      ; Type  ; Severity ; Details           ;
++-----------+-------+----------+-------------------+
+; r1[15..8] ; Input ; Info     ; Stuck at GND      ;
++-----------+-------+----------+-------------------+
 
 
 +-----------------------------------------------------+
@@ -617,36 +627,36 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 355                         ;
+; arriav_ff             ; 330                         ;
 ;     ENA               ; 2                           ;
 ;     ENA SCLR          ; 272                         ;
 ;     ENA SCLR SLD      ; 24                          ;
-;     SCLR              ; 28                          ;
+;     SCLR              ; 3                           ;
 ;     plain             ; 29                          ;
-; arriav_lcell_comb     ; 1082                        ;
-;     arith             ; 210                         ;
+; arriav_lcell_comb     ; 1060                        ;
+;     arith             ; 185                         ;
 ;         0 data inputs ; 8                           ;
-;         1 data inputs ; 65                          ;
+;         1 data inputs ; 40                          ;
 ;         2 data inputs ; 2                           ;
 ;         4 data inputs ; 60                          ;
 ;         5 data inputs ; 75                          ;
-;     extend            ; 26                          ;
-;         7 data inputs ; 26                          ;
+;     extend            ; 29                          ;
+;         7 data inputs ; 29                          ;
 ;     normal            ; 812                         ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 42                          ;
-;         3 data inputs ; 95                          ;
-;         4 data inputs ; 128                         ;
-;         5 data inputs ; 120                         ;
-;         6 data inputs ; 423                         ;
+;         2 data inputs ; 46                          ;
+;         3 data inputs ; 78                          ;
+;         4 data inputs ; 132                         ;
+;         5 data inputs ; 136                         ;
+;         6 data inputs ; 416                         ;
 ;     shared            ; 34                          ;
 ;         1 data inputs ; 2                           ;
 ;         2 data inputs ; 32                          ;
-; boundary_port         ; 30                          ;
+; boundary_port         ; 38                          ;
 ; stratixv_ram_block    ; 128                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 14.00                       ;
-; Average LUT depth     ; 8.80                        ;
+; Max LUT depth         ; 14.40                       ;
+; Average LUT depth     ; 9.28                        ;
 +-----------------------+-----------------------------+
 
 
@@ -655,7 +665,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:06     ;
+; Top            ; 00:00:11     ;
 +----------------+--------------+
 
 
@@ -665,10 +675,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sat Nov 21 11:32:38 2020
+    Info: Processing started: Fri Nov 27 16:13:31 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/mobile_controller/mobile_receiver.v
+    Info (12023): Found entity 1: mobile_receiver File: C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab3/bram.v
     Info (12023): Found entity 1: bram File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab2/regfile_2d_memory.v
@@ -701,34 +713,30 @@ Info (12021): Found 1 design units, including 1 entities, in source file tb_clk_
 Info (12021): Found 1 design units, including 1 entities, in source file clk_divider.v
     Info (12023): Found entity 1: clk_divider File: C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v Line: 1
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 65
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 86
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 114
-Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 129
-Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 149
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (19) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 160
-Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 173
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:test" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 191
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 77
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 98
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 126
+Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 141
+Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 169
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (7) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 180
+Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 193
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 212
 Warning (10036): Verilog HDL or VHDL warning at fsm.v(10): object "delay_Ren" assigned a value but never read File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 10
-Info (10264): Verilog HDL Case Statement information at fsm.v(26): all case item expressions in this case statement are onehot File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 26
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(85): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 85
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(86): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 86
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(87): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 87
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(88): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 88
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(89): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 89
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(90): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 90
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(91): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 91
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(92): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 92
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(93): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 93
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(94): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 94
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(95): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 95
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(96): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 96
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(142): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 142
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(170): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 170
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(193): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 193
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(195): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 195
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(198): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 198
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(201): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 201
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(97): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 97
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(98): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 98
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(99): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 99
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(100): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 100
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(102): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 102
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(150): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 150
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(178): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 178
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(202): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 202
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(204): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 204
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(207): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 207
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(210): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 210
@@ -740,25 +748,29 @@ Warning (10235): Verilog HDL Always Construct warning at fsm.v(225): variable "F
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(228): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 228
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(231): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 231
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(234): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 234
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(255): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 255
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(257): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 257
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(260): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 260
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(263): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 263
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(266): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 266
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(269): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 269
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(272): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 272
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(275): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 275
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(278): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 278
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(281): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 281
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(284): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 284
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(287): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 287
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(290): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 290
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(293): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 293
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(296): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 296
-Warning (10235): Verilog HDL Always Construct warning at fsm.v(325): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 325
-Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 199
-Info (12128): Elaborating entity "clk_divider" for hierarchy "clk_divider:clock" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 205
-Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 212
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(237): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 237
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(240): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 240
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(243): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 243
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(265): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 265
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(267): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 267
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(270): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 270
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(273): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 273
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(276): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 276
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(279): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 279
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(282): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 282
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(285): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 285
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(288): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 288
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(291): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 291
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(294): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 294
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(297): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 297
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(300): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 300
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(303): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 303
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(306): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 306
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(335): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 335
+Warning (10235): Verilog HDL Always Construct warning at fsm.v(367): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 367
+Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 220
+Info (12128): Elaborating entity "mobile_receiver" for hierarchy "mobile_receiver:phoneoneon" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 245
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 251
 Warning (276020): Inferred RAM node "bram:memory|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 19
@@ -798,6 +810,22 @@ Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with 
     Info (12134): Parameter "INIT_FILE" = "db/lab4.ram0_bram_337df6.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dpm1.tdf
     Info (12023): Found entity 1: altsyncram_dpm1 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 33
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
     Info (12023): Found entity 1: decode_dla File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
@@ -805,20 +833,20 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/deco
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1537 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Info (21057): Implemented 1523 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 10 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 1379 logic cells
+    Info (21061): Implemented 1357 logic cells
     Info (21064): Implemented 128 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
-    Info: Peak virtual memory: 4868 megabytes
-    Info: Processing ended: Sat Nov 21 11:33:04 2020
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:37
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 66 warnings
+    Info: Peak virtual memory: 4973 megabytes
+    Info: Processing ended: Fri Nov 27 16:15:55 2020
+    Info: Elapsed time: 00:02:24
+    Info: Total CPU time (on all processors): 00:02:36
 
 
 +------------------------------------------+
