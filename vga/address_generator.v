@@ -12,7 +12,7 @@ module address_generator (clk, vga_blank_n, hcount, vcount, ram_q, ram_addr, pix
 	output [15:0] ram_addr;
 	output [23:0] pixel_out;
 	
-	parameter VGA_BASE_ADDR = 16'h2000;
+	parameter VGA_BASE_ADDR = 16'hB000;
 	
 	wire [9:0] x_pos, y_pos;
 	assign x_pos = hcount - 10'd158;
