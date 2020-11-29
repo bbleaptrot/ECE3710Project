@@ -15,7 +15,7 @@ module glyph_rom (clk, glyph_addr, glyph_pixel);
 	
 	// There probably is a way to use relative location, but this is where I held the glyph data.
 	initial begin
-		$readmemh("glyph.txt", glyph_rom);
+		$readmemh("C:\\Users\\bblea\\source\\repos\\ECE3710Project\\vga\\glyph.txt", glyph_rom);
 	end
 	
 	always@(posedge clk)	glyph_pixel <= glyph_rom[glyph_addr]; // Don't do negedge, makes picture out of sync.

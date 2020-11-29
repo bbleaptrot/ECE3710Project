@@ -253,7 +253,7 @@ mux muxDst(
 	.rst(rst),
 	.addr_b(addr_b),
 	.q_b(q_b),
-	.hsync(hsnyc),
+	.hsync(hsync),
 	.vsync(vsync),
 	.vga_blank_n(vga_blank_n),
 	.vga_clk(vga_clk),

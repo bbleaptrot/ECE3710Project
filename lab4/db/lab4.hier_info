@@ -37,7 +37,7 @@ in_4 => in_4.IN1
 in_5 => in_5.IN1
 in_6 => in_6.IN1
 in_7 => in_7.IN1
-hsync << <GND>
+hsync << vga:screener.hsync
 vsync << vga:screener.vsync
 vga_blank_n << vga:screener.vga_blank_n
 vga_clk << vga:screener.vga_clk
