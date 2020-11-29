@@ -51,11 +51,12 @@ int main(int argc, char** argv)
     }
   
     std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
-    if (asm_code & 0xF000 == 0xC000)
+    int branch_code = asm_code & 0xF000;
+    if (branch_code  == 0xC000)
     {
         std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
     }
-    int jump_code = asm_code & 0xF0F0
+    int jump_code = asm_code & 0xF0F0;
     if(jump_code == 0x40C0)
     {
         std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
@@ -163,6 +164,61 @@ short parse_line(std::string& line)
 
   // Welcome to string compare hell! Who needs a fancy case statement in C++?
   // ififififififififififififififififififif
+
+  if(!instr.compare("PHONE"))
+  {
+    std::string Rsrc;
+    std::string Rdest;
+ 
+    if(!((line_stream >> Rsrc) && (line_stream >> Rdest)))
+      return 0x4FFE;
+   
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Rsrc);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0xF000 + (Rd << 8) + (0xF << 4) + (Rs);   
+  }
+
+  if(!instr.compare("LOAD"))
+    {
+      std::string Raddr;
+      std::string Rdest;
+ 
+    if(!((line_stream >> Raddr) && (line_stream >> Rdest)))
+      return 0x4FFE;
+   
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Raddr);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x4000 + (Rd << 8) + (0x0 << 4) + (Rs);
+    }
+
+  if(!instr.compare("STOR"))
+    {
+      std::string Raddr;
+      std::string Rdest;
+ 
+    if(!((line_stream >> Raddr) && (line_stream >> Rdest)))
+      return 0x4FFE;
+   
+    int Rd = reg_to_char(Rdest);
+    int Rs = reg_to_char(Raddr);
+ 
+    if((Rs > 15) || (Rd > 15))
+      return 0x4FFE;
+    
+    //     Op     Rdest       OPext        Rsrc
+    return 0x4000 + (Rd << 8) + (0x4 << 4) + (Rs);
+    }
+
   if(!instr.compare("ADD"))
   {
     std::string Rsrc;
@@ -592,7 +648,31 @@ short parse_line(std::string& line)
     return 0x4000 + (Rl << 8) + 0x0080 + (Rt);   
   }
 
-  if (!intr.compare("BEQ"))
+  if (!instr.compare("BEQ"))
+  {
+      int Imm;
+
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+
+     Imm = Imm & 0x00FF;
+
+      //op     BCond     Displacement
+      return 0xC000 + 0x0000 + Imm;
+  }
+  if (!instr.compare("BNE"))
+  {
+      int Imm;
+      
+      if (!(line_stream >> std::setbase(0) >> Imm))
+          return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
+      //op      BCond    Displacement
+      return 0xC000 + 0x0100 + Imm;
+
+  }
+  if (!instr.compare("BGE"))
   {
       int Imm;
 
@@ -600,153 +680,155 @@ short parse_line(std::string& line)
           return 0x4FFE;
 
       Imm = Imm & 0x00FF;
-
-      //op     BCond     Displacement
-      return 0xC000 + 0x0000 + Imm;
-  }
-  if (!intr.compare("BNE"))
-  {
-      int Imm;
-
-      if (!(line_stream >> std::setbase(0) >> Imm))
-          return 0x4FFE;
-      //op      BCond    Displacement
-      return 0xC000 + 0x0100 + Imm;
-
-  }
-  if (!intr.compare("BGE"))
-  {
-      int Imm;
-
-      if (!(line_stream >> std::setbase(0) >> Imm))
-          return 0x4FFE;
-
       //op      BCond    Displacement
       return 0xC000 + 0x0D00 + Imm;
 
   }
-  if (!intr.compare("BCS"))
+  if (!instr.compare("BCS"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0200 + Imm;
 
   }
-  if (!intr.compare("BCC"))
+  if (!instr.compare("BCC"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
 
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0300 + Imm;
 
   }
-  if (!intr.compare("BHI"))
+  if (!instr.compare("BHI"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0400 + Imm;
 
   }
-  if (!intr.compare("BLS"))
+  if (!instr.compare("BLS"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0500 + Imm;
 
   }
-  if (!intr.compare("BLO"))
+  if (!instr.compare("BLO"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0A00 + Imm;
 
   }
-  if (!intr.compare("BHS"))
+  if (!instr.compare("BHS"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0B00 + Imm;
 
   }
-  if (!intr.compare("BGT"))
+  if (!instr.compare("BGT"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0600 + Imm;
 
   }
-  if (!intr.compare("BLE"))
+  if (!instr.compare("BLE"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0700 + Imm;
 
   }
-  if (!intr.compare("BFS"))
+  if (!instr.compare("BFS"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement  
       return 0xC000 + 0x0800 + Imm;
 
   }
-  if (!intr.compare("BFC"))
+  if (!instr.compare("BFC"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement  
       return 0xC000 + 0x0900 + Imm;
   }
-  if (!intr.compare("BLT"))
+  if (!instr.compare("BLT"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0C00 + Imm;
 
   }
-  if (!intr.compare("BUC"))
+  if (!instr.compare("BUC"))
   {
       int Imm;
 
       if (!(line_stream >> std::setbase(0) >> Imm))
           return 0x4FFE;
+
+      Imm = Imm & 0x00FF;
       //op      BCond    Displacement
       return 0xC000 + 0x0E00 + Imm;
 
   }
 
-  if (!intr.compare("JEQ"))
+  if (!instr.compare("JEQ"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -755,7 +837,7 @@ short parse_line(std::string& line)
              // Op     Cond    Op       Rtarget
       return 0x4000 + 0x0000 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JNE"))
+  if (!instr.compare("JNE"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -764,7 +846,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0100 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JGE"))
+  if (!instr.compare("JGE"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -773,7 +855,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0D00 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JCS"))
+  if (!instr.compare("JCS"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -782,7 +864,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0200 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JCC"))
+  if (!instr.compare("JCC"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -791,7 +873,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0300 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JHI"))
+  if (!instr.compare("JHI"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -800,7 +882,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0400 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JLS"))
+  if (!instr.compare("JLS"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -809,7 +891,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0500 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JLO"))
+  if (!instr.compare("JLO"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -818,7 +900,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0A00 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JHS"))
+  if (!instr.compare("JHS"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -827,7 +909,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0B00 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JGT"))
+  if (!instr.compare("JGT"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -836,7 +918,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0600 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JLE"))
+  if (!instr.compare("JLE"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -845,7 +927,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0700 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JFS"))
+  if (!instr.compare("JFS"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -854,7 +936,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0800 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JFC"))
+  if (!instr.compare("JFC"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -863,7 +945,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0900 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JLT"))
+  if (!instr.compare("JLT"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
@@ -872,7 +954,7 @@ short parse_line(std::string& line)
       // Op     Cond    Displacement
       return 0x4000 + 0x0C00 + 0x00C0 + (Rt);
   }
-  if (!intr.compare("JUC"))
+  if (!instr.compare("JUC"))
   {
       std::string Rtarget;
       if (!(line_stream >> Rtarget))
