@@ -10,6 +10,7 @@ module glyph_rom (clk, glyph_addr, glyph_pixel);
 	input [16:0] glyph_addr; 
 	output reg [23:0] glyph_pixel;
 	
+	// ADJUST ACCORDING TO THE NUMBER OF PIXELS IN GLYPHS!
 	reg [23:0] glyph_rom [0:255 /*65535*/]; 
 	
 	// There probably is a way to use relative location, but this is where I held the glyph data.
