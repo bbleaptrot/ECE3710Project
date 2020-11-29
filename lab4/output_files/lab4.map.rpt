@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Fri Nov 27 16:15:55 2020
+Sun Nov 29 14:36:14 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -14,26 +14,32 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Analysis & Synthesis RAM Summary
-  9. State Machine - |lab4|fsm:state_machine|state_counter
- 10. Logic Cells Representing Combinational Loops
- 11. Registers Removed During Synthesis
- 12. General Register Statistics
- 13. Registers Added for RAM Pass-Through Logic
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. State Machine - |lab4|fsm:state_machine|state_counter
+ 11. Logic Cells Representing Combinational Loops
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
  14. Registers Packed Into Inferred Megafunctions
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated
- 17. Parameter Settings for User Entity Instance: alu:logicBox
- 18. Parameter Settings for User Entity Instance: bram:memory
- 19. Parameter Settings for User Entity Instance: IRreg:Instr_Reg
- 20. Parameter Settings for User Entity Instance: fsm:state_machine
- 21. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
- 22. altsyncram Parameter Settings by Entity Instance
- 23. Port Connectivity Checks: "bram:memory"
- 24. Port Connectivity Checks: "mux_2_to_1:phoneCntl"
- 25. Post-Synthesis Netlist Statistics for Top Partition
- 26. Elapsed Time Per Partition
- 27. Analysis & Synthesis Messages
- 28. Analysis & Synthesis Suppressed Messages
+ 16. Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated
+ 17. Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated
+ 18. Parameter Settings for User Entity Instance: alu:logicBox
+ 19. Parameter Settings for User Entity Instance: bram:memory
+ 20. Parameter Settings for User Entity Instance: IRreg:Instr_Reg
+ 21. Parameter Settings for User Entity Instance: fsm:state_machine
+ 22. Parameter Settings for User Entity Instance: vga:screener|address_generator:addr_gen
+ 23. Parameter Settings for Inferred Entity Instance: vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0
+ 24. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
+ 25. altsyncram Parameter Settings by Entity Instance
+ 26. Port Connectivity Checks: "vga:screener|bitgen:bgen"
+ 27. Port Connectivity Checks: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs"
+ 28. Port Connectivity Checks: "vga:screener"
+ 29. Port Connectivity Checks: "bram:memory"
+ 30. Port Connectivity Checks: "mux_2_to_1:phoneCntl"
+ 31. Post-Synthesis Netlist Statistics for Top Partition
+ 32. Elapsed Time Per Partition
+ 33. Analysis & Synthesis Messages
+ 34. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -59,17 +65,17 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Fri Nov 27 16:15:55 2020       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 29 14:36:14 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 330                                         ;
-; Total pins                      ; 38                                          ;
+; Total registers                 ; 337                                         ;
+; Total pins                      ; 66                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 1,048,576                                   ;
-; Total DSP Blocks                ; 0                                           ;
+; Total block memory bits         ; 1,054,720                                   ;
+; Total DSP Blocks                ; 1                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
 ; Total HSSI TX PCSs              ; 0                                           ;
@@ -185,39 +191,46 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
-+----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path       ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
-; ../mobile_controller/mobile_receiver.v ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v   ;         ;
-; initbram.list.txt                      ; yes             ; User File                                             ; C:/Users/bblea/source/repos/ECE3710Project/lab4/initbram.list.txt                ;         ;
-; ../lab3/bram.v                         ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v                           ;         ;
-; ../lab2/regfile_2D_memory.v            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v              ;         ;
-; ../lab2/mux_2_to_1.v                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v                     ;         ;
-; ../lab2/mux.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v                            ;         ;
-; ../lab1/hex2seg.v                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v                        ;         ;
-; ../lab1/alu.v                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v                            ;         ;
-; lab4.v                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v                           ;         ;
-; program_counter.v                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v                ;         ;
-; fsm.v                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                            ;         ;
-; IRreg.v                                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                          ;         ;
-; flags_register.v                       ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v                 ;         ;
-; altsyncram.tdf                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf            ;         ;
-; stratix_ram_block.inc                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc     ;         ;
-; lpm_mux.inc                            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc               ;         ;
-; lpm_decode.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc            ;         ;
-; aglobal181.inc                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc            ;         ;
-; a_rdenreg.inc                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc             ;         ;
-; altrom.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                ;         ;
-; altram.inc                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                ;         ;
-; altdpram.inc                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc              ;         ;
-; db/altsyncram_dpm1.tdf                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf           ;         ;
-; db/lab4.ram0_bram_337df6.hdl.mif       ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif ;         ;
-; db/decode_dla.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf                ;         ;
-; db/decode_61a.tdf                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf                ;         ;
-; db/mux_chb.tdf                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf                   ;         ;
-+----------------------------------------+-----------------+-------------------------------------------------------+----------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                               ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                       ; Used in Netlist ; File Type                                             ; File Name with Absolute Path                                                            ; Library ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
+; ../vga/glyph_rom.v                                     ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v                              ;         ;
+; ../vga/vga_control.v                                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v                            ;         ;
+; ../vga/bitgen.v                                        ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v                                 ;         ;
+; ../vga/address_generator.v                             ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v                      ;         ;
+; ../vga/vga.v                                           ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v                                    ;         ;
+; ../mobile_controller/mobile_receiver.v                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v          ;         ;
+; initbram.list.txt                                      ; yes             ; User File                                             ; C:/Users/bblea/source/repos/ECE3710Project/lab4/initbram.list.txt                       ;         ;
+; ../lab3/bram.v                                         ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v                                  ;         ;
+; ../lab2/regfile_2D_memory.v                            ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v                     ;         ;
+; ../lab2/mux_2_to_1.v                                   ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v                            ;         ;
+; ../lab2/mux.v                                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v                                   ;         ;
+; ../lab1/hex2seg.v                                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v                               ;         ;
+; ../lab1/alu.v                                          ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v                                   ;         ;
+; lab4.v                                                 ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v                                  ;         ;
+; program_counter.v                                      ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v                       ;         ;
+; fsm.v                                                  ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v                                   ;         ;
+; IRreg.v                                                ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v                                 ;         ;
+; flags_register.v                                       ; yes             ; User Verilog HDL File                                 ; C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v                        ;         ;
+; /users/bblea/source/repos/ece3710project/vga/glyph.txt ; yes             ; Auto-Found File                                       ; /users/bblea/source/repos/ece3710project/vga/glyph.txt                                  ;         ;
+; altsyncram.tdf                                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf                   ;         ;
+; stratix_ram_block.inc                                  ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/stratix_ram_block.inc            ;         ;
+; lpm_mux.inc                                            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_mux.inc                      ;         ;
+; lpm_decode.inc                                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_decode.inc                   ;         ;
+; aglobal181.inc                                         ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                   ;         ;
+; a_rdenreg.inc                                          ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_rdenreg.inc                    ;         ;
+; altrom.inc                                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                       ;         ;
+; altram.inc                                             ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                       ;         ;
+; altdpram.inc                                           ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                     ;         ;
+; db/altsyncram_41d1.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_41d1.tdf                  ;         ;
+; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif                ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ;         ;
+; db/altsyncram_qq42.tdf                                 ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_qq42.tdf                  ;         ;
+; db/lab4.ram0_bram_337df6.hdl.mif                       ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif        ;         ;
+; db/decode_dla.tdf                                      ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf                       ;         ;
+; db/mux_chb.tdf                                         ; yes             ; Auto-Generated Megafunction                           ; C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf                          ;         ;
++--------------------------------------------------------+-----------------+-------------------------------------------------------+-----------------------------------------------------------------------------------------+---------+
 
 
 +------------------------------------------------------------+
@@ -225,68 +238,88 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 765          ;
+; Estimate of Logic utilization (ALMs needed) ; 843          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 1056         ;
+; Combinational ALUT usage for logic          ; 1167         ;
 ;     -- 7 input functions                    ; 29           ;
-;     -- 6 input functions                    ; 416          ;
-;     -- 5 input functions                    ; 211          ;
-;     -- 4 input functions                    ; 192          ;
-;     -- <=3 input functions                  ; 208          ;
+;     -- 6 input functions                    ; 462          ;
+;     -- 5 input functions                    ; 202          ;
+;     -- 4 input functions                    ; 198          ;
+;     -- <=3 input functions                  ; 276          ;
 ;                                             ;              ;
-; Dedicated logic registers                   ; 330          ;
+; Dedicated logic registers                   ; 337          ;
 ;                                             ;              ;
-; I/O pins                                    ; 38           ;
+; I/O pins                                    ; 66           ;
 ; Total MLAB memory bits                      ; 0            ;
-; Total block memory bits                     ; 1048576      ;
+; Total block memory bits                     ; 1054720      ;
 ;                                             ;              ;
-; Total DSP Blocks                            ; 0            ;
+; Total DSP Blocks                            ; 1            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_in~input ;
-; Maximum fan-out                             ; 458          ;
-; Total fan-out                               ; 8711         ;
-; Average fan-out                             ; 5.48         ;
+; Maximum fan-out                             ; 489          ;
+; Total fan-out                               ; 9591         ;
+; Average fan-out                             ; 5.36         ;
 +---------------------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                    ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                            ; Entity Name       ; Library Name ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |lab4                                     ; 1056 (0)            ; 330 (0)                   ; 1048576           ; 0          ; 38   ; 0            ; |lab4                                                                                          ; lab4              ; work         ;
-;    |IRreg:Instr_Reg|                      ; 2 (2)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                          ; IRreg             ; work         ;
-;    |alu:logicBox|                         ; 527 (527)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                             ; alu               ; work         ;
-;    |bram:memory|                          ; 64 (16)             ; 20 (17)                   ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                              ; bram              ; work         ;
-;       |altsyncram:ram_rtl_0|              ; 48 (0)              ; 3 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                         ; altsyncram        ; work         ;
-;          |altsyncram_dpm1:auto_generated| ; 48 (0)              ; 3 (3)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated                          ; altsyncram_dpm1   ; work         ;
-;             |decode_61a:rden_decode_b|    ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_61a:rden_decode_b ; decode_61a        ; work         ;
-;             |decode_dla:decode2|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|decode_dla:decode2       ; decode_dla        ; work         ;
-;             |mux_chb:mux3|                ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|mux_chb:mux3             ; mux_chb           ; work         ;
-;    |flags_register:flags|                 ; 19 (19)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                     ; flags_register    ; work         ;
-;    |fsm:state_machine|                    ; 28 (28)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                        ; fsm               ; work         ;
-;    |hex2seg:seg1|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                             ; hex2seg           ; work         ;
-;    |hex2seg:seg2|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg2                                                                             ; hex2seg           ; work         ;
-;    |hex2seg:seg3|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg3                                                                             ; hex2seg           ; work         ;
-;    |hex2seg:seg4|                         ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg4                                                                             ; hex2seg           ; work         ;
-;    |mux:muxDst|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxDst                                                                               ; mux               ; work         ;
-;    |mux:muxSrc|                           ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxSrc                                                                               ; mux               ; work         ;
-;    |mux_2_to_1:LScntl|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:LScntl                                                                        ; mux_2_to_1        ; work         ;
-;    |mux_2_to_1:immMux|                    ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:immMux                                                                        ; mux_2_to_1        ; work         ;
-;    |mux_2_to_1:phoneCntl|                 ; 162 (162)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:phoneCntl                                                                     ; mux_2_to_1        ; work         ;
-;    |program_counter:prog_count|           ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|program_counter:prog_count                                                               ; program_counter   ; work         ;
-;    |regfile_2D_memory:registers|          ; 16 (16)             ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |lab4|regfile_2D_memory:registers                                                              ; regfile_2D_memory ; work         ;
-+-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------+-------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                    ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name       ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |lab4                                           ; 1167 (1)            ; 337 (0)                   ; 1054720           ; 1          ; 66   ; 0            ; |lab4                                                                                                                    ; lab4              ; work         ;
+;    |IRreg:Instr_Reg|                            ; 2 (2)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                                                    ; IRreg             ; work         ;
+;    |alu:logicBox|                               ; 525 (525)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                                                       ; alu               ; work         ;
+;    |bram:memory|                                ; 80 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                                                        ; bram              ; work         ;
+;       |altsyncram:ram_rtl_0|                    ; 80 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                                                   ; altsyncram        ; work         ;
+;          |altsyncram_qq42:auto_generated|       ; 80 (0)              ; 6 (6)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated                                                    ; altsyncram_qq42   ; work         ;
+;             |decode_dla:decode2|                ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|decode_dla:decode2                                 ; decode_dla        ; work         ;
+;             |mux_chb:mux4|                      ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux4                                       ; mux_chb           ; work         ;
+;             |mux_chb:mux5|                      ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux5                                       ; mux_chb           ; work         ;
+;    |flags_register:flags|                       ; 19 (19)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                                               ; flags_register    ; work         ;
+;    |fsm:state_machine|                          ; 28 (28)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                                                  ; fsm               ; work         ;
+;    |hex2seg:seg1|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                                                       ; hex2seg           ; work         ;
+;    |hex2seg:seg2|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg2                                                                                                       ; hex2seg           ; work         ;
+;    |hex2seg:seg3|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg3                                                                                                       ; hex2seg           ; work         ;
+;    |hex2seg:seg4|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg4                                                                                                       ; hex2seg           ; work         ;
+;    |mux:muxDst|                                 ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxDst                                                                                                         ; mux               ; work         ;
+;    |mux:muxSrc|                                 ; 80 (80)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux:muxSrc                                                                                                         ; mux               ; work         ;
+;    |mux_2_to_1:LScntl|                          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:LScntl                                                                                                  ; mux_2_to_1        ; work         ;
+;    |mux_2_to_1:immMux|                          ; 16 (16)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:immMux                                                                                                  ; mux_2_to_1        ; work         ;
+;    |mux_2_to_1:phoneCntl|                       ; 166 (166)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:phoneCntl                                                                                               ; mux_2_to_1        ; work         ;
+;    |program_counter:prog_count|                 ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|program_counter:prog_count                                                                                         ; program_counter   ; work         ;
+;    |regfile_2D_memory:registers|                ; 16 (16)             ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |lab4|regfile_2D_memory:registers                                                                                        ; regfile_2D_memory ; work         ;
+;    |vga:screener|                               ; 92 (0)              ; 21 (0)                    ; 6144              ; 1          ; 0    ; 0            ; |lab4|vga:screener                                                                                                       ; vga               ; work         ;
+;       |address_generator:addr_gen|              ; 31 (31)             ; 0 (0)                     ; 6144              ; 1          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen                                                                            ; address_generator ; work         ;
+;          |glyph_rom:glyphs|                     ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs                                                           ; glyph_rom         ; work         ;
+;             |altsyncram:glyph_rom_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0                                ; altsyncram        ; work         ;
+;                |altsyncram_41d1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated ; altsyncram_41d1   ; work         ;
+;       |bitgen:bgen|                             ; 28 (28)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|vga:screener|bitgen:bgen                                                                                           ; bitgen            ; work         ;
+;       |vga_control:control|                     ; 33 (33)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|vga:screener|vga_control:control                                                                                   ; vga_control       ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis RAM Summary                                                                                                                                                                              ;
-+----------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------------------+
-; Name                                                                       ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                              ;
-+----------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------------------+
-; bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated|ALTSYNCRAM ; AUTO ; Simple Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; db/lab4.ram0_bram_337df6.hdl.mif ;
-+----------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                                      ;
++-------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+---------+-----------------------------------------+
+; Name                                                                                                                          ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                                     ;
++-------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+---------+-----------------------------------------+
+; bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|ALTSYNCRAM                                                    ; AUTO ; True Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; db/lab4.ram0_bram_337df6.hdl.mif        ;
+; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM            ; 256          ; 24           ; --           ; --           ; 6144    ; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ;
++-------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+---------+-----------------------------------------+
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 1           ;
+; Total number of DSP blocks      ; 1           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 1           ;
++---------------------------------+-------------+
 
 
 Encoding Type:  One-Hot
@@ -323,6 +356,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------+---------------------------------------+
 ; Register name                          ; Reason for Removal                    ;
 +----------------------------------------+---------------------------------------+
+; bram:memory|q_b[8..15]                 ; Lost fanout                           ;
 ; IRreg:Instr_Reg|Opcode[3]              ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
 ; IRreg:Instr_Reg|bDisp[7]               ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
 ; IRreg:Instr_Reg|instruction[14]        ; Merged with IRreg:Instr_Reg|Opcode[6] ;
@@ -342,7 +376,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; fsm:state_machine|state_counter~2      ; Lost fanout                           ;
 ; fsm:state_machine|state_counter~3      ; Lost fanout                           ;
 ; fsm:state_machine|state_counter~4      ; Lost fanout                           ;
-; Total Number of Removed Registers = 19 ;                                       ;
+; Total Number of Removed Registers = 27 ;                                       ;
 +----------------------------------------+---------------------------------------+
 
 
@@ -351,87 +385,76 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 330   ;
-; Number of registers using Synchronous Clear  ; 299   ;
+; Total registers                              ; 337   ;
+; Number of registers using Synchronous Clear  ; 319   ;
 ; Number of registers using Synchronous Load   ; 24    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 298   ;
+; Number of registers using Clock Enable       ; 318   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------+
-; Registers Added for RAM Pass-Through Logic               ;
-+----------------------------------+-----------------------+
-; Register Name                    ; RAM Name              ;
-+----------------------------------+-----------------------+
-; bram:memory|ram_rtl_0_bypass[0]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[1]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[2]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[3]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[4]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[5]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[6]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[7]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[8]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[9]  ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[10] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[11] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[12] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[13] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[14] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[15] ; bram:memory|ram_rtl_0 ;
-; bram:memory|ram_rtl_0_bypass[16] ; bram:memory|ram_rtl_0 ;
-+----------------------------------+-----------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Packed Into Inferred Megafunctions                                                                                                                  ;
++-----------------------------------------------------------------------------+--------------------------------------------------------------------------+------+
+; Register Name                                                               ; Megafunction                                                             ; Type ;
++-----------------------------------------------------------------------------+--------------------------------------------------------------------------+------+
+; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_pixel[0..23] ; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_rom_rtl_0 ; RAM  ;
+; bram:memory|q_a[0..15]                                                      ; bram:memory|ram_rtl_0                                                    ; RAM  ;
+; bram:memory|q_b[0..7]                                                       ; bram:memory|ram_rtl_0                                                    ; RAM  ;
++-----------------------------------------------------------------------------+--------------------------------------------------------------------------+------+
 
 
-+-------------------------------------------------------+
-; Registers Packed Into Inferred Megafunctions          ;
-+------------------------+-----------------------+------+
-; Register Name          ; Megafunction          ; Type ;
-+------------------------+-----------------------+------+
-; bram:memory|q_a[0..15] ; bram:memory|ram_rtl_0 ; RAM  ;
-+------------------------+-----------------------+------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|Opcode[7]                  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][9]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][12]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][6]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][5]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][4]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][11]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][9]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][1]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][1]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][0]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][7]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][0]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][8]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][15]      ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][3]       ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|vcount[7] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|hcount[9] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[3]                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[10]          ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[3]          ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |lab4|vga:screener|bitgen:bgen|rgb[7]            ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0                    ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux9                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux10                           ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |lab4|fsm:state_machine|state_counter            ;
+; 55:1               ; 2 bits    ; 72 LEs        ; 44 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[10]           ;
+; 58:1               ; 2 bits    ; 76 LEs        ; 48 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[14]           ;
+; 63:1               ; 2 bits    ; 84 LEs        ; 46 LEs               ; 38 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[5]            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|Opcode[7]             ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][10]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][1]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][13]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][12]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][4]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][3]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][14]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][11]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][2]   ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][9]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][0]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][3]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][12] ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][6]  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][8]  ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[0]            ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[7]      ;
-; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[0]     ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0               ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux14                      ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux5                       ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |lab4|fsm:state_machine|state_counter       ;
-; 55:1               ; 2 bits    ; 72 LEs        ; 44 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[10]      ;
-; 58:1               ; 2 bits    ; 76 LEs        ; 48 LEs               ; 28 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[14]      ;
-; 63:1               ; 2 bits    ; 84 LEs        ; 46 LEs               ; 38 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[5]       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------+
-; Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_dpm1:auto_generated ;
+; Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated ;
 +---------------------------------+--------------------+------+--------------------------+
 ; Assignment                      ; Value              ; From ; To                       ;
 +---------------------------------+--------------------+------+--------------------------+
@@ -520,6 +543,77 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:screener|address_generator:addr_gen ;
++----------------+------------------+--------------------------------------------------+
+; Parameter Name ; Value            ; Type                                             ;
++----------------+------------------+--------------------------------------------------+
+; VGA_BASE_ADDR  ; 0010000000000000 ; Unsigned Binary                                  ;
++----------------+------------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0 ;
++------------------------------------+-----------------------------------------+-------------------------------------------------------+
+; Parameter Name                     ; Value                                   ; Type                                                  ;
++------------------------------------+-----------------------------------------+-------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                                       ; Untyped                                               ;
+; AUTO_CARRY_CHAINS                  ; ON                                      ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                                     ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS                ; ON                                      ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                                     ; IGNORE_CASCADE                                        ;
+; WIDTH_BYTEENA                      ; 1                                       ; Untyped                                               ;
+; OPERATION_MODE                     ; ROM                                     ; Untyped                                               ;
+; WIDTH_A                            ; 24                                      ; Untyped                                               ;
+; WIDTHAD_A                          ; 8                                       ; Untyped                                               ;
+; NUMWORDS_A                         ; 256                                     ; Untyped                                               ;
+; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                                               ;
+; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                                               ;
+; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                                               ;
+; WRCONTROL_ACLR_A                   ; NONE                                    ; Untyped                                               ;
+; INDATA_ACLR_A                      ; NONE                                    ; Untyped                                               ;
+; BYTEENA_ACLR_A                     ; NONE                                    ; Untyped                                               ;
+; WIDTH_B                            ; 1                                       ; Untyped                                               ;
+; WIDTHAD_B                          ; 1                                       ; Untyped                                               ;
+; NUMWORDS_B                         ; 1                                       ; Untyped                                               ;
+; INDATA_REG_B                       ; CLOCK1                                  ; Untyped                                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                                  ; Untyped                                               ;
+; RDCONTROL_REG_B                    ; CLOCK1                                  ; Untyped                                               ;
+; ADDRESS_REG_B                      ; CLOCK1                                  ; Untyped                                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED                            ; Untyped                                               ;
+; BYTEENA_REG_B                      ; CLOCK1                                  ; Untyped                                               ;
+; INDATA_ACLR_B                      ; NONE                                    ; Untyped                                               ;
+; WRCONTROL_ACLR_B                   ; NONE                                    ; Untyped                                               ;
+; ADDRESS_ACLR_B                     ; NONE                                    ; Untyped                                               ;
+; OUTDATA_ACLR_B                     ; NONE                                    ; Untyped                                               ;
+; RDCONTROL_ACLR_B                   ; NONE                                    ; Untyped                                               ;
+; BYTEENA_ACLR_B                     ; NONE                                    ; Untyped                                               ;
+; WIDTH_BYTEENA_A                    ; 1                                       ; Untyped                                               ;
+; WIDTH_BYTEENA_B                    ; 1                                       ; Untyped                                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                                    ; Untyped                                               ;
+; BYTE_SIZE                          ; 8                                       ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                               ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ                    ; Untyped                                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ                    ; Untyped                                               ;
+; INIT_FILE                          ; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ; Untyped                                               ;
+; INIT_FILE_LAYOUT                   ; PORT_A                                  ; Untyped                                               ;
+; MAXIMUM_DEPTH                      ; 0                                       ; Untyped                                               ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL                                  ; Untyped                                               ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL                                  ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL                                  ; Untyped                                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL                                  ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN                         ; Untyped                                               ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN                         ; Untyped                                               ;
+; ENABLE_ECC                         ; FALSE                                   ; Untyped                                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                                               ;
+; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                                               ;
+; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                                               ;
+; CBXI_PARAMETER                     ; altsyncram_41d1                         ; Untyped                                               ;
++------------------------------------+-----------------------------------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0      ;
 +------------------------------------+----------------------------------+----------------+
@@ -531,7 +625,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; AUTO_CASCADE_CHAINS                ; ON                               ; AUTO_CASCADE   ;
 ; IGNORE_CASCADE_BUFFERS             ; OFF                              ; IGNORE_CASCADE ;
 ; WIDTH_BYTEENA                      ; 1                                ; Untyped        ;
-; OPERATION_MODE                     ; DUAL_PORT                        ; Untyped        ;
+; OPERATION_MODE                     ; BIDIR_DUAL_PORT                  ; Untyped        ;
 ; WIDTH_A                            ; 16                               ; Untyped        ;
 ; WIDTHAD_A                          ; 16                               ; Untyped        ;
 ; NUMWORDS_A                         ; 65536                            ; Untyped        ;
@@ -544,8 +638,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_B                            ; 16                               ; Untyped        ;
 ; WIDTHAD_B                          ; 16                               ; Untyped        ;
 ; NUMWORDS_B                         ; 65536                            ; Untyped        ;
-; INDATA_REG_B                       ; CLOCK1                           ; Untyped        ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                           ; Untyped        ;
+; INDATA_REG_B                       ; CLOCK0                           ; Untyped        ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK0                           ; Untyped        ;
 ; RDCONTROL_REG_B                    ; CLOCK1                           ; Untyped        ;
 ; ADDRESS_REG_B                      ; CLOCK0                           ; Untyped        ;
 ; OUTDATA_REG_B                      ; UNREGISTERED                     ; Untyped        ;
@@ -560,7 +654,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA_B                    ; 1                                ; Untyped        ;
 ; RAM_BLOCK_TYPE                     ; AUTO                             ; Untyped        ;
 ; BYTE_SIZE                          ; 8                                ; Untyped        ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                        ; Untyped        ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                         ; Untyped        ;
 ; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ             ; Untyped        ;
 ; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ             ; Untyped        ;
 ; INIT_FILE                          ; db/lab4.ram0_bram_337df6.hdl.mif ; Untyped        ;
@@ -576,41 +670,79 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                            ; Untyped        ;
 ; WIDTH_ECCSTATUS                    ; 3                                ; Untyped        ;
 ; DEVICE_FAMILY                      ; Cyclone V                        ; Untyped        ;
-; CBXI_PARAMETER                     ; altsyncram_dpm1                  ; Untyped        ;
+; CBXI_PARAMETER                     ; altsyncram_qq42                  ; Untyped        ;
 +------------------------------------+----------------------------------+----------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+------------------------------------------------------------------------------+
-; altsyncram Parameter Settings by Entity Instance                             ;
-+-------------------------------------------+----------------------------------+
-; Name                                      ; Value                            ;
-+-------------------------------------------+----------------------------------+
-; Number of entity instances                ; 1                                ;
-; Entity Instance                           ; bram:memory|altsyncram:ram_rtl_0 ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                        ;
-;     -- WIDTH_A                            ; 16                               ;
-;     -- NUMWORDS_A                         ; 65536                            ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                     ;
-;     -- WIDTH_B                            ; 16                               ;
-;     -- NUMWORDS_B                         ; 65536                            ;
-;     -- ADDRESS_REG_B                      ; CLOCK0                           ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                     ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                             ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                        ;
-+-------------------------------------------+----------------------------------+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 2                                                                                   ;
+; Entity Instance                           ; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0 ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 24                                                                                  ;
+;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; bram:memory|altsyncram:ram_rtl_0                                                    ;
+;     -- OPERATION_MODE                     ; BIDIR_DUAL_PORT                                                                     ;
+;     -- WIDTH_A                            ; 16                                                                                  ;
+;     -- NUMWORDS_A                         ; 65536                                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 16                                                                                  ;
+;     -- NUMWORDS_B                         ; 65536                                                                               ;
+;     -- ADDRESS_REG_B                      ; CLOCK0                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; OLD_DATA                                                                            ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
 
 
-+-----------------------------------------------------+
-; Port Connectivity Checks: "bram:memory"             ;
-+--------+--------+----------+------------------------+
-; Port   ; Type   ; Severity ; Details                ;
-+--------+--------+----------+------------------------+
-; data_b ; Input  ; Info     ; Explicitly unconnected ;
-; addr_b ; Input  ; Info     ; Explicitly unconnected ;
-; we_b   ; Input  ; Info     ; Explicitly unconnected ;
-; q_b    ; Output ; Info     ; Explicitly unconnected ;
-+--------+--------+----------+------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:screener|bitgen:bgen"                                                                                                                       ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; pixel_en ; Input ; Info     ; Stuck at VCC                                                                                                                                 ;
+; bg_pixel ; Input ; Info     ; Stuck at GND                                                                                                                                 ;
+; hcount   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; vcount   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs"                                                                                                   ;
++------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                ;
++------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; glyph_addr ; Input ; Warning  ; Input port expression (16 bits) is smaller than the input port (17 bits) it drives.  Extra input bit(s) "glyph_addr[16..16]" will be connected to GND. ;
++------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "vga:screener"                                                                        ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; hsync ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "bram:memory"          ;
++------+-------+----------+------------------------+
+; Port ; Type  ; Severity ; Details                ;
++------+-------+----------+------------------------+
+; we_b ; Input ; Info     ; Explicitly unconnected ;
++------+-------+----------+------------------------+
 
 
 +--------------------------------------------------+
@@ -627,36 +759,40 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 330                         ;
+; arriav_ff             ; 337                         ;
 ;     ENA               ; 2                           ;
-;     ENA SCLR          ; 272                         ;
+;     ENA SCLR          ; 292                         ;
 ;     ENA SCLR SLD      ; 24                          ;
 ;     SCLR              ; 3                           ;
-;     plain             ; 29                          ;
-; arriav_lcell_comb     ; 1060                        ;
-;     arith             ; 185                         ;
+;     plain             ; 16                          ;
+; arriav_lcell_comb     ; 1171                        ;
+;     arith             ; 225                         ;
 ;         0 data inputs ; 8                           ;
-;         1 data inputs ; 40                          ;
-;         2 data inputs ; 2                           ;
+;         1 data inputs ; 76                          ;
+;         2 data inputs ; 6                           ;
 ;         4 data inputs ; 60                          ;
 ;         5 data inputs ; 75                          ;
 ;     extend            ; 29                          ;
 ;         7 data inputs ; 29                          ;
-;     normal            ; 812                         ;
+;     normal            ; 872                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 45                          ;
+;         3 data inputs ; 94                          ;
+;         4 data inputs ; 138                         ;
+;         5 data inputs ; 127                         ;
+;         6 data inputs ; 462                         ;
+;     shared            ; 45                          ;
+;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 4                           ;
-;         2 data inputs ; 46                          ;
-;         3 data inputs ; 78                          ;
-;         4 data inputs ; 132                         ;
-;         5 data inputs ; 136                         ;
-;         6 data inputs ; 416                         ;
-;     shared            ; 34                          ;
-;         1 data inputs ; 2                           ;
-;         2 data inputs ; 32                          ;
-; boundary_port         ; 38                          ;
-; stratixv_ram_block    ; 128                         ;
+;         2 data inputs ; 39                          ;
+;         3 data inputs ; 1                           ;
+; arriav_mac            ; 1                           ;
+; boundary_port         ; 66                          ;
+; stratixv_ram_block    ; 152                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 14.40                       ;
-; Average LUT depth     ; 9.28                        ;
+; Average LUT depth     ; 8.46                        ;
 +-----------------------+-----------------------------+
 
 
@@ -665,7 +801,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -675,10 +811,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Nov 27 16:13:31 2020
+    Info: Processing started: Sun Nov 29 14:35:55 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/glyph_rom.v
+    Info (12023): Found entity 1: glyph_rom File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/vga_control.v
+    Info (12023): Found entity 1: vga_control File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/bitgen.v
+    Info (12023): Found entity 1: bitgen File: C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v Line: 8
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/address_generator.v
+    Info (12023): Found entity 1: address_generator File: C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/vga.v
+    Info (12023): Found entity 1: vga File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/mobile_controller/mobile_receiver.v
     Info (12023): Found entity 1: mobile_receiver File: C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/lab3/bram.v
@@ -712,16 +858,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file tb_clk_
     Info (12023): Found entity 1: tb_clk_divider File: C:/Users/bblea/source/repos/ECE3710Project/lab4/tb_clk_divider.v Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file clk_divider.v
     Info (12023): Found entity 1: clk_divider File: C:/Users/bblea/source/repos/ECE3710Project/lab4/clk_divider.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at lab4.v(256): created implicit net for "hsnyc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 256
 Info (12127): Elaborating entity "lab4" for the top level hierarchy
-Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 77
-Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 98
-Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 126
-Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 141
-Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 169
+Warning (10034): Output port "hsync" at lab4.v(57) has no driver File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 57
+Info (12128): Elaborating entity "regfile_2D_memory" for hierarchy "regfile_2D_memory:registers" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 81
+Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 102
+Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 130
+Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 145
+Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 173
 Warning (10850): Verilog HDL warning at bram.v(23): number of words (7) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
-Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 180
-Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 193
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 212
+Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 184
+Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 197
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 216
 Warning (10036): Verilog HDL or VHDL warning at fsm.v(10): object "delay_Ren" assigned a value but never read File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 10
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(91): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 91
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(92): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 92
@@ -768,85 +916,109 @@ Warning (10235): Verilog HDL Always Construct warning at fsm.v(303): variable "F
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(306): variable "FLAGS" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 306
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(335): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 335
 Warning (10235): Verilog HDL Always Construct warning at fsm.v(367): variable "instruction" is read inside the Always Construct but isn't in the Always Construct's Event Control File: C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v Line: 367
-Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 220
-Info (12128): Elaborating entity "mobile_receiver" for hierarchy "mobile_receiver:phoneoneon" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 245
-Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 251
-Warning (276020): Inferred RAM node "bram:memory|ram_rtl_0" from synchronous design logic.  Pass-through logic has been added to match the read-during-write behavior of the original design.
-Info (276014): Found 1 instances of uninferred RAM logic
-    Info (276007): RAM logic "bram:memory|ram" is uninferred due to asynchronous read logic File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 19
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "bram:memory|ram_rtl_0" 
-        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 16
-        Info (286033): Parameter WIDTHAD_A set to 16
-        Info (286033): Parameter NUMWORDS_A set to 65536
-        Info (286033): Parameter WIDTH_B set to 16
-        Info (286033): Parameter WIDTHAD_B set to 16
-        Info (286033): Parameter NUMWORDS_B set to 65536
+Info (12128): Elaborating entity "flags_register" for hierarchy "flags_register:flags" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 224
+Info (12128): Elaborating entity "mobile_receiver" for hierarchy "mobile_receiver:phoneoneon" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 249
+Info (12128): Elaborating entity "vga" for hierarchy "vga:screener" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 261
+Info (12128): Elaborating entity "vga_control" for hierarchy "vga:screener|vga_control:control" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 20
+Info (12128): Elaborating entity "address_generator" for hierarchy "vga:screener|address_generator:addr_gen" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 31
+Info (12128): Elaborating entity "glyph_rom" for hierarchy "vga:screener|address_generator:addr_gen|glyph_rom:glyphs" File: C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v Line: 28
+Warning (10030): Net "glyph_rom.data_a" at glyph_rom.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 13
+Warning (10030): Net "glyph_rom.waddr_a" at glyph_rom.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 13
+Warning (10030): Net "glyph_rom.we_a" at glyph_rom.v(13) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 13
+Info (12128): Elaborating entity "bitgen" for hierarchy "vga:screener|bitgen:bgen" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 39
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 269
+Info (19000): Inferred 2 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_rom_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to ROM
+        Info (286033): Parameter WIDTH_A set to 24
+        Info (286033): Parameter WIDTHAD_A set to 8
+        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
         Info (286033): Parameter ADDRESS_ACLR_A set to NONE
-        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
-        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
-        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
-        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter OUTDATA_ACLR_A set to NONE
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter INIT_FILE set to db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "bram:memory|ram_rtl_0" 
+        Info (286033): Parameter OPERATION_MODE set to BIDIR_DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 16
+        Info (286033): Parameter WIDTH_B set to 16
+        Info (286033): Parameter WIDTHAD_A set to 16
+        Info (286033): Parameter WIDTHAD_B set to 16
+        Info (286033): Parameter NUMWORDS_A set to 65536
+        Info (286033): Parameter NUMWORDS_B set to 65536
+        Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_REG_B set to CLOCK0
+        Info (286033): Parameter WRCONTROL_WRADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
         Info (286033): Parameter INIT_FILE set to db/lab4.ram0_bram_337df6.hdl.mif
-Info (12130): Elaborated megafunction instantiation "bram:memory|altsyncram:ram_rtl_0"
-Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with the following parameter:
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "16"
-    Info (12134): Parameter "WIDTHAD_A" = "16"
-    Info (12134): Parameter "NUMWORDS_A" = "65536"
-    Info (12134): Parameter "WIDTH_B" = "16"
-    Info (12134): Parameter "WIDTHAD_B" = "16"
-    Info (12134): Parameter "NUMWORDS_B" = "65536"
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12130): Elaborated megafunction instantiation "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0"
+Info (12133): Instantiated megafunction "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "ROM"
+    Info (12134): Parameter "WIDTH_A" = "24"
+    Info (12134): Parameter "WIDTHAD_A" = "8"
+    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
     Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INIT_FILE" = "db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_41d1.tdf
+    Info (12023): Found entity 1: altsyncram_41d1 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_41d1.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "bram:memory|altsyncram:ram_rtl_0"
+Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "BIDIR_DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "16"
+    Info (12134): Parameter "WIDTHAD_A" = "16"
+    Info (12134): Parameter "WIDTHAD_B" = "16"
+    Info (12134): Parameter "NUMWORDS_A" = "65536"
+    Info (12134): Parameter "NUMWORDS_B" = "65536"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_REG_B" = "CLOCK0"
+    Info (12134): Parameter "WRCONTROL_WRADDRESS_REG_B" = "CLOCK0"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/lab4.ram0_bram_337df6.hdl.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_dpm1.tdf
-    Info (12023): Found entity 1: altsyncram_dpm1 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_dpm1.tdf Line: 33
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qq42.tdf
+    Info (12023): Found entity 1: altsyncram_qq42 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_qq42.tdf Line: 31
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
     Info (12023): Found entity 1: decode_dla File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
-    Info (12023): Found entity 1: decode_61a File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_61a.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "hsync" is stuck at GND File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 57
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (17049): 11 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1523 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1673 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
-    Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 1357 logic cells
-    Info (21064): Implemented 128 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 66 warnings
-    Info: Peak virtual memory: 4973 megabytes
-    Info: Processing ended: Fri Nov 27 16:15:55 2020
-    Info: Elapsed time: 00:02:24
-    Info: Total CPU time (on all processors): 00:02:36
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 1454 logic cells
+    Info (21064): Implemented 152 RAM segments
+    Info (21062): Implemented 1 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 57 warnings
+    Info: Peak virtual memory: 4877 megabytes
+    Info: Processing ended: Sun Nov 29 14:36:14 2020
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+

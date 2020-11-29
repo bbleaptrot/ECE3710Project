@@ -1,4 +1,4 @@
-module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7);
+module lab4(clk_in, rst, seg_4, seg_3, seg_2, seg_1, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7, hsync, vsync, vga_blank_n, vga_clk, rgb);
 //Inputs
 input clk_in, rst;
 
@@ -52,6 +52,10 @@ wire out_4;
 wire out_5;
 wire out_6;
 wire out_7;
+
+//VGA
+output hsync, vsync, vga_blank_n, vga_clk;
+output [23:0] rgb;
 
 regfile_2D_memory registers(
 	.ALUBus(phone_mux_out),
@@ -158,14 +162,14 @@ mux muxDst(
 	
 	bram memory(
 	.data_a(srcMux_out),
-	.data_b(), // VGA Stuff
+	.data_b(data_b), // VGA Stuff
 	.addr_a(addr_a),
-	.addr_b(), // VGA Stuff
+	.addr_b(addr_b), // VGA Stuff
 	.we_a(WE),   // FSM
 	.we_b(),   // VGA Stuff
 	.clk(clk),
 	.q_a(q_a),
-	.q_b()    // VGA Stuff
+	.q_b(q_b)    // VGA Stuff
 	);
 	
 	program_counter prog_count(
@@ -243,6 +247,20 @@ mux muxDst(
 	.out_6(out_6),
 	.out_7(out_7)
 	);	
+	
+	vga screener(
+	.clk(clk),
+	.rst(rst),
+	.addr_b(addr_b),
+	.q_b(q_b),
+	.hsync(hsnyc),
+	.vsync(vsync),
+	.vga_blank_n(vga_blank_n),
+	.vga_clk(vga_clk),
+	.rgb(rgb)
+	);
+	
+	
 //	hex2seg seg4(r0_out[15:12], seg_4);
 //	hex2seg seg3(r0_out[11:8], seg_3);
 //	hex2seg seg2(r0_out[7:4], seg_2);

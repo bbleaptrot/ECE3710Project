@@ -18,3 +18,12 @@ C1FC  // Branch if not equal
 4304  // Load value into R3
 @57
 0004
+
+5457  // add 57 into R4
+4004  // Load addr in R4 into R0
+F2F5  // Load phone into R5
+0552  // Add R5 into R2
+CEFD  // Branch unconditionally to F2F5 instruction
+0000
+@57
+0050

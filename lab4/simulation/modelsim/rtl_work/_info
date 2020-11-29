@@ -8,289 +8,400 @@ z2
 !i10f 100
 cModel Technology
 Z0 dC:/Users/bblea/source/repos/ECE3710Project/lab4/simulation/modelsim
+vaddress_generator
+!s110 1606686253
+!i10b 1
+!s100 F6]3[VIiD_5lzV4ME:IKW0
+I0962e9eS;2fnd9RYRH1>V3
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1606262126
+8C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v
+FC:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v
+L0 7
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z3 !s108 1606686253.000000
+!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v|
+!i113 1
+Z4 o-vlog01compat -work work
+Z5 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/vga
+Z6 tCvgOpt 0
 valu
-Z1 !s110 1606515478
+Z7 !s110 1606686259
 !i10b 1
 !s100 :dLHBUMklYgJ6Q]]e6=z?2
 IfZdBgz@[:FnEKBjTzGWeY2
-Z2 VDg1SIo80bB@j0V0VzS_@n1
+R1
 R0
 w1605649208
 8C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
 L0 28
-Z3 OV;L;10.5b;63
+R2
 r1
 !s85 0
 31
-Z4 !s108 1606515477.000000
+Z8 !s108 1606686258.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
 !i113 1
-Z5 o-vlog01compat -work work
-Z6 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
-Z7 tCvgOpt 0
+R4
+Z9 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
+R6
+vbitgen
+Z10 !s110 1606686252
+!i10b 1
+!s100 ;]X02==mXWn4DQ_m>kN6T3
+I=DX`MAVYgBTaC=F>3=cd@3
+R1
+R0
+Z11 w1606262127
+8C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v
+FC:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v
+L0 8
+R2
+r1
+!s85 0
+31
+Z12 !s108 1606686252.000000
+!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v|
+!i113 1
+R4
+R5
+R6
 vbram
-!s110 1606515480
+Z13 !s110 1606686261
 !i10b 1
 !s100 ]GTSj]4KWQ8D?Rah6TeE92
 IKJ>?XXAnkGoY5dX_2iheR3
-R2
+R1
 R0
 w1603837345
 8C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v
 L0 9
-R3
+R2
 r1
 !s85 0
 31
-!s108 1606515480.000000
+Z14 !s108 1606686261.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3|C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
 !i113 1
-R5
+R4
 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3
-R7
+R6
 vflags_register
-Z8 !s110 1606515479
+Z15 !s110 1606686260
 !i10b 1
 !s100 =GQSGSeOAaA?H1=S5e9]]2
 IP7@@P14co<8o6Sl_H>3;d1
-R2
+R1
 R0
 w1604116134
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-Z9 !s108 1606515479.000000
+Z16 !s108 1606686260.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
 !i113 1
-R5
-Z10 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
-R7
+R4
+Z17 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
+R6
 vfsm
-R8
+R15
 !i10b 1
 !s100 Wa=C9B9a7k0ST6K7gka^W0
 I>k@L5eZWA;GzVPVTMQRo02
-R2
+R1
 R0
 w1606514823
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-Z11 !s108 1606515478.000000
+R16
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
 !i113 1
+R4
+R17
+R6
+vglyph_rom
+R13
+!i10b 1
+!s100 Bd5a:EaU2mo5HmFgL^RAV3
+IDUezJ?6ANoENEaQL;L6GP2
+R1
+R0
+w1606683183
+8C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v
+FC:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v
+L0 8
+R2
+r1
+!s85 0
+31
+R14
+!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v|
+!i113 1
+R4
 R5
-R10
-R7
+R6
 vhex2seg
-Z12 !s110 1606515477
+Z18 !s110 1606686258
 !i10b 1
 !s100 RhVA2H2^VmEn6z2nUQ]6H3
 I][MUBSA=Zgej4?WUdJ?:20
-R2
+R1
 R0
 w1602623453
 8C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
 L0 7
-R3
+R2
 r1
 !s85 0
 31
-R4
+R8
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
 !i113 1
-R5
+R4
+R9
 R6
-R7
 vIRreg
-R8
+R15
 !i10b 1
 !s100 ek72eEb?a?E3Wh:F6HK<J0
 I@`VN4kzoa`4HzGZ_Yni3Q3
-R2
+R1
 R0
 w1605380631
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-R9
+R16
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
 !i113 1
-R5
-R10
-R7
+R4
+R17
+R6
 n@i@rreg
 vlab4
-Z13 !s110 1606515533
+R7
 !i10b 1
-!s100 TJ]FZWZM=<JZYl]iW[E6=2
-I3hZHm_od5H;X>3:<YORFW3
-R2
+!s100 fKN:2MBc9hZ27L8eDA>ki0
+IdH]lZ;Rco9_`28fC9Hgz22
+R1
 R0
-w1606515146
+w1606684082
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-Z14 !s108 1606515533.000000
+Z19 !s108 1606686259.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
-!s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
 !i113 1
-Z15 o-work work
-R7
+R4
+R17
+R6
 vlab4_tb
-R13
+Z20 !s110 1606686257
 !i10b 1
 !s100 l>RO0S?^UG5jJ4Y38`QD62
 I7DzJJ?]<jXBNA2MFezVBl1
-R2
+R1
 R0
 w1606515407
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
 L0 8
-R3
+R2
 r1
 !s85 0
 31
-R14
+Z21 !s108 1606686257.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
 !i113 1
-R15
-R7
+o-work work
+R6
 vmobile_receiver
-Z16 !s110 1606515475
+Z22 !s110 1606686254
 !i10b 1
 !s100 n48KCO]Ob:jRija3PL@M?2
 I=2CJXdK]ScY06B1530jjE0
-R2
+R1
 R0
-w1605048556
+w1606593574
 8C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v
 FC:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-Z17 !s108 1606515475.000000
+!s108 1606686254.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/mobile_controller|C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v|
 !i113 1
-R5
+R4
 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/mobile_controller
-R7
+R6
 vmux
-R12
+R18
 !i10b 1
 !s100 fZ0[[gNFl>QC^CgV:@bQ71
 Ik]^i;cfM57:@6@Y8nmB=z2
-R2
+R1
 R0
-Z18 w1601415820
+Z23 w1601415820
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
 L0 5
-R3
+R2
 r1
 !s85 0
 31
-R4
+R8
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v|
 !i113 1
-R5
-Z19 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2
-R7
+R4
+Z24 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2
+R6
 vmux_2_to_1
-!s110 1606515476
+R20
 !i10b 1
 !s100 ]Ki0HgKnFkDIP@>3cmcSl0
 IB3S2N518[4RGOI?il49Z13
-R2
+R1
 R0
-R18
+R23
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
 L0 5
-R3
+R2
 r1
 !s85 0
 31
-!s108 1606515476.000000
+R21
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v|
 !i113 1
-R5
-R19
-R7
+R4
+R24
+R6
 vprogram_counter
-R1
+R7
 !i10b 1
 !s100 X^:f?BoL6Vcj=Q1NZh0?m3
 I0IHcW4glNT?m9CKXh40c62
-R2
+R1
 R0
 w1604110786
 8C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
 L0 19
-R3
+R2
 r1
 !s85 0
 31
-R11
+R19
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
 !i113 1
-R5
-R10
-R7
+R4
+R17
+R6
 vregfile_2D_memory
-R16
+!s110 1606686255
 !i10b 1
 !s100 SflE3`^WeOHJ[7kh]8JoB2
 IKG4iEI8hA7JJ;aOkKdKoJ0
-R2
+R1
 R0
-R18
+R23
 8C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
 FC:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
 L0 3
-R3
+R2
 r1
 !s85 0
 31
-R17
+!s108 1606686255.000000
 !s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
 !i113 1
-R5
-R19
-R7
+R4
+R24
+R6
 nregfile_2@d_memory
+vvga
+R22
+!i10b 1
+!s100 S2;7ZJ`jlDjD1aDbbCKIU2
+I?=VEgHVPF5>W8j4B_C]]d1
+R1
+R0
+R11
+8C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v
+FC:/Users/bblea/source/repos/ECE3710Project/vga/vga.v
+L0 1
+R2
+r1
+!s85 0
+31
+R3
+!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v|
+!i113 1
+R4
+R5
+R6
+vvga_control
+R10
+!i10b 1
+!s100 b4H_a6^Oe1H5?a2JlC^@i3
+I:YB5=3FMhE5VJb4YY?@NV1
+R1
+R0
+w1605983423
+8C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v
+FC:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v
+L0 1
+R2
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v|
+!i113 1
+R4
+R5
+R6
