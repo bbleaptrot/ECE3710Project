@@ -81,34 +81,34 @@ set_location_assignment PIN_AB28 -to seg_4[4]
 set_location_assignment PIN_AB25 -to seg_4[5]
 set_location_assignment PIN_AB22 -to seg_4[6]
 set_location_assignment PIN_AF14 -to clk_in
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_1[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_2[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_3[6]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[0]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[1]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[2]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[3]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[4]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[5]
-set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to seg_4[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_1[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_2[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_3[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to seg_4[6]
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -120,28 +120,6 @@ set_location_assignment PIN_AF18 -to in_4
 set_location_assignment PIN_AG20 -to in_5
 set_location_assignment PIN_AG18 -to in_6
 set_location_assignment PIN_AJ21 -to in_7
-set_global_assignment -name VERILOG_FILE ../vga/glyph_rom.v
-set_global_assignment -name VERILOG_FILE ../vga/vga_control.v
-set_global_assignment -name VERILOG_FILE ../vga/bitgen.v
-set_global_assignment -name VERILOG_FILE ../vga/address_generator.v
-set_global_assignment -name VERILOG_FILE ../vga/vga.v
-set_global_assignment -name VERILOG_FILE ../mobile_controller/mobile_receiver.v
-set_global_assignment -name TEXT_FILE initbram.list.txt
-set_global_assignment -name VERILOG_FILE ../lab3/bram.v
-set_global_assignment -name VERILOG_FILE ../lab2/regfile_2D_memory.v
-set_global_assignment -name VERILOG_FILE ../lab2/mux_2_to_1.v
-set_global_assignment -name VERILOG_FILE ../lab2/mux.v
-set_global_assignment -name VERILOG_FILE ../lab1/hex2seg.v
-set_global_assignment -name VERILOG_FILE ../lab1/alu.v
-set_global_assignment -name VERILOG_FILE lab4.v
-set_global_assignment -name VERILOG_FILE program_counter.v
-set_global_assignment -name VERILOG_FILE fsm.v
-set_global_assignment -name VERILOG_FILE IRreg.v
-set_global_assignment -name VERILOG_FILE tb_IRreg.v
-set_global_assignment -name VERILOG_FILE lab4_tb.v
-set_global_assignment -name VERILOG_FILE flags_register.v
-set_global_assignment -name VERILOG_FILE tb_clk_divider.v
-set_global_assignment -name VERILOG_FILE clk_divider.v
 set_location_assignment PIN_B11 -to hsync
 set_location_assignment PIN_F13 -to rgb[23]
 set_location_assignment PIN_E12 -to rgb[22]
@@ -172,4 +150,66 @@ set_location_assignment PIN_A11 -to vga_clk
 set_location_assignment PIN_D11 -to vsync
 set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
 set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk_in
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to hsync
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_0
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_5
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to in_7
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[23]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[22]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[21]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[20]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[19]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[18]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[17]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[16]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[15]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[14]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rgb[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to rst
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to vga_blank_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to vga_clk
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to vsync
+set_global_assignment -name TEXT_FILE glyph.txt
+set_global_assignment -name TEXT_FILE game.txt
+set_global_assignment -name VERILOG_FILE ../vga/glyph_rom.v
+set_global_assignment -name VERILOG_FILE ../vga/vga_control.v
+set_global_assignment -name VERILOG_FILE ../vga/bitgen.v
+set_global_assignment -name VERILOG_FILE ../vga/address_generator.v
+set_global_assignment -name VERILOG_FILE ../vga/vga.v
+set_global_assignment -name VERILOG_FILE ../mobile_controller/mobile_receiver.v
+set_global_assignment -name TEXT_FILE initbram.list.txt
+set_global_assignment -name VERILOG_FILE ../lab3/bram.v
+set_global_assignment -name VERILOG_FILE ../lab2/regfile_2D_memory.v
+set_global_assignment -name VERILOG_FILE ../lab2/mux_2_to_1.v
+set_global_assignment -name VERILOG_FILE ../lab2/mux.v
+set_global_assignment -name VERILOG_FILE ../lab1/hex2seg.v
+set_global_assignment -name VERILOG_FILE ../lab1/alu.v
+set_global_assignment -name VERILOG_FILE lab4.v
+set_global_assignment -name VERILOG_FILE program_counter.v
+set_global_assignment -name VERILOG_FILE fsm.v
+set_global_assignment -name VERILOG_FILE IRreg.v
+set_global_assignment -name VERILOG_FILE tb_IRreg.v
+set_global_assignment -name VERILOG_FILE lab4_tb.v
+set_global_assignment -name VERILOG_FILE flags_register.v
+set_global_assignment -name VERILOG_FILE tb_clk_divider.v
+set_global_assignment -name VERILOG_FILE clk_divider.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

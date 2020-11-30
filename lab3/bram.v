@@ -20,7 +20,7 @@ module bram
 	integer i;
 	initial
 	begin
-	$readmemh("initbram.list.txt", ram);
+	$readmemh("game.txt", ram);
 		//for(i=0;i<2**ADDR_WIDTH;i=i+1)
 			//ram[i] = 0; // Make everything a safe value, zero is what we initially will use. use a $readmemh for loading a hex file.
 	end

@@ -41,7 +41,7 @@ int main(int argc, char** argv)
   // Parse each line.
   for(int i = 0; i < asm_lines.size(); i++)
   {
-    std::cout << "Parsing line: " << asm_lines[i] << std::endl;
+    //std::cout << "Parsing line: " << asm_lines[i] << std::endl;
     short asm_code = parse_line(asm_lines[i]);
 
     if(undefined_code(asm_code))
@@ -50,16 +50,16 @@ int main(int argc, char** argv)
       return asm_code; 
     }
   
-    std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
+    std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
     int branch_code = asm_code & 0xF000;
     if (branch_code  == 0xC000)
     {
-        std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+        std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
     }
     int jump_code = asm_code & 0xF0F0;
     if(jump_code == 0x40C0)
     {
-        std::cout << "     " << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+        std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
     }
 
   }
@@ -203,20 +203,20 @@ short parse_line(std::string& line)
 
   if(!instr.compare("STOR"))
     {
+      std::string Rsrc;
       std::string Raddr;
-      std::string Rdest;
  
-    if(!((line_stream >> Raddr) && (line_stream >> Rdest)))
+    if(!((line_stream >> Rsrc) && (line_stream >> Raddr)))
       return 0x4FFE;
    
-    int Rd = reg_to_char(Rdest);
-    int Rs = reg_to_char(Raddr);
+    unsigned int Rs = reg_to_char(Rsrc);
+    unsigned int Ra = reg_to_char(Raddr);
  
-    if((Rs > 15) || (Rd > 15))
+    if((Rs > 15) || (Ra > 15))
       return 0x4FFE;
     
-    //     Op     Rdest       OPext        Rsrc
-    return 0x4000 + (Rd << 8) + (0x4 << 4) + (Rs);
+    //     Op     Rsrce       OPext        Raddr
+    return 0x4000 + (Rs << 8) + (0x4 << 4) + (Ra);
     }
 
   if(!instr.compare("ADD"))
@@ -964,7 +964,7 @@ short parse_line(std::string& line)
       return 0x4000 + 0x0E00 + 0x00C0 + (Rt);
   }
   // Just need Jumps and Branches...
-  return 0;
+  return 0x4FFF;
 }
 
 
