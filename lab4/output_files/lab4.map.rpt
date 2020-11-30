@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Sun Nov 29 17:42:26 2020
+Sun Nov 29 19:17:57 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -21,7 +21,7 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  13. General Register Statistics
  14. Registers Packed Into Inferred Megafunctions
  15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated
+ 16. Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_01d1:auto_generated
  17. Source assignments for bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated
  18. Parameter Settings for User Entity Instance: alu:logicBox
  19. Parameter Settings for User Entity Instance: bram:memory
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sun Nov 29 17:42:26 2020       ;
+; Analysis & Synthesis Status     ; Successful - Sun Nov 29 19:17:57 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -73,7 +73,7 @@ refer to the applicable agreement for further details.
 ; Total registers                 ; 337                                         ;
 ; Total pins                      ; 66                                          ;
 ; Total virtual pins              ; 0                                           ;
-; Total block memory bits         ; 1,054,720                                   ;
+; Total block memory bits         ; 1,060,864                                   ;
 ; Total DSP Blocks                ; 1                                           ;
 ; Total HSSI RX PCSs              ; 0                                           ;
 ; Total HSSI PMA RX Deserializers ; 0                                           ;
@@ -185,9 +185,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
-;     Processor 4            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
@@ -224,7 +224,7 @@ refer to the applicable agreement for further details.
 ; altrom.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altrom.inc                                                     ;         ;
 ; altram.inc                              ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altram.inc                                                     ;         ;
 ; altdpram.inc                            ; yes             ; Megafunction                                          ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altdpram.inc                                                   ;         ;
-; db/altsyncram_41d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_41d1.tdf                  ;         ;
+; db/altsyncram_01d1.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_01d1.tdf                  ;         ;
 ; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ;         ;
 ; db/altsyncram_qq42.tdf                  ; yes             ; Auto-Generated Megafunction                           ; C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_qq42.tdf                  ;         ;
 ; db/lab4.ram0_bram_337df6.hdl.mif        ; yes             ; Auto-Generated Auto-Found Memory Initialization File  ; C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif        ;         ;
@@ -238,27 +238,27 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 845          ;
+; Estimate of Logic utilization (ALMs needed) ; 848          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 1169         ;
+; Combinational ALUT usage for logic          ; 1173         ;
 ;     -- 7 input functions                    ; 29           ;
-;     -- 6 input functions                    ; 463          ;
+;     -- 6 input functions                    ; 465          ;
 ;     -- 5 input functions                    ; 202          ;
 ;     -- 4 input functions                    ; 198          ;
-;     -- <=3 input functions                  ; 277          ;
+;     -- <=3 input functions                  ; 279          ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 337          ;
 ;                                             ;              ;
 ; I/O pins                                    ; 66           ;
 ; Total MLAB memory bits                      ; 0            ;
-; Total block memory bits                     ; 1054720      ;
+; Total block memory bits                     ; 1060864      ;
 ;                                             ;              ;
 ; Total DSP Blocks                            ; 1            ;
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_in~input ;
 ; Maximum fan-out                             ; 489          ;
-; Total fan-out                               ; 9600         ;
-; Average fan-out                             ; 5.36         ;
+; Total fan-out                               ; 9641         ;
+; Average fan-out                             ; 5.37         ;
 +---------------------------------------------+--------------+
 
 
@@ -267,15 +267,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name       ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |lab4                                           ; 1169 (1)            ; 337 (0)                   ; 1054720           ; 1          ; 66   ; 0            ; |lab4                                                                                                                    ; lab4              ; work         ;
+; |lab4                                           ; 1173 (1)            ; 337 (0)                   ; 1060864           ; 1          ; 66   ; 0            ; |lab4                                                                                                                    ; lab4              ; work         ;
 ;    |IRreg:Instr_Reg|                            ; 2 (2)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                                                    ; IRreg             ; work         ;
 ;    |alu:logicBox|                               ; 525 (525)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                                                       ; alu               ; work         ;
-;    |bram:memory|                                ; 80 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                                                        ; bram              ; work         ;
-;       |altsyncram:ram_rtl_0|                    ; 80 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                                                   ; altsyncram        ; work         ;
-;          |altsyncram_qq42:auto_generated|       ; 80 (0)              ; 6 (6)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated                                                    ; altsyncram_qq42   ; work         ;
+;    |bram:memory|                                ; 83 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                                                        ; bram              ; work         ;
+;       |altsyncram:ram_rtl_0|                    ; 83 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0                                                                                   ; altsyncram        ; work         ;
+;          |altsyncram_qq42:auto_generated|       ; 83 (0)              ; 6 (6)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated                                                    ; altsyncram_qq42   ; work         ;
 ;             |decode_dla:decode2|                ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|decode_dla:decode2                                 ; decode_dla        ; work         ;
 ;             |mux_chb:mux4|                      ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux4                                       ; mux_chb           ; work         ;
-;             |mux_chb:mux5|                      ; 24 (24)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux5                                       ; mux_chb           ; work         ;
+;             |mux_chb:mux5|                      ; 27 (27)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux5                                       ; mux_chb           ; work         ;
 ;    |flags_register:flags|                       ; 19 (19)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                                               ; flags_register    ; work         ;
 ;    |fsm:state_machine|                          ; 28 (28)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                                                  ; fsm               ; work         ;
 ;    |hex2seg:seg1|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                                                       ; hex2seg           ; work         ;
@@ -289,11 +289,11 @@ refer to the applicable agreement for further details.
 ;    |mux_2_to_1:phoneCntl|                       ; 166 (166)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|mux_2_to_1:phoneCntl                                                                                               ; mux_2_to_1        ; work         ;
 ;    |program_counter:prog_count|                 ; 18 (18)             ; 16 (16)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|program_counter:prog_count                                                                                         ; program_counter   ; work         ;
 ;    |regfile_2D_memory:registers|                ; 16 (16)             ; 256 (256)                 ; 0                 ; 0          ; 0    ; 0            ; |lab4|regfile_2D_memory:registers                                                                                        ; regfile_2D_memory ; work         ;
-;    |vga:screener|                               ; 94 (0)              ; 21 (0)                    ; 6144              ; 1          ; 0    ; 0            ; |lab4|vga:screener                                                                                                       ; vga               ; work         ;
-;       |address_generator:addr_gen|              ; 32 (32)             ; 0 (0)                     ; 6144              ; 1          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen                                                                            ; address_generator ; work         ;
-;          |glyph_rom:glyphs|                     ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs                                                           ; glyph_rom         ; work         ;
-;             |altsyncram:glyph_rom_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0                                ; altsyncram        ; work         ;
-;                |altsyncram_41d1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 6144              ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated ; altsyncram_41d1   ; work         ;
+;    |vga:screener|                               ; 95 (0)              ; 21 (0)                    ; 12288             ; 1          ; 0    ; 0            ; |lab4|vga:screener                                                                                                       ; vga               ; work         ;
+;       |address_generator:addr_gen|              ; 33 (33)             ; 0 (0)                     ; 12288             ; 1          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen                                                                            ; address_generator ; work         ;
+;          |glyph_rom:glyphs|                     ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs                                                           ; glyph_rom         ; work         ;
+;             |altsyncram:glyph_rom_rtl_0|        ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0                                ; altsyncram        ; work         ;
+;                |altsyncram_01d1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 12288             ; 0          ; 0    ; 0            ; |lab4|vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_01d1:auto_generated ; altsyncram_01d1   ; work         ;
 ;       |bitgen:bgen|                             ; 28 (28)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|vga:screener|bitgen:bgen                                                                                           ; bitgen            ; work         ;
 ;       |vga_control:control|                     ; 34 (34)             ; 21 (21)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|vga:screener|vga_control:control                                                                                   ; vga_control       ; work         ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
@@ -306,7 +306,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Name                                                                                                                          ; Type ; Mode           ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                                     ;
 +-------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+---------+-----------------------------------------+
 ; bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|ALTSYNCRAM                                                    ; AUTO ; True Dual Port ; 65536        ; 16           ; 65536        ; 16           ; 1048576 ; db/lab4.ram0_bram_337df6.hdl.mif        ;
-; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM            ; 256          ; 24           ; --           ; --           ; 6144    ; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ;
+; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_01d1:auto_generated|ALTSYNCRAM ; AUTO ; ROM            ; 512          ; 24           ; --           ; --           ; 12288   ; db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif ;
 +-------------------------------------------------------------------------------------------------------------------------------+------+----------------+--------------+--------------+--------------+--------------+---------+-----------------------------------------+
 
 
@@ -356,7 +356,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +----------------------------------------+---------------------------------------+
 ; Register name                          ; Reason for Removal                    ;
 +----------------------------------------+---------------------------------------+
-; bram:memory|q_b[8..15]                 ; Lost fanout                           ;
+; bram:memory|q_b[9..15]                 ; Lost fanout                           ;
 ; IRreg:Instr_Reg|Opcode[3]              ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
 ; IRreg:Instr_Reg|bDisp[7]               ; Merged with IRreg:Instr_Reg|ImmOut[7] ;
 ; IRreg:Instr_Reg|instruction[14]        ; Merged with IRreg:Instr_Reg|Opcode[6] ;
@@ -376,7 +376,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 ; fsm:state_machine|state_counter~2      ; Lost fanout                           ;
 ; fsm:state_machine|state_counter~3      ; Lost fanout                           ;
 ; fsm:state_machine|state_counter~4      ; Lost fanout                           ;
-; Total Number of Removed Registers = 27 ;                                       ;
+; Total Number of Removed Registers = 26 ;                                       ;
 +----------------------------------------+---------------------------------------+
 
 
@@ -402,7 +402,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +-----------------------------------------------------------------------------+--------------------------------------------------------------------------+------+
 ; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_pixel[0..23] ; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_rom_rtl_0 ; RAM  ;
 ; bram:memory|q_a[0..15]                                                      ; bram:memory|ram_rtl_0                                                    ; RAM  ;
-; bram:memory|q_b[0..7]                                                       ; bram:memory|ram_rtl_0                                                    ; RAM  ;
+; bram:memory|q_b[0..8]                                                       ; bram:memory|ram_rtl_0                                                    ; RAM  ;
 +-----------------------------------------------------------------------------+--------------------------------------------------------------------------+------+
 
 
@@ -445,7 +445,7 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_41d1:auto_generated ;
+; Source assignments for vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0|altsyncram_01d1:auto_generated ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
 ; Assignment                      ; Value              ; From ; To                                                                          ;
 +---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
@@ -566,8 +566,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; WIDTH_BYTEENA                      ; 1                                       ; Untyped                                               ;
 ; OPERATION_MODE                     ; ROM                                     ; Untyped                                               ;
 ; WIDTH_A                            ; 24                                      ; Untyped                                               ;
-; WIDTHAD_A                          ; 8                                       ; Untyped                                               ;
-; NUMWORDS_A                         ; 256                                     ; Untyped                                               ;
+; WIDTHAD_A                          ; 9                                       ; Untyped                                               ;
+; NUMWORDS_A                         ; 512                                     ; Untyped                                               ;
 ; OUTDATA_REG_A                      ; UNREGISTERED                            ; Untyped                                               ;
 ; ADDRESS_ACLR_A                     ; NONE                                    ; Untyped                                               ;
 ; OUTDATA_ACLR_A                     ; NONE                                    ; Untyped                                               ;
@@ -609,7 +609,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                                   ; Untyped                                               ;
 ; WIDTH_ECCSTATUS                    ; 3                                       ; Untyped                                               ;
 ; DEVICE_FAMILY                      ; Cyclone V                               ; Untyped                                               ;
-; CBXI_PARAMETER                     ; altsyncram_41d1                         ; Untyped                                               ;
+; CBXI_PARAMETER                     ; altsyncram_01d1                         ; Untyped                                               ;
 +------------------------------------+-----------------------------------------+-------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -684,7 +684,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Entity Instance                           ; vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0 ;
 ;     -- OPERATION_MODE                     ; ROM                                                                                 ;
 ;     -- WIDTH_A                            ; 24                                                                                  ;
-;     -- NUMWORDS_A                         ; 256                                                                                 ;
+;     -- NUMWORDS_A                         ; 512                                                                                 ;
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
 ;     -- WIDTH_B                            ; 1                                                                                   ;
 ;     -- NUMWORDS_B                         ; 1                                                                                   ;
@@ -756,23 +756,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR SLD      ; 24                          ;
 ;     SCLR              ; 3                           ;
 ;     plain             ; 16                          ;
-; arriav_lcell_comb     ; 1173                        ;
-;     arith             ; 226                         ;
+; arriav_lcell_comb     ; 1177                        ;
+;     arith             ; 227                         ;
 ;         0 data inputs ; 8                           ;
-;         1 data inputs ; 77                          ;
+;         1 data inputs ; 78                          ;
 ;         2 data inputs ; 6                           ;
 ;         4 data inputs ; 60                          ;
 ;         5 data inputs ; 75                          ;
 ;     extend            ; 29                          ;
 ;         7 data inputs ; 29                          ;
-;     normal            ; 873                         ;
+;     normal            ; 876                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
 ;         2 data inputs ; 45                          ;
-;         3 data inputs ; 94                          ;
+;         3 data inputs ; 95                          ;
 ;         4 data inputs ; 138                         ;
 ;         5 data inputs ; 127                         ;
-;         6 data inputs ; 463                         ;
+;         6 data inputs ; 465                         ;
 ;     shared            ; 45                          ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 4                           ;
@@ -783,7 +783,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 152                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 14.40                       ;
-; Average LUT depth     ; 8.46                        ;
+; Average LUT depth     ; 8.43                        ;
 +-----------------------+-----------------------------+
 
 
@@ -792,7 +792,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:11     ;
+; Top            ; 00:00:05     ;
 +----------------+--------------+
 
 
@@ -802,7 +802,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Sun Nov 29 17:39:34 2020
+    Info: Processing started: Sun Nov 29 19:17:42 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/colt/documents/school/fall 2020/ece 3710-001/lab/ece3710project/vga/glyph_rom.v
@@ -854,7 +854,7 @@ Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users
 Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 130
 Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 145
 Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 173
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (9) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v Line: 23
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (10769) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v Line: 23
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 184
 Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 197
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v Line: 216
@@ -910,6 +910,7 @@ Info (12128): Elaborating entity "vga" for hierarchy "vga:screener" File: C:/Use
 Info (12128): Elaborating entity "vga_control" for hierarchy "vga:screener|vga_control:control" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v Line: 20
 Info (12128): Elaborating entity "address_generator" for hierarchy "vga:screener|address_generator:addr_gen" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v Line: 31
 Info (12128): Elaborating entity "glyph_rom" for hierarchy "vga:screener|address_generator:addr_gen|glyph_rom:glyphs" File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/address_generator.v Line: 28
+Warning (10850): Verilog HDL warning at glyph_rom.v(18): number of words (256) in memory file does not match the number of elements in the address range [0:511] File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v Line: 18
 Warning (10030): Net "glyph_rom.data_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v Line: 14
 Warning (10030): Net "glyph_rom.waddr_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v Line: 14
 Warning (10030): Net "glyph_rom.we_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v Line: 14
@@ -919,8 +920,8 @@ Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_rom_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to ROM
         Info (286033): Parameter WIDTH_A set to 24
-        Info (286033): Parameter WIDTHAD_A set to 8
-        Info (286033): Parameter NUMWORDS_A set to 256
+        Info (286033): Parameter WIDTHAD_A set to 9
+        Info (286033): Parameter NUMWORDS_A set to 512
         Info (286033): Parameter OUTDATA_REG_A set to UNREGISTERED
         Info (286033): Parameter ADDRESS_ACLR_A set to NONE
         Info (286033): Parameter OUTDATA_ACLR_A set to NONE
@@ -951,16 +952,16 @@ Info (12130): Elaborated megafunction instantiation "vga:screener|address_genera
 Info (12133): Instantiated megafunction "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|altsyncram:glyph_rom_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "ROM"
     Info (12134): Parameter "WIDTH_A" = "24"
-    Info (12134): Parameter "WIDTHAD_A" = "8"
-    Info (12134): Parameter "NUMWORDS_A" = "256"
+    Info (12134): Parameter "WIDTHAD_A" = "9"
+    Info (12134): Parameter "NUMWORDS_A" = "512"
     Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
     Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
     Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
     Info (12134): Parameter "INIT_FILE" = "db/lab4.ram0_glyph_rom_7ca142c7.hdl.mif"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_41d1.tdf
-    Info (12023): Found entity 1: altsyncram_41d1 File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_41d1.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_01d1.tdf
+    Info (12023): Found entity 1: altsyncram_01d1 File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_01d1.tdf Line: 27
 Info (12130): Elaborated megafunction instantiation "bram:memory|altsyncram:ram_rtl_0"
 Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "BIDIR_DUAL_PORT"
@@ -984,43 +985,27 @@ Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with 
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qq42.tdf
     Info (12023): Found entity 1: altsyncram_qq42 File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/altsyncram_qq42.tdf Line: 31
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
     Info (12023): Found entity 1: decode_dla File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 11 registers lost all their fanouts during netlist optimizations.
+Info (17049): 10 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/output_files/lab4.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1675 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1679 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 56 output pins
-    Info (21061): Implemented 1456 logic cells
+    Info (21061): Implemented 1460 logic cells
     Info (21064): Implemented 152 RAM segments
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 68 warnings
-    Info: Peak virtual memory: 4974 megabytes
-    Info: Processing ended: Sun Nov 29 17:42:26 2020
-    Info: Elapsed time: 00:02:52
-    Info: Total CPU time (on all processors): 00:03:05
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 4869 megabytes
+    Info: Processing ended: Sun Nov 29 19:17:57 2020
+    Info: Elapsed time: 00:00:15
+    Info: Total CPU time (on all processors): 00:00:26
 
 
 +------------------------------------------+
