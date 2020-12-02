@@ -1,5 +1,5 @@
 Timing Analyzer report for lab4
-Tue Dec 01 16:31:00 2020
+Tue Dec 01 19:14:41 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -99,14 +99,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.29        ;
+; Average used               ; 2.33        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  43.5%      ;
-;     Processor 3            ;  43.0%      ;
-;     Processor 4            ;  42.6%      ;
+;     Processor 2            ;  44.7%      ;
+;     Processor 3            ;  44.3%      ;
+;     Processor 4            ;  43.9%      ;
 +----------------------------+-------------+
 
 
@@ -898,7 +898,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Dec 01 16:30:26 2020
+    Info: Processing started: Tue Dec 01 19:14:09 2020
 Info: Command: quartus_sta lab4 -c lab4
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -908,7 +908,7 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'lab
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name clk_in clk_in
-Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v Line: 192
+Warning (332125): Found combinational loop of 337 nodes File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v Line: 192
     Warning (332126): Node "logicBox|Add10~1|datac"
     Warning (332126): Node "logicBox|Add10~1|cout"
     Warning (332126): Node "logicBox|Add10~5|cin"
@@ -1328,9 +1328,9 @@ Info (332146): Worst-case minimum pulse width slack is -2.636
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 344 warnings
-    Info: Peak virtual memory: 5249 megabytes
-    Info: Processing ended: Tue Dec 01 16:30:59 2020
-    Info: Elapsed time: 00:00:33
-    Info: Total CPU time (on all processors): 00:00:48
+    Info: Peak virtual memory: 5231 megabytes
+    Info: Processing ended: Tue Dec 01 19:14:41 2020
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:00:52
 
 

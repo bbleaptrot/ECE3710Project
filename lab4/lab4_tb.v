@@ -13,9 +13,10 @@ reg clk_in, rst, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7;
 //outputs
 wire[0:6] seg_4, seg_3, seg_2, seg_1;
 
-	lab4 UUT(
-		clk_in, rst, seg_4, seg_3, seg_2, seg_1, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7
-	);
+wire hsync, vsync, vga_blank_n, vga_clk;
+wire [23:0] rgb;
+
+	lab4 UUT(clk_in, rst, seg_4, seg_3, seg_2, seg_1, in_0, in_1, in_2, in_3, in_4, in_5, in_6,in_7, hsync, vsync, vga_blank_n, vga_clk, rgb);
 
 	initial 
 	begin
@@ -56,6 +57,13 @@ wire[0:6] seg_4, seg_3, seg_2, seg_1;
 		in_5 = 1'b0;
 		in_6 = 1'b0;
 		in_7 = 1'b1;
+		
+		
+		
+		
+		#1000000;
+
+		$stop;
 		
 		
 	

@@ -23,6 +23,8 @@ module address_generator (clk, vga_blank_n, hcount, vcount, ram_q, ram_addr, pix
 	assign ram_addr = vga_blank_n * ((x_pos >> 2) + ((y_pos >> 2) * 8'hA0) + VGA_BASE_ADDR);
 	
 	wire [15:0] glyph_addr;
+	
+	// Get the actual pixel location.
 	assign glyph_addr = (x_pos & 16'h3) + ((y_pos & 16'h3) * 16'h4) + ram_q;
 	
 	glyph_rom glyphs (.clk(clk), .glyph_addr(glyph_addr), .glyph_pixel(pixel_out));

@@ -38,7 +38,6 @@ module vga (clk, rst, addr_b, q_b, hsync, vsync, vga_blank_n, vga_clk, rgb);
 					  .rgb(rgb)
 					  );
 								
-								
 	
 
 endmodule

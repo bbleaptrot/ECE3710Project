@@ -1,5 +1,5 @@
 Fitter report for lab4
-Tue Dec 01 16:30:01 2020
+Tue Dec 01 19:13:44 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Fitter Summary                                                                ;
 +---------------------------------+---------------------------------------------+
-; Fitter Status                   ; Successful - Tue Dec 01 16:30:01 2020       ;
+; Fitter Status                   ; Successful - Tue Dec 01 19:13:44 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -162,9 +162,9 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   7.2%      ;
-;     Processor 3            ;   6.3%      ;
-;     Processor 4            ;   5.9%      ;
+;     Processor 2            ;   7.1%      ;
+;     Processor 3            ;   6.4%      ;
+;     Processor 4            ;   6.0%      ;
 +----------------------------+-------------+
 
 
@@ -216,7 +216,7 @@ refer to the applicable agreement for further details.
 +--------------+
 ; Pin-Out File ;
 +--------------+
-The pin-out file can be found in C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.pin.
+The pin-out file can be found in C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/output_files/lab4.pin.
 
 
 +---------------------------------------------------------------------------------------------+
@@ -2388,7 +2388,7 @@ Info (184021): Fitter periphery placement operations ending: elapsed time is 00:
 Info (176233): Starting register packing
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'lab4.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
-Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v Line: 121
+Warning (332125): Found combinational loop of 337 nodes File: C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v Line: 121
     Warning (332126): Node "logicBox|Add2~1|cin"
     Warning (332126): Node "logicBox|Add2~1|cout"
     Warning (332126): Node "logicBox|Add2~5|cin"
@@ -2732,36 +2732,36 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:26
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:32
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:16
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:18
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:15
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:22
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 2% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 18% of the available device resources in the region that extends from location X45_Y23 to location X55_Y34
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:44
-Info (11888): Total time spent on timing analysis during the Fitter is 16.67 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:50
+Info (11888): Total time spent on timing analysis during the Fitter is 18.61 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:19
-Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.fit.smsg
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:23
+Info (144001): Generated suppressed messages file C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/output_files/lab4.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 342 warnings
-    Info: Peak virtual memory: 6623 megabytes
-    Info: Processing ended: Tue Dec 01 16:30:05 2020
-    Info: Elapsed time: 00:02:58
-    Info: Total CPU time (on all processors): 00:05:30
+    Info: Peak virtual memory: 6627 megabytes
+    Info: Processing ended: Tue Dec 01 19:13:46 2020
+    Info: Elapsed time: 00:03:33
+    Info: Total CPU time (on all processors): 00:06:44
 
 
 +----------------------------+
 ; Fitter Suppressed Messages ;
 +----------------------------+
-The suppressed messages can be found in C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.fit.smsg.
+The suppressed messages can be found in C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/output_files/lab4.fit.smsg.
 
 

@@ -7,401 +7,402 @@ z2
 !i10e 25
 !i10f 100
 cModel Technology
-Z0 dC:/Users/bblea/source/repos/ECE3710Project/lab4/simulation/modelsim
+Z0 dC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/simulation/modelsim
 vaddress_generator
-!s110 1606686253
+Z1 !s110 1606873377
 !i10b 1
-!s100 F6]3[VIiD_5lzV4ME:IKW0
-I0962e9eS;2fnd9RYRH1>V3
-Z1 VDg1SIo80bB@j0V0VzS_@n1
+!s100 QLY`:ZI=;7nW@M[52nT530
+Ig3ZYKcXZAVEh@X<Fj[bMA0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
 R0
-w1606262126
-8C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v
-FC:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v
+w1606871625
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/address_generator.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/address_generator.v
 L0 7
-Z2 OV;L;10.5b;63
+Z3 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z3 !s108 1606686253.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v|
+Z4 !s108 1606873377.000000
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/address_generator.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/address_generator.v|
 !i113 1
-Z4 o-vlog01compat -work work
-Z5 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/vga
-Z6 tCvgOpt 0
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga}
+Z7 tCvgOpt 0
 valu
-Z7 !s110 1606686259
+Z8 !s110 1606873380
 !i10b 1
 !s100 :dLHBUMklYgJ6Q]]e6=z?2
-IfZdBgz@[:FnEKBjTzGWeY2
-R1
+I@CU3caN5SSmQA4<MAZGhP0
+R2
 R0
-w1605649208
-8C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v
+Z9 w1605985637
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v
 L0 28
-R2
+R3
 r1
 !s85 0
 31
-Z8 !s108 1606686258.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/alu.v|
+Z10 !s108 1606873380.000000
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/alu.v|
 !i113 1
-R4
-Z9 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1
-R6
+R5
+Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1}
+R7
 vbitgen
-Z10 !s110 1606686252
-!i10b 1
-!s100 ;]X02==mXWn4DQ_m>kN6T3
-I=DX`MAVYgBTaC=F>3=cd@3
 R1
-R0
-Z11 w1606262127
-8C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v
-FC:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v
-L0 8
+!i10b 1
+!s100 55Z;aa99ozd31BoUU1TlW2
+InCd]@^T2=@0N=3KLmISdd1
 R2
+R0
+w1606870845
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/bitgen.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/bitgen.v
+L0 9
+R3
 r1
 !s85 0
 31
-Z12 !s108 1606686252.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v|
-!i113 1
 R4
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/bitgen.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/bitgen.v|
+!i113 1
 R5
 R6
+R7
 vbram
-Z13 !s110 1606686261
+Z12 !s110 1606873381
 !i10b 1
-!s100 ]GTSj]4KWQ8D?Rah6TeE92
-IKJ>?XXAnkGoY5dX_2iheR3
-R1
-R0
-w1603837345
-8C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v
-L0 9
+!s100 i1IaMJT6OPUeci2MRY<YL2
+IeA=T8]8kX6WSfz3cAXmBP0
 R2
+R0
+w1606692112
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v
+L0 9
+R3
 r1
 !s85 0
 31
-Z14 !s108 1606686261.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3|C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v|
+Z13 !s108 1606873381.000000
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3/bram.v|
 !i113 1
-R4
-!s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3
-R6
+R5
+!s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab3}
+R7
 vflags_register
-Z15 !s110 1606686260
+R12
 !i10b 1
 !s100 =GQSGSeOAaA?H1=S5e9]]2
-IP7@@P14co<8o6Sl_H>3;d1
-R1
-R0
-w1604116134
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v
-L0 1
+IhB5Yc2fPjKk^71EBJA@e40
 R2
+R0
+w1604118218
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/flags_register.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/flags_register.v
+L0 1
+R3
 r1
 !s85 0
 31
-Z16 !s108 1606686260.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/flags_register.v|
+R13
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/flags_register.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/flags_register.v|
 !i113 1
-R4
-Z17 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4
-R6
+R5
+Z14 !s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4}
+R7
 vfsm
-R15
+R8
 !i10b 1
 !s100 Wa=C9B9a7k0ST6K7gka^W0
-I>k@L5eZWA;GzVPVTMQRo02
-R1
+IB1RS>^LHS3P0Gl1KNdXTh3
+R2
 R0
-w1606514823
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v
+w1606680806
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/fsm.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/fsm.v
 L0 1
-R2
+R3
 r1
 !s85 0
 31
-R16
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/fsm.v|
+R10
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/fsm.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/fsm.v|
 !i113 1
-R4
-R17
-R6
-vglyph_rom
-R13
-!i10b 1
-!s100 Bd5a:EaU2mo5HmFgL^RAV3
-IDUezJ?6ANoENEaQL;L6GP2
-R1
-R0
-w1606683183
-8C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v
-FC:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v
-L0 8
-R2
-r1
-!s85 0
-31
+R5
 R14
-!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v|
+R7
+vglyph_rom
+R12
+!i10b 1
+!s100 =?nL_Z=Ka5jAo_2i8CzJf2
+IUok_4;Q?b4Z[WIQ19ng_K2
+R2
+R0
+w1606872277
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v
+L0 8
+R3
+r1
+!s85 0
+31
+R13
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/glyph_rom.v|
 !i113 1
-R4
 R5
 R6
+R7
 vhex2seg
-Z18 !s110 1606686258
+R8
 !i10b 1
 !s100 RhVA2H2^VmEn6z2nUQ]6H3
-I][MUBSA=Zgej4?WUdJ?:20
-R1
-R0
-w1602623453
-8C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v
-L0 7
+I^ZShb8I;Xfh1mbC@MHfYZ1
 R2
+R0
+w1599778027
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/hex2seg.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/hex2seg.v
+L0 7
+R3
 r1
 !s85 0
 31
-R8
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1|C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v|
+R10
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/hex2seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab1/hex2seg.v|
 !i113 1
-R4
-R9
-R6
+R5
+R11
+R7
 vIRreg
-R15
+R12
 !i10b 1
 !s100 ek72eEb?a?E3Wh:F6HK<J0
-I@`VN4kzoa`4HzGZ_Yni3Q3
-R1
-R0
-w1605380631
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v
-L0 1
+IUQm]4IPnOOMM;ODT2@^mD3
 R2
+R0
+R9
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/IRreg.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/IRreg.v
+L0 1
+R3
 r1
 !s85 0
 31
-R16
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/IRreg.v|
+R13
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/IRreg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/IRreg.v|
 !i113 1
-R4
-R17
-R6
+R5
+R14
+R7
 n@i@rreg
 vlab4
-R7
+R8
 !i10b 1
-!s100 fKN:2MBc9hZ27L8eDA>ki0
-IdH]lZ;Rco9_`28fC9Hgz22
-R1
+!s100 ;@]_>lX@EkVFanX;70bfG0
+IJaLG<XQebLbz2`8jZzeGW3
+R2
 R0
-w1606684082
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v
+w1606688122
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v
 L0 1
-R2
+R3
 r1
 !s85 0
 31
-Z19 !s108 1606686259.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v|
+R10
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4.v|
 !i113 1
-R4
-R17
-R6
+R5
+R14
+R7
 vlab4_tb
-Z20 !s110 1606686257
+R12
 !i10b 1
-!s100 l>RO0S?^UG5jJ4Y38`QD62
-I7DzJJ?]<jXBNA2MFezVBl1
-R1
-R0
-w1606515407
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v
-L0 8
+!s100 O3`4z[V=UKon2n:BB3J>Z1
+IM@zmL1W^K>7gML=>zFU4A2
 R2
+R0
+w1606873358
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4_tb.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4_tb.v
+L0 8
+R3
 r1
 !s85 0
 31
-Z21 !s108 1606686257.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
-!s90 -reportprogress|300|-work|work|C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4_tb.v|
+R13
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/lab4_tb.v|
 !i113 1
-o-work work
-R6
+R5
+R14
+R7
 vmobile_receiver
-Z22 !s110 1606686254
+Z15 !s110 1606873378
 !i10b 1
 !s100 n48KCO]Ob:jRija3PL@M?2
-I=2CJXdK]ScY06B1530jjE0
-R1
-R0
-w1606593574
-8C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v
-FC:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v
-L0 1
+IMld[<?APjl_=?jHPHFn5P2
 R2
+R0
+w1606688021
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller/mobile_receiver.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller/mobile_receiver.v
+L0 1
+R3
 r1
 !s85 0
 31
-!s108 1606686254.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/mobile_controller|C:/Users/bblea/source/repos/ECE3710Project/mobile_controller/mobile_receiver.v|
+Z16 !s108 1606873378.000000
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller/mobile_receiver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller/mobile_receiver.v|
 !i113 1
-R4
-!s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/mobile_controller
-R6
+R5
+!s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/mobile_controller}
+R7
 vmux
-R18
+Z17 !s110 1606873379
 !i10b 1
 !s100 fZ0[[gNFl>QC^CgV:@bQ71
-Ik]^i;cfM57:@6@Y8nmB=z2
-R1
-R0
-Z23 w1601415820
-8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v
-L0 5
+IDC[_PJ8E:gn7QCTKa@ke<3
 R2
+R0
+Z18 w1602630956
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux.v
+L0 5
+R3
 r1
 !s85 0
 31
-R8
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux.v|
+Z19 !s108 1606873379.000000
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux.v|
 !i113 1
-R4
-Z24 !s92 -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2
-R6
+R5
+Z20 !s92 -vlog01compat -work work {+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2}
+R7
 vmux_2_to_1
-R20
+R17
 !i10b 1
 !s100 ]Ki0HgKnFkDIP@>3cmcSl0
-IB3S2N518[4RGOI?il49Z13
-R1
+I1BEcT<B<B66;CbLVg]G:Q1
+R2
 R0
-R23
-8C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v
+R18
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux_2_to_1.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux_2_to_1.v
 L0 5
-R2
-r1
-!s85 0
-31
-R21
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/mux_2_to_1.v|
-!i113 1
-R4
-R24
-R6
-vprogram_counter
-R7
-!i10b 1
-!s100 X^:f?BoL6Vcj=Q1NZh0?m3
-I0IHcW4glNT?m9CKXh40c62
-R1
-R0
-w1604110786
-8C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v
-L0 19
-R2
+R3
 r1
 !s85 0
 31
 R19
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab4|C:/Users/bblea/source/repos/ECE3710Project/lab4/program_counter.v|
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux_2_to_1.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/mux_2_to_1.v|
 !i113 1
-R4
-R17
-R6
+R5
+R20
+R7
+vprogram_counter
+R8
+!i10b 1
+!s100 X^:f?BoL6Vcj=Q1NZh0?m3
+I0E89b[UPCE?4>HnE6^=MG2
+R2
+R0
+w1604113883
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/program_counter.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/program_counter.v
+L0 19
+R3
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/program_counter.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab4/program_counter.v|
+!i113 1
+R5
+R14
+R7
 vregfile_2D_memory
-!s110 1606686255
+R15
 !i10b 1
 !s100 SflE3`^WeOHJ[7kh]8JoB2
-IKG4iEI8hA7JJ;aOkKdKoJ0
-R1
-R0
-R23
-8C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
-FC:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v
-L0 3
+IlRZHlYDXYLEC[IeH5CnY30
 R2
+R0
+R18
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/regfile_2D_memory.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/regfile_2D_memory.v
+L0 3
+R3
 r1
 !s85 0
 31
-!s108 1606686255.000000
-!s107 C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/lab2|C:/Users/bblea/source/repos/ECE3710Project/lab2/regfile_2D_memory.v|
+R16
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/regfile_2D_memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/lab2/regfile_2D_memory.v|
 !i113 1
-R4
-R24
-R6
+R5
+R20
+R7
 nregfile_2@d_memory
 vvga
-R22
+R15
 !i10b 1
-!s100 S2;7ZJ`jlDjD1aDbbCKIU2
-I?=VEgHVPF5>W8j4B_C]]d1
-R1
-R0
-R11
-8C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v
-FC:/Users/bblea/source/repos/ECE3710Project/vga/vga.v
-L0 1
+!s100 9A2PjR=gm_iSm6Fgm`_4V2
+IU`dAgXf66;n<jk]QafO`b2
 R2
+R0
+w1606870901
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v
+L0 1
+R3
 r1
 !s85 0
 31
-R3
-!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v|
+R16
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga.v|
 !i113 1
-R4
 R5
 R6
+R7
 vvga_control
-R10
+R1
 !i10b 1
 !s100 b4H_a6^Oe1H5?a2JlC^@i3
-I:YB5=3FMhE5VJb4YY?@NV1
-R1
-R0
-w1605983423
-8C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v
-FC:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v
-L0 1
+IFK7WQHW2fi2L26Gh4KaLJ1
 R2
+R0
+w1606870763
+8C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga_control.v
+FC:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga_control.v
+L0 1
+R3
 r1
 !s85 0
 31
-R12
-!s107 C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/bblea/source/repos/ECE3710Project/vga|C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v|
-!i113 1
 R4
+!s107 C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga_control.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga|C:/Users/Colt/Documents/School/Fall 2020/ECE 3710-001/Lab/ECE3710Project/vga/vga_control.v|
+!i113 1
 R5
 R6
+R7

@@ -166,7 +166,7 @@ mux muxDst(
 	.addr_a(addr_a),
 	.addr_b(addr_b), // VGA Stuff
 	.we_a(WE),   // FSM
-	.we_b(),   // VGA Stuff
+	.we_b(1'b0),   // VGA Stuff
 	.clk(clk),
 	.q_a(q_a),
 	.q_b(q_b)    // VGA Stuff

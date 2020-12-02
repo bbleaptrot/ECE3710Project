@@ -7,7 +7,7 @@
  */
 module glyph_rom (clk, glyph_addr, glyph_pixel);
 	input clk;
-	input [16:0] glyph_addr; 
+	input [15:0] glyph_addr; 
 	output reg [23:0] glyph_pixel;
 	
 	// ADJUST ACCORDING TO THE NUMBER OF PIXELS IN GLYPHS!
