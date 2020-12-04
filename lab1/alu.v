@@ -268,7 +268,7 @@ module alu(A, B, C, Opcode, Flags);
 			
 		MOV: // Move
 			begin
-			C = B; 
+			C = A; 
 			end
 			
 		MOVI: // Move with zero-extended immediate 

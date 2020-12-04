@@ -97,7 +97,8 @@ always @(posedge clk)
 					instruction[15:12] == 4'b0001 ||
 					instruction[15:12] == 4'b0010 ||
 					instruction[15:12] == 4'b0011 ||
-					instruction[15:12] == 4'b1101) RegOrImm = 1'b1;
+					instruction[15:12] == 4'b1101 ||
+					instruction[15:12] == 4'b1111) RegOrImm = 1'b1;
 				else RegOrImm = 1'b0;
 				case(instruction[11:8])
 					0:  Ren = 16'h0001;

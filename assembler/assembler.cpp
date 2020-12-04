@@ -17,7 +17,6 @@
 #include <sstream>
 #include <string>
 #include <vector>
-
 #include <iomanip>
 
 bool arg_check(int argc, char** argv);
@@ -29,6 +28,8 @@ int reg_to_char(std::string reg);
 
 int main(int argc, char** argv)
 {
+  std::ofstream myFile;
+  myFile.open("game.txt");
   // Make sure arguments are good.
   if(!arg_check(argc, argv))
     return -1;
@@ -41,25 +42,30 @@ int main(int argc, char** argv)
   // Parse each line.
   for(int i = 0; i < asm_lines.size(); i++)
   {
+    if(asm_lines[i].at(0) == '@')
+      {
+	myFile << asm_lines[i] << std::endl;
+	continue;
+      }
     //std::cout << "Parsing line: " << asm_lines[i] << std::endl;
     short asm_code = parse_line(asm_lines[i]);
 
     if(undefined_code(asm_code))
     {
-      std::cout << asm_lines[i] << std::endl;
+      myFile << asm_lines[i] << std::endl;
       return asm_code; 
     }
   
-    std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
+    myFile/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << asm_code << std::endl;
     int branch_code = asm_code & 0xF000;
     if (branch_code  == 0xC000)
     {
-        std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+        myFile/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
     }
     int jump_code = asm_code & 0xF0F0;
     if(jump_code == 0x40C0)
     {
-        std::cout/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
+        myFile/* << "     "*/ << std::hex << std::setfill('0') << std::setw(4) << 0x0020 << std::endl;
     }
 
   }
@@ -174,13 +180,13 @@ short parse_line(std::string& line)
       return 0x4FFE;
    
     int Rd = reg_to_char(Rdest);
-    int Rs = reg_to_char(Rsrc);
+    //int Rs = reg_to_char(Rsrc);
  
-    if((Rs > 15) || (Rd > 15))
+    if(Rd > 15)
       return 0x4FFE;
     
     //     Op     Rdest       OPext        Rsrc
-    return 0xF000 + (Rd << 8) + (0xF << 4) + (Rs);   
+    return 0xF000 + (Rd << 8) + (0xF << 4) + 0x00;   
   }
 
   if(!instr.compare("LOAD"))

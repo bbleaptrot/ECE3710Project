@@ -166,7 +166,7 @@ mux muxDst(
 	.addr_a(addr_a),
 	.addr_b(addr_b), // VGA Stuff
 	.we_a(WE),   // FSM
-	.we_b(1'b0),   // VGA Stuff
+	.we_b(),   // VGA Stuff
 	.clk(clk),
 	.q_a(q_a),
 	.q_b(q_b)    // VGA Stuff
@@ -266,10 +266,10 @@ mux muxDst(
 //	hex2seg seg2(r0_out[7:4], seg_2);
 //	hex2seg seg1(r0_out[3:0], seg_1);
 
-	hex2seg seg4(r5_out[15:12], seg_4);
-	hex2seg seg3(r5_out[11:8], seg_3);
-	hex2seg seg2(r5_out[7:4], seg_2);
-	hex2seg seg1(r5_out[3:0], seg_1);
+	hex2seg seg4(r14_out[15:12], seg_4);
+	hex2seg seg3(r14_out[11:8], seg_3);
+	hex2seg seg2(r14_out[7:4], seg_2);
+	hex2seg seg1(r14_out[3:0], seg_1);
 
 //	hex2seg seg4(Opcode[7:4], seg_4);
 //	hex2seg seg3(RdstOut, seg_3);
