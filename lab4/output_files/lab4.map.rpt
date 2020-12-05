@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Thu Dec 03 16:11:16 2020
+Sat Dec 05 13:21:05 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -32,13 +32,12 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  24. Parameter Settings for Inferred Entity Instance: bram:memory|altsyncram:ram_rtl_0
  25. altsyncram Parameter Settings by Entity Instance
  26. Port Connectivity Checks: "vga:screener|bitgen:bgen"
- 27. Port Connectivity Checks: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs"
- 28. Port Connectivity Checks: "bram:memory"
- 29. Port Connectivity Checks: "mux_2_to_1:phoneCntl"
- 30. Post-Synthesis Netlist Statistics for Top Partition
- 31. Elapsed Time Per Partition
- 32. Analysis & Synthesis Messages
- 33. Analysis & Synthesis Suppressed Messages
+ 27. Port Connectivity Checks: "bram:memory"
+ 28. Port Connectivity Checks: "mux_2_to_1:phoneCntl"
+ 29. Post-Synthesis Netlist Statistics for Top Partition
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
+ 32. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -64,7 +63,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec 03 16:11:15 2020       ;
+; Analysis & Synthesis Status     ; Successful - Sat Dec 05 13:21:05 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -706,25 +705,14 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------------------+-------------------------------------------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga:screener|bitgen:bgen"                                                                                                                       ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Port     ; Type  ; Severity ; Details                                                                                                                                      ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-; pixel_en ; Input ; Info     ; Stuck at VCC                                                                                                                                 ;
-; bg_pixel ; Input ; Info     ; Stuck at GND                                                                                                                                 ;
-; hcount   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-; vcount   ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
-+----------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs"                                                                                                   ;
-+------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port       ; Type  ; Severity ; Details                                                                                                                                                ;
-+------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
-; glyph_addr ; Input ; Warning  ; Input port expression (16 bits) is smaller than the input port (17 bits) it drives.  Extra input bit(s) "glyph_addr[16..16]" will be connected to GND. ;
-+------------+-------+----------+--------------------------------------------------------------------------------------------------------------------------------------------------------+
++------------------------------------------------------+
+; Port Connectivity Checks: "vga:screener|bitgen:bgen" ;
++----------+-------+----------+------------------------+
+; Port     ; Type  ; Severity ; Details                ;
++----------+-------+----------+------------------------+
+; pixel_en ; Input ; Info     ; Stuck at VCC           ;
+; bg_pixel ; Input ; Info     ; Stuck at GND           ;
++----------+-------+----------+------------------------+
 
 
 +--------------------------------------------------+
@@ -792,7 +780,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:17     ;
+; Top            ; 00:00:10     ;
 +----------------+--------------+
 
 
@@ -802,7 +790,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Dec 03 16:08:02 2020
+    Info: Processing started: Sat Dec 05 13:18:34 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/glyph_rom.v
@@ -810,7 +798,7 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/vga_control.v
     Info (12023): Found entity 1: vga_control File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga_control.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/bitgen.v
-    Info (12023): Found entity 1: bitgen File: C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v Line: 8
+    Info (12023): Found entity 1: bitgen File: C:/Users/bblea/source/repos/ECE3710Project/vga/bitgen.v Line: 9
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/address_generator.v
     Info (12023): Found entity 1: address_generator File: C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/vga.v
@@ -854,7 +842,11 @@ Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users
 Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 130
 Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 145
 Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 173
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (146) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (19357) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
+Warning (10230): Verilog HDL assignment warning at game.txt(267): truncated value with size 32 to match size of target (16) File: C:/Users/bblea/source/repos/ECE3710Project/lab4/game.txt Line: 267
+Warning (10230): Verilog HDL assignment warning at game.txt(268): truncated value with size 32 to match size of target (16) File: C:/Users/bblea/source/repos/ECE3710Project/lab4/game.txt Line: 268
+Warning (10230): Verilog HDL assignment warning at game.txt(269): truncated value with size 32 to match size of target (16) File: C:/Users/bblea/source/repos/ECE3710Project/lab4/game.txt Line: 269
+Warning (10230): Verilog HDL assignment warning at game.txt(270): truncated value with size 32 to match size of target (16) File: C:/Users/bblea/source/repos/ECE3710Project/lab4/game.txt Line: 270
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 184
 Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 197
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 216
@@ -910,8 +902,8 @@ Info (12128): Elaborating entity "mobile_receiver" for hierarchy "mobile_receive
 Info (12128): Elaborating entity "vga" for hierarchy "vga:screener" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 261
 Info (12128): Elaborating entity "vga_control" for hierarchy "vga:screener|vga_control:control" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 20
 Info (12128): Elaborating entity "address_generator" for hierarchy "vga:screener|address_generator:addr_gen" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 31
-Info (12128): Elaborating entity "glyph_rom" for hierarchy "vga:screener|address_generator:addr_gen|glyph_rom:glyphs" File: C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v Line: 28
-Warning (10850): Verilog HDL warning at glyph_rom.v(18): number of words (1280) in memory file does not match the number of elements in the address range [0:2055] File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 18
+Info (12128): Elaborating entity "glyph_rom" for hierarchy "vga:screener|address_generator:addr_gen|glyph_rom:glyphs" File: C:/Users/bblea/source/repos/ECE3710Project/vga/address_generator.v Line: 30
+Warning (10850): Verilog HDL warning at glyph_rom.v(18): number of words (1344) in memory file does not match the number of elements in the address range [0:2055] File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 18
 Warning (10030): Net "glyph_rom.data_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 14
 Warning (10030): Net "glyph_rom.waddr_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 14
 Warning (10030): Net "glyph_rom.we_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 14
@@ -1000,13 +992,10 @@ Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File 
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
     Info (12023): Found entity 1: decode_dla File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
     Info (12023): Found entity 1: mux_chb File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/mux_chb.tdf Line: 22
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
@@ -1018,11 +1007,11 @@ Info (21057): Implemented 1660 device resources after synthesis - the final reso
     Info (21061): Implemented 1441 logic cells
     Info (21064): Implemented 152 RAM segments
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 70 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 71 warnings
     Info: Peak virtual memory: 4980 megabytes
-    Info: Processing ended: Thu Dec 03 16:11:16 2020
-    Info: Elapsed time: 00:03:14
-    Info: Total CPU time (on all processors): 00:03:29
+    Info: Processing ended: Sat Dec 05 13:21:05 2020
+    Info: Elapsed time: 00:02:31
+    Info: Total CPU time (on all processors): 00:02:37
 
 
 +------------------------------------------+
