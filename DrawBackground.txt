@@ -1,0 +1,39 @@
+# Simpler, but more costly draw background:
+@0000 # ADJUST!
+LUI 0xB0, R3 # Base address of VGA is at 0xB000
+LUI 0x05, R4 # Address of background glyph (Only one)
+LUI 0xFB, R5 # Last drawable glyph is at 0xFB00 (Could increment for busier loop!
+MOVI 1, R6   # Incrementor (No ADDI instruction)
+
+STOR R4, R3
+ADD R6, R3
+CMP R5, R3
+BNE -4        # Maybe double check?
+
+
+
+
+# draw_background()
+#@0000 # Should be the first procedure for drawing! Update accordingly!
+#LUI 0xB0, R3  # Base addr of VGA
+#LUI 0x05, R4  # Addr of background glyph (Change as necessary)
+#LUI 0x06, R5  #
+#MOVI 0x70, R6 #
+#ADD R6, R5    # Base addr of drawable area (1648 = 10 * 160 + 48 = 0x670)
+#ADD R3, R5    # First drawable square!
+#MOVI 64, R6
+#ADD R5, R6    # Last drawable square on row.
+#MOVI 0x01, R7
+
+#STOR R4, R5   # Write glyph to memory
+
+#ADD R7, R5
+#CMP R5, R6
+#BNE -4        # Go to write glyph to memory 
+
+# Row done!
+
+
+
+
+
