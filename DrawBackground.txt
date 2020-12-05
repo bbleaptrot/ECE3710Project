@@ -10,6 +10,8 @@ ADD R6, R3
 CMP R5, R3
 BNE -4        # Maybe double check?
 
+JUC ??
+
 
 
 
