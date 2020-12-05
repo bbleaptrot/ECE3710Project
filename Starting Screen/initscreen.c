@@ -16,7 +16,7 @@ int main()
       // initial space ship position.
       if(i >= 100 && j >= 78 && i < 104 && j < 82)
       {
-        int glyph = ((i - 110) * 4 + (j - 78)) << 4;
+        int glyph = (((i - 100) * 4 + (j - 78)) << 4) + 0x0000;
         printf("%04X", glyph);        
       }
 
@@ -102,7 +102,7 @@ int main()
       // Enemy B
       else if( i >= 35 && j >= 68 && i < 39 && j < 72)
       {
-        int glyph = (((i - 35) * 4 + (j - 68)) << 4) + 0x0400;
+        int glyph = (((i - 35) * 4 + (j - 68)) << 4) + 0x0200;
         printf("%04X", glyph);
       }
 
@@ -116,7 +116,7 @@ int main()
       // Enemy D
       else if( i >= 35 && j >= 88 && i < 39 && j < 92)
       {
-        int glyph = (((i - 35) * 4 + (j - 88)) << 4) + 0x0400;
+        int glyph = (((i - 35) * 4 + (j - 88)) << 4) + 0x0200;
         printf("%04X", glyph);
       }
       
