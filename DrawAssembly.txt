@@ -7,23 +7,38 @@
 #Setup
 MOVI 0x01, R10 #This will be used to move addresses by 1
 MOVI 0x10, R11 #Movement in the glyph
+MOVI 0x9D, R12 #Vertical Shift by 157
 
-#DRAW BACKGROUND
-LUI 0x07, R1
-MOVI 0x07, R15
-ADD R15, R1
-LUI 0x09, R2
-JUC R2
-
-@0707 # Draw Main Ship
+@0703 # Draw Main Ship
 LUI 0xA0, R7
 LUI 0x10, R2 #Draw16x16
 LUI 0x07, R3
-MOVI 0x15, R15
+MOVI 0x0b, R15
 ADD R15, R3
 LOAD R7, R6
 LUI 0x00, R9
 JUC R2
+
+@070b #Draw Ship Shot
+ADD R10, R7
+LUI 0x07, R3
+MOVI 0x19, R15
+ADD R15, R3
+#Check if is shot 
+LOAD R7, R6
+LUI 0x00, R15
+CMP R6, R15
+JEQ R3 #dont draw if not shot
+ADD R10, R7
+LOAD R7, R6
+SUB R12, R6
+STOR R6, R7
+LUI 0x08, R9
+JUC R2
+
+@0719 #Draw 
+LUI 0xA0, R7
+
 
 
 JUC R0
@@ -52,31 +67,31 @@ MOV R4, R15
 CMP R7, R15
 JEQ R1 
 LUI 0x09, R14
-MOVI 0x14, R15
+MOVI 0x0e, R15
 ADD R15, R14
 MOV R13, R6
 
-  @0914 #doWhile(jj != j)
+  @090e #doWhile(jj != j)
     LUI 0x09, R3
-    MOVI 0x19, R15
+    MOVI 0x13, R15
     ADD R15, R3
     LUI 0x05, R9
     JUC R2 #Draw16x16
-    @0919
+    @0913
     LUI 0x09, R3
-    MOVI 0x24, R15
+    MOVI 0x18, R15
     ADD R15, R3
     #R6 already set
     LUI 0x06, R9
     JUC R2 #Draw16x16
-    @0924
+    @0918
     LUI 0x09, R3
-    MOVI 0x29, R15
+    MOVI 0x1d, R15
     ADD R15, R3
     #R6 already set
     LUI 0x07, R9
     JUC R2 #Draw16x16
-    @0929
+    @091d
     ADD R10, R5 #j++
   MOV R5, R15
   CMP R8, R15
@@ -195,5 +210,13 @@ ADD R10, R6
 ADD R11, R9
 
 JUC R3
+
+@1200
+#================================================
+#METHOD - Check if Enemy alive and draw if so
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draw upper left corner)
+#================================================
 
 
