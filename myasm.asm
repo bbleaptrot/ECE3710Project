@@ -93,7 +93,7 @@ ADDI 0x01, R10 #Moving dXPos
 ADDI 0x10, R11 #Moving dGlyph
 ADDI 157, R12  #Vertical Shift
 	
-LOAD R6, R7   
+LOAD R7, R6   
 LUI 0x00, R9 #Glyph 1--> upper Left
 STOR R9, R6  # Start Row1
 ADD R10, R6
