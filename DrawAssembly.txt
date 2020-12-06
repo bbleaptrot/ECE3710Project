@@ -22,7 +22,7 @@ JUC R2
 @070b #Draw Ship Shot
 ADD R10, R7
 LUI 0x07, R3
-MOVI 0x19, R15
+MOVI 0x1f, R15
 ADD R15, R3
 #Check if is shot 
 LOAD R7, R6
@@ -33,19 +33,172 @@ ADD R10, R7
 LOAD R7, R6
 SUB R12, R6
 STOR R6, R7
+#Check if off screen
+MOV R6, R15
+LUI 0xB0, R1
+CMP R15, R1
+LUI 0x13, R15
+JGT R15
+#If not offscreen draw
 LUI 0x08, R9
+LUI 0x11, R15
+JUC R15
+
+LUI 0x12, R2
+
+@0720 #Draw Enemy Ship 1
+LUI 0x07, R3
+MOVI 0x28, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x0C, R15
+ADD R15, R6
+LUI 0x01, R9
 JUC R2
 
-@0719 #Draw 
-LUI 0xA0, R7
+@0728 #Draw Enemy Ship 2
+LUI 0x07, R3
+MOVI 0x30, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x0E, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
 
+@0730 #Draw Enemy Ship 3
+LUI 0x07, R3
+MOVI 0x38, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x10, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
 
+@0738 #Draw Enemy Ship 4
+LUI 0x07, R3
+MOVI 0x40, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x12, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0740 #Draw Enemy 5
+LUI 0x07, R3
+MOVI 0x48, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x14, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0748 #Draw Enemy 6
+LUI 0x07, R3
+MOVI 0x50, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x16, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0750 #Draw Enemy 7
+LUI 0x07, R3
+MOVI 0x58, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x18, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0758 #Draw Enemy 8
+LUI 0x07, R3
+MOVI 0x60, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x1A, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0760 #Draw Enemy 9
+LUI 0x07, R3
+MOVI 0x68, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x1C, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0768 #Draw Enemy 10
+LUI 0x07, R3
+MOVI 0x70, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x1E, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0770 #Draw Enemy 11
+LUI 0x07, R3
+MOVI 0x78, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x20, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0778 #Draw Enemy 12
+LUI 0x07, R3
+MOVI 0x80, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x22, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0780 #Draw Enemy 13
+LUI 0x07, R3
+MOVI 0x88, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x24, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0788 #Draw Enemy 14
+LUI 0x07, R3
+MOVI 0x90, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x26, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0790 #Draw Enemy 15
+LUI 0x07, R3
+MOVI 0x98, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x28, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0798
 
 JUC R0
-
-
-
-
 
 @0900
 #================================================
@@ -184,12 +337,9 @@ JUC R3
 #(INPUT R9 - the Glyph to draw upper left corner)
 #================================================
 #Setup
-LUI 0x00, R10
-LUI 0x00, R11
-LUI 0x00, R12
-ADDI 0x01, R10 #To move addresses by 1
-ADDI 0x10, R11 #Sub 4x4 glyph vertical shift
-ADDI 0x9D, R12 #Vertical Shift by 157
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x10, R11 #Sub 4x4 glyph vertical shift
+MOVI 0x9D, R12 #Vertical Shift by 157
 
 #First row of sub 4x4's
 STOR R9, R6 #(0,0)
@@ -215,8 +365,34 @@ JUC R3
 #================================================
 #METHOD - Check if Enemy alive and draw if so
 #(INPUT R3 - Return Address)
-#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R6 - the address of enemy alive)
 #(INPUT R9 - the Glyph to draw upper left corner)
 #================================================
+#Setup
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x00, R14
+LOAD R6, R15
+CMP R15, R14
+JEQ R3
+ADD R10, R6
+LUI 0x10, R15
+
+JUC R15
+
+@1300
+#================================================
+#METHOD - Remove shot
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the shot)
+#================================================
+#Setup
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x00, R15
+STOR R15, R6
+ADD R10, R6
+LUI 0xB0, R15
+STOR R15, R6
+
+JUC R3
 
 
