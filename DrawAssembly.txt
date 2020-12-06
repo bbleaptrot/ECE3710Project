@@ -9,7 +9,7 @@ MOVI 0x01, R10 #This will be used to move addresses by 1
 MOVI 0x10, R11 #Movement in the glyph
 
 #DRAW BACKGROUND
-LUI 0x07 R1
+LUI 0x07, R1
 MOVI 0x07, R15
 ADD R15, R1
 LUI 0x90, R15
