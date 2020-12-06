@@ -1,8 +1,8 @@
 @0700
 #================================================
 #METHOD - UpdateBoard
-(INPUT R6 - the address of the glyphs x-pos)
-(INPUT R9 - the Glyph to draws upper left corner)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draws upper left corner)
 #================================================
 #Setup
 MOVI 0x01, R10 #This will be used to move addresses by 1
@@ -15,7 +15,8 @@ ADD R15, R1
 LUI 0x90, R15
 JUC R15
 
-@0707
+@0707 # Draw Main Ship
+
 
 JUC R0
 
@@ -26,8 +27,8 @@ JUC R0
 @0900
 #================================================
 #METHOD - DRAW BACKGROUND
-(INPUT R1 - Return Address)
-(R2,R4,R5,R7,R8,R13,R14,R15)
+#(INPUT R1 - Return Address)
+#(R2,R4,R5,R7,R8,R13,R14,R15)
 #================================================
 #Setup
 LUI 0x09, R2
@@ -88,9 +89,9 @@ JUC R14
 @0945
 #================================================
 #METHOD - DRAW 16 by 16 Glyph
-(INPUT R3 - Return Address)
-(INPUT R6 - the address of the glyphs x-pos)
-(INPUT R9 - the Glyph to draw upper left corner)
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draw upper left corner)
 #================================================
 #Setup
 MOVI 0x01, R10 #To move addresses by 1
@@ -158,9 +159,9 @@ JUC R3
 @0850
 #================================================
 #METHOD - DRAW 8 by 8 Glyph
-(INPUT R3 - Return Address)
-(INPUT R6 - the address of the glyphs x-pos)
-(INPUT R9 - the Glyph to draw upper left corner)
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draw upper left corner)
 #================================================
 #Setup
 LUI 0x00, R10
