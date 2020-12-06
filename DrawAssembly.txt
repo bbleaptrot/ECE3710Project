@@ -44,9 +44,8 @@ LUI 0x08, R9
 LUI 0x11, R15
 JUC R15
 
+@071f #Draw Enemy Ship 1
 LUI 0x12, R2
-
-@0720 #Draw Enemy Ship 1
 LUI 0x07, R3
 MOVI 0x28, R15
 ADD R15, R3
