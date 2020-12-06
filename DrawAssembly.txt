@@ -20,17 +20,17 @@ LUI 0x00, R9
 JUC R2
 
 @070b #Draw Ship Shot
-ADD R10, R7
+ADD R10, R7  # R7 is at ship shot flag
 LUI 0x07, R3
 MOVI 0x1f, R15
 ADD R15, R3
 #Check if is shot 
-LOAD R7, R6
+LOAD R7, R6  # R6 is ship shot flag val
 LUI 0x00, R15
 CMP R6, R15
 JEQ R3 #dont draw if not shot
-ADD R10, R7
-LOAD R7, R6
+ADD R10, R7 # R7 is at ship shot pos
+LOAD R7, R6 # R6 is ship shot address
 SUB R12, R6
 STOR R6, R7
 #Check if off screen
@@ -382,9 +382,11 @@ JUC R15
 #================================================
 #METHOD - Remove shot
 #(INPUT R3 - Return Address)
-#(INPUT R6 - the address of the shot)
 #================================================
 #Setup
+LUI 0xA0, R6
+MOVI 0x01, R15
+ADD R15, R6
 MOVI 0x01, R10 #To move addresses by 1
 MOVI 0x00, R15
 STOR R15, R6
