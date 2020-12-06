@@ -12,10 +12,18 @@ MOVI 0x10, R11 #Movement in the glyph
 LUI 0x07, R1
 MOVI 0x07, R15
 ADD R15, R1
-LUI 0x90, R15
-JUC R15
+LUI 0x09, R2
+JUC R2
 
 @0707 # Draw Main Ship
+LUI 0xA0, R7
+LUI 0x10, R2 #Draw16x16
+LUI 0x07, R3
+MOVI 0x15, R15
+ADD R15, R3
+LOAD R7, R6
+LUI 0x00, R9
+JUC R2
 
 
 JUC R0
@@ -31,10 +39,7 @@ JUC R0
 #(R2,R4,R5,R7,R8,R13,R14,R15)
 #================================================
 #Setup
-LUI 0x09, R2
-MOVI 0x45, R15
-ADD R15, R2
-
+LUI 0x10, R2 #Draw 16x16
 MOVI 0x00, R4 #i
 MOVI 0x00, R5 #j
 MOVI 0x28, R7 #ii
@@ -42,36 +47,36 @@ MOVI 0x0A, R8 #jj
 MOVI 0x01, R10 #This will be used to move addresses by 1
 LUI 0xB0, R13 #VGA Top row
 
-@0909 #While(ii != i)
+@0907 #While(ii != i)
 MOV R4, R15
 CMP R7, R15
 JEQ R1 
 LUI 0x09, R14
-MOVI 0x15, R15
+MOVI 0x14, R15
 ADD R15, R14
+MOV R13, R6
 
-  @0915 #doWhile(jj != j)
+  @0914 #doWhile(jj != j)
     LUI 0x09, R3
-    MOVI 0x21, R15
+    MOVI 0x19, R15
     ADD R15, R3
-    MOV R13, R6
     LUI 0x05, R9
     JUC R2 #Draw16x16
-    @0921
+    @0919
     LUI 0x09, R3
-    MOVI 0x26, R15
+    MOVI 0x24, R15
     ADD R15, R3
     #R6 already set
     LUI 0x06, R9
     JUC R2 #Draw16x16
-    @0926
+    @0924
     LUI 0x09, R3
-    MOVI 0x31, R15
+    MOVI 0x29, R15
     ADD R15, R3
     #R6 already set
     LUI 0x07, R9
     JUC R2 #Draw16x16
-    @0931
+    @0929
     ADD R10, R5 #j++
   MOV R5, R15
   CMP R8, R15
@@ -81,12 +86,12 @@ ADD R15, R13
 ADD R10, R4
 LUI 0x00, R5
 LUI 0x09, R14
-MOVI 0x09, R15
+MOVI 0x07, R15
 ADD R15, R14
 
 JUC R14
 
-@0945
+@1000
 #================================================
 #METHOD - DRAW 16 by 16 Glyph
 #(INPUT R3 - Return Address)
@@ -156,7 +161,7 @@ ADD R12, R6 # This wont effect anything other than helping the DrawBackground Me
 
 JUC R3
 
-@0850
+@1100
 #================================================
 #METHOD - DRAW 8 by 8 Glyph
 #(INPUT R3 - Return Address)
