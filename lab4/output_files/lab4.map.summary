@@ -1,4 +1,4 @@
-Analysis & Synthesis Status : Successful - Sat Dec 05 13:21:05 2020
+Analysis & Synthesis Status : Successful - Wed Dec 09 15:13:48 2020
 Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 Revision Name : lab4
 Top-level Entity Name : lab4
@@ -7,7 +7,7 @@ Logic utilization (in ALMs) : N/A
 Total registers : 337
 Total pins : 66
 Total virtual pins : 0
-Total block memory bits : 1,097,920
+Total block memory bits : 1,245,184
 Total DSP Blocks : 1
 Total HSSI RX PCSs : 0
 Total HSSI PMA RX Deserializers : 0
