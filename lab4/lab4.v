@@ -260,29 +260,92 @@ mux muxDst(
 	.rgb(rgb)
 	);
 	
+
 	
 //	hex2seg seg4(r0_out[15:12], seg_4);
 //	hex2seg seg3(r0_out[11:8], seg_3);
 //	hex2seg seg2(r0_out[7:4], seg_2);
 //	hex2seg seg1(r0_out[3:0], seg_1);
 
-	hex2seg seg4(r14_out[15:12], seg_4);
-	hex2seg seg3(r14_out[11:8], seg_3);
-	hex2seg seg2(r14_out[7:4], seg_2);
-	hex2seg seg1(r14_out[3:0], seg_1);
+//	hex2seg seg4(r1_out[15:12], seg_4);
+//	hex2seg seg3(r1_out[11:8], seg_3);
+//	hex2seg seg2(r1_out[7:4], seg_2);
+//	hex2seg seg1(r1_out[3:0], seg_1);
+	
+//	hex2seg seg4(r2_out[15:12], seg_4);
+//	hex2seg seg3(r2_out[11:8], seg_3);
+//	hex2seg seg2(r2_out[7:4], seg_2);
+//	hex2seg seg1(r2_out[3:0], seg_1);
+
+//	hex2seg seg4(r3_out[15:12], seg_4);
+//	hex2seg seg3(r3_out[11:8], seg_3);
+//	hex2seg seg2(r3_out[7:4], seg_2);
+//	hex2seg seg1(r3_out[3:0], seg_1);
+
+//	hex2seg seg4(r4_out[15:12], seg_4);
+//	hex2seg seg3(r4_out[11:8], seg_3);
+//	hex2seg seg2(r4_out[7:4], seg_2);
+//	hex2seg seg1(r4_out[3:0], seg_1);
+
+//	hex2seg seg4(r5_out[15:12], seg_4);
+//	hex2seg seg3(r5_out[11:8], seg_3);
+//	hex2seg seg2(r5_out[7:4], seg_2);
+//	hex2seg seg1(r5_out[3:0], seg_1);
+
+//	hex2seg seg4(r6_out[15:12], seg_4);
+//	hex2seg seg3(r6_out[11:8], seg_3);
+//	hex2seg seg2(r6_out[7:4], seg_2);
+//	hex2seg seg1(r6_out[3:0], seg_1);
+
+//	hex2seg seg4(r7_out[15:12], seg_4);
+//	hex2seg seg3(r7_out[11:8], seg_3);
+//	hex2seg seg2(r7_out[7:4], seg_2);
+//	hex2seg seg1(r7_out[3:0], seg_1);
+
+//	hex2seg seg4(r8_out[15:12], seg_4);
+//	hex2seg seg3(r8_out[11:8], seg_3);
+//	hex2seg seg2(r8_out[7:4], seg_2);
+//	hex2seg seg1(r8_out[3:0], seg_1);
+
+	hex2seg seg4(r9_out[15:12], seg_4);
+	hex2seg seg3(r9_out[11:8], seg_3);
+	hex2seg seg2(r9_out[7:4], seg_2);
+	hex2seg seg1(r9_out[3:0], seg_1);
+
+//	hex2seg seg4(r10_out[15:12], seg_4);
+//	hex2seg seg3(r10_out[11:8], seg_3);
+//	hex2seg seg2(r10_out[7:4], seg_2);
+//	hex2seg seg1(r10_out[3:0], seg_1);
+
+//	hex2seg seg4(r11_out[15:12], seg_4);
+//	hex2seg seg3(r11_out[11:8], seg_3);
+//	hex2seg seg2(r11_out[7:4], seg_2);
+//	hex2seg seg1(r11_out[3:0], seg_1);
+
+//	hex2seg seg4(r12_out[15:12], seg_4);
+//	hex2seg seg3(r12_out[11:8], seg_3);
+//	hex2seg seg2(r12_out[7:4], seg_2);
+//	hex2seg seg1(r12_out[3:0], seg_1);
+
+//	hex2seg seg4(r13_out[15:12], seg_4);
+//	hex2seg seg3(r13_out[11:8], seg_3);
+//	hex2seg seg2(r13_out[7:4], seg_2);
+//	hex2seg seg1(r13_out[3:0], seg_1);
+
+//	hex2seg seg4(r14_out[15:12], seg_4);
+//	hex2seg seg3(r14_out[11:8], seg_3);
+//	hex2seg seg2(r14_out[7:4], seg_2);
+//	hex2seg seg1(r14_out[3:0], seg_1);
+
+//	hex2seg seg4(r15_out[15:12], seg_4);
+//	hex2seg seg3(r15_out[11:8], seg_3);
+//	hex2seg seg2(r15_out[7:4], seg_2);
+//	hex2seg seg1(r15_out[3:0], seg_1);
 
 //	hex2seg seg4(Opcode[7:4], seg_4);
 //	hex2seg seg3(RdstOut, seg_3);
 //	hex2seg seg2(Opcode[3:0], seg_2);
 //	hex2seg seg1(RsrcOut, seg_1);
 
-//	hex2seg seg4(r1_out[15:12], seg_4);
-//	hex2seg seg3(r1_out[11:8], seg_3);
-//	hex2seg seg2(r1_out[7:4], seg_2);
-//	hex2seg seg1(r1_out[3:0], seg_1);
 
-//	hex2seg seg4(r0_out[15:12], seg_4);
-//	hex2seg seg3(r0_out[11:8], seg_3);
-//	hex2seg seg2(r0_out[7:4], seg_2);
-//	hex2seg seg1(r0_out[3:0], seg_1);
 endmodule

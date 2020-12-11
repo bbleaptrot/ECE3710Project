@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab4
-Wed Dec 09 15:46:08 2020
+Fri Dec 11 14:47:16 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -63,7 +63,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Dec 09 15:46:08 2020       ;
+; Analysis & Synthesis Status     ; Successful - Fri Dec 11 14:47:16 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
@@ -184,8 +184,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processor 3            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
 ;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -237,14 +237,14 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+--------------+
 ; Resource                                    ; Usage        ;
 +---------------------------------------------+--------------+
-; Estimate of Logic utilization (ALMs needed) ; 847          ;
+; Estimate of Logic utilization (ALMs needed) ; 846          ;
 ;                                             ;              ;
-; Combinational ALUT usage for logic          ; 1158         ;
+; Combinational ALUT usage for logic          ; 1156         ;
 ;     -- 7 input functions                    ; 27           ;
 ;     -- 6 input functions                    ; 481          ;
 ;     -- 5 input functions                    ; 192          ;
 ;     -- 4 input functions                    ; 183          ;
-;     -- <=3 input functions                  ; 275          ;
+;     -- <=3 input functions                  ; 273          ;
 ;                                             ;              ;
 ; Dedicated logic registers                   ; 337          ;
 ;                                             ;              ;
@@ -256,7 +256,7 @@ refer to the applicable agreement for further details.
 ;                                             ;              ;
 ; Maximum fan-out node                        ; clk_in~input ;
 ; Maximum fan-out                             ; 489          ;
-; Total fan-out                               ; 9699         ;
+; Total fan-out                               ; 9694         ;
 ; Average fan-out                             ; 5.45         ;
 +---------------------------------------------+--------------+
 
@@ -266,7 +266,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                      ; Entity Name       ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
-; |lab4                                           ; 1158 (1)            ; 337 (0)                   ; 1245184           ; 1          ; 66   ; 0            ; |lab4                                                                                                                    ; lab4              ; work         ;
+; |lab4                                           ; 1156 (1)            ; 337 (0)                   ; 1245184           ; 1          ; 66   ; 0            ; |lab4                                                                                                                    ; lab4              ; work         ;
 ;    |IRreg:Instr_Reg|                            ; 2 (2)               ; 24 (24)                   ; 0                 ; 0          ; 0    ; 0            ; |lab4|IRreg:Instr_Reg                                                                                                    ; IRreg             ; work         ;
 ;    |alu:logicBox|                               ; 494 (494)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|alu:logicBox                                                                                                       ; alu               ; work         ;
 ;    |bram:memory|                                ; 95 (0)              ; 6 (0)                     ; 1048576           ; 0          ; 0    ; 0            ; |lab4|bram:memory                                                                                                        ; bram              ; work         ;
@@ -276,7 +276,7 @@ refer to the applicable agreement for further details.
 ;             |mux_chb:mux4|                      ; 48 (48)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux4                                       ; mux_chb           ; work         ;
 ;             |mux_chb:mux5|                      ; 39 (39)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|bram:memory|altsyncram:ram_rtl_0|altsyncram_qq42:auto_generated|mux_chb:mux5                                       ; mux_chb           ; work         ;
 ;    |flags_register:flags|                       ; 19 (19)             ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|flags_register:flags                                                                                               ; flags_register    ; work         ;
-;    |fsm:state_machine|                          ; 30 (30)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                                                  ; fsm               ; work         ;
+;    |fsm:state_machine|                          ; 28 (28)             ; 9 (9)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|fsm:state_machine                                                                                                  ; fsm               ; work         ;
 ;    |hex2seg:seg1|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg1                                                                                                       ; hex2seg           ; work         ;
 ;    |hex2seg:seg2|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg2                                                                                                       ; hex2seg           ; work         ;
 ;    |hex2seg:seg3|                               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |lab4|hex2seg:seg3                                                                                                       ; hex2seg           ; work         ;
@@ -410,35 +410,35 @@ Note: All cells listed above may not be present at the end of synthesis due to v
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|ImmOut[2]                  ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][14]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][1]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][14]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][8]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][15]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][14]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][13]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|Opcode[7]                  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[0][9]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[1][12]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[2][6]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[3][6]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[4][5]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[5][13]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[6][9]        ;
 ; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[7][2]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][4]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][0]        ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][4]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][13]      ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][1]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][4]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][9]       ;
-; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][5]       ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|hcount[3] ;
-; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|vcount[0] ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[0]                 ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[2]           ;
-; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[3]          ;
-; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |lab4|vga:screener|bitgen:bgen|rgb[22]           ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[8][13]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[9][3]        ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[10][0]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[11][7]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[12][0]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[13][8]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[14][2]       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|regfile_2D_memory:registers|r[15][3]       ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|hcount[7] ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 0 LEs                ; 20 LEs                 ; Yes        ; |lab4|vga:screener|vga_control:control|vcount[2] ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |lab4|IRreg:Instr_Reg|RsrcOut[3]                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |lab4|program_counter:prog_count|PC[10]          ;
+; 258:1              ; 2 bits    ; 344 LEs       ; 12 LEs               ; 332 LEs                ; Yes        ; |lab4|flags_register:flags|flags_out[0]          ;
+; 3:1                ; 24 bits   ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; No         ; |lab4|vga:screener|bitgen:bgen|rgb[7]            ;
 ; 4:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |lab4|alu:logicBox|ShiftLeft0                    ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux4                            ;
-; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux3                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxSrc|Mux9                            ;
+; 16:1               ; 16 bits   ; 160 LEs       ; 160 LEs              ; 0 LEs                  ; No         ; |lab4|mux:muxDst|Mux10                           ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |lab4|fsm:state_machine|state_counter            ;
 ; 56:1               ; 2 bits    ; 74 LEs        ; 44 LEs               ; 30 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[10]           ;
-; 59:1               ; 2 bits    ; 78 LEs        ; 48 LEs               ; 30 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[13]           ;
+; 59:1               ; 2 bits    ; 78 LEs        ; 48 LEs               ; 30 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[14]           ;
 ; 64:1               ; 2 bits    ; 84 LEs        ; 46 LEs               ; 38 LEs                 ; No         ; |lab4|mux_2_to_1:phoneCntl|mux_out[5]            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
@@ -744,7 +744,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SCLR SLD      ; 24                          ;
 ;     SCLR              ; 3                           ;
 ;     plain             ; 16                          ;
-; arriav_lcell_comb     ; 1162                        ;
+; arriav_lcell_comb     ; 1160                        ;
 ;     arith             ; 231                         ;
 ;         0 data inputs ; 8                           ;
 ;         1 data inputs ; 82                          ;
@@ -753,11 +753,11 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;         5 data inputs ; 75                          ;
 ;     extend            ; 27                          ;
 ;         7 data inputs ; 27                          ;
-;     normal            ; 859                         ;
+;     normal            ; 857                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 39                          ;
-;         3 data inputs ; 93                          ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 92                          ;
 ;         4 data inputs ; 123                         ;
 ;         5 data inputs ; 117                         ;
 ;         6 data inputs ; 481                         ;
@@ -771,7 +771,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; stratixv_ram_block    ; 152                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 14.40                       ;
-; Average LUT depth     ; 8.26                        ;
+; Average LUT depth     ; 8.27                        ;
 +-----------------------+-----------------------------+
 
 
@@ -780,7 +780,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:20     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -790,7 +790,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Wed Dec 09 15:41:53 2020
+    Info: Processing started: Fri Dec 11 14:46:57 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab4 -c lab4
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /users/bblea/source/repos/ece3710project/vga/glyph_rom.v
@@ -842,7 +842,7 @@ Info (12128): Elaborating entity "mux" for hierarchy "mux:muxSrc" File: C:/Users
 Info (12128): Elaborating entity "mux_2_to_1" for hierarchy "mux_2_to_1:immMux" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 130
 Info (12128): Elaborating entity "alu" for hierarchy "alu:logicBox" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 145
 Info (12128): Elaborating entity "bram" for hierarchy "bram:memory" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 173
-Warning (10850): Verilog HDL warning at bram.v(23): number of words (20949) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
+Warning (10850): Verilog HDL warning at bram.v(23): number of words (20898) in memory file does not match the number of elements in the address range [0:65535] File: C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v Line: 23
 Info (12128): Elaborating entity "program_counter" for hierarchy "program_counter:prog_count" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 184
 Info (12128): Elaborating entity "IRreg" for hierarchy "IRreg:Instr_Reg" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 197
 Info (12128): Elaborating entity "fsm" for hierarchy "fsm:state_machine" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 216
@@ -904,7 +904,7 @@ Warning (10030): Net "glyph_rom.data_a" at glyph_rom.v(14) has no driver or init
 Warning (10030): Net "glyph_rom.waddr_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 14
 Warning (10030): Net "glyph_rom.we_a" at glyph_rom.v(14) has no driver or initial value, using a default initial value '0' File: C:/Users/bblea/source/repos/ECE3710Project/vga/glyph_rom.v Line: 14
 Info (12128): Elaborating entity "bitgen" for hierarchy "vga:screener|bitgen:bgen" File: C:/Users/bblea/source/repos/ECE3710Project/vga/vga.v Line: 39
-Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 269
+Info (12128): Elaborating entity "hex2seg" for hierarchy "hex2seg:seg4" File: C:/Users/bblea/source/repos/ECE3710Project/lab4/lab4.v Line: 310
 Info (19000): Inferred 2 megafunctions from design logic
     Info (276029): Inferred altsyncram megafunction from the following design logic: "vga:screener|address_generator:addr_gen|glyph_rom:glyphs|glyph_rom_rtl_0" 
         Info (286033): Parameter OPERATION_MODE set to ROM
@@ -974,18 +974,6 @@ Info (12133): Instantiated megafunction "bram:memory|altsyncram:ram_rtl_0" with 
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_qq42.tdf
     Info (12023): Found entity 1: altsyncram_qq42 File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/altsyncram_qq42.tdf Line: 31
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "C:/Users/bblea/source/repos/ECE3710Project/lab4/db/lab4.ram0_bram_337df6.hdl.mif" contains "don't care" values -- overwriting them with 0s File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 791
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
     Info (12023): Found entity 1: decode_dla File: C:/Users/bblea/source/repos/ECE3710Project/lab4/db/decode_dla.tdf Line: 22
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_chb.tdf
@@ -995,17 +983,17 @@ Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/bblea/source/repos/ECE3710Project/lab4/output_files/lab4.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1664 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1662 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 10 input pins
     Info (21059): Implemented 56 output pins
-    Info (21061): Implemented 1445 logic cells
+    Info (21061): Implemented 1443 logic cells
     Info (21064): Implemented 152 RAM segments
     Info (21062): Implemented 1 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
-    Info: Peak virtual memory: 4982 megabytes
-    Info: Processing ended: Wed Dec 09 15:46:08 2020
-    Info: Elapsed time: 00:04:15
-    Info: Total CPU time (on all processors): 00:04:22
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 53 warnings
+    Info: Peak virtual memory: 4878 megabytes
+    Info: Processing ended: Fri Dec 11 14:47:16 2020
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+
