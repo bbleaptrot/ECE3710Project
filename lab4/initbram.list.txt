@@ -1,9 +1,25 @@
-5457  // add 57 into R4
-4004  // Load addr in R4 into R0
-F2F5  // Load phone into R5
-0552  // Add R5 into R2
-CEFD  // Branch unconditionally to F2F5 instruction
-0000
-@57
-0050
+D001
+F1B0
+F4EC
+F201
+F302
+01b4
+46c2
+0020
+4ec3
+0020
+0020
+CEFF
+0020
+
+@0100
+D066
+0020
+CEFF
+0020
+@0200
+D077
+0020
+CEFF
+0020
 

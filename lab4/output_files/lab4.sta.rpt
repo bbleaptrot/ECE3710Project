@@ -1,5 +1,5 @@
 Timing Analyzer report for lab4
-Fri Dec 11 20:25:30 2020
+Sat Dec 12 16:04:56 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -99,14 +99,14 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.46        ;
+; Average used               ; 2.41        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  49.3%      ;
-;     Processor 3            ;  48.7%      ;
-;     Processor 4            ;  48.5%      ;
+;     Processor 2            ;  47.7%      ;
+;     Processor 3            ;  47.2%      ;
+;     Processor 4            ;  45.9%      ;
 +----------------------------+-------------+
 
 
@@ -124,7 +124,7 @@ refer to the applicable agreement for further details.
 +-----------+-----------------+------------+------+
 ; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
 +-----------+-----------------+------------+------+
-; 59.04 MHz ; 59.04 MHz       ; clk_in     ;      ;
+; 78.35 MHz ; 78.35 MHz       ; clk_in     ;      ;
 +-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -140,7 +140,7 @@ HTML report is unavailable in plain text report export.
 +--------+---------+------------------+
 ; Clock  ; Slack   ; End Point TNS    ;
 +--------+---------+------------------+
-; clk_in ; -15.938 ; -42516.751       ;
+; clk_in ; -11.764 ; -42950.758       ;
 +--------+---------+------------------+
 
 
@@ -170,7 +170,7 @@ No paths to report.
 +--------+--------+---------------------------------+
 ; Clock  ; Slack  ; End Point TNS                   ;
 +--------+--------+---------------------------------+
-; clk_in ; -2.636 ; -29599.838                      ;
+; clk_in ; -2.636 ; -29596.218                      ;
 +--------+--------+---------------------------------+
 
 
@@ -180,13 +180,13 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------+
-; Slow 1100mV 0C Model Fmax Summary              ;
-+----------+-----------------+------------+------+
-; Fmax     ; Restricted Fmax ; Clock Name ; Note ;
-+----------+-----------------+------------+------+
-; 59.6 MHz ; 59.6 MHz        ; clk_in     ;      ;
-+----------+-----------------+------------+------+
++-------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary               ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 79.79 MHz ; 79.79 MHz       ; clk_in     ;      ;
++-----------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -195,7 +195,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+---------+-----------------+
 ; Clock  ; Slack   ; End Point TNS   ;
 +--------+---------+-----------------+
-; clk_in ; -15.778 ; -41744.600      ;
+; clk_in ; -11.533 ; -42126.810      ;
 +--------+---------+-----------------+
 
 
@@ -225,7 +225,7 @@ No paths to report.
 +--------+--------+--------------------------------+
 ; Clock  ; Slack  ; End Point TNS                  ;
 +--------+--------+--------------------------------+
-; clk_in ; -2.636 ; -29517.509                     ;
+; clk_in ; -2.636 ; -29517.349                     ;
 +--------+--------+--------------------------------+
 
 
@@ -240,7 +240,7 @@ No synchronizer chains to report.
 +--------+--------+-------------------+
 ; Clock  ; Slack  ; End Point TNS     ;
 +--------+--------+-------------------+
-; clk_in ; -9.355 ; -23373.709        ;
+; clk_in ; -6.706 ; -23652.853        ;
 +--------+--------+-------------------+
 
 
@@ -249,7 +249,7 @@ No synchronizer chains to report.
 +--------+-------+-------------------+
 ; Clock  ; Slack ; End Point TNS     ;
 +--------+-------+-------------------+
-; clk_in ; 0.134 ; 0.000             ;
+; clk_in ; 0.133 ; 0.000             ;
 +--------+-------+-------------------+
 
 
@@ -270,7 +270,7 @@ No paths to report.
 +--------+--------+---------------------------------+
 ; Clock  ; Slack  ; End Point TNS                   ;
 +--------+--------+---------------------------------+
-; clk_in ; -2.636 ; -29882.544                      ;
+; clk_in ; -2.636 ; -29890.236                      ;
 +--------+--------+---------------------------------+
 
 
@@ -285,7 +285,7 @@ No synchronizer chains to report.
 +--------+--------+------------------+
 ; Clock  ; Slack  ; End Point TNS    ;
 +--------+--------+------------------+
-; clk_in ; -8.401 ; -20532.765       ;
+; clk_in ; -5.962 ; -20767.350       ;
 +--------+--------+------------------+
 
 
@@ -315,7 +315,7 @@ No paths to report.
 +--------+--------+--------------------------------+
 ; Clock  ; Slack  ; End Point TNS                  ;
 +--------+--------+--------------------------------+
-; clk_in ; -2.636 ; -30328.437                     ;
+; clk_in ; -2.636 ; -30333.288                     ;
 +--------+--------+--------------------------------+
 
 
@@ -330,10 +330,10 @@ No synchronizer chains to report.
 +------------------+------------+-------+----------+---------+---------------------+
 ; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+------------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -15.938    ; 0.122 ; N/A      ; N/A     ; -2.636              ;
-;  clk_in          ; -15.938    ; 0.122 ; N/A      ; N/A     ; -2.636              ;
-; Design-wide TNS  ; -42516.751 ; 0.0   ; 0.0      ; 0.0     ; -30328.437          ;
-;  clk_in          ; -42516.751 ; 0.000 ; N/A      ; N/A     ; -30328.437          ;
+; Worst-case Slack ; -11.764    ; 0.122 ; N/A      ; N/A     ; -2.636              ;
+;  clk_in          ; -11.764    ; 0.122 ; N/A      ; N/A     ; -2.636              ;
+; Design-wide TNS  ; -42950.758 ; 0.0   ; 0.0      ; 0.0     ; -30333.288          ;
+;  clk_in          ; -42950.758 ; 0.000 ; N/A      ; N/A     ; -30333.288          ;
 +------------------+------------+-------+----------+---------+---------------------+
 
 
@@ -680,7 +680,7 @@ No synchronizer chains to report.
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk_in     ; clk_in   ; 58178429 ; 0        ; 0        ; 0        ;
+; clk_in     ; clk_in   ; 58419543 ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -690,7 +690,7 @@ Entries labeled "false path" only account for clock-to-clock false paths and not
 +------------+----------+----------+----------+----------+----------+
 ; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
 +------------+----------+----------+----------+----------+----------+
-; clk_in     ; clk_in   ; 58178429 ; 0        ; 0        ; 0        ;
+; clk_in     ; clk_in   ; 58419543 ; 0        ; 0        ; 0        ;
 +------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
@@ -898,7 +898,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Dec 11 20:25:02 2020
+    Info: Processing started: Sat Dec 12 16:04:39 2020
 Info: Command: quartus_sta lab4 -c lab4
 Info: qsta_default_script.tcl version: #1
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -921,11 +921,203 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add4~65|sumout"
     Warning (332126): Node "logicBox|Selector16~5|dataf"
     Warning (332126): Node "logicBox|Selector16~5|combout"
-    Warning (332126): Node "logicBox|Selector16~1|datae"
+    Warning (332126): Node "logicBox|Selector16~1|dataf"
     Warning (332126): Node "logicBox|Selector16~1|combout"
+    Warning (332126): Node "logicBox|Add7~49|datad"
+    Warning (332126): Node "logicBox|Add7~49|sumout"
+    Warning (332126): Node "logicBox|Add8~49|datac"
+    Warning (332126): Node "logicBox|Add8~49|shareout"
+    Warning (332126): Node "logicBox|Add8~53|sharein"
+    Warning (332126): Node "logicBox|Add8~53|cout"
+    Warning (332126): Node "logicBox|Add8~57|cin"
+    Warning (332126): Node "logicBox|Add8~57|cout"
+    Warning (332126): Node "logicBox|Add8~61|cin"
+    Warning (332126): Node "logicBox|Add8~61|cout"
+    Warning (332126): Node "logicBox|Add8~33|cin"
+    Warning (332126): Node "logicBox|Add8~33|cout"
+    Warning (332126): Node "logicBox|Add8~37|cin"
+    Warning (332126): Node "logicBox|Add8~37|cout"
+    Warning (332126): Node "logicBox|Add8~41|cin"
+    Warning (332126): Node "logicBox|Add8~41|cout"
+    Warning (332126): Node "logicBox|Add8~45|cin"
+    Warning (332126): Node "logicBox|Add8~45|cout"
+    Warning (332126): Node "logicBox|Add8~17|cin"
+    Warning (332126): Node "logicBox|Add8~17|cout"
+    Warning (332126): Node "logicBox|Add8~21|cin"
+    Warning (332126): Node "logicBox|Add8~21|cout"
+    Warning (332126): Node "logicBox|Add8~25|cin"
+    Warning (332126): Node "logicBox|Add8~25|cout"
+    Warning (332126): Node "logicBox|Add8~29|cin"
+    Warning (332126): Node "logicBox|Add8~29|cout"
+    Warning (332126): Node "logicBox|Add8~1|cin"
+    Warning (332126): Node "logicBox|Add8~1|cout"
+    Warning (332126): Node "logicBox|Add8~5|cin"
+    Warning (332126): Node "logicBox|Add8~5|cout"
+    Warning (332126): Node "logicBox|Add8~9|cin"
+    Warning (332126): Node "logicBox|Add8~9|cout"
+    Warning (332126): Node "logicBox|Add8~13|cin"
+    Warning (332126): Node "logicBox|Add8~13|cout"
+    Warning (332126): Node "logicBox|Add8~65|cin"
+    Warning (332126): Node "logicBox|Add8~65|sumout"
+    Warning (332126): Node "logicBox|Selector16~1|datac"
+    Warning (332126): Node "logicBox|Add7~49|cout"
+    Warning (332126): Node "logicBox|Add7~53|cin"
+    Warning (332126): Node "logicBox|Add7~53|cout"
+    Warning (332126): Node "logicBox|Add7~57|cin"
+    Warning (332126): Node "logicBox|Add7~57|cout"
+    Warning (332126): Node "logicBox|Add7~61|cin"
+    Warning (332126): Node "logicBox|Add7~61|cout"
+    Warning (332126): Node "logicBox|Add7~33|cin"
+    Warning (332126): Node "logicBox|Add7~33|cout"
+    Warning (332126): Node "logicBox|Add7~37|cin"
+    Warning (332126): Node "logicBox|Add7~37|cout"
+    Warning (332126): Node "logicBox|Add7~41|cin"
+    Warning (332126): Node "logicBox|Add7~41|cout"
+    Warning (332126): Node "logicBox|Add7~45|cin"
+    Warning (332126): Node "logicBox|Add7~45|cout"
+    Warning (332126): Node "logicBox|Add7~17|cin"
+    Warning (332126): Node "logicBox|Add7~17|cout"
+    Warning (332126): Node "logicBox|Add7~21|cin"
+    Warning (332126): Node "logicBox|Add7~21|cout"
+    Warning (332126): Node "logicBox|Add7~25|cin"
+    Warning (332126): Node "logicBox|Add7~25|cout"
+    Warning (332126): Node "logicBox|Add7~29|cin"
+    Warning (332126): Node "logicBox|Add7~29|cout"
+    Warning (332126): Node "logicBox|Add7~1|cin"
+    Warning (332126): Node "logicBox|Add7~1|cout"
+    Warning (332126): Node "logicBox|Add7~5|cin"
+    Warning (332126): Node "logicBox|Add7~5|cout"
+    Warning (332126): Node "logicBox|Add7~9|cin"
+    Warning (332126): Node "logicBox|Add7~9|cout"
+    Warning (332126): Node "logicBox|Add7~13|cin"
+    Warning (332126): Node "logicBox|Add7~13|cout"
+    Warning (332126): Node "logicBox|Add7~65|cin"
+    Warning (332126): Node "logicBox|Add7~65|sumout"
+    Warning (332126): Node "logicBox|Add8~65|datac"
+    Warning (332126): Node "logicBox|Add7~13|sumout"
+    Warning (332126): Node "logicBox|Add8~13|datac"
+    Warning (332126): Node "logicBox|Add8~13|shareout"
+    Warning (332126): Node "logicBox|Add8~65|sharein"
+    Warning (332126): Node "logicBox|Add7~9|sumout"
+    Warning (332126): Node "logicBox|Add8~9|datac"
+    Warning (332126): Node "logicBox|Add8~9|shareout"
+    Warning (332126): Node "logicBox|Add8~13|sharein"
+    Warning (332126): Node "logicBox|Add7~5|sumout"
+    Warning (332126): Node "logicBox|Add8~5|dataa"
+    Warning (332126): Node "logicBox|Add8~5|shareout"
+    Warning (332126): Node "logicBox|Add8~9|sharein"
+    Warning (332126): Node "logicBox|Add7~1|sumout"
+    Warning (332126): Node "logicBox|Add8~1|datac"
+    Warning (332126): Node "logicBox|Add8~1|shareout"
+    Warning (332126): Node "logicBox|Add8~5|sharein"
+    Warning (332126): Node "logicBox|Add7~29|sumout"
+    Warning (332126): Node "logicBox|Add8~29|datab"
+    Warning (332126): Node "logicBox|Add8~29|shareout"
+    Warning (332126): Node "logicBox|Add8~1|sharein"
+    Warning (332126): Node "logicBox|Add7~25|sumout"
+    Warning (332126): Node "logicBox|Add8~25|datac"
+    Warning (332126): Node "logicBox|Add8~25|shareout"
+    Warning (332126): Node "logicBox|Add8~29|sharein"
+    Warning (332126): Node "logicBox|Add7~21|sumout"
+    Warning (332126): Node "logicBox|Add8~21|datab"
+    Warning (332126): Node "logicBox|Add8~21|shareout"
+    Warning (332126): Node "logicBox|Add8~25|sharein"
+    Warning (332126): Node "logicBox|Add7~17|sumout"
+    Warning (332126): Node "logicBox|Add8~17|datac"
+    Warning (332126): Node "logicBox|Add8~17|shareout"
+    Warning (332126): Node "logicBox|Add8~21|sharein"
+    Warning (332126): Node "logicBox|Add7~45|sumout"
+    Warning (332126): Node "logicBox|Add8~45|datad"
+    Warning (332126): Node "logicBox|Add8~45|shareout"
+    Warning (332126): Node "logicBox|Add8~17|sharein"
+    Warning (332126): Node "logicBox|Add7~41|sumout"
+    Warning (332126): Node "logicBox|Add8~41|datad"
+    Warning (332126): Node "logicBox|Add8~41|shareout"
+    Warning (332126): Node "logicBox|Add8~45|sharein"
+    Warning (332126): Node "logicBox|Add7~37|sumout"
+    Warning (332126): Node "logicBox|Add8~37|datac"
+    Warning (332126): Node "logicBox|Add8~37|shareout"
+    Warning (332126): Node "logicBox|Add8~41|sharein"
+    Warning (332126): Node "logicBox|Add7~33|sumout"
+    Warning (332126): Node "logicBox|Add8~33|datab"
+    Warning (332126): Node "logicBox|Add8~33|shareout"
+    Warning (332126): Node "logicBox|Add8~37|sharein"
+    Warning (332126): Node "logicBox|Add7~61|sumout"
+    Warning (332126): Node "logicBox|Add8~61|datac"
+    Warning (332126): Node "logicBox|Add8~61|shareout"
+    Warning (332126): Node "logicBox|Add8~33|sharein"
+    Warning (332126): Node "logicBox|Add7~57|sumout"
+    Warning (332126): Node "logicBox|Add8~57|datac"
+    Warning (332126): Node "logicBox|Add8~57|shareout"
+    Warning (332126): Node "logicBox|Add8~61|sharein"
+    Warning (332126): Node "logicBox|Add7~53|sumout"
+    Warning (332126): Node "logicBox|Add8~53|datad"
+    Warning (332126): Node "logicBox|Add8~53|shareout"
+    Warning (332126): Node "logicBox|Add8~57|sharein"
+    Warning (332126): Node "logicBox|Add2~49|datab"
+    Warning (332126): Node "logicBox|Add2~49|cout"
+    Warning (332126): Node "logicBox|Add2~53|cin"
+    Warning (332126): Node "logicBox|Add2~53|cout"
+    Warning (332126): Node "logicBox|Add2~57|cin"
+    Warning (332126): Node "logicBox|Add2~57|cout"
+    Warning (332126): Node "logicBox|Add2~61|cin"
+    Warning (332126): Node "logicBox|Add2~61|cout"
+    Warning (332126): Node "logicBox|Add2~33|cin"
+    Warning (332126): Node "logicBox|Add2~33|cout"
+    Warning (332126): Node "logicBox|Add2~37|cin"
+    Warning (332126): Node "logicBox|Add2~37|cout"
+    Warning (332126): Node "logicBox|Add2~41|cin"
+    Warning (332126): Node "logicBox|Add2~41|cout"
+    Warning (332126): Node "logicBox|Add2~45|cin"
+    Warning (332126): Node "logicBox|Add2~45|cout"
+    Warning (332126): Node "logicBox|Add2~17|cin"
+    Warning (332126): Node "logicBox|Add2~17|cout"
+    Warning (332126): Node "logicBox|Add2~21|cin"
+    Warning (332126): Node "logicBox|Add2~21|cout"
+    Warning (332126): Node "logicBox|Add2~25|cin"
+    Warning (332126): Node "logicBox|Add2~25|cout"
+    Warning (332126): Node "logicBox|Add2~29|cin"
+    Warning (332126): Node "logicBox|Add2~29|cout"
+    Warning (332126): Node "logicBox|Add2~1|cin"
+    Warning (332126): Node "logicBox|Add2~1|cout"
+    Warning (332126): Node "logicBox|Add2~5|cin"
+    Warning (332126): Node "logicBox|Add2~5|cout"
+    Warning (332126): Node "logicBox|Add2~9|cin"
+    Warning (332126): Node "logicBox|Add2~9|cout"
+    Warning (332126): Node "logicBox|Add2~13|cin"
+    Warning (332126): Node "logicBox|Add2~13|cout"
+    Warning (332126): Node "logicBox|Add2~65|cin"
+    Warning (332126): Node "logicBox|Add2~65|sumout"
+    Warning (332126): Node "logicBox|Selector16~3|datab"
+    Warning (332126): Node "logicBox|Selector16~3|combout"
+    Warning (332126): Node "logicBox|Selector16~1|datae"
+    Warning (332126): Node "logicBox|Add4~49|datac"
+    Warning (332126): Node "logicBox|Add4~49|cout"
+    Warning (332126): Node "logicBox|Add4~53|cin"
+    Warning (332126): Node "logicBox|Add4~53|cout"
+    Warning (332126): Node "logicBox|Add4~57|cin"
+    Warning (332126): Node "logicBox|Add4~57|cout"
+    Warning (332126): Node "logicBox|Add4~61|cin"
+    Warning (332126): Node "logicBox|Add4~61|cout"
+    Warning (332126): Node "logicBox|Add4~33|cin"
+    Warning (332126): Node "logicBox|Add4~33|cout"
+    Warning (332126): Node "logicBox|Add4~37|cin"
+    Warning (332126): Node "logicBox|Add4~37|cout"
+    Warning (332126): Node "logicBox|Add4~41|cin"
+    Warning (332126): Node "logicBox|Add4~41|cout"
+    Warning (332126): Node "logicBox|Add4~45|cin"
+    Warning (332126): Node "logicBox|Add4~45|cout"
+    Warning (332126): Node "logicBox|Add4~17|cin"
+    Warning (332126): Node "logicBox|Add4~17|cout"
+    Warning (332126): Node "logicBox|Add4~21|cin"
+    Warning (332126): Node "logicBox|Add4~21|cout"
+    Warning (332126): Node "logicBox|Add4~25|cin"
+    Warning (332126): Node "logicBox|Add4~25|cout"
+    Warning (332126): Node "logicBox|Add4~29|cin"
+    Warning (332126): Node "logicBox|Add4~29|cout"
     Warning (332126): Node "logicBox|Add9~49|datad"
     Warning (332126): Node "logicBox|Add9~49|sumout"
-    Warning (332126): Node "logicBox|Add10~49|datad"
+    Warning (332126): Node "logicBox|Add10~49|datac"
     Warning (332126): Node "logicBox|Add10~49|shareout"
     Warning (332126): Node "logicBox|Add10~53|sharein"
     Warning (332126): Node "logicBox|Add10~53|cout"
@@ -959,7 +1151,7 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~13|cout"
     Warning (332126): Node "logicBox|Add10~65|cin"
     Warning (332126): Node "logicBox|Add10~65|sumout"
-    Warning (332126): Node "logicBox|Selector16~1|dataf"
+    Warning (332126): Node "logicBox|Selector16~1|dataa"
     Warning (332126): Node "logicBox|Add9~49|cout"
     Warning (332126): Node "logicBox|Add9~53|cin"
     Warning (332126): Node "logicBox|Add9~53|cout"
@@ -999,7 +1191,7 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~13|shareout"
     Warning (332126): Node "logicBox|Add10~65|sharein"
     Warning (332126): Node "logicBox|Add9~9|sumout"
-    Warning (332126): Node "logicBox|Add10~9|datac"
+    Warning (332126): Node "logicBox|Add10~9|datad"
     Warning (332126): Node "logicBox|Add10~9|shareout"
     Warning (332126): Node "logicBox|Add10~13|sharein"
     Warning (332126): Node "logicBox|Add9~5|sumout"
@@ -1007,7 +1199,7 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~5|shareout"
     Warning (332126): Node "logicBox|Add10~9|sharein"
     Warning (332126): Node "logicBox|Add9~1|sumout"
-    Warning (332126): Node "logicBox|Add10~1|datad"
+    Warning (332126): Node "logicBox|Add10~1|datac"
     Warning (332126): Node "logicBox|Add10~1|shareout"
     Warning (332126): Node "logicBox|Add10~5|sharein"
     Warning (332126): Node "logicBox|Add9~29|sumout"
@@ -1015,11 +1207,11 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~29|shareout"
     Warning (332126): Node "logicBox|Add10~1|sharein"
     Warning (332126): Node "logicBox|Add9~25|sumout"
-    Warning (332126): Node "logicBox|Add10~25|datac"
+    Warning (332126): Node "logicBox|Add10~25|datad"
     Warning (332126): Node "logicBox|Add10~25|shareout"
     Warning (332126): Node "logicBox|Add10~29|sharein"
     Warning (332126): Node "logicBox|Add9~21|sumout"
-    Warning (332126): Node "logicBox|Add10~21|datac"
+    Warning (332126): Node "logicBox|Add10~21|datab"
     Warning (332126): Node "logicBox|Add10~21|shareout"
     Warning (332126): Node "logicBox|Add10~25|sharein"
     Warning (332126): Node "logicBox|Add9~17|sumout"
@@ -1031,15 +1223,15 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~45|shareout"
     Warning (332126): Node "logicBox|Add10~17|sharein"
     Warning (332126): Node "logicBox|Add9~41|sumout"
-    Warning (332126): Node "logicBox|Add10~41|datac"
+    Warning (332126): Node "logicBox|Add10~41|dataa"
     Warning (332126): Node "logicBox|Add10~41|shareout"
     Warning (332126): Node "logicBox|Add10~45|sharein"
     Warning (332126): Node "logicBox|Add9~37|sumout"
-    Warning (332126): Node "logicBox|Add10~37|dataa"
+    Warning (332126): Node "logicBox|Add10~37|datac"
     Warning (332126): Node "logicBox|Add10~37|shareout"
     Warning (332126): Node "logicBox|Add10~41|sharein"
     Warning (332126): Node "logicBox|Add9~33|sumout"
-    Warning (332126): Node "logicBox|Add10~33|datac"
+    Warning (332126): Node "logicBox|Add10~33|datad"
     Warning (332126): Node "logicBox|Add10~33|shareout"
     Warning (332126): Node "logicBox|Add10~37|sharein"
     Warning (332126): Node "logicBox|Add9~61|sumout"
@@ -1047,205 +1239,13 @@ Warning (332125): Found combinational loop of 337 nodes File: C:/Users/bblea/sou
     Warning (332126): Node "logicBox|Add10~61|shareout"
     Warning (332126): Node "logicBox|Add10~33|sharein"
     Warning (332126): Node "logicBox|Add9~57|sumout"
-    Warning (332126): Node "logicBox|Add10~57|datac"
+    Warning (332126): Node "logicBox|Add10~57|datad"
     Warning (332126): Node "logicBox|Add10~57|shareout"
     Warning (332126): Node "logicBox|Add10~61|sharein"
     Warning (332126): Node "logicBox|Add9~53|sumout"
     Warning (332126): Node "logicBox|Add10~53|datac"
     Warning (332126): Node "logicBox|Add10~53|shareout"
     Warning (332126): Node "logicBox|Add10~57|sharein"
-    Warning (332126): Node "logicBox|Add4~49|datac"
-    Warning (332126): Node "logicBox|Add4~49|cout"
-    Warning (332126): Node "logicBox|Add4~53|cin"
-    Warning (332126): Node "logicBox|Add4~53|cout"
-    Warning (332126): Node "logicBox|Add4~57|cin"
-    Warning (332126): Node "logicBox|Add4~57|cout"
-    Warning (332126): Node "logicBox|Add4~61|cin"
-    Warning (332126): Node "logicBox|Add4~61|cout"
-    Warning (332126): Node "logicBox|Add4~33|cin"
-    Warning (332126): Node "logicBox|Add4~33|cout"
-    Warning (332126): Node "logicBox|Add4~37|cin"
-    Warning (332126): Node "logicBox|Add4~37|cout"
-    Warning (332126): Node "logicBox|Add4~41|cin"
-    Warning (332126): Node "logicBox|Add4~41|cout"
-    Warning (332126): Node "logicBox|Add4~45|cin"
-    Warning (332126): Node "logicBox|Add4~45|cout"
-    Warning (332126): Node "logicBox|Add4~17|cin"
-    Warning (332126): Node "logicBox|Add4~17|cout"
-    Warning (332126): Node "logicBox|Add4~21|cin"
-    Warning (332126): Node "logicBox|Add4~21|cout"
-    Warning (332126): Node "logicBox|Add4~25|cin"
-    Warning (332126): Node "logicBox|Add4~25|cout"
-    Warning (332126): Node "logicBox|Add4~29|cin"
-    Warning (332126): Node "logicBox|Add4~29|cout"
-    Warning (332126): Node "logicBox|Add2~49|datac"
-    Warning (332126): Node "logicBox|Add2~49|cout"
-    Warning (332126): Node "logicBox|Add2~53|cin"
-    Warning (332126): Node "logicBox|Add2~53|cout"
-    Warning (332126): Node "logicBox|Add2~57|cin"
-    Warning (332126): Node "logicBox|Add2~57|cout"
-    Warning (332126): Node "logicBox|Add2~61|cin"
-    Warning (332126): Node "logicBox|Add2~61|cout"
-    Warning (332126): Node "logicBox|Add2~33|cin"
-    Warning (332126): Node "logicBox|Add2~33|cout"
-    Warning (332126): Node "logicBox|Add2~37|cin"
-    Warning (332126): Node "logicBox|Add2~37|cout"
-    Warning (332126): Node "logicBox|Add2~41|cin"
-    Warning (332126): Node "logicBox|Add2~41|cout"
-    Warning (332126): Node "logicBox|Add2~45|cin"
-    Warning (332126): Node "logicBox|Add2~45|cout"
-    Warning (332126): Node "logicBox|Add2~17|cin"
-    Warning (332126): Node "logicBox|Add2~17|cout"
-    Warning (332126): Node "logicBox|Add2~21|cin"
-    Warning (332126): Node "logicBox|Add2~21|cout"
-    Warning (332126): Node "logicBox|Add2~25|cin"
-    Warning (332126): Node "logicBox|Add2~25|cout"
-    Warning (332126): Node "logicBox|Add2~29|cin"
-    Warning (332126): Node "logicBox|Add2~29|cout"
-    Warning (332126): Node "logicBox|Add2~1|cin"
-    Warning (332126): Node "logicBox|Add2~1|cout"
-    Warning (332126): Node "logicBox|Add2~5|cin"
-    Warning (332126): Node "logicBox|Add2~5|cout"
-    Warning (332126): Node "logicBox|Add2~9|cin"
-    Warning (332126): Node "logicBox|Add2~9|cout"
-    Warning (332126): Node "logicBox|Add2~13|cin"
-    Warning (332126): Node "logicBox|Add2~13|cout"
-    Warning (332126): Node "logicBox|Add2~65|cin"
-    Warning (332126): Node "logicBox|Add2~65|sumout"
-    Warning (332126): Node "logicBox|Selector16~3|datad"
-    Warning (332126): Node "logicBox|Selector16~3|combout"
-    Warning (332126): Node "logicBox|Selector16~1|datab"
-    Warning (332126): Node "logicBox|Add7~49|dataf"
-    Warning (332126): Node "logicBox|Add7~49|cout"
-    Warning (332126): Node "logicBox|Add7~53|cin"
-    Warning (332126): Node "logicBox|Add7~53|cout"
-    Warning (332126): Node "logicBox|Add7~57|cin"
-    Warning (332126): Node "logicBox|Add7~57|cout"
-    Warning (332126): Node "logicBox|Add7~61|cin"
-    Warning (332126): Node "logicBox|Add7~61|cout"
-    Warning (332126): Node "logicBox|Add7~33|cin"
-    Warning (332126): Node "logicBox|Add7~33|cout"
-    Warning (332126): Node "logicBox|Add7~37|cin"
-    Warning (332126): Node "logicBox|Add7~37|cout"
-    Warning (332126): Node "logicBox|Add7~41|cin"
-    Warning (332126): Node "logicBox|Add7~41|cout"
-    Warning (332126): Node "logicBox|Add7~45|cin"
-    Warning (332126): Node "logicBox|Add7~45|cout"
-    Warning (332126): Node "logicBox|Add7~17|cin"
-    Warning (332126): Node "logicBox|Add7~17|cout"
-    Warning (332126): Node "logicBox|Add7~21|cin"
-    Warning (332126): Node "logicBox|Add7~21|cout"
-    Warning (332126): Node "logicBox|Add7~25|cin"
-    Warning (332126): Node "logicBox|Add7~25|cout"
-    Warning (332126): Node "logicBox|Add7~29|cin"
-    Warning (332126): Node "logicBox|Add7~29|cout"
-    Warning (332126): Node "logicBox|Add7~1|cin"
-    Warning (332126): Node "logicBox|Add7~1|cout"
-    Warning (332126): Node "logicBox|Add7~5|cin"
-    Warning (332126): Node "logicBox|Add7~5|cout"
-    Warning (332126): Node "logicBox|Add7~9|cin"
-    Warning (332126): Node "logicBox|Add7~9|cout"
-    Warning (332126): Node "logicBox|Add7~13|cin"
-    Warning (332126): Node "logicBox|Add7~13|cout"
-    Warning (332126): Node "logicBox|Add7~65|cin"
-    Warning (332126): Node "logicBox|Add7~65|sumout"
-    Warning (332126): Node "logicBox|Add8~65|datac"
-    Warning (332126): Node "logicBox|Add8~65|sumout"
-    Warning (332126): Node "logicBox|Selector16~1|datac"
-    Warning (332126): Node "logicBox|Add7~13|sumout"
-    Warning (332126): Node "logicBox|Add8~13|datad"
-    Warning (332126): Node "logicBox|Add8~13|cout"
-    Warning (332126): Node "logicBox|Add8~65|cin"
-    Warning (332126): Node "logicBox|Add8~13|shareout"
-    Warning (332126): Node "logicBox|Add8~65|sharein"
-    Warning (332126): Node "logicBox|Add7~9|sumout"
-    Warning (332126): Node "logicBox|Add8~9|datac"
-    Warning (332126): Node "logicBox|Add8~9|cout"
-    Warning (332126): Node "logicBox|Add8~13|cin"
-    Warning (332126): Node "logicBox|Add8~9|shareout"
-    Warning (332126): Node "logicBox|Add8~13|sharein"
-    Warning (332126): Node "logicBox|Add7~5|sumout"
-    Warning (332126): Node "logicBox|Add8~5|datac"
-    Warning (332126): Node "logicBox|Add8~5|cout"
-    Warning (332126): Node "logicBox|Add8~9|cin"
-    Warning (332126): Node "logicBox|Add8~5|shareout"
-    Warning (332126): Node "logicBox|Add8~9|sharein"
-    Warning (332126): Node "logicBox|Add7~1|sumout"
-    Warning (332126): Node "logicBox|Add8~1|datad"
-    Warning (332126): Node "logicBox|Add8~1|cout"
-    Warning (332126): Node "logicBox|Add8~5|cin"
-    Warning (332126): Node "logicBox|Add8~1|shareout"
-    Warning (332126): Node "logicBox|Add8~5|sharein"
-    Warning (332126): Node "logicBox|Add7~29|sumout"
-    Warning (332126): Node "logicBox|Add8~29|datac"
-    Warning (332126): Node "logicBox|Add8~29|cout"
-    Warning (332126): Node "logicBox|Add8~1|cin"
-    Warning (332126): Node "logicBox|Add8~29|shareout"
-    Warning (332126): Node "logicBox|Add8~1|sharein"
-    Warning (332126): Node "logicBox|Add7~25|sumout"
-    Warning (332126): Node "logicBox|Add8~25|datac"
-    Warning (332126): Node "logicBox|Add8~25|cout"
-    Warning (332126): Node "logicBox|Add8~29|cin"
-    Warning (332126): Node "logicBox|Add8~25|shareout"
-    Warning (332126): Node "logicBox|Add8~29|sharein"
-    Warning (332126): Node "logicBox|Add7~21|sumout"
-    Warning (332126): Node "logicBox|Add8~21|datad"
-    Warning (332126): Node "logicBox|Add8~21|cout"
-    Warning (332126): Node "logicBox|Add8~25|cin"
-    Warning (332126): Node "logicBox|Add8~21|shareout"
-    Warning (332126): Node "logicBox|Add8~25|sharein"
-    Warning (332126): Node "logicBox|Add7~17|sumout"
-    Warning (332126): Node "logicBox|Add8~17|datac"
-    Warning (332126): Node "logicBox|Add8~17|cout"
-    Warning (332126): Node "logicBox|Add8~21|cin"
-    Warning (332126): Node "logicBox|Add8~17|shareout"
-    Warning (332126): Node "logicBox|Add8~21|sharein"
-    Warning (332126): Node "logicBox|Add7~45|sumout"
-    Warning (332126): Node "logicBox|Add8~45|datac"
-    Warning (332126): Node "logicBox|Add8~45|cout"
-    Warning (332126): Node "logicBox|Add8~17|cin"
-    Warning (332126): Node "logicBox|Add8~45|shareout"
-    Warning (332126): Node "logicBox|Add8~17|sharein"
-    Warning (332126): Node "logicBox|Add7~41|sumout"
-    Warning (332126): Node "logicBox|Add8~41|datac"
-    Warning (332126): Node "logicBox|Add8~41|cout"
-    Warning (332126): Node "logicBox|Add8~45|cin"
-    Warning (332126): Node "logicBox|Add8~41|shareout"
-    Warning (332126): Node "logicBox|Add8~45|sharein"
-    Warning (332126): Node "logicBox|Add7~37|sumout"
-    Warning (332126): Node "logicBox|Add8~37|datad"
-    Warning (332126): Node "logicBox|Add8~37|cout"
-    Warning (332126): Node "logicBox|Add8~41|cin"
-    Warning (332126): Node "logicBox|Add8~37|shareout"
-    Warning (332126): Node "logicBox|Add8~41|sharein"
-    Warning (332126): Node "logicBox|Add7~33|sumout"
-    Warning (332126): Node "logicBox|Add8~33|datac"
-    Warning (332126): Node "logicBox|Add8~33|cout"
-    Warning (332126): Node "logicBox|Add8~37|cin"
-    Warning (332126): Node "logicBox|Add8~33|shareout"
-    Warning (332126): Node "logicBox|Add8~37|sharein"
-    Warning (332126): Node "logicBox|Add7~61|sumout"
-    Warning (332126): Node "logicBox|Add8~61|datad"
-    Warning (332126): Node "logicBox|Add8~61|cout"
-    Warning (332126): Node "logicBox|Add8~33|cin"
-    Warning (332126): Node "logicBox|Add8~61|shareout"
-    Warning (332126): Node "logicBox|Add8~33|sharein"
-    Warning (332126): Node "logicBox|Add7~57|sumout"
-    Warning (332126): Node "logicBox|Add8~57|datad"
-    Warning (332126): Node "logicBox|Add8~57|cout"
-    Warning (332126): Node "logicBox|Add8~61|cin"
-    Warning (332126): Node "logicBox|Add8~57|shareout"
-    Warning (332126): Node "logicBox|Add8~61|sharein"
-    Warning (332126): Node "logicBox|Add7~53|sumout"
-    Warning (332126): Node "logicBox|Add8~53|datac"
-    Warning (332126): Node "logicBox|Add8~53|cout"
-    Warning (332126): Node "logicBox|Add8~57|cin"
-    Warning (332126): Node "logicBox|Add8~53|shareout"
-    Warning (332126): Node "logicBox|Add8~57|sharein"
-    Warning (332126): Node "logicBox|Add7~49|sumout"
-    Warning (332126): Node "logicBox|Add8~49|datad"
-    Warning (332126): Node "logicBox|Add8~49|shareout"
-    Warning (332126): Node "logicBox|Add8~53|sharein"
 Critical Warning (332081): Design contains combinational loop of 337 nodes. Estimating the delays through the loop.
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
@@ -1253,10 +1253,10 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -15.938
+Info (332146): Worst-case setup slack is -11.764
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -15.938          -42516.751 clk_in 
+    Info (332119):   -11.764          -42950.758 clk_in 
 Info (332146): Worst-case hold slack is 0.224
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1266,17 +1266,17 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636          -29599.838 clk_in 
+    Info (332119):    -2.636          -29596.218 clk_in 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -15.778
+Info (332146): Worst-case setup slack is -11.533
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -15.778          -41744.600 clk_in 
+    Info (332119):   -11.533          -42126.810 clk_in 
 Info (332146): Worst-case hold slack is 0.215
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1286,35 +1286,35 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636          -29517.509 clk_in 
+    Info (332119):    -2.636          -29517.349 clk_in 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -9.355
+Info (332146): Worst-case setup slack is -6.706
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -9.355          -23373.709 clk_in 
-Info (332146): Worst-case hold slack is 0.134
+    Info (332119):    -6.706          -23652.853 clk_in 
+Info (332146): Worst-case hold slack is 0.133
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.134               0.000 clk_in 
+    Info (332119):     0.133               0.000 clk_in 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636          -29882.544 clk_in 
+    Info (332119):    -2.636          -29890.236 clk_in 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.401
+Info (332146): Worst-case setup slack is -5.962
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.401          -20532.765 clk_in 
+    Info (332119):    -5.962          -20767.350 clk_in 
 Info (332146): Worst-case hold slack is 0.122
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
@@ -1324,13 +1324,13 @@ Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -2.636
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.636          -30328.437 clk_in 
+    Info (332119):    -2.636          -30333.288 clk_in 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 344 warnings
-    Info: Peak virtual memory: 5247 megabytes
-    Info: Processing ended: Fri Dec 11 20:25:30 2020
-    Info: Elapsed time: 00:00:28
-    Info: Total CPU time (on all processors): 00:00:48
+    Info: Peak virtual memory: 5252 megabytes
+    Info: Processing ended: Sat Dec 12 16:04:56 2020
+    Info: Elapsed time: 00:00:17
+    Info: Total CPU time (on all processors): 00:00:31
 
 
