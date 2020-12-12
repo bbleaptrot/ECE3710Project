@@ -40,8 +40,8 @@ JUC R15
 
 @0109
 MOVI 0x01, R3
-ADDI -1, R3
-ADD R3, R2
+SUB R2, R3 
+MOV R3, R2
 STOR R2, R1  #Store data into player position
 LUI 0x07, R15
 JUC R15     #DrawLUI 0xA0, R1 #Base address of Player

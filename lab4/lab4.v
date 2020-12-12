@@ -307,10 +307,10 @@ mux muxDst(
 //	hex2seg seg2(r8_out[7:4], seg_2);
 //	hex2seg seg1(r8_out[3:0], seg_1);
 
-	hex2seg seg4(r9_out[15:12], seg_4);
-	hex2seg seg3(r9_out[11:8], seg_3);
-	hex2seg seg2(r9_out[7:4], seg_2);
-	hex2seg seg1(r9_out[3:0], seg_1);
+//	hex2seg seg4(r9_out[15:12], seg_4);
+//	hex2seg seg3(r9_out[11:8], seg_3);
+//	hex2seg seg2(r9_out[7:4], seg_2);
+//	hex2seg seg1(r9_out[3:0], seg_1);
 
 //	hex2seg seg4(r10_out[15:12], seg_4);
 //	hex2seg seg3(r10_out[11:8], seg_3);
@@ -341,6 +341,11 @@ mux muxDst(
 //	hex2seg seg3(r15_out[11:8], seg_3);
 //	hex2seg seg2(r15_out[7:4], seg_2);
 //	hex2seg seg1(r15_out[3:0], seg_1);
+
+//	hex2seg seg4(Opcode[7:4], seg_4);
+//	hex2seg seg3(RdstOut, seg_3);
+//	hex2seg seg2(Opcode[3:0], seg_2);
+//	hex2seg seg1(RsrcOut, seg_1);
 
 //	hex2seg seg4(Opcode[7:4], seg_4);
 //	hex2seg seg3(RdstOut, seg_3);

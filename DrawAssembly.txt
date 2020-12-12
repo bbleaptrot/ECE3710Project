@@ -31,13 +31,14 @@ CMP R6, R15
 JEQ R3 #dont draw if not shot
 ADD R10, R7 # R7 is at ship shot pos
 LOAD R7, R6 # R6 is ship shot address
-SUB R12, R6
+SUB R6, R12
+MOV R12, R6
 STOR R6, R7
 #Check if off screen
 MOV R6, R15
 LUI 0xB0, R1
 CMP R15, R1
-LUI 0x13, R15
+LUI 0x13, R14
 JGT R15
 #If not offscreen draw
 LUI 0x08, R9
