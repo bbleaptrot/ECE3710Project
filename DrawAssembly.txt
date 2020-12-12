@@ -1,3 +1,92 @@
+#This function is going read into R14 the data from phone and move the ship or
+#fire a bullet depending on input--> left moves ship left / right moves ship
+#right / A button fires bullet
+MOVI 0x04, R0
+MOVI 0x04, R0
+LUI 0x07, R15
+JUC R15
+@0004
+MOVI 0x04, R0
+LUI 0x01, R11 #Left method location
+LUI 0x02, R12 #Right method location
+LUI 0x03, R13 #A btn location
+MOVI 0x80, R1 #Temp for comparison
+PHONE R0, R14 #Grab phone instruction into R14
+MOV   R14, R15#Move Phone Data into R15 for comparisons
+CMP R1, R15
+JEQ R11
+MOVI 0x10, R1
+MOV R14, R15
+CMP R1, R15
+JEQ R12
+MOVI 0x01, R1
+MOV R14, R15
+CMP R1, R15
+JEQ R13
+MOVI 0x04, R0
+JUC R0
+
+@0100
+#This method moves the player ship to the left by 1 glyph space
+LUI 0xA0, R1 #Base address of Player
+LOAD R1, R2  #Load Player Position into R2
+LUI 0x01, R3
+MOVI 0x09, R15
+ADD R15, R3
+MOV R2, R6
+LUI 0x07, R9
+LUI 0x10, R15
+JUC R15
+
+@0109
+MOVI 0x01, R3
+SUB R2, R3 
+MOV R3, R2
+STOR R2, R1  #Store data into player position
+LUI 0x07, R15
+JUC R15     #DrawLUI 0xA0, R1 #Base address of Player
+	
+@0200
+#This method moves the player ship to the right by 1 glyph space
+LUI 0xA0, R1 #Base address of Player
+LUI 0x0F, R10#Load method position to jump to update
+LOAD R1, R2  #Load Player Position into R2
+LUI 0x02, R3
+MOVI 0x0a, R15
+ADD R15, R3
+MOV R2, R6
+LUI 0x07, R9
+LUI 0x10, R15
+JUC R15
+
+@020a
+
+MOVI 1, R3   #Load 1 into R3  
+ADD R3, R2   #R3 + R2 --> R2
+STOR R2, R1  #Store data into player position
+LUI 0x07, R15
+JUC R15     #Draw
+	
+@0300
+LUI 0xA0, R3   #load ship position into address
+LOAD R3, R4    #Grab ship position
+LUI 0x07, R15  #Update Method
+MOVI 0x01, R10 #A useful incrementor :)
+ADD  R10, R3   #Add 1 to R3 to get memory location for bullet alive variable
+LOAD R3, R9    #Load isShot into Register
+CMP  R10, R9   #Compare
+JEQ  R15       #There is already a bullet
+STOR R10, R3   #This will save studs
+ADD  R10, R3   #R10 + R3 --> R3 -> Bullet Position
+LOAD R3, R5    #Grab bullet position
+MOVI 4, R6     # 4 -> R6
+ADD R6, R5     # Bullet pos + 4
+LUI 0x04, R7   # R7 -> 0x0400
+MOVI 0x4b, R8  # R8 -> 0x004b
+ADD R8, R7
+STOR R5, R3
+JUC R15
+
 @0700
 #================================================
 #METHOD - UpdateBoard
