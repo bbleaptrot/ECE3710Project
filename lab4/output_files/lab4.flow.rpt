@@ -1,5 +1,5 @@
 Flow report for lab4
-Mon Dec 14 12:42:06 2020
+Mon Dec 14 15:24:04 2020
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------------------+
 ; Flow Summary                                                                  ;
 +---------------------------------+---------------------------------------------+
-; Flow Status                     ; Successful - Mon Dec 14 12:42:06 2020       ;
+; Flow Status                     ; Successful - Mon Dec 14 15:24:04 2020       ;
 ; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                   ; lab4                                        ;
 ; Top-level Entity Name           ; lab4                                        ;
 ; Family                          ; Cyclone V                                   ;
 ; Device                          ; 5CSEMA5F31C6                                ;
 ; Timing Models                   ; Final                                       ;
-; Logic utilization (in ALMs)     ; 818 / 32,070 ( 3 % )                        ;
-; Total registers                 ; 340                                         ;
+; Logic utilization (in ALMs)     ; 819 / 32,070 ( 3 % )                        ;
+; Total registers                 ; 339                                         ;
 ; Total pins                      ; 66 / 457 ( 14 % )                           ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 1,245,184 / 4,065,280 ( 31 % )              ;
@@ -67,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 12/14/2020 12:31:03 ;
+; Start date & time ; 12/14/2020 15:15:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; lab4                ;
 +-------------------+---------------------+
@@ -78,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 193912844772520.160797426118188        ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 193912844772520.160798412307804        ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                            ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)              ; <None>        ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --          ; eda_simulation ;
@@ -99,12 +99,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:04:15     ; 1.0                     ; 4982 MB             ; 00:04:21                           ;
-; Fitter               ; 00:04:52     ; 1.2                     ; 6581 MB             ; 00:08:40                           ;
-; Assembler            ; 00:00:32     ; 1.0                     ; 4888 MB             ; 00:00:29                           ;
-; Timing Analyzer      ; 00:00:56     ; 2.4                     ; 5270 MB             ; 00:01:22                           ;
-; EDA Netlist Writer   ; 00:00:14     ; 1.0                     ; 4792 MB             ; 00:00:13                           ;
-; Total                ; 00:10:49     ; --                      ; --                  ; 00:15:05                           ;
+; Analysis & Synthesis ; 00:03:02     ; 1.0                     ; 4982 MB             ; 00:03:18                           ;
+; Fitter               ; 00:04:04     ; 1.2                     ; 6619 MB             ; 00:07:09                           ;
+; Assembler            ; 00:00:26     ; 1.0                     ; 4880 MB             ; 00:00:25                           ;
+; Timing Analyzer      ; 00:00:44     ; 2.4                     ; 5269 MB             ; 00:01:07                           ;
+; EDA Netlist Writer   ; 00:00:11     ; 1.0                     ; 4790 MB             ; 00:00:10                           ;
+; Total                ; 00:08:27     ; --                      ; --                  ; 00:12:09                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
