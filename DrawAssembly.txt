@@ -115,10 +115,12 @@ JEQ R3 #dont draw if not shot
 ADD R10, R7 # R7 is at ship shot pos
 LOAD R7, R6
 LUI 0x07, R3     #Return address for bullet stuff
-MOVI 0x19, R15    #Return address for bullet stuff
+MOVI 0x1A, R15    #Return address for bullet stuff
 ADD R15, R3 #Return address
 LUI 0x08, R9
-@0719
+LUI 0x11, R14
+JUC R14
+@071A
 MOVI 0xa0, R12
 SUB R6, R12
 MOV R12, R6
