@@ -1,0 +1,12 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab1 {C:/Users/bblea/source/repos/ECE3710Project/lab1/hex2seg.v}
+vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3 {C:/Users/bblea/source/repos/ECE3710Project/lab3/lab3_demo.v}
+vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3 {C:/Users/bblea/source/repos/ECE3710Project/lab3/fsm_lab3.v}
+vlog -vlog01compat -work work +incdir+C:/Users/bblea/source/repos/ECE3710Project/lab3 {C:/Users/bblea/source/repos/ECE3710Project/lab3/bram.v}
+

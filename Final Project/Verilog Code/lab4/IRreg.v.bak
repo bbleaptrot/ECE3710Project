@@ -1,0 +1,13 @@
+module IRreg(dataIn, IEn, Opcode, RsrcOut, RdstOut, ImmOut)
+input IEn;
+input [15:0] dataIn;
+
+reg [7:0] Op;
+
+output [3:0] RsrcOut, RdstOut, ImmOut;
+output [7:0] Opcode
+
+Op[7:4] = dataIn[15:12];
+Op[3:0] = dataIn[7:4];
+
+endmodule

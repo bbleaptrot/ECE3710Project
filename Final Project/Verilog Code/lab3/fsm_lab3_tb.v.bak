@@ -1,0 +1,34 @@
+module fsm_lab3_tb;
+
+	reg clk, rst;
+ 
+ wire we_a, we_b;
+ wire [15:0] data_a, data_b;
+ wire [9:0] addr_a, addr_b;
+ 
+ initial 
+	begin
+		clk = 1'b0;
+		reset = 1'b1;
+		#10;
+		
+		reset = 1'b0; // reset has been pushed.
+		
+		#20;
+		
+		reset = 1'b1;
+		
+		#1000;
+		
+		$display("%0h %0h %0h %0h", hex3, hex2, hex1, hex0);
+		
+		$finish;
+		
+	
+	end
+	
+	always 
+		#5 clk = !clk; // Simulate clock.
+		
+
+endmodule

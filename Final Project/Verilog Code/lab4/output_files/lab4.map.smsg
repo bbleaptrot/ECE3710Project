@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at lab4.v(17): object "Flags" differs only in case from object "flags" in the same scope File: D:/Documents/GitHub/ECE3710Project/Final Project/Verilog Code/lab4/lab4.v Line: 17
+Warning (10268): Verilog HDL information at flags_register.v(7): always construct contains both blocking and non-blocking assignments File: D:/Documents/GitHub/ECE3710Project/Final Project/Verilog Code/lab4/flags_register.v Line: 7

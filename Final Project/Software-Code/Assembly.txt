@@ -1,0 +1,501 @@
+#This function is going read into R14 the data from phone and move the ship or
+#fire a bullet depending on input--> left moves ship left / right moves ship
+#right / A button fires bullet
+MOVI 0x04, R0 
+MOVI 0x04, R0
+LUI 0x07, R15
+JUC R15
+@0004
+MOVI 0x04, R0
+LUI 0x01, R11 #Left method location
+LUI 0x02, R12 #Right method location
+LUI 0x03, R13 #A btn location
+MOVI 0x80, R1 #Temp for comparison
+PHONE R0, R14 #Grab phone instruction into R14
+MOV   R14, R15#Move Phone Data into R15 for comparisons
+CMP R1, R15   #Check to see if moving left
+JEQ R11
+MOVI 0x10, R1
+MOV R14, R15
+CMP R1, R15  #Check to see if moving right
+JEQ R12
+MOVI 0x01, R1
+MOV R14, R15
+CMP R1, R15  #Check to see if A button pressed
+JEQ R13
+MOVI 0x04, R0
+JUC R0
+
+@0100
+#This method moves the player ship to the left by 1 glyph space
+LUI 0xA0, R1 #Base address of Player
+LOAD R1, R2  #Load Player Position into R2
+LUI 0x01, R3
+MOVI 0x09, R15
+ADD R15, R3
+MOV R2, R6
+LUI 0x07, R9
+LUI 0x10, R15
+JUC R15
+
+@0109
+MOVI 0x01, R3
+SUB R2, R3 
+MOV R3, R2
+STOR R2, R1  #Store data into player position
+LUI 0x07, R15
+JUC R15     #DrawLUI 0xA0, R1 #Base address of Player
+	
+@0200
+#This method moves the player ship to the right by 1 glyph space
+LUI 0xA0, R1 #Base address of Player
+LUI 0x0F, R10#Load method position to jump to update
+LOAD R1, R2  #Load Player Position into R2
+LUI 0x02, R3
+MOVI 0x0a, R15
+ADD R15, R3
+MOV R2, R6
+LUI 0x07, R9
+LUI 0x10, R15
+JUC R15
+
+@020a
+
+MOVI 1, R3   #Load 1 into R3  
+ADD R3, R2   #R3 + R2 --> R2
+STOR R2, R1  #Store data into player position
+LUI 0x07, R15
+JUC R15     #Draw
+	
+@0300
+LUI 0xA0, R3   #load ship position into address
+LOAD R3, R4    #Grab ship position
+LUI 0x07, R15  #Update Method
+MOVI 0x01, R10 #A useful incrementor :)
+ADD  R10, R3   #Add 1 to R3 to get memory location for bullet alive variable
+LOAD R3, R9    #Load isShot into Register
+CMP  R10, R9   #Compare
+JEQ  R15       #There is already a bullet
+STOR R10, R3   #This will save studs
+ADD  R10, R3   #R10 + R3 --> R3 -> Bullet Position
+STOR R4,  R3   #Store ship position as starting bullet position
+JUC R15
+
+@0700
+#================================================
+#METHOD - UpdateBoard
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draws upper left corner)
+#================================================
+#Setup
+MOVI 0x01, R10 #This will be used to move addresses by 1
+MOVI 0x10, R11 #Movement in the glyph
+MOVI 0x9D, R12 #Vertical Shift by 157
+
+@0703 # Draw Main Ship
+LUI 0xA0, R7
+LUI 0x10, R2 #Draw16x16
+LUI 0x07, R3
+MOVI 0x10, R15
+ADD R15, R3
+LOAD R7, R6
+LUI 0x00, R9
+JUC R2
+
+@0710 #Draw Ship Shot
+ADD R10, R7  # R7 is at ship shot flag
+LUI 0x07, R3
+MOVI 0x50, R15
+ADD R15, R3
+LOAD R7, R6  # R6 is ship shot flag val
+LUI 0x00, R15
+CMP R6, R15 # Check if shot
+JEQ R3 # Jump and dont draw if not shot
+
+#Draw black where bullet was
+ADD R10, R7 # R7 is at ship shot pos
+LOAD R7, R6
+LUI 0x07, R3     #Return address for bullet stuff
+MOVI 0x30, R15    #Return address for bullet stuff
+ADD R15, R3 #Return address
+LUI 0x07, R9
+LUI 0x11, R14
+JUC R14
+
+@0730 
+#Draw bullet
+LOAD R7, R6
+LUI 0x07, R3     #Return address for bullet stuff
+MOVI 0x50, R15    #Return address for bullet stuff
+ADD R15, R3 #Return address
+MOVI 0xa0, R12
+SUB R6, R12
+MOV R12, R6
+STOR R6, R7
+LUI 0x08, R9
+LUI 0x11, R14
+JUC R14
+
+@0750 #Draw Enemy Ship 1
+LUI 0x12, R2
+LUI 0x07, R3
+MOVI 0x60, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x0C, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0760 #Draw Enemy Ship 2
+LUI 0x07, R3
+MOVI 0x70, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x0E, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0770 #Draw Enemy Ship 3
+LUI 0x07, R3
+MOVI 0x80, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x10, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0780 #Draw Enemy Ship 4
+LUI 0x07, R3
+MOVI 0x90, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x12, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@0790 #Draw Enemy 5
+LUI 0x07, R3
+MOVI 0xa0, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x14, R15
+ADD R15, R6
+LUI 0x01, R9
+JUC R2
+
+@07a0 #Draw Enemy 6
+LUI 0x07, R3
+MOVI 0xb0, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x16, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@07b0 #Draw Enemy 7
+LUI 0x07, R3
+MOVI 0xc0, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x18, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@07c0 #Draw Enemy 8
+LUI 0x07, R3
+MOVI 0xd0, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x1A, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@07d0 #Draw Enemy 9
+LUI 0x07, R3
+MOVI 0xf0, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x1C, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@07f0 #Draw Enemy 10
+LUI 0x08, R3
+LUI 0xA0, R6
+MOVI 0x1E, R15
+ADD R15, R6
+LUI 0x03, R9
+JUC R2
+
+@0800 #Draw Enemy 11
+LUI 0x08, R3
+MOVI 0x10, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x20, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0810 #Draw Enemy 12
+LUI 0x08, R3
+MOVI 0x20, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x22, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0820 #Draw Enemy 13
+LUI 0x08, R3
+MOVI 0x30, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x24, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0830 #Draw Enemy 14
+LUI 0x08, R3
+MOVI 0x40, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x26, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0840 #Draw Enemy 15
+LUI 0x08, R3
+MOVI 0x50, R15
+ADD R15, R3
+LUI 0xA0, R6
+MOVI 0x28, R15
+ADD R15, R6
+LUI 0x02, R9
+JUC R2
+
+@0850
+JUC R0
+
+@0900
+#================================================
+#METHOD - DRAW BACKGROUND
+#(INPUT R1 - Return Address)
+#(R2,R4,R5,R7,R8,R13,R14,R15)
+#================================================
+#Setup
+LUI 0x10, R2 #Draw 16x16
+MOVI 0x00, R4 #i
+MOVI 0x00, R5 #j
+MOVI 0x28, R7 #ii
+MOVI 0x0A, R8 #jj
+MOVI 0x01, R10 #This will be used to move addresses by 1
+LUI 0xB0, R13 #VGA Top row
+
+@0907 #While(ii != i)
+MOV R4, R15
+CMP R7, R15
+JEQ R1 
+LUI 0x09, R14
+MOVI 0x0e, R15
+ADD R15, R14
+MOV R13, R6
+
+  @090e #doWhile(jj != j)
+    LUI 0x09, R3
+    MOVI 0x13, R15
+    ADD R15, R3
+    LUI 0x05, R9
+    JUC R2 #Draw16x16
+    @0913
+    LUI 0x09, R3
+    MOVI 0x18, R15
+    ADD R15, R3
+    #R6 already set
+    LUI 0x06, R9
+    JUC R2 #Draw16x16
+    @0918
+    LUI 0x09, R3
+    MOVI 0x1d, R15
+    ADD R15, R3
+    #R6 already set
+    LUI 0x07, R9
+    JUC R2 #Draw16x16
+    @091d
+    ADD R10, R5 #j++
+  MOV R5, R15
+  CMP R8, R15
+  JNE R14
+MOVI 0x04, R15
+ADD R15, R13
+ADD R10, R4
+LUI 0x00, R5
+LUI 0x09, R14
+MOVI 0x07, R15
+ADD R15, R14
+
+JUC R14
+
+@1000
+#================================================
+#METHOD - DRAW 16 by 16 Glyph
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draw upper left corner)
+#================================================
+#Setup
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x10, R11 #Sub 4x4 glyph vertical shift
+MOVI 0x9D, R12 #Vertical Shift by 157
+
+#First row of sub 4x4's
+STOR R9, R6 #(0,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(0,1)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(0,2)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(0,3)
+
+#Second row of sub 4x4's
+ADD R12, R6 #Shift down to next row
+ADD R11, R9
+STOR R9, R6 #(1,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(1,1)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(1,2)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(1,3)
+
+#Third row of sub 4x4's
+ADD R12, R6 #Shift down to next row
+ADD R11, R9
+STOR R9, R6 #(2,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(2,1)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(2,2)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(2,3)
+
+#Fourth row of sub 4x4's
+ADD R12, R6 #Shift down to next row
+ADD R11, R9
+STOR R9, R6 #(3,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(3,1)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(3,2)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(3,3)
+
+ADD R12, R6 # This wont effect anything other than helping the DrawBackground Method as long as R6 is set again before it is used
+
+JUC R3
+
+@1100
+#================================================
+#METHOD - DRAW 8 by 8 Glyph
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of the glyphs x-pos)
+#(INPUT R9 - the Glyph to draw upper left corner)
+#================================================
+#Setup
+LUI 0x13, R8
+LUI 0xA0, R5
+MOVI 0x33, R4
+ADD R4, R5
+LOAD R5, R4
+LUI 0x00, R15
+CMP R4, R15
+JEQ R8
+MOVI 0x01, R15
+SUB R4, R15
+MOV R15, R4
+STOR R4, R5
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x10, R11 #Sub 4x4 glyph vertical shift
+MOVI 0x9D, R12 #Vertical Shift by 157
+
+#First row of sub 4x4's
+STOR R9, R6 #(0,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(0,1)
+ADD R10, R6
+ADD R11, R9
+
+#Second row of sub 4x4's
+ADD R12, R6 #Shift down to next row
+ADD R11, R9
+STOR R9, R6 #(1,0)
+ADD R10, R6
+ADD R11, R9
+STOR R9, R6 #(1,1)
+ADD R10, R6
+ADD R11, R9
+
+JUC R3
+
+@1200
+#================================================
+#METHOD - Check if Enemy alive and draw if so
+#(INPUT R3 - Return Address)
+#(INPUT R6 - the address of enemy alive)
+#(INPUT R9 - the Glyph to draw upper left corner)
+#================================================
+#Setup
+MOVI 0x01, R10 #To move addresses by 1
+MOVI 0x00, R14
+LOAD R6, R15
+CMP R15, R14
+JEQ R3
+ADD R10, R6
+LUI 0x10, R15
+
+JUC R15
+
+@1300
+#================================================
+#METHOD - Remove shot
+#(INPUT R3 - Return Address)
+#================================================
+#Setup
+LUI 0xA0, R6
+MOVI 0x01, R15
+ADD R15, R6
+LUI 0x00, R15
+STOR R15, R6
+LUI 0xA0, R6
+MOVI 0x33, R15
+ADD R15, R6
+MOVI 0x5A, R15
+STOR R15, R6
+JUC R3
+
+
+
